@@ -22,9 +22,10 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/template1',
-      name: 'template1',
-      component: template1
+      path: '/second',
+      name: 'second-template',
+      component: () => import('./views/second-template.vue')
     }
+
   ]
 })
