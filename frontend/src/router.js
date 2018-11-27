@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import templateTwo from './components/template-two.vue'
 
 Vue.use(Router)
 
@@ -33,6 +34,17 @@ export default new Router({
       name: 'contact',
       component: () => import( './views/Contact.vue')
     },
+
+    {
+      path: '/templateTwo',
+      name: 'templateTwo',
+      component: templateTwo
+    },
+    { 
+      path: '/second',
+      name: 'second-template',
+      component: () => import('./views/second-template.vue')
+    }
 
   ]
 })
