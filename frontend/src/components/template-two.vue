@@ -1,18 +1,18 @@
 <template>
   <section class="template">
-    <div class="card-container">
+    <div class="template-container">
       <div class="backround-img">
         <div class="backgroun-frame">
-          <div class="background-color">
-            <section class="event-description=container">
+          <div class="card-container">
+            <section class="event-description-container">
               <h3 class="invition-line" contenteditable="true">{{businessName}} INVITE YOU</h3>
               <h1 class="event-name" contenteditable="true">{{eventName}}</h1>
               <p class="short-description" contenteditable="true">{{shortDescription}}</p>
             </section>
             <section class="event-details-container">
               <div class="event-details">
-                <p>{{date}}</p>
-                <p>{{time}}</p>
+                <p>{{date}}, {{time}}</p>
+                <!-- <p>{{time}}</p> -->
                 <p>{{address}}</p>
               </div>
             </section>
@@ -20,11 +20,15 @@
               <div class="rsvp">
                 <h3 class="rsvp-title">RSVP</h3>
                 <p class="rsvp-sub-title">how many guests</p>
+                <button class="add">+</button>
+                <input class="counter-view">
+                <button class="reduce">-</button>
+                <br>
                 <input class="guests-name" type="text" placeholder="full name" required>
                 <input class="guests-mobile" type="number" placeholder="mobile num" required>
                 <br>
-                <button class="btn-ariving">ariving</button>
-                <button class="btn-not-ariving">not ariving</button>
+                <button class="btn-rsvp btn-ariving">ariving</button>
+                <button class="btn-rsvp btn-not-ariving">not ariving</button>
               </div>
             </section>
             <section class="contact-container">
@@ -65,14 +69,11 @@ export default {
 };
 </script>
 <style>
-h1 {
-  /* font-size: 3rem; */
-  /* letter-spacing: 2px; } */
-}
 button {
   cursor: pointer;
 }
-.card-container {
+.template-container {
+  color: rgb(153, 49, 54);
   background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
   display: flex;
   width: 400px;
@@ -85,18 +86,79 @@ button {
   align-items: center;
 }
 .backgroun-frame {
-  width: 320px;
-  height: 450px;
+  width: 350px;
+  height: 480px;
   border: 3px solid white;
   /* margin: auto; */
 }
+.card-container {
+  width: 320px;
+  height: 450px;
+  background-color: rgba(255, 255, 255, 0.692);
+  margin: 10px;
+}
+.event-description-container {
+  padding: 10px;
+  /* margin: 10px; */
+}
+.event-description-container h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.event-description-container h1 {
+  margin: 18px;
+  font-size: 34px;
+  font-weight: bold;
+}
+.event-description-container p {
+  background-color: rgb(153, 49, 54);
+  font-size: 12px;
+  color: white;
+}
+.event-details p {
+  margin: 5px;
+}
+.rsvp {
+  margin: 10px;
+}
+.rsvp h3 {
+  margin: 16px 0 0 0;
+}
+.rsvp p {
+  margin: 3px;
+  font-size: 12px;
+}
+.counter-view {
+  width: 30px;
+}
+.guests-name {
+  margin-top: 5px;
+}
+.guests-mobile {
+  margin-top: 5px;
+}
+.btn-rsvp {
+  /* margin: 8px; */
+  border: none;
+  color: white;
+  padding: 6px 3px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .social-media-box {
   display: inline-block;
   /* flex-direction: row; */
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   text-align: center;
-  line-height: 40px;
+  line-height: 30px;
   margin: 0 10px;
   background-color: #e5e5e5;
   transition: background-color 0.5s;

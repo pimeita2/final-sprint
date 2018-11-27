@@ -19,7 +19,6 @@
   </section>
 </template>
 
-
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Sedgwick+Ave');
 
