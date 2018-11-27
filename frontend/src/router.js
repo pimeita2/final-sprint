@@ -17,7 +17,6 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-<<<<<<< HEAD
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -32,7 +31,6 @@ export default new Router({
       path: '/third',
       name: 'third-template',
        component: () => import('./views/third-template.vue')
-=======
       component: () => import('./views/About.vue')
     },
     {
@@ -55,12 +53,6 @@ export default new Router({
       path: '/templateTwo',
       name: 'templateTwo',
       component: templateTwo
-    },
-    { 
-      path: '/second',
-      name: 'second-template',
-      component: () => import('./views/second-template.vue')
->>>>>>> master
     }
 
   ]
