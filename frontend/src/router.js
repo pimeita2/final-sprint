@@ -31,7 +31,6 @@ export default new Router({
       path: '/third',
       name: 'third-template',
        component: () => import('./views/third-template.vue')
-      component: () => import('./views/About.vue')
     },
     {
       path: '/login',

@@ -1,18 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-  </div>
-</template>
-
-<script>
-// @ is an alias to /src
-
-export default {
-  name: "home",
-  components: {}
-};
-=======
   <section>
     <main-header></main-header>
      <router-link to="/second">second template</router-link>
@@ -43,7 +29,6 @@ export default {
     },
   }
 
->>>>>>> master
 </script>
 
 <style>
