@@ -26,7 +26,12 @@ export default new Router({
       path: '/templateTwo',
       name: 'templateTwo',
       component: templateTwo
-
+    },
+    { 
+      path: '/second',
+      name: 'second-template',
+      component: () => import('./views/second-template.vue')
     }
+
   ]
 })
