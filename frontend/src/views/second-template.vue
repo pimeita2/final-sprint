@@ -33,7 +33,7 @@
   }
 
   .col-1{
-      background: url("../assets/second-template.jpg");
+      background: url("../assets/food2.jpg");
     //   height: 150px;
       padding:15px;
       background-position:center; 

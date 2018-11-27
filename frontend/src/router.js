@@ -24,12 +24,12 @@ export default new Router({
     {
       path: '/second',
       name: 'second-template',
-       component: () => import('./views/second-template.vue.vue')
+       component: () => import('./views/second-template.vue')
     },
     {
       path: '/third',
       name: 'third-template',
-       component: () => import('./views/third-template.vue.vue')
+       component: () => import('./views/third-template.vue')
     }
   ]
 })
