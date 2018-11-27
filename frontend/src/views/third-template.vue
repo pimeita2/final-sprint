@@ -1,5 +1,4 @@
 <template>
-  <section class="template1">
   <section class="template-3">
     <div class="template3-container">
       <div class="row-1-details">
@@ -18,8 +17,6 @@
         <!-- <date-time-picker></date-time-picker> -->
   </section>
 </template>
-
-
 <script>
 // import LocMap from "../components/LocMap.vue";
 // import DateTimePicker from "vue-vanilla-datetime-picker";

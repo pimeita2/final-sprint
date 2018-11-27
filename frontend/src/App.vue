@@ -3,6 +3,10 @@
     <div id="nav">
       
     </div>
+
+          <router-link to="/second">second</router-link>
+          <router-link to="/third">third</router-link>
+
     <router-view/>
   </div>
 </template>
