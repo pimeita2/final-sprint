@@ -33,11 +33,7 @@
   }
 
   .col-1{
-<<<<<<< HEAD
       background: url("../assets/food2.jpg");
-=======
-      background: url("../assets/second-template.jpg");
->>>>>>> master
     //   height: 150px;
       padding:15px;
       background-position:center; 

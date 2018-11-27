@@ -15,17 +15,18 @@ export default {
 =======
   <section>
     <main-header></main-header>
+     <router-link to="/second">second template</router-link>
     <div class="home">
       <templateList :templates="template"></templateList>
     </div>
-    <main-footer></main-footer>
+    <!-- <main-footer></main-footer> -->
   </section>
 </template>
 
 <script>
 import templateList from "@/components/TemplateList.vue"
 import mainHeader from "@/components/MainHeader.vue"
-import mainFooter from "@/components/MainFooter.vue"
+// import mainFooter from "@/components/MainFooter.vue"
 
 
 export default {
@@ -33,7 +34,7 @@ export default {
   components: {
     templateList,
     mainHeader,
-    mainFooter
+    // mainFooter
   },
    data() {
     return {
