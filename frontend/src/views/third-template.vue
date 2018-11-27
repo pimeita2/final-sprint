@@ -15,6 +15,8 @@
       </div>
       <div class="row-3-coming">set up an appiontement today:
         <!-- <date-time-picker></date-time-picker> -->
+      </div>
+    </div>
   </section>
 </template>
 <script>
