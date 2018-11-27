@@ -44,7 +44,7 @@ h5{
 .img-div{
     background:rgb(199, 191, 191);
     /* width:100%; */
-    height: 70%;   
+    height: 75%;   
     border-radius: 10px;
 }
 .template-name{
