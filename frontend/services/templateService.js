@@ -31,6 +31,8 @@ function remove(templateId) {
     return axios.delete(`${BASE_URL}/template/${templateId}`)
         // .then(res => res.data)
 }
+function filter() {}
+    
 
 function saveTemplate(template) {
     if (template._id) {

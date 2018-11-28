@@ -14,7 +14,6 @@
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
@@ -64,7 +63,7 @@ export default {
   width: 350px;
   height: 480px;
   border: 3px solid white;
-  /* margin:0 auto; */
+  margin: auto;
 }
 .card-container {
   width: 320px;
