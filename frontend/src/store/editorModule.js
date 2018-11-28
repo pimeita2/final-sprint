@@ -6,6 +6,7 @@ export default {
             }
         }
     },
+    
     mutations: {
         setUserStyle(state, { field, css }) {
             console.log({ field, css })
