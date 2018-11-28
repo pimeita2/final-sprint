@@ -4,7 +4,7 @@
         <templatePreview v-for="template in templates" :template="template" :key="template.id"></templatePreview>
     </ul>
 </section>
-</template>
+</template> 
 
 <script>
 import templatePreview from '@/components/TemplatePreview.vue'
