@@ -30,7 +30,7 @@ import templateEdit from "@/components/TemplateEdit.vue";
 export default {
   name: "second-template",
   components: {
-    templateEdit,
+    templateEdit
     // mainHeader
   }
 };
@@ -40,7 +40,7 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower|Sedgwick+Ave");
 
-#nav{
+#nav {
   position: relative;
   padding: 0px;
 }
@@ -53,12 +53,11 @@ export default {
   border: 2px solid lightcyan;
   max-width: 500px;
 }
-  .col-1{
-      background: url("../assets/food2.jpg");
-    //   height: 150px;
-      padding:15px;
-      background-position:center; 
-
+.col-1 {
+  background: url("../assets/food2.jpg");
+  //   height: 150px;
+  padding: 15px;
+  background-position: center;
 }
 
 .col-2 {
@@ -90,7 +89,7 @@ export default {
   display: flex;
 }
 
-button{
-  float:left;
+button {
+  float: left;
 }
 </style>
