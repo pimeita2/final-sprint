@@ -1,6 +1,6 @@
 <template>
   <section class="template1">
-    <main-header id="nav"></main-header>
+    <!-- <main-header id="nav"></main-header> -->
     <div class="edit-template-section">
       <template-edit></template-edit>
       <div class="template1-container">
@@ -25,13 +25,13 @@
 
 <script>
 import templateEdit from "@/components/TemplateEdit.vue";
-import mainHeader from "@/components/MainHeader.vue";
+// import mainHeader from "@/components/MainHeader.vue";
 
 export default {
   name: "second-template",
   components: {
-    templateEdit,
-    mainHeader
+    templateEdit
+    // mainHeader
   }
 };
 </script>
@@ -40,7 +40,7 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower|Sedgwick+Ave");
 
-#nav{
+#nav {
   position: relative;
   padding: 0px;
 }
@@ -53,9 +53,8 @@ export default {
   border: 2px solid lightcyan;
   max-width: 500px;
 }
-
 .col-1 {
-  background: url("../assets/second-template.jpg");
+  background: url("../assets/food2.jpg");
   //   height: 150px;
   padding: 15px;
   background-position: center;
@@ -90,7 +89,7 @@ export default {
   display: flex;
 }
 
-button{
-  float:left;
+button {
+  float: left;
 }
 </style>

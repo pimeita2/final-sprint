@@ -1,20 +1,22 @@
 <template>
   <section class="event-description-container">
-    <input class="invaitor-name" @blur="updateInvaitorName" v-model="titleData.invaitorName">
-    <input class="event-name" @blur="updateEventName" v-model="titleData.eventName">
-    <input class="short-description" @blur="updateShortDescription" v-model="titleData.shortDescription">  
+    <input class="invaitor-name" v-model="titleData.invaitorName">
+    <input class="event-name" v-model="titleData.eventName">
+    <input class="short-description" v-model="titleData.shortDescription">  
   </section>
 </template>
-
 <script>
 export default {
   data() {
     return {
-    };
+      };
   },
 
   created(){
     console.log();
+//  @blur="updateInvaitorName"
+//   @blur="updateEventName"
+//    @blur="updateShortDescription"
   },
  
   computed: {
@@ -28,6 +30,9 @@ export default {
 <style>
 .event-description-container {
   padding: 10px;
+}
+.event-description-container:hover{
+  cursor: all-scroll;
 }
 .invaitor-name {
   font-size: 14px;

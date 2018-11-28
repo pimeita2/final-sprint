@@ -1,24 +1,26 @@
 
 <template>
-  <section class="template">
-    <div class="template-container">
-        <div class="backgroun-frame">
-          <div class="card-container">
-            
-            <titleCmp></titleCmp>
-            <!-- <eventDetailes-cmp></eventDetailes-cmp> -->
-            <!-- <attendingCmp></attendingCmp> -->
-            <!-- <social-media-cmp></social-media-cmp> -->
-
+  <section class="first-template">
+    <div class="edit-template-section">
+      <!-- <main-header id="nav"></main-header> -->
+      <div class="template-container" :style="userStyle.backgroundColor">
+        <div class="backround-color">
+          <div class="backgroun-frame">
+            <div class="card-container">
+              <titleCmp></titleCmp>
+              <!-- <attendingCmp></attendingCmp>
+              <social-media-cmp></social-media-cmp>-->
+            </div>
           </div>
         </div>
       </div>
+    </div>
   </section>
 </template>
 
 <script>
 // import imgCmp from "./components/template-components/AttendingCmp.vue";
-import titleCmp from "../components/template-components/TitleCmp.vue";
+import titleCmp from "@/components/template-components/TitleCmp.vue";
 // import eventDetailsCmp from "../components/template-components/EventDetailsCmp.vue";
 // import attendingCmp from "../components/template-components/AttendigCmp.vue";
 // import mapCmp from "../components/template-components/MapCmp.vue";
@@ -27,19 +29,22 @@ import titleCmp from "../components/template-components/TitleCmp.vue";
 export default {
   components: {
     // imgCmp,
-    titleCmp,
+    titleCmp
     // eventDetailsCmp,
     // attendingCmp,
     // mapCmp,
     // socialMediaCmp
+  },
+  computed:{
+    userStyle(){
+      return this.$store.getters.userStyle;
+    }
   }
 };
-
 </script>
 
 <style>
 .template-container {
-  color: rgb(153, 49, 54);
   background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
   display: flex;
   width: 400px;
@@ -66,6 +71,13 @@ export default {
   height: 450px;
   background-color: rgba(255, 255, 255, 0.692);
   margin: 0 auto;
+}
+#nav {
+  position: relative;
+  padding: 0px;
+}
+.edit-template-section {
+  display: flex;
 }
 </style>
  

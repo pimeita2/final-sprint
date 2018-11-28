@@ -12,9 +12,9 @@ export default {
         ],
     },
     mutations: {
-        updateInvaitorName(state, { invaitorName }) {
-            state.templateCmps.data.invaitorName = invaitorName;
-        },
+        // updateInvaitorName(state, { invaitorName }) {
+        //     state.templateCmps.data.invaitorName = invaitorName;
+        // },
     },
     actions: {},
     getters: {

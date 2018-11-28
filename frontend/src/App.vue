@@ -1,14 +1,11 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
-=======
     <div id="nav"></div>
     
-    <router-link to="/templateTwo">first |</router-link>
-    <router-link to="/second">second |</router-link>
-    <router-link to="/third">third</router-link>
+    <router-link to="/template/1">First</router-link> |
+    <router-link to="/template/2">Second</router-link> |
+    <router-link to="/template/3">Third</router-link>
 
->>>>>>> master
     <router-view/>
   </div>
 </template>
