@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import templateTwo from './components/TemplateExsampleOne.vue'
 
 Vue.use(Router)
 
@@ -22,16 +21,6 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
-    {
-      path: '/second',
-      name: 'second-template',
-       component: () => import('./views/second-template.vue')
-    },
-    {
-      path: '/third',
-      name: 'third-template',
-       component: () => import('./views/third-template.vue')
-    },
     // {
     //   path: '/login',
     //   name: 'login',
@@ -40,7 +29,25 @@ export default new Router({
     {
       path: '/template',
       name: 'template',
-      component: () => import('./views/Template.vue')
+      component: () => import('./views/Template.vue'),
+      children: [
+        {
+          path: '1',
+          name:'first',
+          component: ()=> import('./components/templates/First.vue')
+        },
+        // {
+        //   path: '2',
+        //   name:'Second',
+        //   component: ()=> import('./components/templates/Second.vue')
+        // },
+        // {
+        //   path: '3',
+        //   name:'third',
+        //   component: ()=> import('./components/templates/Third.vue')
+        // },
+
+      ]
     },
     {
       path: '/contact',
@@ -48,11 +55,7 @@ export default new Router({
       component: () => import( './views/Contact.vue')
     },
 
-    {
-      path: '/templateTwo',
-      name: 'templateTwo',
-      component: templateTwo
-    }
+  
 
   ]
 })

@@ -1,13 +1,11 @@
-
-
 import axios from "axios";
-const BASE_URL = 'http://localhost:3000'// is this our local host?
+const BASE_URL = 'http://localhost:3000'
 
 export default {
     query,
     remove,
     getById,
-    saveToy,
+    saveTemplate,
 }
 
 function query(filter = {}) {
@@ -16,7 +14,7 @@ function query(filter = {}) {
     queryParams.append('name', filter.byName)
     queryParams.append('type', filter.byType)
     queryParams.append('sortBy', filter.sort)
-    return axios.get(`${BASE_URL}/toy?${queryParams}`)
+    return axios.get(`${BASE_URL}/template?${queryParams}`)
         .then(res => res.data)
         // .catch(err =>{
         //     console.log('ERROR:', err);
@@ -24,21 +22,21 @@ function query(filter = {}) {
         // })
 }
 
-function getById(toyId) {
-    return axios.get(`${BASE_URL}/toy/${toyId}`)
+function getById(templateId) {
+    return axios.get(`${BASE_URL}/template/${templateId}`)
         .then(res => res.data)
 }
 
-function remove(toyId) {
-    return axios.delete(`${BASE_URL}/toy/${toyId}`)
+function remove(templateId) {
+    return axios.delete(`${BASE_URL}/template/${templateId}`)
         // .then(res => res.data)
 }
 
-function saveToy(toy) {
-    if (toy._id) {
-        return axios.put(`${BASE_URL}/toy/${toy._id}`, toy)
+function saveTemplate(template) {
+    if (template._id) {
+        return axios.put(`${BASE_URL}/template/${template._id}`, template)
     } else {
-        toy.createdAt = Date.now()
-        return axios.post(`${BASE_URL}/toy`, toy)
+        // template.createdAt = Date.now()
+        return axios.post(`${BASE_URL}/template`, template)
     }
 }
