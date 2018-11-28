@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import templateTwo from './components/template-two.vue'
+import templateTwo from './components/TemplateExsampleOne.vue'
 
 Vue.use(Router)
 
@@ -17,7 +17,20 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      component: () => import('./views/About.vue')
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/second',
+      name: 'second-template',
+       component: () => import('./views/second-template.vue')
+    },
+    {
+      path: '/third',
+      name: 'third-template',
+       component: () => import('./views/third-template.vue')
     },
     // {
     //   path: '/login',
@@ -39,11 +52,6 @@ export default new Router({
       path: '/templateTwo',
       name: 'templateTwo',
       component: templateTwo
-    },
-    { 
-      path: '/second',
-      name: 'second-template',
-      component: () => import('./views/second-template.vue')
     }
 
   ]

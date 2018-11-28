@@ -23,6 +23,7 @@
   </section>
 </template>
 
+<<<<<<< HEAD
 <script>
 import templateEdit from "@/components/TemplateEdit.vue";
 import mainHeader from "@/components/MainHeader.vue";
@@ -37,6 +38,8 @@ export default {
 </script>
 
 
+=======
+>>>>>>> master
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower|Sedgwick+Ave");
 
@@ -45,6 +48,7 @@ export default {
   padding: 0px;
 }
 
+<<<<<<< HEAD
 .template1-container {
   display: grid;
   grid-template-columns: 40% 60%;
@@ -53,6 +57,13 @@ export default {
   border: 2px solid lightcyan;
   max-width: 500px;
 }
+=======
+  .col-1{
+      background: url("../assets/food2.jpg");
+    //   height: 150px;
+      padding:15px;
+      background-position:center; 
+>>>>>>> master
 
 .col-1 {
   background: url("../assets/second-template.jpg");

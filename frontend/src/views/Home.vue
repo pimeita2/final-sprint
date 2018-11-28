@@ -1,7 +1,7 @@
 <template>
   <section>
     <main-header></main-header>
-     <router-link to="/second">second template</router-link>
+     <!-- <router-link to="/second">second template</router-link> -->
     <div class="home">
       <templateList :templates="template"></templateList>
     </div>
