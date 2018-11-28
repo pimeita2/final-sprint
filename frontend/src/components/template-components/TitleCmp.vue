@@ -29,7 +29,10 @@ export default {
 .event-description-container {
   padding: 10px;
 }
-.invaitor-name {
+.event-description-container:hover{
+  cursor: all-scroll;
+}
+.event-description-container h3 {
   font-size: 14px;
   font-family: "Satisfy", cursive;
   text-transform: uppercase;
