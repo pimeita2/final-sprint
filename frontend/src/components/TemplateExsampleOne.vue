@@ -2,18 +2,17 @@
 <template>
   <section class="template">
     <div class="template-container">
-      <div class="backround-color">
         <div class="backgroun-frame">
           <div class="card-container">
             
             <titleCmp></titleCmp>
-            <!-- <attendingCmp></attendingCmp>
-            <social-media-cmp></social-media-cmp> -->
+            <!-- <eventDetailes-cmp></eventDetailes-cmp> -->
+            <!-- <attendingCmp></attendingCmp> -->
+            <!-- <social-media-cmp></social-media-cmp> -->
 
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
@@ -60,7 +59,7 @@ export default {
   width: 350px;
   height: 480px;
   border: 3px solid white;
-  /* margin:0 auto; */
+  margin: auto;
 }
 .card-container {
   width: 320px;

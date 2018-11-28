@@ -1,36 +1,45 @@
 <template>
   <section class="event-description-container">
-    <h3 class="invition-line" contenteditable="true">{{businessName}} INVITE YOU</h3>
-    <h1 class="event-name" contenteditable="true">{{eventName}}</h1>
-    <p class="short-description" contenteditable="true">{{shortDescription}}</p>
+    <input class="invaitor-name" @blur="updateInvaitorName" v-model="titleData.invaitorName">
+    <input class="event-name" @blur="updateEventName" v-model="titleData.eventName">
+    <input class="short-description" @blur="updateShortDescription" v-model="titleData.shortDescription">  
   </section>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      businessName: "meitals",
-      eventName: "open your hart to me workshop",
-      shortDescription: "discover your true loves and passions in life",
     };
+  },
+
+  created(){
+    console.log();
+  },
+ 
+  computed: {
+    titleData(){
+      return this.$store.getters.getData;
+    },
   }
 };
 </script>
+
 <style>
 .event-description-container {
   padding: 10px;
 }
-.event-description-container h3 {
+.invaitor-name {
   font-size: 14px;
   font-family: "Satisfy", cursive;
   text-transform: uppercase;
 }
-.event-description-container h1 {
+.event-name {
   margin: 18px;
   font-size: 34px;
   font-weight: bold;
 }
-.event-description-container p {
+.short-description {
   background-color: rgb(153, 49, 54);
   font-size: 12px;
   color: white;
