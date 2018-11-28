@@ -1,0 +1,108 @@
+[
+    {
+        "templateName": "basic",
+        "templateParts": [
+            {
+                "partName": "left-column",
+                "value": "../assets/food2.jpg",
+                "style": {
+                    "background-image": "url('../assets/food2.jpg')",
+                    "backgroound-size": "cover"
+                }
+            },
+            {
+                "partName": "right-column",
+                "style": {
+                    "background-color": "brown"
+                },
+                "innerParts": [
+                    {
+                        "partName": "top",
+                        "value": "reutMail",
+                        "style": {
+                            "color": "green",
+                            "font-family": "arial",
+                            "font-size": 16,
+                            "text-align": "center",
+                            "text-shadow": false
+                        }
+                    },
+                    {
+                        "partName": "mainTitle",
+                        "value": "cookingSession",
+                        "style": {
+                            "color": "green",
+                            "font-family": "ariel",
+                            "font-size": 30,
+                            "text-align": "center",
+                            "text-shadow": false
+                        }
+                    },
+                    {
+                        "partName": "subTitle",
+                        "value": "Come study with us how to make your finest dishes",
+                        "style": {
+                            "color": "green",
+                            "font-family": "arial",
+                            "font-size": 20,
+                            "text-align": "center",
+                            "text-shadow": false
+                        }
+                    },
+                    {
+                        "partName": "description",
+                        "value": "Three days workshop where you study how to master coocking. Dishes includes:lots of cakes",
+                        "style": {
+                            "color": "green",
+                            "font-family": "arial",
+                            "font-size": 16,
+                            "text-align": "center",
+                            "text-shadow": false
+                        }
+                    },
+                    {
+                        "partName": "date",
+                        "value": "01-12-2018",
+                        "style": {
+                            "color": "green",
+                            "font-family": "arial",
+                            "font-size": 16,
+                            "text-align": "center",
+                            "text-shadow": false
+                        }
+                    },
+                    {
+                        "partName": "hour",
+                        "value": "20:00",
+                        "style": {
+                            "color": "green",
+                            "font-family": "arial",
+                            "font-size": 16,
+                            "text-align": "center",
+                            "text-shadow": false
+                        }
+                    },
+                    {
+                        "partName": "location",
+                        "value": "ramat aviv",
+                        "style": {
+                            "color": "green",
+                            "font-family": "arial",
+                            "font-size": 16,
+                            "text-align": "center",
+                            "text-shadow": false
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "templateName": "meitalus",
+        "templateParts": []
+    },
+    {
+        "templateName": "kuki",
+        "templateParts": []
+    }
+]
