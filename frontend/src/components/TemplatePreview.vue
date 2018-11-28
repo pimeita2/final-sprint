@@ -36,7 +36,7 @@ export default {
     height: 250px;
     border: 1px solid gray;
     border-radius: 10px;
-    box-shadow: 3px 3px 7px gray;
+    box-shadow: 1px 1px 1px gray;
 }
 h5{
     margin:0;

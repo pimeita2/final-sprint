@@ -32,11 +32,11 @@ export default new Router({
       name: 'third-template',
        component: () => import('./views/third-template.vue')
     },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('./views/Login.vue')
-    },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: () => import('./views/Login.vue')
+    // },
     {
       path: '/template',
       name: 'template',
