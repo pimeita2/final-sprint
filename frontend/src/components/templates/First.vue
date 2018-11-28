@@ -14,6 +14,7 @@
           </div>
         </div>
       </div>
+    </div>
   </section>
 </template>
 
@@ -34,8 +35,8 @@ export default {
     // mapCmp,
     // socialMediaCmp
   },
-  computed:{
-    userStyle(){
+  computed: {
+    userStyle() {
       return this.$store.getters.userStyle;
     }
   }
