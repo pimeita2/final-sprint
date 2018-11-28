@@ -65,10 +65,10 @@ export default {
 };
 </script>
 <style>
-h1 {
+/* h1 {
   /* font-size: 3rem; */
-  /* letter-spacing: 2px; } */
-}
+  /* letter-spacing: 2px; }
+} */
 button {
   cursor: pointer;
 }
