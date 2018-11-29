@@ -1,31 +1,72 @@
 <template>
   <section class="event-description-container">
-    <input class="invaitor-name" v-model="titleData.invaitorName" @click="connectToEditor">
-    <textarea class="event-name" v-model="titleData.eventName"/>
-    <input class="short-description" v-model="titleData.shortDescription">
+    <input
+      class="invaitor-name"
+      v-model="titleData.invaitorName"
+      :style="{color: this.titleStyle[0].style.color}"
+      @click="connectToEditor('invaitorName')"
+    >
+    <textarea
+      class="event-name"
+      v-model="titleData.eventName"
+      :style="{color: this.titleStyle[1].style.color}"
+      @click="connectToEditor('eventName')"
+    />
+    <input
+      class="short-description"
+      v-model="titleData.shortDescription"
+      :style="{color: this.titleStyle[2].style.color}"
+      @click="connectToEditor('shortDescription')"
+    >
   </section>
 </template>
 <script>
 export default {
- props:{
-    data: Object
+  // props:{
+  //   data:Object
+  // },
+  data() {
+    return {
+
+        }
+    
   },
   created() {
     console.log();
     //  @blur="updateInvaitorName"
-    //  @blur="updateEventName"
-    //  @blur="updateShortDescription"
+    //   @blur="updateEventName"
+    //    @blur="updateShortDescription"
+
   },
     methods: {
-      connectToEditor(){
-        
-      }
+      connectToEditor(cmpPart){
+        console.log('in connect to editor', cmpPart);
+        this.$emit("connectToCmpPart", cmpPart);
+      },
+      // style(cmpPart){
+      //    console.log('In binding style:', cmpPart);
+      //    const currStyle=this.titleStyle.find(obj=>{
+      //        if(obj.cmpPartName===cmpPart) return obj;
+      //    })
+      //    console.log('in style binding', currStyle.cmpPartName, currStyle.style);
+
+      // }
     }, 
   computed: {
     titleData() {
       return this.$store.getters.getData;
-    }
-  }
+    },
+    titleStyle(){
+      return this.$store.getters.getuserStyle;
+    },
+    styleInvaitorName(){
+      console.log(this.titleStyle[0].style.color);
+        color: this.titleStyle[0].style.color
+       }
+
+}
+
+  
 };
 </script>
 

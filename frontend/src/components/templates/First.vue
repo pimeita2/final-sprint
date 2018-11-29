@@ -13,6 +13,7 @@
       </div>
     </div>
   </section>
+
 </template>
 
 <script>
@@ -31,6 +32,12 @@ export default {
     // attendingCmp,
     // mapCmp,
     socialMediaCmp
+  },
+  methods: {
+    connectToCmpPart(cmpPart) {
+      console.log("in first", cmpPart);
+      this.$emit("connectToCmpPart", cmpPart);
+    }
   },
   computed: {
     userStyle() {
