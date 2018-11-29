@@ -2,26 +2,24 @@
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <!-- <main-header id="nav"></main-header> -->
       <div class="template-container" :style="userStyle.backgroundColor">
-        <div class="backround-color">
           <div class="backgroun-frame">
             <div class="card-container">
               <titleCmp></titleCmp>
+              <eventDetailsCmp></eventDetailsCmp>
               <!-- <attendingCmp></attendingCmp>
               <social-media-cmp></social-media-cmp>-->
             </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
 <script>
 // import imgCmp from "./components/template-components/AttendingCmp.vue";
 import titleCmp from "@/components/template-components/TitleCmp.vue";
-// import eventDetailsCmp from "../components/template-components/EventDetailsCmp.vue";
+import eventDetailsCmp from "@/components/template-components/EventDetalisCmp.vue";
 // import attendingCmp from "../components/template-components/AttendigCmp.vue";
 // import mapCmp from "../components/template-components/MapCmp.vue";
 // import socialMediaCmp from "../components/template-components/SocialMediaCmp.vue";
@@ -29,8 +27,8 @@ import titleCmp from "@/components/template-components/TitleCmp.vue";
 export default {
   components: {
     // imgCmp,
-    titleCmp
-    // eventDetailsCmp,
+    titleCmp,
+    eventDetailsCmp,
     // attendingCmp,
     // mapCmp,
     // socialMediaCmp
