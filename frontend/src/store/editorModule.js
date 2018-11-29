@@ -7,6 +7,8 @@ export default {
         }
     },
 
+    
+
     mutations: {
         setUserStyle(state, { field, css }) {
             state.userStyle[field] = css;
