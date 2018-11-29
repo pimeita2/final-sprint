@@ -31,7 +31,6 @@ export default {
         }
     
   },
-
   created() {
     console.log();
     //  @blur="updateInvaitorName"
@@ -94,7 +93,6 @@ export default {
   display: flex;
   align-items: center;
   color: rgb(153, 49, 54);
-
   max-width: 300px;
 }
 .short-description {

@@ -8,6 +8,8 @@ export default {
         }
     },
 
+    
+
     mutations: {
         setUserStyle(state, { field, css }) {
             state.userStyle[field] = css;
@@ -16,15 +18,13 @@ export default {
 
     actions: {
         setUserStyle(context, { field, css }) {
-            console.log(field, 'field')
             context.commit({ type: 'setUserStyle', field, css })
         }
     },
 
     getters: {
         userStyle(state) {
-            console.log('step 2, state:', state);
-            return state.userStyle;
+            return state.userStyle.backgroundColor;
         }
     }
 }

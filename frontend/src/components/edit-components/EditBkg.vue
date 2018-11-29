@@ -2,7 +2,18 @@
   <section>
     <div class="edit-bkg-section">
       <!-- MAYBE use the color picker component? -->
-      <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange">
+      <!-- <form>
+
+      <input class="bkg-picker" @change="handleChange" type="color" v-model="bgc" @click="foo"/> 
+      </form>
+            <input class="bkg-picker" @input="handleChange"> -->
+
+      <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange"/>
+      <!-- <span
+            @click="$emit('close')"
+            class="close-edit-bkg-section"
+            title="Close Modal"
+          >&times;</span> -->
     </div>
   </section>
 </template>
@@ -11,17 +22,20 @@
 export default {
   data() {
     return {
-      bgc: "#FFFFFF"
+      bgc: "#ff9a90"
     };
   },
   methods: {
     handleChange() {
-      console.log('step3')
       console.log(this.bgc);
       this.$emit("styleUpdate", {
         field: "backgroundColor",
-        css: { backgroundColor: this.bgc }
+        css: { backgroundColor: this.bgc },
       });
+    },
+    foo(){
+      console.log('clicked');
+      
     }
   }
 };
@@ -42,5 +56,21 @@ export default {
 .bkg-picker {
   margin: 20px;
   border-radius: 3px;
+}
+
+
+.close-edit-bkg-section {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.close-edit-bkg-section:hover,
+.close-edit-bkg-section:focus {
+    color: red;
+    cursor: pointer;
 }
 </style>

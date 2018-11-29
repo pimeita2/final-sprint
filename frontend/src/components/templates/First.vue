@@ -5,16 +5,7 @@
       <div class="template-container" :style="userStyle.backgroundColor">
         <div class="backgroun-frame">
           <div class="card-container">
-            <titleCmp @connectToCmpPart="connectToCmpPart"></titleCmp>
-            <eventDetailsCmp></eventDetailsCmp>
-            <!-- <component
-            v-for="cmp in dynamicCmps"
-            :key="cmp.id"
-            :is="cmp.type"
-            :data="cmp.data"
-            /> -->
-            <!-- <attendingCmp></attendingCmp>
-            <social-media-cmp></social-media-cmp>-->
+           
           </div>
         </div>
       </div>
@@ -24,21 +15,21 @@
 </template>
 
 <script>
-// import imgCmp from "./components/template-components/AttendingCmp.vue";
+// import imgCmp from "@/components/template-components/ImgCmp.vue";
 import titleCmp from "@/components/template-components/TitleCmp.vue";
 import eventDetailsCmp from "@/components/template-components/EventDetalisCmp.vue";
-// import attendingCmp from "../components/template-components/AttendigCmp.vue";
-// import mapCmp from "../components/template-components/MapCmp.vue";
-// import socialMediaCmp from "../components/template-components/SocialMediaCmp.vue";
+// import attendingCmp from "@/components/template-components/AttendigCmp.vue";
+// import mapCmp from "@/components/template-components/MapCmp.vue";
+import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue";
 
 export default {
   components: {
     // imgCmp,
     titleCmp,
-    eventDetailsCmp
+    eventDetailsCmp,
     // attendingCmp,
     // mapCmp,
-    // socialMediaCmp
+    socialMediaCmp
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -50,6 +41,9 @@ export default {
     userStyle() {
       console.log("step1");
       return this.$store.getters.userStyle;
+    },
+    dynamicCmps(){
+      return this.$store.getters.dynamicCmps;
     }
   }
 };
