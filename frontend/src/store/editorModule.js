@@ -3,6 +3,9 @@ export default {
         userStyle: {
             backgroundColor: {
                 backgroundColor: '#ff9a90'
+            },
+            color:{
+                color:'blue'
             }
         }
     },
