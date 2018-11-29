@@ -27,16 +27,16 @@ export default {
   },
   methods: {
     handleChange() {
-      console.log(this.bgc);
+      // console.log(this.bgc);
       this.$emit("styleUpdate", {
         field: "backgroundColor",
         css: { backgroundColor: this.bgc },
       });
     },
-    foo(){
-      console.log('clicked');
+    // foo(){
+    //   console.log('clicked');
       
-    }
+    // }
   }
 };
 </script>

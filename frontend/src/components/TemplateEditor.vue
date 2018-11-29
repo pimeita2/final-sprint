@@ -8,11 +8,12 @@
         <h4 class="h4-text-edit">Text</h4>
       </div>
       <hr>
-      <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
+
+      <!-- <a class="bkground-edit icon-btn" @click="showBkgMenu=!showBkgMenu">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
-      </a> -->
+      </a>  -->
 
         <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate" @close="showBkgMenu=false"></edit-bkg>
