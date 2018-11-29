@@ -1,6 +1,7 @@
 <template>
   <section>
     <div class="edit-bkg-section">
+      <!-- MAYBE use the color picker component? -->
       <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange">
     </div>
   </section>
@@ -15,6 +16,7 @@ export default {
   },
   methods: {
     handleChange() {
+      console.log('step3')
       console.log(this.bgc);
       this.$emit("styleUpdate", {
         field: "backgroundColor",
@@ -29,7 +31,7 @@ export default {
 .edit-bkg-section {
   display: block;
   position: fixed;
-  left: 118px;
+  left: 100px;
   top: 130px;
   width: 20%;
   height: 12%;

@@ -1,18 +1,21 @@
 <template>
   <section>
     <main-header></main-header>
-     <!-- <router-link to="/second">second template</router-link> -->
+    <router-link to="/template/1">First</router-link> |
+    <router-link to="/template/2">Second</router-link> |
+    <router-link to="/template/3">Third</router-link>
+    <!-- <router-link to="/second">second template</router-link> -->
     <div class="home">
       <templateList :templates="template"></templateList>
     </div>
-    <!-- <main-footer></main-footer> -->
+    <main-footer></main-footer>
   </section>
 </template>
 
 <script>
 import templateList from "@/components/TemplateList.vue"
 import mainHeader from "@/components/MainHeader.vue"
-// import mainFooter from "@/components/MainFooter.vue"
+import mainFooter from "@/components/MainFooter.vue"
 
 
 export default {
@@ -20,7 +23,7 @@ export default {
   components: {
     templateList,
     mainHeader,
-    // mainFooter
+    mainFooter
   },
    data() {
     return {
@@ -32,5 +35,7 @@ export default {
 </script>
 
 <style>
-
+ body{
+   margin: 0;
+ }
 </style>

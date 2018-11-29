@@ -1,33 +1,40 @@
 <template>
   <section>
-    <div class="edit-section">
-      <div class="text-edit" @click="showTxtMenu=true">
+    <div class="edit-section icon-btn">
+      <div class="text-edit icon-btn" @click="showTxtMenu=true">
         <edit-txt v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt>
         <h3 class="T-icon">T</h3>
         <h4 class="h4-text-edit">Text</h4>
       </div>
-
-      <a class="bkground-edit" @click="showBkgMenu=true">
-        <edit-bkg v-if="showBkgMenu" @close="showBkgMenu=false" @styleUpdate="styleUpdate"></edit-bkg>
+      <hr>
+      <a class="bkground-edit icon-btn" @click="showBkgMenu=!showBkgMenu">
+        <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
       </a>
-
-      <div class="template-edit">
+      <hr>
+      <div class="template-edit icon-btn">
         <p class="template-icon">&#9704;</p>
         <h4 class="h4-template-edit">Template</h4>
       </div>
-
-      <div class="delete-edit">
+      <hr>
+      <div class="delete-edit icon-btn">
         <i class="fa fa-trash"></i>
         <h4 class="h4-template-edit">Delete</h4>
       </div>
-
-      <a class="upload-edit" @click="showUploadMenu=true">
-        <edit-upload v-if="showUploadMenu" @close="showUploadMenu=false"></edit-upload>
+      <hr>
+      <a class="upload-edit" @click="showUploadMenu=!showUploadMenu">
+        <edit-upload v-if="showUploadMenu"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
         <h4 class="h4-template-edit">upload Img</h4>
       </a>
+    </div>
+
+    <div class="download-section">
+      <button class="download-btn"><i class="fa fa-download"></i> Download</button>
+      <button class="download-socialMedia">Download</button>
+
+
     </div>
   </section>
 </template>
@@ -66,7 +73,13 @@ export default {
   background: #4d4d4d;
   position: relative;
   color: rgb(182, 159, 159);
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0 ;
+  float:left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+
 }
 
 .T-icon {
@@ -78,11 +91,19 @@ export default {
 
 h4 {
   font-size: 15px;
-  font-family: sans-serif;
+  font-family: 'Quicksand', sans-serif;
   cursor: pointer;
   padding: 0;
   margin-top: 2px;
 }
+
+hr{
+    border: 0;
+    height: 1px;
+    width: 70%;
+    background-image: linear-gradient(to right, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.75), rgba(222, 222, 222, 0));
+}
+
 .text-edit:hover,
 .bkground-edit:hover,
 .template-edit:hover,
@@ -90,8 +111,9 @@ h4 {
 .upload-edit:hover {
   color: ghostwhite;
 }
-div {
+.icon-btn {
   padding: 5px;
+  
 }
 .fa-trash {
   font-size: 25px;
@@ -122,4 +144,22 @@ div {
     color:rgb(182, 159, 159);
     margin-bottom: 4px;
 } */
+
+.download-btn{
+padding: 20px;
+display:block;
+background-color:#4d4d4d;
+color: white;
+text-align:center;
+position: absolute;
+top: 10px;
+right: 50px;
+border:none;
+border-radius: 10px 0px 0px 10px;
+cursor: pointer;
+}
+
+.fa-download{
+  font-size:20px;
+}
 </style>

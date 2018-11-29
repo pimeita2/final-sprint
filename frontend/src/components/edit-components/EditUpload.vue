@@ -17,8 +17,8 @@ export default {
 .edit-upload-section {
     display: block; 
     position: fixed; 
-    left: 118px;
-    top: 340px;
+    left: 100px;
+    top: 470px;
     width: 20%; 
     height: 12%; 
     overflow: auto; 
@@ -27,7 +27,7 @@ export default {
 }
 .uploadImg-btn{
     padding: 10px;
-    margin: 12px;
+    margin: 18px;
     border-radius: 10px;
     background:  rgb(48, 173, 161);
     border:none;
