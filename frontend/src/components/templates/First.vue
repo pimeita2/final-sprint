@@ -37,6 +37,7 @@ export default {
   },
   computed:{
     userStyle(){
+      console.log('step1')
       return this.$store.getters.userStyle;
     }
   }
