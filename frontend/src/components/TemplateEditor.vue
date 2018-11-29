@@ -2,14 +2,13 @@
   <section>
     <div class="edit-section icon-btn">
       <div class="text-edit icon-btn" @click="showTxtMenu=true">
-        <edit-txt v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt>
+        <edit-txt v-if="showTxtMenu" @close="showTxtMenu=false"  @styleTextUpdate="styleUpdate"></edit-txt>
+        <!-- :currCmpPart="currCmpPart" -->
         <h3 class="T-icon">T</h3>
         <h4 class="h4-text-edit">Text</h4>
       </div>
       <hr>
-
-
-      <!-- <a class="bkground-edit icon-btn" @click="showBkgMenu=!showBkgMenu">
+      <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
@@ -62,6 +61,11 @@ export default {
     editUpload,
     editTxt
   },
+  props: ['currCmpPart'],
+  created(){
+      console.log(this.currCmpPart);
+  },
+
   data() {
     return {
       showBkgMenu: false,
@@ -85,13 +89,11 @@ export default {
   background: #4d4d4d;
   position: relative;
   color: rgb(182, 159, 159);
-  border-radius: 0 10px 10px 0 ;
-  float:left;
+  border-radius: 0 10px 10px 0;
+  float: left;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
-
 }
 
 .T-icon {
@@ -103,17 +105,22 @@ export default {
 
 h4 {
   font-size: 15px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   cursor: pointer;
   padding: 0;
   margin-top: 2px;
 }
 
-hr{
-    border: 0;
-    height: 1px;
-    width: 70%;
-    background-image: linear-gradient(to right, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.75), rgba(222, 222, 222, 0));
+hr {
+  border: 0;
+  height: 1px;
+  width: 70%;
+  background-image: linear-gradient(
+    to right,
+    rgba(222, 222, 222, 0),
+    rgba(222, 222, 222, 0.75),
+    rgba(222, 222, 222, 0)
+  );
 }
 
 .text-edit:hover,
@@ -125,7 +132,6 @@ hr{
 }
 .icon-btn {
   padding: 5px;
-  
 }
 .fa-trash {
   font-size: 25px;
@@ -171,8 +177,8 @@ border-radius: 10px 0px 0px 10px;
 cursor: pointer;
 }
 
-.fa-download{
-  font-size:20px;
+.fa-download {
+  font-size: 20px;
 }
 
 .down {

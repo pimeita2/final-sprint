@@ -1,12 +1,16 @@
 <template>
-  <section class="edit-txt-section">
+  <section class="edit-txt-section" @connectToCmpPart="connectToCmpPart">
     <p @click="handleAlignment" class="align-icon">&#x25A8;</p>
     <p @click="handleFont" class="font-icon">&#x25A8;</p>
-
     <!-- <p @click="handleColor" class="textColor-icon"> -->
     <!-- <img src="../../assets/textColor.png"> -->
-    <input class="textColor-icon" type="color" @change="handleColor"  value="#ff0000" @click="clicked">
-
+    <input
+      class="textColor-icon"
+      type="color"
+      @change="handleColor"
+      value="#ff0000"
+      @click="clicked"
+    >
     <!-- </p> -->
     <p @click="handleSize" class="textSize-icon">&#x25A8;</p>
   </section>
@@ -15,6 +19,7 @@
 
 <script>
 export default {
+    props:['currCmpPart'],
   data() {
     return {
       align: "center",
@@ -23,7 +28,13 @@ export default {
       fontSize: 16
     };
   },
+  created(){
+    //  console.log('in edit txt we work on', this.currCmpPart);
+  },
   methods: {
+    connectToCmpPart(cmpPart) {
+        console.log('connect to', cmpPart)
+    },
     handleAlignment() {
       this.$emit("styleTextUpdate", {
         field: "textAlign",
@@ -36,8 +47,8 @@ export default {
         css: { fontFamily: this.fontFamily }
       });
     },
-    clicked(){
-        console.log('was clicked');
+    clicked() {
+      console.log("was clicked");
     },
     handleColor(event) {
       console.log("in color:", event.target.value);
@@ -86,5 +97,7 @@ export default {
 
 .textColor-icon {
   margin: 5px;
+  height: 25px;
+  width: 25px;
 }
 </style>
