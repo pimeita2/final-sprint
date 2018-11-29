@@ -1,8 +1,7 @@
 <template>
   <section class="event-details-container">
     <div class="event-details">
-      <p>{{date}}</p>
-      <p>{{time}}</p>
+      <p>{{date}}, {{time}}</p>
       <p>{{address}}</p>
     </div>
   </section>
@@ -13,7 +12,7 @@ export default {
     return {
       date: "oct 30 2018",
       time: "20:30",
-      address: "23 magal street rishon-lezion"
+      address: "23 magal street, rishon-lezion"
     };
   }
 };
@@ -21,5 +20,7 @@ export default {
 <style>
 .event-details p {
   margin: 5px;
+  color: rgb(153, 49, 54);
+  text-transform: capitalize;
 }
 </style>

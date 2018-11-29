@@ -2,13 +2,13 @@ export default {
     state: {
         userStyle: {
             backgroundColor: {
-                backgroundColor: 'red'
+                backgroundColor: '#ff9a90'
             }
         }
     },
+
     mutations: {
         setUserStyle(state, { field, css }) {
-            console.log({ field, css })
             state.userStyle[field] = css;
         }
     },
