@@ -31,6 +31,7 @@ export default {
 </script>
 
 <style>
+
 .container-template{
     width: 200px;
     height: 250px;
@@ -40,6 +41,9 @@ export default {
 }
 h5{
     margin:0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    
 }
 .img-div{
     background:rgb(199, 191, 191);

@@ -1,9 +1,10 @@
 <template>
   <section class="template">
-    <div class="template">
+    <!-- <div class="template"> -->
     <template-editor></template-editor>
+    <div class="spacer"></div>
     <router-view/>
-    </div>
+    <!-- </div> -->
   </section>
 </template>
 
@@ -19,7 +20,10 @@ export default {
 
 <style>
 .template{
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+}
+.spacer{
+  flex-grow: 0.5;
+
 }
 </style>
