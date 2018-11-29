@@ -1,6 +1,6 @@
 <template>
   <section class="event-description-container">
-    <input class="invaitor-name" v-model="titleData.invaitorName">
+    <input class="invaitor-name" v-model="titleData.invaitorName" @click="connectToEditor">
     <input class="event-name" v-model="titleData.eventName">
     <input class="short-description" v-model="titleData.shortDescription">  
   </section>
@@ -18,7 +18,11 @@ export default {
 //   @blur="updateEventName"
 //    @blur="updateShortDescription"
   },
- 
+    methods: {
+      connectToEditor(){
+        
+      }
+    }, 
   computed: {
     titleData(){
       return this.$store.getters.getData;

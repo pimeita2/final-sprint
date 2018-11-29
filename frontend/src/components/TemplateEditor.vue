@@ -2,7 +2,7 @@
   <section>
     <div class="edit-section">
       <div class="text-edit" @click="showTxtMenu=true">
-        <edit-txt v-if="showTxtMenu" @close="showTxtMenu=false"></edit-txt>
+        <edit-txt v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt>
         <h3 class="T-icon">T</h3>
         <h4 class="h4-text-edit">Text</h4>
       </div>
