@@ -5,7 +5,9 @@
       <div class="template-container" :style="userStyle.backgroundColor">
         <div class="backgroun-frame">
           <div class="card-container">
-           
+             <title-cmp/>
+             <eventDetailsCmp/>
+             <socialMediaCmp/>
           </div>
         </div>
       </div>
