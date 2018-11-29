@@ -1,14 +1,36 @@
 <template>
   <section class="event-description-container">
-    <input class="invaitor-name" v-model="titleData.invaitorName" @click="connectToEditor">
-    <textarea class="event-name" v-model="titleData.eventName"/>
-    <input class="short-description" v-model="titleData.shortDescription">
+    <input
+      class="invaitor-name"
+      v-model="titleData.invaitorName"
+      :style="{color: this.titleStyle[0].style.color}"
+      @click="connectToEditor('invaitorName')"
+    >
+    <textarea
+      class="event-name"
+      v-model="titleData.eventName"
+      :style="{titleStyle}"
+      @click="connectToEditor('eventName')"
+    />
+    <input
+      class="short-description"
+      v-model="titleData.shortDescription"
+      :style="{titleStyle}"
+      @click="connectToEditor('shortDescription')"
+    >
+    {{titleStyle}}
   </section>
 </template>
 <script>
 export default {
+  props:{
+    data:Object
+  },
   data() {
-    return {};
+    return {
+
+        }
+    
   },
 
   created() {
@@ -16,17 +38,37 @@ export default {
     //  @blur="updateInvaitorName"
     //   @blur="updateEventName"
     //    @blur="updateShortDescription"
+
   },
     methods: {
-      connectToEditor(){
-        
-      }
+      connectToEditor(cmpPart){
+        console.log('in connect to editor', cmpPart);
+        this.$emit("connectToCmpPart", cmpPart);
+      },
+      // style(cmpPart){
+      //    console.log('In binding style:', cmpPart);
+      //    const currStyle=this.titleStyle.find(obj=>{
+      //        if(obj.cmpPartName===cmpPart) return obj;
+      //    })
+      //    console.log('in style binding', currStyle.cmpPartName, currStyle.style);
+
+      // }
     }, 
   computed: {
     titleData() {
       return this.$store.getters.getData;
-    }
-  }
+    },
+    titleStyle(){
+      return this.$store.getters.getuserStyle;
+    },
+    styleInvaitorName(){
+      console.log(this.titleStyle[0].style.color);
+        color: this.titleStyle[0].style.color
+       }
+       
+}
+
+  
 };
 </script>
 
@@ -44,8 +86,7 @@ export default {
   /* font-family: "Satisfy", cursive; */
   text-transform: uppercase;
   margin-bottom: 7px;
-    color: rgb(153, 49, 54);
-
+  color: rgb(153, 49, 54);
 }
 .event-name {
   /* padding: 18px; */
@@ -53,7 +94,7 @@ export default {
   font-weight: bold;
   display: flex;
   align-items: center;
-    color: rgb(153, 49, 54);
+  color: rgb(153, 49, 54);
 
   max-width: 300px;
 }
@@ -64,6 +105,5 @@ export default {
   max-width: 300px;
   width: 100%;
   text-align: center;
-
 }
 </style>

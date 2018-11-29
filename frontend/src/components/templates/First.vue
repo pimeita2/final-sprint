@@ -3,17 +3,16 @@
   <section class="first-template">
     <div class="edit-template-section">
       <div class="template-container" :style="userStyle.backgroundColor">
-          <div class="backgroun-frame">
-            <div class="card-container">
-              <titleCmp></titleCmp>
-              <eventDetailsCmp></eventDetailsCmp>
-              <!-- <attendingCmp></attendingCmp>
-              <social-media-cmp></social-media-cmp>-->
-            </div>
+        <div class="backgroun-frame">
+          <div class="card-container">
+            <titleCmp @connectToCmpPart="connectToCmpPart"></titleCmp>
+            <eventDetailsCmp></eventDetailsCmp>
+            <!-- <attendingCmp></attendingCmp>
+            <social-media-cmp></social-media-cmp>-->
           </div>
         </div>
       </div>
-      </div>
+    </div>
   </section>
 </template>
 
@@ -29,14 +28,20 @@ export default {
   components: {
     // imgCmp,
     titleCmp,
-    eventDetailsCmp,
+    eventDetailsCmp
     // attendingCmp,
     // mapCmp,
     // socialMediaCmp
   },
-  computed:{
-    userStyle(){
-      console.log('step1')
+  methods: {
+    connectToCmpPart(cmpPart) {
+      console.log("in first", cmpPart);
+      this.$emit("connectToCmpPart", cmpPart);
+    }
+  },
+  computed: {
+    userStyle() {
+      console.log("step1");
       return this.$store.getters.userStyle;
     }
   }
