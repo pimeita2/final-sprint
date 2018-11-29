@@ -9,23 +9,22 @@
     <textarea
       class="event-name"
       v-model="titleData.eventName"
-      :style="{titleStyle}"
+      :style="{color: this.titleStyle[1].style.color}"
       @click="connectToEditor('eventName')"
     />
     <input
       class="short-description"
       v-model="titleData.shortDescription"
-      :style="{titleStyle}"
+      :style="{color: this.titleStyle[2].style.color}"
       @click="connectToEditor('shortDescription')"
     >
-    {{titleStyle}}
   </section>
 </template>
 <script>
 export default {
-  props:{
-    data:Object
-  },
+  // props:{
+  //   data:Object
+  // },
   data() {
     return {
 
@@ -65,7 +64,7 @@ export default {
       console.log(this.titleStyle[0].style.color);
         color: this.titleStyle[0].style.color
        }
-       
+
 }
 
   

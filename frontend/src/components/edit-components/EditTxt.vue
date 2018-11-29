@@ -97,5 +97,7 @@ export default {
 
 .textColor-icon {
   margin: 5px;
+  height: 25px;
+  width: 25px;
 }
 </style>

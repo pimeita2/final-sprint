@@ -12,19 +12,19 @@ export default {
                 {
                     cmpPartName: 'invaitorName',
                     style: {
-                        color: 'blue'
+                        color: 'black'
                     }
                 },
                 {
                     cmpPartName: 'eventName',
                     style: {
-                        color: 'blue'
+                        color: 'black'
                     }
                 },
                 {
                     cmpPartName: 'shortDescription',
                     style: {
-                        color: 'blue'
+                        color: 'black'
                     }
 
                 }

@@ -7,6 +7,12 @@
           <div class="card-container">
             <titleCmp @connectToCmpPart="connectToCmpPart"></titleCmp>
             <eventDetailsCmp></eventDetailsCmp>
+            <!-- <component
+            v-for="cmp in dynamicCmps"
+            :key="cmp.id"
+            :is="cmp.type"
+            :data="cmp.data"
+            /> -->
             <!-- <attendingCmp></attendingCmp>
             <social-media-cmp></social-media-cmp>-->
           </div>
@@ -14,6 +20,7 @@
       </div>
     </div>
   </section>
+
 </template>
 
 <script>
