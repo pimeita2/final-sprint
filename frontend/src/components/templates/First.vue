@@ -5,7 +5,7 @@
       <div class="template-container" :style="userStyle.backgroundColor">
         <div class="backgroun-frame">
           <div class="card-container">
-             <title-cmp/>
+             <title-cmp @connectToCmpPart="connectToCmpPart"/>
              <eventDetailsCmp/>
              <socialMediaCmp/>
           </div>

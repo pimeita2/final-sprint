@@ -2,7 +2,7 @@
   <section>
     <div class="edit-section icon-btn">
       <div class="text-edit icon-btn" @click="showTxtMenu=true">
-        <edit-txt v-if="showTxtMenu" @close="showTxtMenu=false"  @styleTextUpdate="styleUpdate"></edit-txt>
+        <edit-txt v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt>
         <!-- :currCmpPart="currCmpPart" -->
         <h3 class="T-icon">T</h3>
         <h4 class="h4-text-edit">Text</h4>
@@ -13,9 +13,8 @@
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
-      </a>  -->
-
-        <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
+      </a>-->
+      <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate" @close="showBkgMenu=false"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
@@ -35,17 +34,19 @@
 
       <hr>
       <a class="upload-edit" @click="showUploadMenu=true">
-        <edit-upload v-if="showUploadMenu" ></edit-upload>
+        <edit-upload v-if="showUploadMenu"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
         <h4 class="h4-template-edit">upload Img</h4>
       </a>
     </div>
 
     <div class="download-section">
-      <button class="download-btn"><i class="fa fa-download"></i> Download</button>
-      <button class="download-socialMedia"><i class="arrow down"></i></button>
-
-
+      <button class="download-btn">
+        <i class="fa fa-download"></i> Download
+      </button>
+      <button class="download-socialMedia">
+        <i class="arrow down"></i>
+      </button>
     </div>
   </section>
 </template>
@@ -75,12 +76,11 @@ export default {
     };
   },
   methods: {
-    styleUpdate({field, css}) {
-      this.$store.dispatch({type:'setUserStyle', field, css})
-      console.log('im here')
-    }
+    styleUpdate({ field, css }) {
+      this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
   }
-};
+}
+}
 </script>
 
 <style>
@@ -164,18 +164,18 @@ hr {
     margin-bottom: 4px;
 } */
 
-.download-btn{
-padding: 20px;
-display:block;
-background-color:#4d4d4d;
-color: white;
-text-align:center;
-position: absolute;
-top: 10px;
-right: 60px;
-border:none;
-border-radius: 10px 0px 0px 10px;
-cursor: pointer;
+.download-btn {
+  padding: 20px;
+  display: block;
+  background-color: #4d4d4d;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  border: none;
+  border-radius: 10px 0px 0px 10px;
+  cursor: pointer;
 }
 
 .fa-download {
@@ -183,27 +183,24 @@ cursor: pointer;
 }
 
 .down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
- 
-     
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
 }
-.download-socialMedia{
+.download-socialMedia {
   padding: 22.5px;
-  display:block;
-  background-color:#4d4d4d;
-  text-align:center;
+  display: block;
+  background-color: #4d4d4d;
+  text-align: center;
   position: absolute;
   top: 10px;
   right: 10px;
-  border:none;
+  border: none;
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
-  border-left:solid white;
-
+  border-left: solid white;
 }
 </style>
