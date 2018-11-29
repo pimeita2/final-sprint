@@ -60,7 +60,8 @@ export default {
   },
   methods: {
     styleUpdate({field, css}) {
-     this.$store.dispatch({type:'setUserStyle', field, css})
+      this.$store.dispatch({type:'setUserStyle', field, css})
+      console.log('im here')
     }
   }
 };

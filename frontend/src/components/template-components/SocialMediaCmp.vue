@@ -1,25 +1,41 @@
 <template>
   <section class="contact-container">
     <div class="social-media">
+        {{data.F}}
       <a href="#" class="facebook social-media-box">
-        <img src="img/icons/F.png" alt>
+        <img :src="require(data.F)" alt>
       </a>
       <a href="#" class="twitter social-media-box">
-        <img src="img/icons/L.png" alt>
+        <img src="@/assets/L.png" alt>
       </a>
       <a href="#" class="be social-media-box">
-        <img src="img/icons/F.png" alt>
+        <img src="@/assets/f.png" alt>
       </a>
       <a href="#" class="orange social-media-box">
-        <img src="img/icons/L.png" alt>
+        <img src="@/assets/L.png" alt>
         <!-- <i class="fab fa-linkedin-in"></i> -->
       </a>
     </div>
   </section>
 </template>
+
 <script>
-export default {};
+export default {
+  props: {
+    data: Object
+  },
+  created(){
+    console.log(this.data.F);
+    
+  },
+  computed: {
+    facebook() {
+      return this.data.F
+    }
+  }
+};
 </script>
+
 <style>
 .social-media-box {
   display: inline-block;

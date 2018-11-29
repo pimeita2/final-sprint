@@ -1,22 +1,25 @@
 <template>
   <section class="event-details-container">
     <div class="event-details">
-      <p>{{date}}, {{time}}</p>
-      <p>{{address}}</p>
+      <p>{{data.date}}, {{data.time}}</p>
+      <p>{{data.address}}</p>
     </div>
   </section>
 </template>
+
 <script>
 export default {
-  data() {
-    return {
-      date: "oct 30 2018",
-      time: "20:30",
-      address: "23 magal street, rishon-lezion"
-    };
+  props:{
+    data: Object
+  },
+  methods: {
+
+  },
+  computed: {
   }
 };
 </script>
+
 <style>
 .event-details p {
   margin: 5px;

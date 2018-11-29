@@ -2,7 +2,12 @@
   <section>
     <div class="edit-bkg-section">
       <!-- MAYBE use the color picker component? -->
-      <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange">
+      <form>
+
+      <input class="bkg-picker" @change="handleChange" type="color" v-model="bgc" @click="foo"/> 
+      </form>
+            <input class="bkg-picker" @input="handleChange">
+
     </div>
   </section>
 </template>
@@ -11,17 +16,20 @@
 export default {
   data() {
     return {
-      bgc: "#FFFFFF"
+      bgc: "#ff9a90"
     };
   },
   methods: {
     handleChange() {
-      console.log('step3')
       console.log(this.bgc);
       this.$emit("styleUpdate", {
         field: "backgroundColor",
-        css: { backgroundColor: this.bgc }
+        css: { backgroundColor: this.bgc },
       });
+    },
+    foo(){
+      console.log('clicked');
+      
     }
   }
 };
