@@ -2,29 +2,31 @@
   <section class="event-description-container">
     <input
       class="invaitor-name"
-      v-model="titleData.invaitorName"
+      v-model="data.invaitorName"
       :style="{color: this.titleStyle[0].style.color}"
       @click="connectToEditor('invaitorName')"
     >
     <textarea
       class="event-name"
-      v-model="titleData.eventName"
+      v-model="data.eventName"
       :style="{color: this.titleStyle[1].style.color}"
       @click="connectToEditor('eventName')"
     />
     <input
       class="short-description"
-      v-model="titleData.shortDescription"
+      v-model="data.shortDescription"
       :style="{color: this.titleStyle[2].style.color}"
       @click="connectToEditor('shortDescription')"
     >
+
+    {{this.titleStyle}}
   </section>
 </template>
 <script>
 export default {
-  // props:{
-  //   data:Object
-  // },
+  props:{
+    data:Object
+  },
   data() {
     return {
 
@@ -53,16 +55,13 @@ export default {
       // }
     }, 
   computed: {
-    titleData() {
-      return this.$store.getters.getData;
-    },
     titleStyle(){
-      return this.$store.getters.getuserStyle;
-    },
-    styleInvaitorName(){
-      console.log(this.titleStyle[0].style.color);
-        color: this.titleStyle[0].style.color
-       }
+      return this.$store.getters.getUserStyle;
+    }
+    // styleInvaitorName(){
+    //   console.log(this.titleStyle[0].style.color);
+    //     color: this.titleStyle[0].style.color
+    //    }
 
 }
 

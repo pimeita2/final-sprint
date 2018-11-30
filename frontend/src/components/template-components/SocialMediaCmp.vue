@@ -1,9 +1,9 @@
 <template>
   <section class="contact-container">
     <div class="social-media">
-        {{data.F}}
+        <!-- {{data.F}} -->
       <a href="#" class="facebook social-media-box">
-        <img :src="require(data.F)" alt>
+        <!-- <img :src="require(data.F)" alt> -->
       </a>
       <a href="#" class="twitter social-media-box">
         <img src="@/assets/L.png" alt>

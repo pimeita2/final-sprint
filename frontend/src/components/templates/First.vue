@@ -2,18 +2,26 @@
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <div class="template-container" :style="userStyle.backgroundColor">
+      <div class="template-container" :style="getUserStyle[getUserStyle.length-1].backgroundColor">
         <div class="backgroun-frame">
           <div class="card-container">
-             <title-cmp @connectToCmpPart="connectToCmpPart"/>
-             <eventDetailsCmp/>
-             <socialMediaCmp/>
+            <!-- <title-cmp/> -->
+            <component
+              @connectToCmpPart="connectToCmpPart"
+              v-for="cmp in dynamicCmps"
+              :key="cmp.id"
+              :is="cmp.type"
+              :data="cmp.data"
+            />
           </div>
         </div>
       </div>
     </div>
-  </section>
 
+    {{dynamicCmps}}
+
+    {{ getUserStyle}}
+  </section>
 </template>
 
 <script>
@@ -40,11 +48,14 @@ export default {
     }
   },
   computed: {
-    userStyle() {
-      console.log("step1");
-      return this.$store.getters.userStyle;
-    },
-    dynamicCmps(){
+    // userStyleBackground() {
+    //   console.log("step1");
+    //   return this.$store.getters.userStyleBackground;
+    // },
+    getUserStyle(){
+        return this.$store.getters.getUserStyle;
+   },
+    dynamicCmps() {
       return this.$store.getters.dynamicCmps;
     }
   }
