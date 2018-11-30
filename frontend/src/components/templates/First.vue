@@ -2,7 +2,7 @@
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <div class="template-container" :style="userStyle.backgroundColor">
+      <div class="template-container" :style="userStyle.background">
           <div class="backgroun-frame">
             <div class="card-container">
               <titleCmp></titleCmp>
@@ -46,6 +46,8 @@ export default {
 <style>
 .template-container {
   background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
+  background-repeat: no-repeat;
+  background-size: 600px 600px;
   display: flex;
   width: 400px;
   height: 560px;

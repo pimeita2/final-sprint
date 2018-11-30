@@ -35,7 +35,7 @@
 
       <hr>
       <a class="upload-edit" @click="showUploadMenu=true">
-        <edit-upload v-if="showUploadMenu" ></edit-upload>
+        <edit-upload v-if="showUploadMenu"  @styleUpdate="styleUpdate"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
         <h4 class="h4-template-edit">upload Img</h4>
       </a>
@@ -53,8 +53,9 @@
 <script>
 // import templateService from '../services/templateService.js'
 import editBkg from "@/components/edit-components/EditBkg.vue";
-import editUpload from "@/components/edit-components/EditUpload.vue";
+import editUpload from "@/components/edit-components/EditUploadBgc.vue";
 import editTxt from "@/components/edit-components/EditTxt.vue";
+// import templateEditor from  '././css/templateEditor.css';
 
 export default {
   components: {
@@ -149,12 +150,12 @@ hr{
   border: none;
   color: rgb(182, 159, 159);
 }
-/* .delete-edit{
+.delete-edit{
     background:none;
     border:none;
     color:rgb(182, 159, 159);
     margin-bottom: 4px;
-} */
+}
 
 .download-btn{
 padding: 20px;
@@ -197,5 +198,5 @@ cursor: pointer;
   cursor: pointer;
   border-left:solid white;
 
-}
+} 
 </style>

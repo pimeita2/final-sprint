@@ -24,7 +24,7 @@ export default {
       console.log('step3')
       console.log(this.bgc);
       this.$emit("styleUpdate", {
-        field: "backgroundColor",
+        field: "background",
         css: { backgroundColor: this.bgc }
       });
     }

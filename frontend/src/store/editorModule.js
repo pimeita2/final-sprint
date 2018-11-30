@@ -1,8 +1,9 @@
 export default {
     state: {
         userStyle: {
-            backgroundColor: {
-                backgroundColor: '#ff9a90'
+            background: {
+                backgroundColor: '#ff9a90',
+                backgroundImage: ``,
             }
         }
     },
@@ -12,12 +13,14 @@ export default {
     mutations: {
         setUserStyle(state, { field, css }) {
             state.userStyle[field] = css;
+            console.log(state.userStyle.background)
         }
     },
 
     actions: {
         setUserStyle(context, { field, css }) {
             console.log(field, 'field')
+            console.log(css , "css")
             context.commit({ type: 'setUserStyle', field, css })
         }
     },
