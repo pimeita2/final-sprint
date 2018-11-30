@@ -19,10 +19,6 @@
       @click="connectToEditor('shortDescription')"
     >
 
-<<<<<<< HEAD
-    {{this.titleStyle}}
-=======
->>>>>>> 6c713515d31db5da72b2d281ffcdf5004d6647e1
   </section>
 </template>
 <script>
@@ -60,19 +56,11 @@ export default {
   computed: {
     titleStyle(){
       return this.$store.getters.getUserStyle;
-<<<<<<< HEAD
     }
     // styleInvaitorName(){
     //   console.log(this.titleStyle[0].style.color);
     //     color: this.titleStyle[0].style.color
     //    }
-=======
-    },
-    styleInvaitorName(){
-      console.log(this.titleStyle[0].style.color);
-        color: this.titleStyle[0].style.color
-       }
->>>>>>> 6c713515d31db5da72b2d281ffcdf5004d6647e1
 
 }
 
