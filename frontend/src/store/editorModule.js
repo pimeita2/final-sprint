@@ -29,26 +29,24 @@ export default {
         ]
     },
 
-
-
     mutations: {
-        // setBackground(state, { field, css }) {
-        //     state.userStyle[field] = css;
-        // },
+        setBackground(state, { field, css }) {
+            state.userStyle[field] = css;
+        },
         setUserStyle(state, { field, css, currCmpPart }) {
-            console.log('set user style has', field, css, currCmpPart, 'and in state', state.templateCmps[0].userStyle);
-            state.templateCmps[0].userStyle.map(obj => {
+            console.log('set user style has', field, css, currCmpPart, 'and in state', state.userStyle);
+            state.userStyle.map(obj => {
                 if (obj.cmpPartName === currCmpPart) obj.style[field] = css[field];
-                console.log('in state', state.templateCmps[0].userStyle);
+                console.log('in state', state.userStyle);
             })
             console.log('new user style pref:', state.userStyle);
         }
     },
 
     actions: {
-        // setBackgroundStyle(context, { field, css }) {
-        //     context.commit({ type: 'setUserStyle', field, css })
-        // },
+        setBackgroundStyle(context, { field, css }) {
+            context.commit({ type: 'setUserStyle', field, css })
+        },
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
             console.log(field, 'field')
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
@@ -64,3 +62,37 @@ export default {
         },
     }
 }
+
+//     mutations: {
+//         // setBackground(state, { field, css }) {
+//         //     state.userStyle[field] = css;
+//         // },
+//         setUserStyle(state, { field, css, currCmpPart }) {
+//             console.log('set user style has', field, css, currCmpPart, 'and in state', state.templateCmps[0].userStyle);
+//             state.templateCmps[0].userStyle.map(obj => {
+//                 if (obj.cmpPartName === currCmpPart) obj.style[field] = css[field];
+//                 console.log('in state', state.templateCmps[0].userStyle);
+//             })
+//             console.log('new user style pref:', state.userStyle);
+//         }
+//     },
+
+//     actions: {
+//         // setBackgroundStyle(context, { field, css }) {
+//         //     context.commit({ type: 'setUserStyle', field, css })
+//         // },
+//         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
+//             console.log(field, 'field')
+//             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
+//         }
+//     },
+
+//     getters: {
+//         // userStyleBackground(state) {
+//         //     return state.userStyle.backgroundColor;
+//         // },
+//         getUserStyle(state) {
+//             return state.userStyle;
+//         },
+//     }
+// }

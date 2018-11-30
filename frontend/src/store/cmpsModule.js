@@ -44,4 +44,3 @@ export default {
     //         state.currentIdx = idx;
     //     }
     // },
-

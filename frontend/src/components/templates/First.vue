@@ -1,4 +1,3 @@
-
 <template>
   <section class="first-template">
     <div class="edit-template-section">
@@ -18,9 +17,6 @@
       </div>
     </div>
 
-    {{dynamicCmps}}
-
-    {{ getUserStyle}}
   </section>
 </template>
 
