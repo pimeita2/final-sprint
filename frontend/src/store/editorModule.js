@@ -4,31 +4,69 @@ export default {
             background: {
                 backgroundColor: '#ff9a90',
                 backgroundImage: ``,
+        userStyle: [
+            {
+                cmpPartName: 'invaitorName',
+                style: {
+                    color: 'black'
+                }
+            },
+            {
+                cmpPartName: 'eventName',
+                style: {
+                    color: 'black'
+                }
+            },
+            {
+                cmpPartName: 'shortDescription',
+                style: {
+                    color: 'black'
+                }
+
+            },
+            {
+                backgroundColor: {
+                    backgroundColor: '#ff9a90'
+                }
             }
-        }
+
+        ]
     },
 
-    
+
 
     mutations: {
-        setUserStyle(state, { field, css }) {
+        setBackground(state, { field, css }) {
             state.userStyle[field] = css;
-            console.log(state.userStyle.background)
+        },
+        setUserStyle(state, { field, css, currCmpPart }) {
+            console.log('set user style has', field, css, currCmpPart, 'and in state', state.userStyle);
+            state.userStyle.map(obj => {
+                if (obj.cmpPartName === currCmpPart) obj.style[field] = css[field];
+                console.log('in state', state.userStyle);
+            })
+            console.log('new user style pref:', state.userStyle);
         }
     },
 
     actions: {
-        setUserStyle(context, { field, css }) {
-            console.log(field, 'field')
-            console.log(css , "css")
+        setBackgroundStyle(context, { field, css }) {
             context.commit({ type: 'setUserStyle', field, css })
+        },
+        setUserStyleOfCmp(context, { field, css, currCmpPart }) {
+            console.log(field, 'field')
+            context.commit({ type: 'setUserStyle', field, css, currCmpPart })
         }
     },
 
     getters: {
-        userStyle(state) {
-            console.log('step 2, state:', state);
+        // userStyleBackground(state) {
+        //     return state.userStyle.backgroundColor;
+        // },
+        getUserStyle(state) {
             return state.userStyle;
-        }
+        },
     }
+}
+}
 }

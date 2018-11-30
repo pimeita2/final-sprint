@@ -1,29 +1,32 @@
-
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <div class="template-container" :style="userStyle.background">
-          <div class="backgroun-frame">
-            <div class="card-container">
-              <titleCmp></titleCmp>
-              <eventDetailsCmp></eventDetailsCmp>
-              <!-- <attendingCmp></attendingCmp>
-              <social-media-cmp></social-media-cmp>-->
-            </div>
+      <div class="template-container" :style="getUserStyle[getUserStyle.length-1].backgroundColor,userStyle.background">
+        <div class="backgroun-frame">
+          <div class="card-container">
+            <!-- <title-cmp/> -->
+            <component
+              @connectToCmpPart="connectToCmpPart"
+              v-for="cmp in dynamicCmps"
+              :key="cmp.id"
+              :is="cmp.type"
+              :data="cmp.data"
+            />
           </div>
         </div>
       </div>
-            
+    </div>
+
   </section>
 </template>
 
 <script>
-// import imgCmp from "./components/template-components/AttendingCmp.vue";
+// import imgCmp from "@/components/template-components/ImgCmp.vue";
 import titleCmp from "@/components/template-components/TitleCmp.vue";
 import eventDetailsCmp from "@/components/template-components/EventDetalisCmp.vue";
-// import attendingCmp from "../components/template-components/AttendigCmp.vue";
-// import mapCmp from "../components/template-components/MapCmp.vue";
-// import socialMediaCmp from "../components/template-components/SocialMediaCmp.vue";
+// import attendingCmp from "@/components/template-components/AttendigCmp.vue";
+// import mapCmp from "@/components/template-components/MapCmp.vue";
+import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue";
 
 export default {
   components: {
@@ -32,12 +35,24 @@ export default {
     eventDetailsCmp,
     // attendingCmp,
     // mapCmp,
-    // socialMediaCmp
+    socialMediaCmp
   },
-  computed:{
-    userStyle(){
-      console.log('step1')
-      return this.$store.getters.userStyle;
+  methods: {
+    connectToCmpPart(cmpPart) {
+      console.log("in first", cmpPart);
+      this.$emit("connectToCmpPart", cmpPart);
+    }
+  },
+  computed: {
+    // userStyleBackground() {
+    //   console.log("step1");
+    //   return this.$store.getters.userStyleBackground;
+    // },
+    getUserStyle(){
+        return this.$store.getters.getUserStyle;
+   },
+    dynamicCmps() {
+      return this.$store.getters.dynamicCmps;
     }
   }
 };
