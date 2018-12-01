@@ -9,19 +9,23 @@ export default {
             {
                 cmpPartName: 'invaitorName',
                 style: {
-                    color: 'black'
+                    color: 'black',
+                    textAlign:'center'
                 }
             },
             {
                 cmpPartName: 'eventName',
                 style: {
-                    color: 'black'
+                    color: 'black',
+                    textAlign:'center'
+
                 }
             },
             {
                 cmpPartName: 'shortDescription',
                 style: {
-                    color: 'black'
+                    color: 'black',
+                    textAlign:'center'
                 }
 
             },
@@ -43,12 +47,10 @@ export default {
             state.userStyle[state.userStyle.length-1].background = css;
         },
         setUserStyle(state, { field, css, currCmpPart }) {
-            // console.log('set user style has', field, css, currCmpPart, 'and in state', state.userStyle);
             state.userStyle.map(obj => {
                 if (obj.cmpPartName === currCmpPart) obj.style[field] = css[field];
-                // console.log('in state', state.userStyle);
             })
-            // console.log('new user style pref:', state.userStyle);
+            console.log('set user style has', field, css, currCmpPart, 'and in state', state.userStyle);
         }
     },
 
@@ -58,7 +60,7 @@ export default {
             context.commit({ type: 'setBackground', field, css })
         },
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
-            // console.log(field, 'field')
+            console.log(' setUserStyleOfCmp', field, css, currCmpPart);
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
         }
     },

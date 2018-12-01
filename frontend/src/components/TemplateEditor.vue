@@ -78,6 +78,7 @@ export default {
   },
   methods: {
     styleUpdate({ field, css }) {
+      console.log('in template editor', field, css)
      this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
      if(field==='background') this.$store.dispatch({ type: "setBackgroundStyle", field, css});
  }
@@ -97,6 +98,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+   
 }
 
 .T-icon {

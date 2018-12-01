@@ -1,7 +1,24 @@
 <template>
   <section class="edit-txt-section" @connectToCmpPart="connectToCmpPart">
-    <p @click="handleAlignment" class="align-icon">&#x25A8;</p>
-    <p @click="handleFont" class="font-icon">&#x25A8;</p>
+    <p @click="handleAlignment" class="align-icon">
+      <img src="../../assets/align-left.svg" @click.stop="handleAlignment('left')" alt="align left">
+      <img
+        src="../../assets/align-center.png"
+        @click.stop="handleAlignment('center')"
+        alt="align center"
+      >
+      <img src="../../assets/align-right.png" @click.stop="handleAlignment('right')" alt="align right">
+    </p>
+    <p @click="handleFont" class="font-icon">
+     <img src="../../assets/fonts.png" alt="font" >
+      <select  @click="handleAlignment">
+        <option value="font" disable-selection>font</option>
+        <option value="coral">coral</option>
+        <option value="arial">arial</option>
+        <option value="david">david</option>
+        <option value="cursive">cursive</option>
+     </select>
+    </p>
     <!-- <p @click="handleColor" class="textColor-icon"> -->
     <!-- <img src="../../assets/textColor.png"> -->
     <input
@@ -12,39 +29,46 @@
       @click="clicked"
     >
     <!-- </p> -->
-    <p @click="handleSize" class="textSize-icon">&#x25A8;</p>
+    <p @click="handleSize" class="textSize-icon">
+      <img src="../../assets/biger.png" alt="text size">
+      <img src="../../assets/small.png" alt="text size">
+    </p>
   </section>
 </template>
 
 
 <script>
 export default {
-    props:['currCmpPart'],
+  props: ["currCmpPart"],
   data() {
     return {
-      align: "center",
-      fontFamily: "arial",
+      // align: "center",
+      // fontFamily: "arial",
       color: "#FFFFFF",
-      fontSize: 16
+      fontSize: 16,
+      show:true
     };
   },
-  created(){
+  created() {
     //  console.log('in edit txt we work on', this.currCmpPart);
   },
   methods: {
     connectToCmpPart(cmpPart) {
-        console.log('connect to', cmpPart)
+      console.log("connect to", cmpPart);
     },
-    handleAlignment() {
+    handleAlignment(align) {
+      console.log('handleAlignment', align);
       this.$emit("styleTextUpdate", {
         field: "textAlign",
-        css: { textAlign: this.align }
+        css: { textAlign: align }
       });
     },
-    handleFont() {
+    handleFont(event) {
+      const fontSelected=event.target.value;
+      console.log('font chosen', fontSelected);
       this.$emit("styleTextUpdate", {
         field: "fontFamily",
-        css: { fontFamily: this.fontFamily }
+        css: { fontFamily: fontSelected }
       });
     },
     clicked() {
@@ -73,9 +97,9 @@ export default {
   display: flex;
   flex-direction: row;
   position: fixed;
-  left: 118px;
+  left: 130px;
   top: 130px;
-  width: 20%;
+  /* width: 20%; */
   height: 12%;
   overflow: auto;
   background-color: #4d4d4d;
@@ -91,8 +115,19 @@ export default {
 .font-icon,
 .textColor-icon,
 .textSize-icon {
-  margin: 20px;
+  margin: 15px;
   border-radius: 3px;
+  cursor: pointer;
+}
+
+.textSize-icon img {
+  margin: 0 10px;
+}
+
+.align-icon img {
+  height: 25px;
+  width: 25px;
+  margin: 0 10px;
 }
 
 .textColor-icon {
