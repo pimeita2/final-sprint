@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -50,6 +49,7 @@ export default {
     getUserStyle(){
         return this.$store.getters.getUserStyle;
    },
+
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
     }
@@ -60,6 +60,8 @@ export default {
 <style>
 .template-container {
   background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
+  background-repeat: no-repeat;
+  background-size: 600px 600px;
   display: flex;
   width: 400px;
   height: 560px;

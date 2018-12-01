@@ -1,2 +1,8 @@
 @import 'formReset.css';
 
+
+
+/* Edit component */
+@import url('edit-template/templateEditor.css');
+@import url("edit-template/editBkg.css");
+

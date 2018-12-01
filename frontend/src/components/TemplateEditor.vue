@@ -56,6 +56,7 @@
 import editBkg from "@/components/edit-components/EditBkg.vue";
 import editUpload from "@/components/edit-components/EditUploadBgc.vue";
 import editTxt from "@/components/edit-components/EditTxt.vue";
+// import templateEditor from  '././css/templateEditor.css';
 
 export default {
   components: {
@@ -158,12 +159,12 @@ hr {
   border: none;
   color: rgb(182, 159, 159);
 }
-/* .delete-edit{
+.delete-edit{
     background:none;
     border:none;
     color:rgb(182, 159, 159);
     margin-bottom: 4px;
-} */
+}
 
 .download-btn {
   padding: 20px;
@@ -202,6 +203,7 @@ hr {
   border: none;
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
-  border-left: solid white;
-}
+  border-left:solid white;
+} 
+
 </style>

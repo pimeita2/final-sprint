@@ -1,5 +1,10 @@
 export default {
     state: {
+        // userStyle: {
+        //     background: {
+        //         backgroundColor: '#ff9a90',
+        //         backgroundImage: ``,
+            
         userStyle: [
             {
                 cmpPartName: 'invaitorName',
@@ -27,8 +32,8 @@ export default {
                 }
             }
 
-        ]
-    },
+        ]},
+    // },
 
 
 
@@ -67,3 +72,5 @@ export default {
         },
     }
 }
+// }
+// }
