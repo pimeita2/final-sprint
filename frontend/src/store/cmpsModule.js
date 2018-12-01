@@ -10,7 +10,6 @@ export default {
                 eventName: 'Get your dance on',
                 shortDescription: 'learn how to dance in three simple steps'
             },
-    
         },
         {
             id: 1,
@@ -27,9 +26,21 @@ export default {
             type: 'socialMediaCmp',
             isEdit: true,
             data: {
-                F: '@/assets/f.png'
+                F: '@/assets/f.png',
+                L: '',
+                T: '',
+                I: ''
+
             }
-        }
+        },
+        {
+            id: 3,
+            type: 'attendingCmp',
+            isEdit: true,
+            data: {
+                
+            }
+        },
 
         ],
     },

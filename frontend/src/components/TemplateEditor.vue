@@ -14,7 +14,7 @@
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
       </a>-->
-    <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
+      <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate" @close="showBkgMenu=false"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
@@ -33,7 +33,7 @@
       </div>
 
       <hr>
-       <a class="upload-edit" @click="showUploadMenu=true">
+      <a class="upload-edit" @click="showUploadMenu=true">
         <edit-upload v-if="showUploadMenu"  @styleUpdate="styleUpdate"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
         <h4 class="h4-template-edit">upload Img</h4>

@@ -8,6 +8,7 @@
               fontFamily:this.titleStyle[0].style.fontFamily}"
 
       @click="connectToEditor('invaitorName')"
+      @input="updateInvaitorName($event)"
     >
     <textarea
       class="event-name"
@@ -16,6 +17,7 @@
               textAlign:this.titleStyle[1].style.textAlign,
               fontFamily:this.titleStyle[1].style.fontFamily}"
       @click="connectToEditor('eventName')"
+      @input="updateEventName($event)"
     />
     <input
       class="short-description"
@@ -24,57 +26,61 @@
               textAlign:this.titleStyle[2].style.textAlign,
               fontFamily:this.titleStyle[2].style.fontFamily}"
       @click="connectToEditor('shortDescription')"
+      @input="updateShortDescription($event)"
     >
-
   </section>
 </template>
 <script>
+import templateService from "@/services/templateService.js";
+import userLogin from "@/components/UserLogin.vue";
+
 export default {
-  props:{
-    data:Object
+  props: {
+    data: Object
   },
   data() {
-    return {
-
-        }
-    
+    return {};
   },
-  created() {
-    console.log();
-    //  @blur="updateInvaitorName"
-    //   @blur="updateEventName"
-    //    @blur="updateShortDescription"
-
+  created() {},
+  methods: {
+    connectToEditor(cmpPart) {
+      console.log("in connect to editor", cmpPart);
+      this.$emit("connectToCmpPart", cmpPart);
+    },
+    updateInvaitorName(ev) {
+      var newInvaitorName = ev.target.value;
+      console.log(newInvaitorName);
+      // this.$store.dispatch({ : "" });// changing to is edit true
+      templateService.saveData(newInvaitorName);
+    },
+    updateEventName(ev) {
+      var newInvaitorName = ev.target.value;
+      templateService.saveData(newInvaitorName);
+    },
+    updateShortDescription(ev){
+      var newShortDescription = ev.target.value;
+      templateService.saveData(newShortDescription);
+    }
+    // style(cmpPart){
+    //    console.log('In binding style:', cmpPart);
+    //    const currStyle=this.titleStyle.find(obj=>{
+    //        if(obj.cmpPartName===cmpPart) return obj;
+    //    })
+    //    console.log('in style binding', currStyle.cmpPartName, currStyle.style);
+    // }
   },
-    methods: {
-      connectToEditor(cmpPart){
-        console.log('in connect to editor', cmpPart);
-        this.$emit("connectToCmpPart", cmpPart);
-      },
-      // style(cmpPart){
-      //    console.log('In binding style:', cmpPart);
-      //    const currStyle=this.titleStyle.find(obj=>{
-      //        if(obj.cmpPartName===cmpPart) return obj;
-      //    })
-      //    console.log('in style binding', currStyle.cmpPartName, currStyle.style);
-
-      // }
-    }, 
   computed: {
-    titleData() {
-      return this.$store.getters.getData;
-    },
-    titleStyle(){
+    titleStyle() {
       return this.$store.getters.getUserStyle;
-    },
-    styleInvaitorName(){
-      console.log(this.titleStyle[0].style.color);
-        color: this.titleStyle[0].style.color
-       }
-
-}
-
-  
+    }
+    // styleInvaitorName(){
+    //   console.log(this.titleStyle[0].style.color);
+    //     color: this.titleStyle[0].style.color
+    //    }
+  },
+  components: {
+    templateService
+  }
 };
 </script>
 
