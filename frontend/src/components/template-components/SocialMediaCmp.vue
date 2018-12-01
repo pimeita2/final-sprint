@@ -1,9 +1,11 @@
 <template>
   <section class="contact-container">
     <div class="social-media">
-        <!-- {{data.F}} -->
       <a href="#" class="facebook social-media-box">
         <!-- <img :src="require(data.F)" alt> -->
+                <img src="@/assets/f.png" alt>
+        <!-- <i class="fas fa-stroopwafel"></i> -->
+
       </a>
       <a href="#" class="twitter social-media-box">
         <img src="@/assets/L.png" alt>
@@ -24,13 +26,12 @@ export default {
   props: {
     data: Object
   },
-  created(){
+  created() {
     console.log(this.data.F);
-    
   },
   computed: {
     facebook() {
-      return this.data.F
+      return this.data.F;
     }
   }
 };
@@ -43,7 +44,7 @@ export default {
   height: 30px;
   text-align: center;
   line-height: 30px;
-  margin: 0 10px;
+  margin: 20px 10px;
   background-color: rgb(187, 185, 185);
   transition: background-color 0.5s;
 }

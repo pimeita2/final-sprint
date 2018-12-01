@@ -27,7 +27,11 @@ export default {
             type: 'socialMediaCmp',
             isEdit: true,
             data: {
-                F: '@/assets/f.png'
+                F: '@/assets/f.png',
+                L: '',
+                T: '',
+                I: ''
+
             }
         }
 
