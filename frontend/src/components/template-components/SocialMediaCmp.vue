@@ -3,9 +3,8 @@
     <div class="social-media">
       <a href="#" class="facebook social-media-box">
         <!-- <img :src="require(data.F)" alt> -->
-                <img src="@/assets/f.png" alt>
+        <img src="@/assets/f.png" alt>
         <!-- <i class="fas fa-stroopwafel"></i> -->
-
       </a>
       <a href="#" class="twitter social-media-box">
         <img src="@/assets/L.png" alt>
@@ -53,4 +52,3 @@ export default {
   background-color: #516fad;
 }
 </style>
-
