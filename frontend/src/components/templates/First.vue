@@ -43,7 +43,7 @@ export default {
     }
   },
   computed: {
-     userStyleBackground() {
+    userStyleBackground() {
       return this.$store.getters.userStyleBackground;
     },
     getUserStyle(){

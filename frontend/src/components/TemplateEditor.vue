@@ -14,7 +14,7 @@
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
       </a>-->
-      <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
+    <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate" @close="showBkgMenu=false"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
@@ -33,7 +33,11 @@
       </div>
 
       <hr>
+<<<<<<< HEAD
       <a class="upload-edit" @click="showUploadMenu=true">
+=======
+       <a class="upload-edit" @click="showUploadMenu=true">
+>>>>>>> f05e3f5a5ce71aebe8cbd6259789a2d74e3bceaf
         <edit-upload v-if="showUploadMenu"  @styleUpdate="styleUpdate"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
         <h4 class="h4-template-edit">upload Img</h4>
@@ -78,9 +82,15 @@ export default {
   },
   methods: {
     styleUpdate({ field, css }) {
+<<<<<<< HEAD
       console.log('in template editor', field, css);
       this.$store.dispatch({ type: "setBackgroundStyle", field, css});
   }
+=======
+     this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
+     if(field==='background') this.$store.dispatch({ type: "setBackgroundStyle", field, css});
+ }
+>>>>>>> f05e3f5a5ce71aebe8cbd6259789a2d74e3bceaf
 }
 }
 </script>
