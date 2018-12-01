@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     handleChange() {
-     
       this.$emit("styleUpdate", {
         field: "background",
         css: { backgroundColor: this.bgc }

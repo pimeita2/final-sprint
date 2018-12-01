@@ -78,7 +78,8 @@ export default {
   },
   methods: {
     styleUpdate({ field, css }) {
-      this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
+      console.log('in template editor', field, css);
+      this.$store.dispatch({ type: "setBackgroundStyle", field, css});
   }
 }
 }

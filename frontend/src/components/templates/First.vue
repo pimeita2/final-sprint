@@ -1,7 +1,7 @@
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <div class="template-container" :style="getUserStyle[getUserStyle.length-1].background">
+      <div class="template-container" :style="userStyleBackground">
         <div class="backgroun-frame">
           <div class="card-container">
             <!-- <title-cmp/> -->
@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -44,13 +43,13 @@ export default {
     }
   },
   computed: {
-    // userStyleBackground() {
-    //   console.log("step1");
-    //   return this.$store.getters.userStyleBackground;
-    // },
+     userStyleBackground() {
+      return this.$store.getters. userStyleBackground;
+    },
     getUserStyle(){
         return this.$store.getters.getUserStyle;
    },
+
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
     }
