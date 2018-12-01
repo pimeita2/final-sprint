@@ -34,7 +34,7 @@
 
       <hr>
       <a class="upload-edit" @click="showUploadMenu=true">
-        <edit-upload v-if="showUploadMenu"></edit-upload>
+        <edit-upload v-if="showUploadMenu"  @styleUpdate="styleUpdate"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
         <h4 class="h4-template-edit">upload Img</h4>
       </a>
@@ -54,13 +54,14 @@
 <script>
 // import templateService from '../services/templateService.js'
 import editBkg from "@/components/edit-components/EditBkg.vue";
-import editUploadImg from "@/components/edit-components/EditUploadImg.vue";
+import editUpload from "@/components/edit-components/EditUploadBgc.vue";
 import editTxt from "@/components/edit-components/EditTxt.vue";
+// import templateEditor from  '././css/templateEditor.css';
 
 export default {
   components: {
     editBkg,
-    editUploadImg,
+    editUpload,
     editTxt
   },
   props: ['currCmpPart'],
@@ -77,7 +78,8 @@ export default {
   },
   methods: {
     styleUpdate({ field, css }) {
-      this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
+      console.log('in template editor', field, css);
+      this.$store.dispatch({ type: "setBackgroundStyle", field, css});
   }
 }
 }
@@ -157,12 +159,12 @@ hr {
   border: none;
   color: rgb(182, 159, 159);
 }
-/* .delete-edit{
+.delete-edit{
     background:none;
     border:none;
     color:rgb(182, 159, 159);
     margin-bottom: 4px;
-} */
+}
 
 .download-btn {
   padding: 20px;
@@ -201,6 +203,7 @@ hr {
   border: none;
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
-  border-left: solid white;
-}
+  border-left:solid white;
+} 
+
 </style>
