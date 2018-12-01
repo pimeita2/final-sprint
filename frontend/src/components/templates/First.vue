@@ -44,7 +44,7 @@ export default {
   },
   computed: {
      userStyleBackground() {
-      return this.$store.getters. userStyleBackground;
+      return this.$store.getters.userStyleBackground;
     },
     getUserStyle(){
         return this.$store.getters.getUserStyle;
