@@ -1,10 +1,10 @@
 <template>
   <section>
     <div class="edit-upload-section">
-      <input type="file" style="display:none" ref="fileInput" accept="image/*" @change="onFilePicked">
+      <input type="file" style="display:none" ref="fileInput" accept="image/*" @change="onFilePicked " >
+
       <button class="uploadImg-btn" @click="onPickFile">Upload An Image</button>
     </div>
-    <img :src="imageUrl" height="150">
   </section>
 </template>
 
@@ -12,9 +12,10 @@
 export default {
   data() {
     return {
-        image:null,
+        image:'',
         imageUrl:'',
-        name:''
+        name:'',
+        bgcImage:""
     };
   },
   methods: {
@@ -30,14 +31,16 @@ export default {
           const fileReader = new FileReader()
           fileReader.addEventListener('load',() =>{
               this.imageUrl = fileReader.result
+               this.$emit("styleUpdate", {
+                field: "background",
+                css: { backgroundImage: 'url('+this.imageUrl+')' }
+      });
             //   console.log('this.imageUrl:' , this.imageUrl)
           })
           fileReader.readAsDataURL(files[0]) 
           this.image=files[0]
         console.log('this.imageUrl:' , this.image)
-
-      },
-  
+      }
   }
 };
 </script>

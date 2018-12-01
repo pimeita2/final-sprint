@@ -14,7 +14,7 @@
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
       </a>-->
-      <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
+    <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate" @close="showBkgMenu=false"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
@@ -33,8 +33,8 @@
       </div>
 
       <hr>
-      <a class="upload-edit" @click="showUploadMenu=true">
-        <edit-upload v-if="showUploadMenu"></edit-upload>
+       <a class="upload-edit" @click="showUploadMenu=true">
+        <edit-upload v-if="showUploadMenu"  @styleUpdate="styleUpdate"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
         <h4 class="h4-template-edit">upload Img</h4>
       </a>
@@ -54,7 +54,7 @@
 <script>
 // import templateService from '../services/templateService.js'
 import editBkg from "@/components/edit-components/EditBkg.vue";
-import editUpload from "@/components/edit-components/EditUpload.vue";
+import editUpload from "@/components/edit-components/EditUploadBgc.vue";
 import editTxt from "@/components/edit-components/EditTxt.vue";
 
 export default {
@@ -77,8 +77,9 @@ export default {
   },
   methods: {
     styleUpdate({ field, css }) {
-      this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
-  }
+     this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
+     if(field==='background') this.$store.dispatch({ type: "setBackgroundStyle", field, css});
+ }
 }
 }
 </script>
