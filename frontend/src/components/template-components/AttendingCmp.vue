@@ -1,70 +1,126 @@
 <template>
   <section class="attending-container">
-    <div class="attending">
-      <h3 class="attending-title">attending</h3>
-      <p class="attending-sub-title">how many guests</p>
-      <button class="add">+</button>
-      <input class="counter-view">
-      <button class="reduce">-</button>
+    
+      <h3 class="attending-title">Attending</h3>
+      <p class="attending-sub-title">How many guests are comming?</p>
+      <div class="incomingPepole">
+      <button class="addPeople" @click="addMorePepole">+</button>
+      <div class="pepoleCountSpan">{{pepoleCount}}</div>
+      <button class="reducePepole" @click="lessPepole">-</button>
+      </div>
       <br>
-      <input class="guests-name" type="text" placeholder="full name" required>
-      <input class="guests-mobile" type="number" placeholder="mobile num" required>
+
+      <input class="guests-name" type="text" placeholder="Enter your full name please" required>
+      <input class="guests-mobile" type="text" placeholder="Enter your mobile number please" required>
       <br>
+      
       <button class="btn-attending btn-ariving">ariving</button>
       <button class="btn-attending btn-not-ariving">not ariving</button>
-    </div>
+    
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    data:Object
+  },
+  data(){
+    return {
+    pepoleCount:0,
+    
+    }
+  },
+    methods: {
+    addMorePepole() {
+      this.pepoleCount++;
+    },
+    lessPepole() {
+      this.pepoleCount--;
+      if (this.pepoleCount<0)return this.pepoleCount=0;
+    },
+
+    }
+};
+
+
 </script>
 
 
 <style>
-.attending {
-  margin: 10px;
-}
-.attending h3 {
+.attending-title {
   margin: 16px 0 0 0;
 }
-.attending p {
+.attending-sub-title {
   margin: 3px;
   font-size: 12px;
 }
 .counter-view {
   width: 30px;
 }
-.guests-name {
-  margin: 5px 10px 0 0;
-  width: 120px;
-  background-color: rgba(250, 250, 250, 0.699);
-  color: grey;
+.addPeople, .reducePepole{
+  border-radius: 50%;
+  background: #F08080;
+  color:white;
+  padding:8px;
+  cursor: pointer;
 }
-.guests-mobile {
-  margin: 5px 10px 10px 0;
-  width: 120px;
-  background-color: rgba(250, 250, 250, 0.699);
-  color: grey;
+.pepoleCountSpan{
+  background: #D3D3D3;
+  color:black;
+  height: 25px;
+  width: 50px;
+}
+
+.incomingPepole{
+  display:flex;
+  justify-content: center;
+  margin:5px;
+}
+
+input.guests-name {
+    text-align: center;
+    border: gray;
+    border-radius: 10px;
+    width: 70%;
+    margin:0;
+}
+input.guests-mobile {
+    text-align: center;
+    border: gray;
+    border-radius: 15px;
+    width: 70%;
+    padding:5px;
+    margin:5px;
+  
 }
 .btn-attending {
-  /* margin: 8px; */
   border: none;
   color: white;
-  background-color: rgb(153, 49, 54);
   padding: 6px 3px;
   text-align: center;
   display: inline-block;
   font-size: 14px;
-  margin: 10px 2px;
+  margin: 0 2px;
   transition-duration: 0.4s;
   cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
+  border-radius: 10px;
 }
-.btn-attending:hover {
-  background-color: #ce1d8a;
-  color: white;
+.btn-ariving{
+  background:#F08080;
+}
+.btn-not-ariving{
+  background:gray;
+}
+.btn-ariving:hover {
+  background-color: rgb(236, 68, 49)
+  
+}
+.btn-not-ariving:hover{
+  background:#696969;
+
 }
 </style>
 
