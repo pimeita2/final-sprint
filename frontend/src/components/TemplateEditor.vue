@@ -54,13 +54,13 @@
 <script>
 // import templateService from '../services/templateService.js'
 import editBkg from "@/components/edit-components/EditBkg.vue";
-import editUpload from "@/components/edit-components/EditUpload.vue";
+import editUploadImg from "@/components/edit-components/EditUploadImg.vue";
 import editTxt from "@/components/edit-components/EditTxt.vue";
 
 export default {
   components: {
     editBkg,
-    editUpload,
+    editUploadImg,
     editTxt
   },
   props: ['currCmpPart'],
