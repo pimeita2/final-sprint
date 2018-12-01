@@ -1,4 +1,5 @@
 import axios from "axios";
+import storageService from '../services/storageService.js'
 const BASE_URL = 'http://localhost:3000'
 
 export default {
@@ -6,20 +7,25 @@ export default {
     remove,
     getById,
     saveTemplate,
+    saveData
+}
+
+function saveData(value) {
+    storageService.saveToStorage('data', value)
 }
 
 function query(filter = {}) {
-    var queryParams  = new URLSearchParams()
+    var queryParams = new URLSearchParams()
     queryParams.append('inStock', filter.byStatus)
     queryParams.append('name', filter.byName)
     queryParams.append('type', filter.byType)
     queryParams.append('sortBy', filter.sort)
     return axios.get(`${BASE_URL}/template?${queryParams}`)
         .then(res => res.data)
-        // .catch(err =>{
-        //     console.log('ERROR:', err);
-            
-        // })
+    // .catch(err =>{
+    //     console.log('ERROR:', err);
+
+    // })
 }
 
 function getById(templateId) {
@@ -29,10 +35,9 @@ function getById(templateId) {
 
 function remove(templateId) {
     return axios.delete(`${BASE_URL}/template/${templateId}`)
-        // .then(res => res.data)
+    // .then(res => res.data)
 }
-function filter() {}
-    
+function filter() { }
 
 function saveTemplate(template) {
     if (template._id) {

@@ -23,7 +23,7 @@
 // import imgCmp from "@/components/template-components/ImgCmp.vue";
 import titleCmp from "@/components/template-components/TitleCmp.vue";
 import eventDetailsCmp from "@/components/template-components/EventDetalisCmp.vue";
-// import attendingCmp from "@/components/template-components/AttendigCmp.vue";
+import attendingCmp from "@/components/template-components/AttendingCmp.vue";
 // import mapCmp from "@/components/template-components/MapCmp.vue";
 import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue";
 
@@ -32,7 +32,7 @@ export default {
     // imgCmp,
     titleCmp,
     eventDetailsCmp,
-    // attendingCmp,
+    attendingCmp,
     // mapCmp,
     socialMediaCmp
   },
@@ -46,10 +46,9 @@ export default {
     userStyleBackground() {
       return this.$store.getters.userStyleBackground;
     },
-    getUserStyle(){
-        return this.$store.getters.getUserStyle;
-   },
-
+    getUserStyle() {
+      return this.$store.getters.getUserStyle;
+    },
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
     }
