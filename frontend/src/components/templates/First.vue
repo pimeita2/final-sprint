@@ -1,7 +1,7 @@
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <div class="template-container" :style="getUserStyle[getUserStyle.length-1].backgroundColor,userStyle.background">
+      <div class="template-container" :style="getUserStyle[getUserStyle.length-1].background">
         <div class="backgroun-frame">
           <div class="card-container">
             <!-- <title-cmp/> -->
