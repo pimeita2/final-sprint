@@ -34,6 +34,8 @@ export default {
 <style>
 .template {
   display: flex;
+  background: rgb(189, 187, 187, 0.5);
+
 }
 .spacer {
   flex-grow: 0.5;

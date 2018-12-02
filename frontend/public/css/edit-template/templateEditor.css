@@ -1,17 +1,15 @@
-.edit-section {
+/* .edit-section {
     height: 100%;
     width: 100px;
     background: #4d4d4d;
     position: relative;
     color: rgb(182, 159, 159);
-    border-radius: 0 10px 10px 0 ;
     float:left;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-  
-  
   }
+
   
   .T-icon {
     font-family: "Merriweather", serif;
@@ -76,7 +74,7 @@
       margin-bottom: 4px;
   } */
   
-  .download-btn{
+  /* .download-btn{
   padding: 20px;
   display:block;
   background-color:#4d4d4d;
@@ -117,4 +115,4 @@
     cursor: pointer;
     border-left:solid white;
   
-  }
+  } */ 

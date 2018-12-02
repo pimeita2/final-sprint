@@ -57,6 +57,7 @@ export default {
 </script>
 
 <style>
+
 .template-container {
   background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
   background-repeat: no-repeat;
@@ -65,7 +66,7 @@ export default {
   width: 400px;
   height: 560px;
   border: 1px solid gray;
-  margin: 0 auto;
+  margin-top:55px;
 }
 .backround-img {
   display: flex;
