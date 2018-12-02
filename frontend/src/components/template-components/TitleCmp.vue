@@ -53,6 +53,8 @@ export default {
     connectToEditor(cmpPart) {
       console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("showEditor", {kind:'text'});
+
     },
     updateInvaitorName(ev) {
       var newInvaitorName = ev.target.value;
@@ -79,8 +81,8 @@ export default {
   computed: {
     titleStyle() {
       return this.$store.getters.getUserStyle;
-    }
-    // styleInvaitorName(){
+    },
+      // styleInvaitorName(){
     //   console.log(this.titleStyle[0].style.color);
     //     color: this.titleStyle[0].style.color
     //    }

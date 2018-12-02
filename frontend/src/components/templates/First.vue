@@ -7,6 +7,7 @@
             <!-- <title-cmp/> -->
             <component
               @connectToCmpPart="connectToCmpPart"
+              @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
               :key="cmp.id"
               :is="cmp.type"
@@ -40,6 +41,10 @@ export default {
     connectToCmpPart(cmpPart) {
       console.log("in first", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
+    },
+    showEditor({ kind }) {
+      console.log(kind);
+      this.$emit("showEditor", { kind });
     }
   },
   computed: {
@@ -57,7 +62,6 @@ export default {
 </script>
 
 <style>
-
 .template-container {
   background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
   background-repeat: no-repeat;
@@ -66,7 +70,7 @@ export default {
   width: 400px;
   height: 560px;
   border: 1px solid gray;
-  margin-top:55px;
+  margin-top: 55px;
 }
 .backround-img {
   display: flex;
