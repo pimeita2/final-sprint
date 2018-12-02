@@ -1,8 +1,8 @@
 <template>
-  <section class="short-description">
+  <section class="short-description-container">
        <input
       class="short-description"
-      v-model="data.shortDescription"
+      v-model="data.txt"
       :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
@@ -10,7 +10,9 @@
               fontSize:data.css.fontSize+'px'}"
       @click="connectToEditor('shortDescription')"
       @input="updateShortDescription($event)"
-    >
+    > 
+    
+
   </section>
 </template>
 <script>
@@ -51,5 +53,12 @@ export default {
   max-width: 300px;
   width: 100%;
   text-align: center;
+}
+.short-description-container {
+  padding: 10px;
+  /* color: rgb(153, 49, 54); */
+}
+.short-description-container:hover {
+  cursor: all-scroll;
 }
 </style>
