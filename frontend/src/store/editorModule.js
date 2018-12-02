@@ -5,24 +5,56 @@ export default {
                 cmpPartName: 'invaitorName',
                 style: {
                     color: 'black',
-                    textAlign:'center'
+                    textAlign:'center',
+                    fontFamily:'arial',
+                    fontSize:16
                 }
             },
             {
                 cmpPartName: 'eventName',
                 style: {
                     color: 'black',
-                    textAlign:'center'
-
+                    textAlign:'center',
+                    fontFamily:'arial',
+                    fontSize:30
                 }
             },
             {
                 cmpPartName: 'shortDescription',
                 style: {
                     color: 'black',
-                    textAlign:'center'
-                }
+                    textAlign:'center',
+                    fontFamily:'arial',
+                    fontSize:16
 
+                }
+            },
+            {
+                cmpPartName: 'date',
+                style: {
+                    color: 'black',
+                    textAlign:'right',
+                    fontFamily:'arial',
+                    fontSize:16
+                }
+            },
+            {
+                cmpPartName: 'time',
+                style: {
+                    color: 'black',
+                    textAlign:'left',
+                    fontFamily:'arial',
+                    fontSize:16
+                }
+            },
+            {
+                cmpPartName: 'address',
+                style: {
+                    color: 'black',
+                    textAlign:'center',
+                    fontFamily:'arial',
+                    fontSize:16
+                }
             },
             {
                 background: {
@@ -64,7 +96,8 @@ export default {
         },
         getUserStyle(state) {
             return state.userStyle;
-        },
+        }
+      
     }
 }
 

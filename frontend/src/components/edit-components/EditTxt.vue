@@ -1,38 +1,47 @@
 <template>
   <section class="edit-txt-section" @connectToCmpPart="connectToCmpPart">
-    <p @click="handleAlignment" class="align-icon">
-      <img src="../../assets/align-left.svg" @click.stop="handleAlignment('left')" alt="align left">
-      <img
-        src="../../assets/align-center.png"
-        @click.stop="handleAlignment('center')"
-        alt="align center"
-      >
-      <img src="../../assets/align-right.png" @click.stop="handleAlignment('right')" alt="align right">
-    </p>
-    <p @click="handleFont" class="font-icon">
-     <img src="../../assets/fonts.png" alt="font" >
-      <select  @click="handleAlignment">
-        <option value="font" disable-selection>font</option>
-        <option value="coral">coral</option>
-        <option value="arial">arial</option>
-        <option value="david">david</option>
-        <option value="cursive">cursive</option>
-     </select>
-    </p>
-    <!-- <p @click="handleColor" class="textColor-icon"> -->
-    <!-- <img src="../../assets/textColor.png"> -->
-    <input
-      class="textColor-icon"
-      type="color"
-      @change="handleColor"
-      value="#ff0000"
-      @click="clicked"
-    >
-    <!-- </p> -->
-    <p @click="handleSize" class="textSize-icon">
-      <img src="../../assets/biger.png" alt="text size">
-      <img src="../../assets/small.png" alt="text size">
-    </p>
+    <div>
+      <p @click="handleAlignment" class="align-icon">
+        <img
+          src="../../assets/align-left.svg"
+          @click.stop="handleAlignment('left')"
+          alt="align left"
+        >
+        <img
+          src="../../assets/align-center.png"
+          @click.stop="handleAlignment('center')"
+          alt="align center"
+        >
+        <img
+          src="../../assets/align-right.png"
+          @click.stop="handleAlignment('right')"
+          alt="align right"
+        >
+      </p>
+      <p @click="handleFont" class="font-icon">
+        <img src="../../assets/fonts.png" alt="font">
+        <select @click="handleAlignment">
+          <option value="font" disable-selection>font</option>
+          <option value="coral">coral</option>
+          <option value="arial">arial</option>
+          <option value="david">david</option>
+          <option value="cursive">cursive</option>
+        </select>
+      </p>
+      <!-- <p @click="handleColor" class="textColor-icon"> -->
+      <!-- <img src="../../assets/textColor.png"> -->
+      <input
+        class="textColor-icon"
+        type="color"
+        @change="handleColor"
+        value="#ff0000"
+        >
+      <!-- </p> -->
+      <p class="textSize-icon">
+        <img src="../../assets/biger.png" alt="text size" @click.stop="handleSize(1)">
+        <img src="../../assets/small.png" alt="text size" @click.stop="handleSize(-1)">
+      </p>
+    </div>
   </section>
 </template>
 
@@ -44,9 +53,8 @@ export default {
     return {
       // align: "center",
       // fontFamily: "arial",
-      color: "#FFFFFF",
-      fontSize: 16,
-      show:true
+      // color: "#FFFFFF",
+      // fontSize: 16
     };
   },
   created() {
@@ -54,25 +62,33 @@ export default {
   },
   methods: {
     connectToCmpPart(cmpPart) {
-      console.log("connect to", cmpPart);
+      console.log("Connect to", cmpPart);
+      this.currCmpPart=cmpPart;
     },
     handleAlignment(align) {
-      console.log('handleAlignment', align);
+      console.log("handleAlignment", align);
       this.$emit("styleTextUpdate", {
         field: "textAlign",
         css: { textAlign: align }
       });
     },
     handleFont(event) {
-      const fontSelected=event.target.value;
-      console.log('font chosen', fontSelected);
+      const fontSelected = event.target.value;
+      console.log("font chosen", fontSelected);
       this.$emit("styleTextUpdate", {
         field: "fontFamily",
         css: { fontFamily: fontSelected }
       });
     },
-    clicked() {
-      console.log("was clicked");
+    handleSize(sizeChange) {
+      const currCmpObj=this.textStyle.find(obj=>obj.cmpPartName===this.currCmpPart);
+      // console.log(currCmpObj, currCmpObj.style.fontSize, typeof sizeChange);
+      const newFontSize =  currCmpObj.style.fontSize + sizeChange;
+      console.log( currCmpObj.style.fontSize);
+     this.$emit("styleTextUpdate", {
+        field: "fontSize",
+        css: { fontSize:newFontSize}
+      });
     },
     handleColor(event) {
       console.log("in color:", event.target.value);
@@ -81,19 +97,19 @@ export default {
         field: "color",
         css: { color: this.color }
       });
-    },
-    handleSize() {
-      this.$emit("styleTextUpdate", {
-        field: "fontSize",
-        css: { fontSize: this.fontSize }
-      });
+    }
+  },
+  computed:{
+  textStyle() {
+      return this.$store.getters.getUserStyle;
     }
   }
 };
+
 </script>
 
 <style>
-.edit-txt-section {
+.edit-txt-section div {
   display: flex;
   flex-direction: row;
   position: fixed;

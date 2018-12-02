@@ -5,7 +5,8 @@
       v-model="data.invaitorName"
       :style="{color: this.titleStyle[0].style.color,
               textAlign:this.titleStyle[0].style.textAlign,
-              fontFamily:this.titleStyle[0].style.fontFamily}"
+              fontFamily:this.titleStyle[0].style.fontFamily,
+              fontSize:this.titleStyle[0].style.fontSize+'px'}"
 
       @click="connectToEditor('invaitorName')"
       @input="updateInvaitorName($event)"
@@ -15,7 +16,8 @@
       v-model="data.eventName"
       :style="{color: this.titleStyle[1].style.color,
               textAlign:this.titleStyle[1].style.textAlign,
-              fontFamily:this.titleStyle[1].style.fontFamily}"
+              fontFamily:this.titleStyle[1].style.fontFamily,
+              fontSize:this.titleStyle[1].style.fontSize+'px'}"
       @click="connectToEditor('eventName')"
       @input="updateEventName($event)"
     />
@@ -24,10 +26,12 @@
       v-model="data.shortDescription"
       :style="{color: this.titleStyle[2].style.color,
               textAlign:this.titleStyle[2].style.textAlign,
-              fontFamily:this.titleStyle[2].style.fontFamily}"
+              fontFamily:this.titleStyle[2].style.fontFamily,
+              fontSize:this.titleStyle[2].style.fontSize+'px'}"
       @click="connectToEditor('shortDescription')"
       @input="updateShortDescription($event)"
     >
+
   </section>
 </template>
 <script>
