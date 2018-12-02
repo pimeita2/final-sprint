@@ -22,7 +22,9 @@
 <script>
 // import imgCmp from "@/components/template-components/ImgCmp.vue";
 import titleCmp from "@/components/template-components/TitleCmp.vue";
-import eventDetailsCmp from "@/components/template-components/EventDetalisCmp.vue";
+import addressCmp from "@/components/template-components/AddressCmp.vue";
+import timeCmp from "@/components/template-components/TimeCmp.vue";
+import dateCmp from "@/components/template-components/DateCmp.vue";
 import attendingCmp from "@/components/template-components/AttendingCmp.vue";
 // import mapCmp from "@/components/template-components/MapCmp.vue";
 import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue";
@@ -31,8 +33,10 @@ export default {
   components: {
     // imgCmp,
     titleCmp,
-    eventDetailsCmp,
     attendingCmp,
+    addressCmp,
+    timeCmp,
+    dateCmp,
     // mapCmp,
     socialMediaCmp
   },
