@@ -47,6 +47,7 @@ export default {
     connectToEditor(cmpPart) {
       console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("showEditor", {kind:'text'});
     }
     //  updateData(ev, cmpPart) { // how the make name of var as name of new var?
     //   var {cmpPart} = ev.target.value;
