@@ -56,19 +56,16 @@
 <script>
 // import templateService from '../services/templateService.js'
 import editBkg from "@/components/edit-components/EditBkg.vue";
-import editUpload from "@/components/edit-components/EditUploadBgc.vue";
 import editTxt from "@/components/edit-components/EditTxt.vue";
 // import templateEditor from  '././css/templateEditor.css';
 
 export default {
   components: {
     editBkg,
-    editUpload,
     // editTxt
   },
   props: ['currCmpPart'],
   created(){
-      console.log(this.currCmpPart, this.kind);
 
   },
 
