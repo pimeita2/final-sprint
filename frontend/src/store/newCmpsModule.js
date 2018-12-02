@@ -115,6 +115,7 @@ export default {
             isEdit: true,
             data: {
              
+              
             }
         },
         {
@@ -144,12 +145,12 @@ export default {
             state.templateCmps[state.templateCmps.length - 1].css = css;
             
         },
+      
         setUserStyle(state, { field, css, currCmpPart }) {
+            console.log('setUserStyle', css ,currCmpPart)
             state.templateCmps.map(obj => {
                 if (obj.type === currCmpPart) obj.data.css[field] = css[field];
-            })
-            console.log('set user style has', field, css, currCmpPart, 'and in state', state.templateCmps);
-            
+            });
         }
     },
 
@@ -159,7 +160,7 @@ export default {
             context.commit({ type: 'setBackground', field, css })
         },
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
-            // console.log(' setUserStyleOfCmp', field, css, currCmpPart);
+            console.log(' setUserStyleOfCmp', field, css, currCmpPart);
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
         }
     },

@@ -15,10 +15,10 @@
             />
           </div>
 
-          {{dynamicCmps.data}}
         </div>
       </div>
-    </div>
+    </div>  {{this.userStyleBackground}}
+
   </section>
 </template>
 

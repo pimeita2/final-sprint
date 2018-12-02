@@ -7,7 +7,10 @@
     <div class="spacer"></div>
     <router-view @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"/>
     <!-- </div> -->
+
+    
   </section>
+
 </template>
 
 <script>
@@ -36,12 +39,7 @@ export default {
     },
     styleUpdate({ field, css }) {
       console.log("in template editor", field, css);
-      this.$store.dispatch({
-        type: "setUserStyleOfCmp",
-        field,
-        css,
-        currCmpPart: this.currCmpPart
-      });
+      this.$store.dispatch( {type: "setUserStyleOfCmp",field, css,currCmpPart: this.currCmpPart});
       if (field === "background")
         this.$store.dispatch({ type: "setBackgroundStyle", field, css });
     }

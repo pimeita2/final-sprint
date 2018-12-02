@@ -11,6 +11,7 @@
       @click="connectToEditor('invaitorName')"
       @input="updateInvaitorName($event)"
     >
+
   </section>
 </template>
 <script>
