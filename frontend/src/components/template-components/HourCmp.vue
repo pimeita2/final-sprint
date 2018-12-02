@@ -6,7 +6,7 @@
         class="time"
         type="time"
         v-model="data.txt"
-        @click="connectToEditor('time')"
+        @click="connectToEditor('hour')"
         :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
@@ -26,6 +26,8 @@ export default {
     connectToEditor(cmpPart) {
       console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("showEditor", { kind: "text" });
+
     }
   },
   computed: {

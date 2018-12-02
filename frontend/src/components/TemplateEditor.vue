@@ -1,15 +1,6 @@
 <template>
   <section>
     <div class="edit-section icon-btn">
-      <!-- <div class="text-edit icon-btn"> -->
-        <!-- <edit-txt :currCmpPart="currCmpPart" v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt> -->
-        <!-- :currCmpPart="currCmpPart" -->
-        <!-- <span class="text-edit-icon"><h3 class="T-icon">T</h3>
-        <h4 class="h4-text-edit">Text</h4>
-        </span>
-      </div>
-      <hr> -->
-
       <!-- <a class="bkground-edit icon-btn" @click="showBkgMenu=!showBkgMenu">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
         <p class="bkground-icon">&#x25A8;</p>
@@ -17,8 +8,9 @@
       </a>-->
       <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
-        <span class="bkground-edit-icon"><p class="bkground-icon">&#x25A8;</p>
-        <h4 class="h4-template-edit">Bkground</h4>
+        <span class="bkground-edit-icon">
+          <p class="bkground-icon">&#x25A8;</p>
+          <h4 class="h4-template-edit">Bkground</h4>
         </span>
       </a>
 
@@ -26,8 +18,7 @@
       <div class="template-edit icon-btn">
         <p class="template-icon">&#9704;</p>
         <h4 class="h4-template-edit">Template</h4>
-      </div> -->
-
+      </div>-->
       <hr>
       <div class="delete-edit icon-btn">
         <i class="fa fa-trash"></i>
@@ -41,16 +32,14 @@
         <h4 class="h4-uploadImg-edit">Upload Img</h4>
       </a>
 
-       <hr>
+      <hr>
       <a class="backHome-page">
-        <span class="back-home-icon" @click="goHome"><i class="fa fa-home"></i>
-        <h4 class="h4-backHome-page">Go Back</h4>
-        
+        <span class="back-home-icon" @click="goHome">
+          <i class="fa fa-home"></i>
+          <h4 class="h4-backHome-page">Go Back</h4>
         </span>
       </a>
-
     </div>
-
   </section>
 </template>
 
@@ -58,39 +47,40 @@
 import editBkg from "@/components/edit-components/EditBkg.vue";
 // import editUpload from "@/components/edit-components/EditUploadBgc.vue";
 import editTxt from "@/components/edit-components/EditTxt.vue";
-import homePage from "@/views/Home.vue"
-
+import homePage from "@/views/Home.vue";
 
 export default {
   components: {
-    editBkg,
+    editBkg
     // editUpload,
     // editTxt
   },
-  props: ['currCmpPart'],
-  created(){
-
-  },
+  props: ["currCmpPart"],
+  created() {},
 
   data() {
     return {
       showBkgMenu: false,
-      showUploadMenu: false,
+      showUploadMenu: false
       // showTxtMenu: false
     };
   },
   methods: {
     styleUpdate({ field, css }) {
-      console.log('in template editor', field, css)
-     this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
-     if(field==='background') this.$store.dispatch({ type: "setBackgroundStyle", field, css});
- },
-    goHome(){
-      
-
-    },
-}
-}
+      console.log("in template editor", field, css);
+      if (field === "background")
+        this.$store.dispatch({ type: "setBackgroundStyle", field, css });
+        else{
+      this.$store.dispatch({
+        type: "setUserStyleOfCmp",
+        field,
+        css,
+        currCmpPart: this.currCmpPart
+         });
+    }},
+    goHome() {}
+  }
+};
 </script>
 
 <style>
@@ -104,7 +94,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-   
 }
 
 .T-icon {
@@ -118,8 +107,7 @@ export default {
 .h4-template-edit,
 .h4-delete-edit,
 .h4-uploadImg-edit,
-.h4-backHome-page
- {
+.h4-backHome-page {
   font-size: 15px;
   font-family: "Quicksand", sans-serif;
   cursor: pointer;
@@ -163,8 +151,8 @@ hr {
   font-size: 25px;
   cursor: pointer;
 }
-.back-home-icon{
-   margin: 0;
+.back-home-icon {
+  margin: 0;
   font-size: 25px;
   cursor: pointer;
 }
@@ -178,11 +166,11 @@ hr {
   border: none;
   color: rgb(182, 159, 159);
 }
-.delete-edit{
-    background:none;
-    border:none;
-    color:rgb(182, 159, 159);
-    margin-bottom: 4px;
+.delete-edit {
+  background: none;
+  border: none;
+  color: rgb(182, 159, 159);
+  margin-bottom: 4px;
 }
 
 .download-btn {
@@ -222,7 +210,6 @@ hr {
   border: none;
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
-  border-left:solid white;
-} 
-
+  border-left: solid white;
+}
 </style>

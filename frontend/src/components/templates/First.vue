@@ -41,7 +41,7 @@ export default {
     hour,
     location,
     socialMedia,
-    attending
+    attending,
   },
   methods: {
     connectToCmpPart(cmpPart) {
