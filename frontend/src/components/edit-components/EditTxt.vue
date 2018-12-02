@@ -1,6 +1,5 @@
 <template>
   <section class="edit-txt-section" @connectToCmpPart="connectToCmpPart">
-    <div>
       <p @click="handleAlignment" class="align-icon">
         <img
           src="../../assets/align-left.svg"
@@ -20,7 +19,7 @@
       </p>
       <p @click="handleFont" class="font-icon">
         <img src="../../assets/fonts.png" alt="font">
-        <select @click="handleAlignment">
+        <select>
           <option value="font" disable-selection>font</option>
           <option value="coral">coral</option>
           <option value="arial">arial</option>
@@ -41,7 +40,7 @@
         <img src="../../assets/biger.png" alt="text size" @click.stop="handleSize(1)">
         <img src="../../assets/small.png" alt="text size" @click.stop="handleSize(-1)">
       </p>
-    </div>
+    
   </section>
 </template>
 
