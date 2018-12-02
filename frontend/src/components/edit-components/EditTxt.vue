@@ -11,7 +11,7 @@
 
     <p @click="handleFont" class="font-icon">
       <i class="fa fa-font edit-icon-font"></i>
-      <select  class="select-font" @click="handleAlignment">
+      <select  class="select-font" >
         <option value="font" disable-selection>font</option>
         <option value="coral">coral</option>
         <option value="arial">arial</option>
@@ -25,13 +25,12 @@
       type="color"
       @change="handleColor"
       value="#ff0000"
-      @click="clicked"
+      
     >
     
     <p @click="handleSize" class="textSize-icon">
-      <!-- <img src="../../assets/biger.png" alt="text size">
-      <img src="../../assets/small.png" alt="text size"> -->
-      <i class="fa fa-text-height"></i>
+      <i class="fa fa-text-height" @click.stop="handleSize(1)"></i>
+      <i class="fa fa-text-height" @click.stop="handleSize(-1)"></i>
     </p>
 
       <p @click="handleBold" class="textBold-icon">
@@ -46,8 +45,11 @@ export default {
   props: ["currCmpPart"],
   data() {
     return {
-     isBold:false,
-      
+    //  isBold:false,
+      // align: "center",
+      // fontFamily: "arial",
+      // color: "#FFFFFF",
+      // fontSize: 16
     };
   },
   created() {
@@ -55,25 +57,33 @@ export default {
   },
   methods: {
     connectToCmpPart(cmpPart) {
-      // console.log("connect to", cmpPart);
+      console.log("Connect to", cmpPart);
+      this.currCmpPart=cmpPart;
     },
     handleAlignment(align) {
-      // console.log('handleAlignment', align);
+      console.log("handleAlignment", align);
       this.$emit("styleTextUpdate", {
         field: "textAlign",
         css: { textAlign: align }
       });
     },
     handleFont(event) {
-      const fontSelected=event.target.value;
-      // console.log('font chosen', fontSelected);
+      const fontSelected = event.target.value;
+      console.log("font chosen", fontSelected);
       this.$emit("styleTextUpdate", {
         field: "fontFamily",
         css: { fontFamily: fontSelected }
       });
     },
-    clicked() {
-      // console.log("was clicked");
+    handleSize(sizeChange) {
+      const currCmpObj=this.textStyle.find(obj=>obj.cmpPartName===this.currCmpPart);
+      // console.log(currCmpObj, currCmpObj.style.fontSize, typeof sizeChange);
+      const newFontSize =  currCmpObj.style.fontSize + sizeChange;
+      console.log( currCmpObj.style.fontSize);
+     this.$emit("styleTextUpdate", {
+        field: "fontSize",
+        css: { fontSize:newFontSize}
+      });
     },
     handleColor(event) {
       // console.log("in color:", event.target.value);
@@ -83,13 +93,7 @@ export default {
         css: { color: this.color }
       });
     },
-    handleSize() {
-      this.$emit("styleTextUpdate", {
-        field: "fontSize",
-        css: { fontSize: this.fontSize }
-      });
-    },
-    handleBold(){
+     handleBold(){
         this.isBold=!this.isBold;
        let weight;
        if(this.isBold===true)     weight='bold';
@@ -100,8 +104,14 @@ export default {
       });
 
     }
+  },
+  computed:{
+  textStyle() {
+      return this.$store.getters.getUserStyle;
+    }
   }
 };
+
 </script>
 
 <style>

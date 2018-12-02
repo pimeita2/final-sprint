@@ -2,7 +2,7 @@
   <section>
     <div class="edit-section icon-btn">
       <div class="text-edit icon-btn" @click="showTxtMenu=true">
-        <edit-txt v-if="showTxtMenu" @styleTextUpdate="styleUpdate"></edit-txt>
+        <edit-txt :currCmpPart="currCmpPart" v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt>
         <!-- :currCmpPart="currCmpPart" -->
         <span class="text-edit-icon"><h3 class="T-icon">T</h3>
         <h4 class="h4-text-edit">Text</h4>

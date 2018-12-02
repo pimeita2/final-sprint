@@ -1,41 +1,85 @@
 export default {
     state: {
-          userStyle: [
+        userStyle: [
             {
                 cmpPartName: 'invaitorName',
                 style: {
                     color: 'black',
-                    textAlign:'center',
-                    fontWeight:{
-                        isBold:false,
-                        value:'normal'
-                    }
+                    textAlign: 'center',
+                    fontWeight: {
+                        isBold: false,
+                        value: 'normal'
+                    },
+                    fontFamily: 'arial',
+                    fontSize: 16
                 }
             },
             {
                 cmpPartName: 'eventName',
                 style: {
                     color: 'black',
-                    textAlign:'center',
-                    fontWeight:{
-                        isBold:false,
-                        value:'normal'
-                    }
-                   
-
+                    textAlign: 'center',
+                    fontWeight: {
+                        isBold: false,
+                        value: 'normal'
+                    },
+                    fontFamily: 'arial',
+                    fontSize: 30
                 }
             },
             {
                 cmpPartName: 'shortDescription',
                 style: {
                     color: 'black',
-                    textAlign:'center',
-                    fontWeight:{
-                        isBold:false,
-                        value:'normal'
-                    }                    
-                }
+                    textAlign: 'center',
+                    fontWeight: {
+                        isBold: false,
+                        value: 'normal'
+                    },
+                    fontFamily: 'arial',
+                    fontSize: 16
 
+                }
+            },
+            {
+                cmpPartName: 'date',
+                style: {
+                    color: 'black',
+                    textAlign: 'right',
+                    fontWeight: {
+                        isBold: false,
+                        value: 'normal'
+                    },
+
+                    fontFamily: 'arial',
+                    fontSize: 16
+                }
+            },
+            {
+                cmpPartName: 'time',
+                style: {
+                    color: 'black',
+                    textAlign: 'left',
+                    fontWeight: {
+                        isBold: false,
+                        value: 'normal'
+                    },
+                    fontFamily: 'arial',
+                    fontSize: 16
+                }
+            },
+            {
+                cmpPartName: 'address',
+                style: {
+                    color: 'black',
+                    textAlign: 'center',
+                    fontWeight: {
+                        isBold: false,
+                        value: 'normal'
+                    },
+                    fontFamily: 'arial',
+                    fontSize: 16
+                }
             },
             {
                 background: {
@@ -44,12 +88,13 @@ export default {
                 }
             }
 
-        ]},
-    
+        ]
+    },
+
     mutations: {
         setBackground(state, { field, css }) {
             // console.log('in set Background', state.userStyle[state.userStyle.length-1], css);
-            state.userStyle[state.userStyle.length-1].background = css;
+            state.userStyle[state.userStyle.length - 1].background = css;
         },
         setUserStyle(state, { field, css, currCmpPart }) {
             state.userStyle.map(obj => {
@@ -72,44 +117,11 @@ export default {
 
     getters: {
         userStyleBackground(state) {
-            return state.userStyle[state.userStyle.length-1].background;
+            return state.userStyle[state.userStyle.length - 1].background;
         },
         getUserStyle(state) {
             return state.userStyle;
-        },
+        }
+
     }
 }
-
-//     mutations: {
-//         // setBackground(state, { field, css }) {
-//         //     state.userStyle[field] = css;
-//         // },
-//         setUserStyle(state, { field, css, currCmpPart }) {
-//             console.log('set user style has', field, css, currCmpPart, 'and in state', state.templateCmps[0].userStyle);
-//             state.templateCmps[0].userStyle.map(obj => {
-//                 if (obj.cmpPartName === currCmpPart) obj.style[field] = css[field];
-//                 console.log('in state', state.templateCmps[0].userStyle);
-//             })
-//             console.log('new user style pref:', state.userStyle);
-//         }
-//     },
-
-//     actions: {
-//         // setBackgroundStyle(context, { field, css }) {
-//         //     context.commit({ type: 'setUserStyle', field, css })
-//         // },
-//         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
-//             console.log(field, 'field')
-//             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
-//         }
-//     },
-
-//     getters: {
-//         // userStyleBackground(state) {
-//         //     return state.userStyle.backgroundColor;
-//         // },
-//         getUserStyle(state) {
-//             return state.userStyle;
-//         },
-//     }
-// }

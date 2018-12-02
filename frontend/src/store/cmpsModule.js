@@ -16,13 +16,21 @@ export default {
             type: 'eventDetailsCmp',
             isEdit: true,
             data: {
-                date: 'oct 30 2018',
+                date: '01/12/1990',
                 time: '20:30',
                 address: '23 magal street, rishon-lezion'
             },
         },
         {
             id: 2,
+            type: 'attendingCmp',
+            isEdit: true,
+            data: {
+
+            }
+        },
+        {
+            id: 3,
             type: 'socialMediaCmp',
             isEdit: true,
             data: {
@@ -33,19 +41,10 @@ export default {
 
             }
         },
-        {
-            id: 3,
-            type: 'attendingCmp',
-            isEdit: true,
-            data: {
-                
-                
-            }
-        },
 
         ],
     },
- 
+
     getters: {
         dynamicCmps: state => state.templateCmps,
     },
