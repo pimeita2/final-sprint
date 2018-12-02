@@ -22,17 +22,24 @@
 
 <script>
 // import imgCmp from "@/components/template-components/ImgCmp.vue";
-import invaitorName from "@/components/template-components/invaitorNameCmp.vue";
-import shortDescription from "@/components/template-components/shortDescriptionCmp.vue";
-import eventName from "@/components/template-components/eventNameCmp.vue";
-import attending from "@/components/template-components/AttendingCmp.vue";
+import titleCmp from "@/components/template-components/TitleCmp.vue";
+import addressCmp from "@/components/template-components/AddressCmp.vue";
+import timeCmp from "@/components/template-components/TimeCmp.vue";
+import dateCmp from "@/components/template-components/DateCmp.vue";
+import invaitorNameCmp from "@/components/template-components/invaitorNameCmp.vue";
+import shortDescriptionCmp from "@/components/template-components/shortDescriptionCmp.vue";
+import eventNameCmp from "@/components/template-components/eventNameCmp.vue";
+import attendingCmp from "@/components/template-components/AttendingCmp.vue";
 // import mapCmp from "@/components/template-components/MapCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
 
 export default {
   components: {
     // imgCmp,
-    attending,
+    attendingCmp,
+    addressCmp,
+    timeCmp,
+    dateCmp,
     // mapCmp,
     socialMedia,
     invaitorName,

@@ -36,29 +36,30 @@
 
       <hr>
       <a class="upload-edit" @click="showUploadMenu=true">
-        <edit-upload v-if="showUploadMenu"  @styleUpdate="styleUpdate"></edit-upload>
+        <edit-upload v-if="showUploadMenu" @styleUpdate="styleUpdate"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
-        <h4 class="h4-uploadImg-edit">upload Img</h4>
+        <h4 class="h4-uploadImg-edit">Upload Img</h4>
       </a>
+
+       <hr>
+      <a class="backHome-page">
+        <span class="back-home-icon" @click="goHome"><i class="fa fa-home"></i>
+        <h4 class="h4-backHome-page">Go Back</h4>
+        
+        </span>
+      </a>
+
     </div>
 
-    <!-- // <div class="download-section">
-    //   <button class="download-btn">
-    //     <i class="fa fa-download"></i> Download
-    //   </button>
-    //   <button class="download-socialMedia">
-    //     <i class="arrow down"></i>
-    //   </button>
-    // </div> -->
   </section>
 </template>
 
 <script>
-// import templateService from '../services/templateService.js'
 import editBkg from "@/components/edit-components/EditBkg.vue";
 // import editUpload from "@/components/edit-components/EditUploadBgc.vue";
 import editTxt from "@/components/edit-components/EditTxt.vue";
-// import templateEditor from  '././css/templateEditor.css';
+import homePage from "@/views/Home.vue"
+
 
 export default {
   components: {
@@ -84,7 +85,11 @@ export default {
       console.log('in template editor', field, css)
      this.$store.dispatch({ type: "setUserStyleOfCmp", field, css, currCmpPart:this.currCmpPart });
      if(field==='background') this.$store.dispatch({ type: "setBackgroundStyle", field, css});
- }
+ },
+    goHome(){
+      
+
+    },
 }
 }
 </script>
@@ -113,7 +118,8 @@ export default {
 .h4-text-edit,
 .h4-template-edit,
 .h4-delete-edit,
-.h4-uploadImg-edit
+.h4-uploadImg-edit,
+.h4-backHome-page
  {
   font-size: 15px;
   font-family: "Quicksand", sans-serif;
@@ -138,7 +144,8 @@ hr {
 .bkground-edit-icon:hover,
 .template-edit:hover,
 .delete-edit:hover,
-.upload-edit:hover {
+.upload-edit:hover,
+.backHome-page:hover {
   color: ghostwhite;
 }
 .icon-btn {
@@ -154,6 +161,11 @@ hr {
 }
 .bkground-icon {
   margin: 0;
+  font-size: 25px;
+  cursor: pointer;
+}
+.back-home-icon{
+   margin: 0;
   font-size: 25px;
   cursor: pointer;
 }
