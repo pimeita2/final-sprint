@@ -14,6 +14,7 @@ Vue.config.productionTip = false
 //   }
 // });
 
+// window.vm = 
 new Vue({
   router,
   store,

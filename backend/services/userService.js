@@ -28,7 +28,6 @@ function getById(id) {
 // function addUserTemplate(template, id) {
 //     const templateId = new ObjectId(template.id)
 //     getById(id).then(currUser => {
-//         console.log(currUser);
 //         currUser.templateParts.push(template);
 //     })
 // }
@@ -37,7 +36,6 @@ function getById(id) {
 // function removeUserTemplate(template, id) {
 //     const templateId = new ObjectId(template.id)
 //     getById(id).then(currUser => {
-//         console.log(currUser);
 //         currUser.templateParts.splice(id, 1);
 //     })
 // }

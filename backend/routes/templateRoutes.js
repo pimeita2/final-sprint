@@ -2,16 +2,11 @@ const templateService = require('../services/templateService');
 
 
 function addRoutes(app) {
-
-    console.log('templateService')
-
     app.get('/template', (req, res) => {
-        // console.log('here?')
         // const filter = req.query;
         // console.log(filter);
         templateService.query()
             .then(templates => {
-                console.log(templates);
                 return res.json(templates)
             })
             .catch(err => {
@@ -28,9 +23,7 @@ function addRoutes(app) {
     app.delete('/template/:templateId', (req, res) => {
         const templateId = req.params.templateId;
         templateService.remove(templateId)
-            .then(() => {
-                console.log('deleted');
-                return res.end()})
+            .then(() => res.end())
     })
 
     app.put('/template/:templateId', (req, res) => {

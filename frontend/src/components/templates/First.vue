@@ -14,10 +14,9 @@
               :data="cmp.data"
             />
           </div>
-
-          {{dynamicCmps.data}}
         </div>
       </div>
+      <button @click="publish">Publish</button>
     </div>
   </section>
 </template>
@@ -31,6 +30,7 @@ import hour from "@/components/template-components/HourCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
+import templateService from "@/services/templateService";
 
 export default {
   components: {
@@ -41,7 +41,7 @@ export default {
     hour,
     location,
     socialMedia,
-    attending,
+    attending
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -51,6 +51,18 @@ export default {
     showEditor({ kind }) {
       console.log(kind);
       this.$emit("showEditor", { kind });
+    },
+    publish() {
+      templateService
+        .add({
+          cmps: this.dynamicCmps,
+          name: "Puki's birrthday",
+          modified: Date.now(),
+          creatorId: "abc123" // TODO: currLoggedinuserId here
+        })
+        .then(template =>
+          console.log("template was added successfully", template)
+        );
     }
   },
   computed: {

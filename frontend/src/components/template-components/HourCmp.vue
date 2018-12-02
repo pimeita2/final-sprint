@@ -29,9 +29,7 @@ export default {
     }
   },
   computed: {
-//    timeStyle() {
-//       return this.$store.getters.getUserStyle;
-//     }
+
   }
 };
 </script>

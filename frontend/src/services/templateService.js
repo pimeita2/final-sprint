@@ -7,10 +7,11 @@ export default {
     remove,
     getById,
     saveTemplate,
-    saveData
+    saveData,
+    add: item => axios.post(BASE_URL+'/template', item).then(res => res.data)
 }
 
-function saveData(key,value) {
+function saveData(key, value) {
     storageService.saveToStorage(key, value)
 }
 

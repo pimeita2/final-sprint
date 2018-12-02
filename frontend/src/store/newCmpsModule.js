@@ -111,6 +111,14 @@ export default {
         },
         {
             id: 6,
+            type: 'attending',
+            isEdit: true,
+            data: {
+               
+            }
+        },
+        {
+            id: 7,
             type: 'socialMedia',
             isEdit: true,
             data: {
@@ -121,7 +129,7 @@ export default {
             }
         },
         {
-            id: 7,
+            id: 8,
             type: 'background',
             css: {
                 backgroundColor: '#ff9a90',
@@ -132,7 +140,7 @@ export default {
     },
    
     mutations: {
-        setBackground(state, { field, css }) {
+        setBackground(state, {css }) {
             // console.log('in set Background', state.userStyle[state.userStyle.length-1], css);
             state.userStyle[state.userStyle.length - 1].background = css;
         },

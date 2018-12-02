@@ -8,34 +8,16 @@ module.exports = {
     add,
     update
 }
-function query(filter) {
-    // console.log('in query', filter);
-    // const byName = filter.name
-    // const byType = filter.type
-    // const sortBy = filter.sortBy
-    // const sortObj = (sortBy === 'name') ? { name: 1 } : { price: 1 }
-    // const findFilters = [{ name: { $regex: `.*${byName}.*` } }]
-    // if (byStatus !== 'all') {
-    //     if (byStatus === 'inStock') findFilters.push({ inStock: true })
-    //     else findFilters.push({ inStock: false })
-    // }
-    // if (byType) {
-    //     findFilters.push({ type: byType })
-    // }
-    // return mongoService.connectToDb()
-    //     .then(dbConn => {
-    //         const templateCollection = dbConn.collection('template');
-    //         return templateCollection.find({ $and: findFilters }).sort(sortObj).toArray();
-    //     })
+
+function query() {
     return mongoService.connectToDb()
         .then(dbConn => {
-            const templateCollection = dbConn.collection('template');
-            return templateCollection.find().toArray();
+            const collection = dbConn.collection('template');
+            return collection.find().toArray();
         })
-        .catch(err=>{
+        .catch(err => {
             console.log('err:', err);
         })
-      
 }
 
 function getById(templateId) {
@@ -46,6 +28,7 @@ function getById(templateId) {
             return templateCollection.findOne({ _id: templateId })
         })
 }
+
 function remove(templateId) {
     templateId = new ObjectId(templateId)
     return mongoService.connectToDb()
@@ -56,27 +39,28 @@ function remove(templateId) {
 }
 
 function add(template) {
+    template.modified = new Date(template.modified)
     return mongoService.connectToDb()
         .then(dbConn => {
-            const templateCollection = dbConn.collection('template');          
-            return templateCollection.insertOne(template)
-            .then(result=>{
-                template._id = result.insertedId;
-                return template; 
-            })
+            const collectiom = dbConn.collection('template');
+            return collectiom.insertOne(template)
+                .then(result => {
+                    template._id = result.insertedId;
+                    return template;
+                })
         })
 }
 
-function update(template) { 
+function update(template) {
     const templateId = new ObjectId(template.id)
     return mongoService.connectToDb()
         .then(dbConn => {
-            const templateCollection = dbConn.collection('template'); 
-            return templateCollection.updateOne({_id:templateId}, { $set: template } ) 
-            .then (result=>{
-                return template;
-            });      
-    
+            const templateCollection = dbConn.collection('template');
+            return templateCollection.updateOne({ _id: templateId }, { $set: template })
+                .then(result => {
+                    return template;
+                });
+
         })
 }
 
@@ -96,6 +80,6 @@ function update(template) {
 //         .then(dbConn => {
 //             const templateCollection = dbConn.collection('template'); 
 //             return templateCollection.findOneAndUpdate({templateName: template.name}, {$set:{templateParts:template}})         
-    
+
 //         })
 // }

@@ -17,7 +17,6 @@ function connectToDb() {
             if (err) return reject('Cannot connect to Mongo');
             console.log("Connected successfully to server");
             dbConnection = client.db(dbName);
-            console.log(dbConnection);
             resolve(dbConnection)
         });
 
