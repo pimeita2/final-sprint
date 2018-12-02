@@ -4,7 +4,7 @@
   <section class="event-name">
     <textarea
       class="event-name"
-      v-model="data.eventName"
+      v-model="data.txt"
       :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,

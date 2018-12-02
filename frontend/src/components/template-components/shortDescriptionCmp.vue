@@ -2,7 +2,7 @@
   <section class="short-description">
        <input
       class="short-description"
-      v-model="data.shortDescription"
+      v-model="data.txt"
       :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,

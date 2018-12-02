@@ -26,7 +26,7 @@ export default {
     data: Object
   },
   created() {
-    console.log(this.data.F);
+    
   },
   computed: {
     facebook() {
