@@ -93,7 +93,7 @@ export default {
         },
         {
             id: 5,
-            type: 'address',
+            type: 'location',
             isEdit: true,
             data: {
                 txt: '23 Magal Street, Rishon-Lezion',
@@ -111,7 +111,15 @@ export default {
         },
         {
             id: 6,
-            type: 'socialMediaCmp',
+            type: 'attending',
+            isEdit: true,
+            data: {
+             
+            }
+        },
+        {
+            id: 7,
+            type: 'socialMedia',
             isEdit: true,
             data: {
                 F: '@/assets/f.png',
@@ -121,7 +129,7 @@ export default {
             }
         },
         {
-            id: 7,
+            id: 8,
             type: 'background',
             css: {
                 backgroundColor: '#ff9a90',
@@ -133,14 +141,15 @@ export default {
    
     mutations: {
         setBackground(state, { field, css }) {
-            // console.log('in set Background', state.userStyle[state.userStyle.length-1], css);
-            state.userStyle[state.userStyle.length - 1].background = css;
+            state.templateCmps[state.templateCmps.length - 1].css = css;
+            
         },
         setUserStyle(state, { field, css, currCmpPart }) {
-            state.userStyle.map(obj => {
-                if (obj.cmpPartName === currCmpPart) obj.style[field] = css[field];
+            state.templateCmps.map(obj => {
+                if (obj.type === currCmpPart) obj.data.css[field] = css[field];
             })
-            console.log('set user style has', field, css, currCmpPart, 'and in state', state.userStyle);
+            console.log('set user style has', field, css, currCmpPart, 'and in state', state.templateCmps);
+            
         }
     },
 
