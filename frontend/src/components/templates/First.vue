@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import invaitorName from "@/components/template-components/invaitorNameCmp.vue";
+import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
-import shortDescription from "@/components/template-components/shortDescriptionCmp.vue";
-import shortDescription from "@/components/template-components/shortDescriptionCmp.vue";
+import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
+// import shortDescription from "@/components/template-components/shortDescriptionCmp.vue";
 import AttendingCmp from "@/components/template-components/AttendingCmp.vue";
-import shortDescription from "@/components/template-components/shortDescriptionCmp.vue";
+import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 
 export default {
   components: {
