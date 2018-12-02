@@ -93,7 +93,7 @@ export default {
         },
         {
             id: 5,
-            type: 'address',
+            type: 'location',
             isEdit: true,
             data: {
                 txt: '23 Magal Street, Rishon-Lezion',
@@ -111,7 +111,7 @@ export default {
         },
         {
             id: 6,
-            type: 'socialMediaCmp',
+            type: 'socialMedia',
             isEdit: true,
             data: {
                 F: '@/assets/f.png',
