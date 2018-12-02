@@ -26,23 +26,23 @@
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
-import dayCmp from "@/components/template-components/DayCmp.vue";
-import hourCmp from "@/components/template-components/HourCmp.vue";
-import addressCmp from "@/components/template-components/AddressCmp.vue";
-import attendingCmp from "@/components/template-components/AttendingCmp.vue";
+import day from "@/components/template-components/DayCmp.vue";
+import hour from "@/components/template-components/HourCmp.vue";
+import location from "@/components/template-components/AddressCmp.vue";
+import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
-import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
+// import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 
 export default {
   components: {
     invaitorName,
     eventTitle,
     shortDescription,
-    dayCmp,
-    hourCmp,
-    addressCmp,
+    day,
+    hour,
+    location,
     socialMedia,
-    attendingCmp,
+    attending,
   },
   methods: {
     connectToCmpPart(cmpPart) {
