@@ -1,8 +1,18 @@
 @import 'formReset.css';
+
+/* Template */
 @import 'first.css';
 
 
 /* Edit component */
-@import url('edit-template/templateEditor.css');
-@import url("edit-template/editBkg.css");
+@import 'edit-template/templateEditor.css';
+@import 'edit-template/editBkg.css';
+
+/* Fonts */
+@import 'fonts/MaterialIcons.css';
+@import 'fonts/Quicksand.css';
+
+
+
+
 
