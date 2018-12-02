@@ -3,7 +3,7 @@
 <template>
   <section class="event-title-container">
     <textarea
-      class="event-title"
+      class="event-name"
       v-model="data.txt"
       :style="{color: data.css.color,
               textAlign:data.css.textAlign,

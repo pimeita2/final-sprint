@@ -69,7 +69,6 @@ export default {
   },
   props: ['currCmpPart'],
   created(){
-      console.log(this.currCmpPart, this.kind);
 
   },
 

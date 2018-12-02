@@ -23,30 +23,20 @@
 </template>
 
 <script>
-// import imgCmp from "@/components/template-components/ImgCmp.vue";
-// import titleCmp from "@/components/template-components/TitleCmp.vue";
-import location from "@/components/template-components/AddressCmp.vue";
-import hour from "@/components/template-components/TimeCmp.vue";
-import day from "@/components/template-components/DateCmp.vue";
 import invaitorName from "@/components/template-components/invaitorNameCmp.vue";
+import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/shortDescriptionCmp.vue";
-import eventName from "@/components/template-components/eventNameCmp.vue";
-import attending from "@/components/template-components/AttendingCmp.vue";
-// import mapCmp from "@/components/template-components/MapCmp.vue";
-import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
+import shortDescription from "@/components/template-components/shortDescriptionCmp.vue";
+import AttendingCmp from "@/components/template-components/AttendingCmp.vue";
+import shortDescription from "@/components/template-components/shortDescriptionCmp.vue";
 
 export default {
   components: {
-    // imgCmp,
-    attending,
-    location,
-    hour,
-    day,
-    // mapCmp,
-    socialMedia,
     invaitorName,
+    eventTitle,
     shortDescription,
-    eventName
+    AttendingCmp,
+    
   },
   methods: {
     connectToCmpPart(cmpPart) {
