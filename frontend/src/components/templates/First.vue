@@ -117,6 +117,14 @@ export default {
 .edit-template-section {
   display: flex;
 }
+.invaitor-name {
+  text-align: center;
+  font-size: 50px;
+  /* font-family: "Satisfy", cursive; */
+  text-transform: uppercase;
+  margin-bottom: 70px;
+  color: rgb(153, 49, 54);
+}
 </style>
  
  

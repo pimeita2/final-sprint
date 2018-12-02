@@ -51,14 +51,14 @@ export default {
 
 <style>
 
-.invaitor-name {
+/* .invaitor-name {
   text-align: center;
   font-size: 14px;
-  /* font-family: "Satisfy", cursive; */
+  font-family: "Satisfy", cursive;
   text-transform: uppercase;
   margin-bottom: 7px;
   color: rgb(153, 49, 54);
-}
+} */
 
 
 </style>
