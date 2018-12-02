@@ -6,7 +6,6 @@
       :style="{color: this.titleStyle[0].style.color,
               textAlign:this.titleStyle[0].style.textAlign,
               fontFamily:this.titleStyle[0].style.fontFamily}"
-
       @click="connectToEditor('invaitorName')"
       @input="updateInvaitorName($event)"
     >
@@ -39,27 +38,36 @@ export default {
     data: Object
   },
   data() {
-    return {};
+    return {
+      // invitorName: ''
+    };
   },
-  created() {},
+  created() {
+    //to do only overide value if we found them for user
+    var invitorName = templateService.query("invitorName")
+    // this.invitorName = invitorName
+
+  },
   methods: {
     connectToEditor(cmpPart) {
-      console.log("in connect to editor", cmpPart);
+      // console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
     },
     updateInvaitorName(ev) {
+      alert("kuku");
       var newInvaitorName = ev.target.value;
       console.log(newInvaitorName);
       // this.$store.dispatch({ : "" });// changing to is edit true
-      templateService.saveData(newInvaitorName);
+      templateService.saveData("invaitorName", newInvaitorName);
     },
     updateEventName(ev) {
-      var newInvaitorName = ev.target.value;
-      templateService.saveData(newInvaitorName);
+      var newEventName = ev.target.value;
+      // console.log(newEventName);
+      templateService.saveData("eventName", newEventName);
     },
-    updateShortDescription(ev){
+    updateShortDescription(ev) {
       var newShortDescription = ev.target.value;
-      templateService.saveData(newShortDescription);
+      templateService.saveData("shortDescription", newShortDescription);
     }
     // style(cmpPart){
     //    console.log('In binding style:', cmpPart);

@@ -37,8 +37,7 @@ export default {
             id: 3,
             type: 'attendingCmp',
             isEdit: true,
-            data: {
-                
+            data: {         
             }
         },
 
