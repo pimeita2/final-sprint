@@ -5,14 +5,23 @@ export default {
                 cmpPartName: 'invaitorName',
                 style: {
                     color: 'black',
-                    textAlign:'center'
+                    textAlign:'center',
+                    fontWeight:{
+                        isBold:false,
+                        value:'normal'
+                    }
                 }
             },
             {
                 cmpPartName: 'eventName',
                 style: {
                     color: 'black',
-                    textAlign:'center'
+                    textAlign:'center',
+                    fontWeight:{
+                        isBold:false,
+                        value:'normal'
+                    }
+                   
 
                 }
             },
@@ -20,7 +29,11 @@ export default {
                 cmpPartName: 'shortDescription',
                 style: {
                     color: 'black',
-                    textAlign:'center'
+                    textAlign:'center',
+                    fontWeight:{
+                        isBold:false,
+                        value:'normal'
+                    }                    
                 }
 
             },
@@ -32,8 +45,7 @@ export default {
             }
 
         ]},
-    // },
-
+    
     mutations: {
         setBackground(state, { field, css }) {
             // console.log('in set Background', state.userStyle[state.userStyle.length-1], css);
@@ -53,7 +65,7 @@ export default {
             context.commit({ type: 'setBackground', field, css })
         },
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
-            console.log(' setUserStyleOfCmp', field, css, currCmpPart);
+            // console.log(' setUserStyleOfCmp', field, css, currCmpPart);
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
         }
     },

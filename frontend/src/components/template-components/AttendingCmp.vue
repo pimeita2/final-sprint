@@ -13,7 +13,7 @@
       <input class="guests-name" type="text" placeholder="Enter your full name please" required>
       <input class="guests-mobile" type="text" placeholder="Enter your mobile number please" required>
       <br>
-      
+
       <button class="btn-attending btn-ariving">ariving</button>
       <button class="btn-attending btn-not-ariving">not ariving</button>
     
@@ -70,6 +70,7 @@ export default {
   color:black;
   height: 25px;
   width: 50px;
+  border-radius: 5px;
 }
 
 .incomingPepole{
@@ -84,6 +85,7 @@ input.guests-name {
     border-radius: 10px;
     width: 70%;
     margin:0;
+    
 }
 input.guests-mobile {
     text-align: center;

@@ -2,10 +2,11 @@
   <section>
     <div class="edit-section icon-btn">
       <div class="text-edit icon-btn" @click="showTxtMenu=true">
-        <edit-txt v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt>
+        <edit-txt v-if="showTxtMenu" @styleTextUpdate="styleUpdate"></edit-txt>
         <!-- :currCmpPart="currCmpPart" -->
-        <h3 class="T-icon">T</h3>
+        <span class="text-edit-icon"><h3 class="T-icon">T</h3>
         <h4 class="h4-text-edit">Text</h4>
+        </span>
       </div>
       <hr>
 
@@ -15,39 +16,40 @@
         <h4 class="h4-template-edit">Bkground</h4>
       </a>-->
       <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
-        <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate" @close="showBkgMenu=false"></edit-bkg>
-        <p class="bkground-icon">&#x25A8;</p>
+        <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
+        <span class="bkground-edit-icon"><p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
+        </span>
       </a>
 
-      <hr>
+      <!-- <hr>
       <div class="template-edit icon-btn">
         <p class="template-icon">&#9704;</p>
         <h4 class="h4-template-edit">Template</h4>
-      </div>
+      </div> -->
 
       <hr>
       <div class="delete-edit icon-btn">
         <i class="fa fa-trash"></i>
-        <h4 class="h4-template-edit">Delete</h4>
+        <h4 class="h4-delete-edit">Delete</h4>
       </div>
 
       <hr>
       <a class="upload-edit" @click="showUploadMenu=true">
         <edit-upload v-if="showUploadMenu"  @styleUpdate="styleUpdate"></edit-upload>
         <i class="fa fa-cloud-upload"></i>
-        <h4 class="h4-template-edit">upload Img</h4>
+        <h4 class="h4-uploadImg-edit">upload Img</h4>
       </a>
     </div>
 
-    <div class="download-section">
-      <button class="download-btn">
-        <i class="fa fa-download"></i> Download
-      </button>
-      <button class="download-socialMedia">
-        <i class="arrow down"></i>
-      </button>
-    </div>
+    <!-- // <div class="download-section">
+    //   <button class="download-btn">
+    //     <i class="fa fa-download"></i> Download
+    //   </button>
+    //   <button class="download-socialMedia">
+    //     <i class="arrow down"></i>
+    //   </button>
+    // </div> -->
   </section>
 </template>
 
@@ -90,10 +92,9 @@ export default {
 .edit-section {
   height: 100%;
   width: 100px;
-  background: #4d4d4d;
+  background: #232323;
   position: relative;
   color: rgb(182, 159, 159);
-  border-radius: 0 10px 10px 0;
   float: left;
   display: flex;
   flex-direction: column;
@@ -108,7 +109,11 @@ export default {
   font-size: 20px;
 }
 
-h4 {
+.h4-text-edit,
+.h4-template-edit,
+.h4-delete-edit,
+.h4-uploadImg-edit
+ {
   font-size: 15px;
   font-family: "Quicksand", sans-serif;
   cursor: pointer;
@@ -128,8 +133,8 @@ hr {
   );
 }
 
-.text-edit:hover,
-.bkground-edit:hover,
+.text-edit-icon:hover,
+.bkground-edit-icon:hover,
 .template-edit:hover,
 .delete-edit:hover,
 .upload-edit:hover {
