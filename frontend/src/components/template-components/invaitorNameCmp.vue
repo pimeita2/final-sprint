@@ -49,13 +49,7 @@ export default {
 </script>
 
 <style>
-.event-description-container {
-  padding: 10px;
-  /* color: rgb(153, 49, 54); */
-}
-.event-description-container:hover {
-  cursor: all-scroll;
-}
+
 .invaitor-name {
   text-align: center;
   font-size: 14px;

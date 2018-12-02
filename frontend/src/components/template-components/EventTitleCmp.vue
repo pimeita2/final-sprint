@@ -1,7 +1,7 @@
 
 
 <template>
-  <section class="event-name">
+  <section class="event-title-container">
     <textarea
       class="event-name"
       v-model="data.txt"
@@ -10,9 +10,10 @@
               fontFamily:data.css.fontFamily,
               fontWeight:data.css.fontWeight,
               fontSize:data.css.fontSize+'px'}"
-      @click="connectToEditor('eventName')"
+      @click="connectToEditor('eventTitle')"
       @input="updateEventName($event)"
     />
+
   </section>
 </template>
 <script>
@@ -44,7 +45,7 @@ export default {
 </script>
 
 <style>
-.event-name {
+.event-title-container {
   /* padding: 18px; */
   font-size: 34px;
   font-weight: bold;

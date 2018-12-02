@@ -14,6 +14,8 @@
               :data="cmp.data"
             />
           </div>
+
+          {{dynamicCmps.data}}
         </div>
       </div>
     </div>
@@ -29,6 +31,7 @@ import hourCmp from "@/components/template-components/HourCmp.vue";
 import addressCmp from "@/components/template-components/AddressCmp.vue";
 import attendingCmp from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
+import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 
 export default {
   components: {
