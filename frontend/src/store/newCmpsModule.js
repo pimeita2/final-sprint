@@ -7,7 +7,6 @@ export default {
             isEdit: true,
             data: {
                 txt: 'meital invaits you',
-                // cmpPartName: 'invaitorName',
                 css: {
                     color: 'black',
                     textAlign: 'center',
@@ -26,7 +25,6 @@ export default {
             isEdit: true,
             data: {
                 txt: 'Get your dance on',
-                // cmpPartName: 'eventName',
                 css: {
                     color: 'black',
                     textAlign: 'center',
@@ -59,7 +57,7 @@ export default {
         },
         {
             id: 3,
-            type: 'date',
+            type: 'day',
             isEdit: true,
             data: {
                 txt: '01/12/1990',
@@ -77,7 +75,7 @@ export default {
         },
         {
             id: 4,
-            type: 'time',
+            type: 'hour',
             isEdit: true,
             data: {
                 txt: '00:30',

@@ -1,18 +1,18 @@
 <template>
   <section class="date-container">
     <div class="date-details">
-    <p class="date">
-    <input
-      class="date"
-      v-model="data.txt"
-      type="date"
-      @click="connectToEditor('date')"
-      :style="{color: data.css.color,
+      <p class="date">
+        <input
+          class="date"
+          v-model="data.txt"
+          type="date"
+          @click="connectToEditor('date')"
+          :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontSize:data.css.size+'px'}"
-    >
-    </p>
+        >
+      </p>
     </div>
   </section>
 </template>
