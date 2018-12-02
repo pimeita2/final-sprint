@@ -1,14 +1,14 @@
 <template>
   <section>
     <div class="edit-section icon-btn">
-      <div class="text-edit icon-btn" @click="showTxtMenu=true">
-        <edit-txt :currCmpPart="currCmpPart" v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt>
+      <!-- <div class="text-edit icon-btn"> -->
+        <!-- <edit-txt :currCmpPart="currCmpPart" v-if="showTxtMenu" @close="showTxtMenu=false" @styleTextUpdate="styleUpdate"></edit-txt> -->
         <!-- :currCmpPart="currCmpPart" -->
-        <span class="text-edit-icon"><h3 class="T-icon">T</h3>
+        <!-- <span class="text-edit-icon"><h3 class="T-icon">T</h3>
         <h4 class="h4-text-edit">Text</h4>
         </span>
       </div>
-      <hr>
+      <hr> -->
 
       <!-- <a class="bkground-edit icon-btn" @click="showBkgMenu=!showBkgMenu">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
@@ -65,19 +65,19 @@ export default {
   components: {
     editBkg,
     editUpload,
-    editTxt,
-    homePage
+    // editTxt
   },
   props: ['currCmpPart'],
   created(){
-      console.log(this.currCmpPart);
+      console.log(this.currCmpPart, this.kind);
+
   },
 
   data() {
     return {
       showBkgMenu: false,
       showUploadMenu: false,
-      showTxtMenu: false
+      // showTxtMenu: false
     };
   },
   methods: {

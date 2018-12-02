@@ -7,6 +7,7 @@
             <!-- <title-cmp/> -->
             <component
               @connectToCmpPart="connectToCmpPart"
+              @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
               :key="cmp.id"
               :is="cmp.type"
@@ -25,6 +26,9 @@ import titleCmp from "@/components/template-components/TitleCmp.vue";
 import addressCmp from "@/components/template-components/AddressCmp.vue";
 import timeCmp from "@/components/template-components/TimeCmp.vue";
 import dateCmp from "@/components/template-components/DateCmp.vue";
+import invaitorNameCmp from "@/components/template-components/invaitorNameCmp.vue";
+import shortDescriptionCmp from "@/components/template-components/shortDescriptionCmp.vue";
+import eventNameCmp from "@/components/template-components/eventNameCmp.vue";
 import attendingCmp from "@/components/template-components/AttendingCmp.vue";
 // import mapCmp from "@/components/template-components/MapCmp.vue";
 import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue";
@@ -32,18 +36,24 @@ import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue"
 export default {
   components: {
     // imgCmp,
-    titleCmp,
     attendingCmp,
     addressCmp,
     timeCmp,
     dateCmp,
     // mapCmp,
-    socialMediaCmp
+    socialMediaCmp,
+    invaitorNameCmp,
+    shortDescriptionCmp,
+    eventNameCmp
   },
   methods: {
     connectToCmpPart(cmpPart) {
       console.log("in first", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
+    },
+    showEditor({ kind }) {
+      console.log(kind);
+      this.$emit("showEditor", { kind });
     }
   },
   computed: {
@@ -61,7 +71,6 @@ export default {
 </script>
 
 <style>
-
 .template-container {
   background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
   background-repeat: no-repeat;
@@ -70,7 +79,7 @@ export default {
   width: 400px;
   height: 560px;
   border: 1px solid gray;
-  margin-top:55px;
+  margin-top: 55px;
 }
 .backround-img {
   display: flex;
