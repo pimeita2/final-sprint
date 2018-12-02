@@ -142,13 +142,13 @@ export default {
     mutations: {
         setBackground(state, { field, css }) {
             // console.log('in set Background', state.userStyle[state.userStyle.length-1], css);
-            state.userStyle[state.userStyle.length - 1].background = css;
+            state.userStyle[state.templateCmps.length - 1].background = css;
         },
         setUserStyle(state, { field, css, currCmpPart }) {
-            state.userStyle.map(obj => {
-                if (obj.cmpPartName === currCmpPart) obj.style[field] = css[field];
-            })
-            console.log('set user style has', field, css, currCmpPart, 'and in state', state.userStyle);
+            console.log('setUserStyle', css ,currCmpPart)
+            state.templateCmps.map(obj => {
+                if (obj.type === currCmpPart) obj.data.css[field] = css[field];
+            });
         }
     },
 
@@ -158,7 +158,7 @@ export default {
             context.commit({ type: 'setBackground', field, css })
         },
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
-            // console.log(' setUserStyleOfCmp', field, css, currCmpPart);
+            console.log(' setUserStyleOfCmp', field, css, currCmpPart);
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
         }
     },
