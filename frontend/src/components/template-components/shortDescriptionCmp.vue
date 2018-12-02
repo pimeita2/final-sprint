@@ -46,7 +46,7 @@ export default {
 };
 </script>
 <style>
-.short-description {
+/* .short-description {
   background-color: rgb(153, 49, 54);
   font-size: 12px;
   color: white;
@@ -55,10 +55,10 @@ export default {
   text-align: center;
 }
 .short-description-container {
-  padding: 10px;
+  padding: 10px; */
   /* color: rgb(153, 49, 54); */
-}
+/* }
 .short-description-container:hover {
   cursor: all-scroll;
-}
+} */
 </style>

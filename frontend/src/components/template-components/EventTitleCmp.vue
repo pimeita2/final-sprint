@@ -45,13 +45,13 @@ export default {
 </script>
 
 <style>
-.event-title-container {
+/* .event-title-container { */
   /* padding: 18px; */
-  font-size: 34px;
+  /* font-size: 34px;
   font-weight: bold;
   display: flex;
   align-items: center;
   color: rgb(153, 49, 54);
-  max-width: 300px;
-}
+  max-width: 300px; */
+/* } */
 </style>

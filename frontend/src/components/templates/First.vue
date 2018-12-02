@@ -80,51 +80,8 @@ export default {
 </script>
 
 <style>
-.template-container {
-  background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
-  background-repeat: no-repeat;
-  background-size: 600px 600px;
-  display: flex;
-  width: 400px;
-  height: 560px;
-  border: 1px solid gray;
-  margin-top: 55px;
-}
-.backround-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-.backgroun-frame {
-  display: flex;
-  align-items: center;
-  width: 350px;
-  height: 480px;
-  border: 3px solid white;
-  margin: auto;
-}
-.card-container {
-  width: 320px;
-  height: 450px;
-  background-color: rgba(255, 255, 255, 0.692);
-  margin: 0 auto;
-}
-#nav {
-  position: relative;
-  padding: 0px;
-}
-.edit-template-section {
-  display: flex;
-}
-.invaitor-name {
-  text-align: center;
-  font-size: 50px;
-  /* font-family: "Satisfy", cursive; */
-  text-transform: uppercase;
-  margin-bottom: 70px;
-  color: rgb(153, 49, 54);
-}
+
+  
 </style>
  
  
