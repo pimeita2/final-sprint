@@ -22,8 +22,9 @@
 
 <script>
 // import imgCmp from "@/components/template-components/ImgCmp.vue";
-import titleCmp from "@/components/template-components/TitleCmp.vue";
-import eventDetailsCmp from "@/components/template-components/EventDetalisCmp.vue";
+import invaitorNameCmp from "@/components/template-components/invaitorNameCmp.vue";
+import shortDescriptionCmp from "@/components/template-components/shortDescriptionCmp.vue";
+import eventNameCmp from "@/components/template-components/eventNameCmp.vue";
 import attendingCmp from "@/components/template-components/AttendingCmp.vue";
 // import mapCmp from "@/components/template-components/MapCmp.vue";
 import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue";
@@ -31,11 +32,12 @@ import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue"
 export default {
   components: {
     // imgCmp,
-    titleCmp,
-    eventDetailsCmp,
     attendingCmp,
     // mapCmp,
-    socialMediaCmp
+    socialMediaCmp,
+    invaitorNameCmp,
+    shortDescriptionCmp,
+    eventNameCmp
   },
   methods: {
     connectToCmpPart(cmpPart) {
