@@ -50,9 +50,9 @@ export default {
     userStyleBackground() {
       return this.$store.getters.userStyleBackground;
     },
-    getUserStyle() {
-      return this.$store.getters.getUserStyle;
-    },
+    // getUserStyle() {
+    //   return this.$store.getters.getUserStyle;
+    // },
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
     }
