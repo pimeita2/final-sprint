@@ -10,7 +10,7 @@
         </p>
         <p class="control">
           
-        <input class="input" type="text" placeholder="Disabled input" disabled>
+        <input class="input" type="text" placeholder="0" disabled>
           
         </p>
         <p class="control">
@@ -18,9 +18,9 @@
         </p>
       </div>
 
-      <button class="addPeople" @click="addMorePepole">+</button>
+      <!-- <button class="addPeople" @click="addMorePepole">+</button>
       <div class="pepoleCountSpan">{{pepoleCount}}</div>
-      <button class="reducePepole" @click="lessPepole">-</button>
+      <button class="reducePepole" @click="lessPepole">-</button> -->
     </div>
 
     <input class="guests-name" type="text" placeholder="Enter your full name please" required>
@@ -139,5 +139,6 @@ input.guests-mobile {
 }
 .control > input{
     margin: 0px 0 22px 0;
+    width: 38px;
   }
 </style>
