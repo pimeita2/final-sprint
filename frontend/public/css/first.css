@@ -7,7 +7,7 @@
     display: flex;
     width: 400px;
     border: 1px solid gray;
-    margin-top: 55px;
+    margin-top: 15px;
     padding:20px;
   }
   .backround-img {
@@ -95,4 +95,9 @@
   }
   .short-description-container:hover {
     cursor: all-scroll;
+  }
+
+  .edit-template-section{
+      display: flex;
+      flex-direction: column;
   }

@@ -1,39 +1,32 @@
 <template>
   <section class="edit-txt-section" @connectToCmpPart="connectToCmpPart">
     <p @click="handleAlignment" class="align-icon edit-type-icon">
-     
       <i class="fa fa-align-left edit-icon-txt" @click.stop="handleAlignment('left')"></i>
-     
+      
       <i class="fa fa-align-center edit-icon-txt" @click.stop="handleAlignment('center')"></i>
-
+      
       <i class="fa fa-align-right edit-icon-txt" @click.stop="handleAlignment('right')"></i>
     </p>
 
     <p @click="handleFont" class="font-icon">
       <i class="fa fa-font edit-icon-font"></i>
-      <select  class="select-font" >
+      <select class="select-font">
         <option value="font" disable-selection>font</option>
         <option value="coral">coral</option>
         <option value="arial">arial</option>
         <option value="david">david</option>
         <option value="cursive">cursive</option>
-     </select>
+      </select>
     </p>
 
-    <input 
-      class="textColor-icon"
-      type="color"
-      @change="handleColor"
-      value="#ff0000"
-      
-    >
-    
+    <input class="textColor-icon" type="color" @change="handleColor" value="#ff0000">
+
     <p @click="handleSize" class="textSize-icon">
       <i class="fa fa-text-height" @click.stop="handleSize(1)"></i>
       <i class="fa fa-text-height" @click.stop="handleSize(-1)"></i>
     </p>
 
-      <p @click="handleBold" class="textBold-icon">
+    <p @click="handleBold" class="textBold-icon">
       <i class="fa fa-bold"></i>
     </p>
   </section>
@@ -45,7 +38,7 @@ export default {
   props: ["currCmpPart"],
   data() {
     return {
-    //  isBold:false,
+      //  isBold:false,
       // align: "center",
       // fontFamily: "arial",
       // color: "#FFFFFF",
@@ -58,7 +51,7 @@ export default {
   methods: {
     connectToCmpPart(cmpPart) {
       console.log("Connect to", cmpPart);
-      this.currCmpPart=cmpPart;
+      this.currCmpPart = cmpPart;
     },
     handleAlignment(align) {
       console.log("handleAlignment", align);
@@ -76,13 +69,13 @@ export default {
       });
     },
     handleSize(sizeChange) {
-      const currCmpObj=this.textStyle.find(obj=>obj.cmpPartName===this.currCmpPart);
-      // console.log(currCmpObj, currCmpObj.style.fontSize, typeof sizeChange);
-      const newFontSize =  currCmpObj.style.fontSize + sizeChange;
-      console.log( currCmpObj.style.fontSize);
-     this.$emit("styleTextUpdate", {
+      const currCmpObj = this.cmps.find(cmp => {
+        return cmp.type === this.currCmpPart;
+      });
+      const newFontSize = currCmpObj.data.css.fontSize + sizeChange;
+      this.$emit("styleTextUpdate", {
         field: "fontSize",
-        css: { fontSize:newFontSize}
+        css: { fontSize: newFontSize }
       });
     },
     handleColor(event) {
@@ -93,60 +86,58 @@ export default {
         css: { color: this.color }
       });
     },
-     handleBold(){
-        this.isBold=!this.isBold;
-       let weight;
-       if(this.isBold===true)     weight='bold';
-       else weight='normal';
-        this.$emit("styleTextUpdate", {
+    handleBold() {
+      this.isBold = !this.isBold;
+      let weight;
+      if (this.isBold === true) weight = "bold";
+      else weight = "normal";
+      this.$emit("styleTextUpdate", {
         field: "fontWeight",
         css: { fontWeight: weight }
       });
-
     }
   },
-  computed:{
-  textStyle() {
-      return this.$store.getters.getUserStyle;
+  computed: {
+    cmps() {
+      return this.$store.getters.dynamicCmps;
     }
   }
 };
-
 </script>
 
 <style>
 .edit-txt-section {
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: row;
-    position: fixed;
-    left: 100px;
-    top: 0px;
-    width: 100%;
-    height: 7%;
-    overflow: auto;
-    background-color: rgb(256,256,256);
-    border-radius: 0px 10px 10px 0px;
-    border-bottom: 1px solid rgb(190, 190, 190);
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  position: fixed;
+  left: 100px;
+  top: 0px;
+  width: 100%;
+  height: 7%;
+  overflow: auto;
+  background-color: rgb(256, 256, 256);
+  border-radius: 0px 10px 10px 0px;
+  border-bottom: 1px solid rgb(190, 190, 190);
 }
 
-.edit-type-icon{
+.edit-type-icon {
   width: 20%;
 }
 
-.edit-icon-txt{
+.edit-icon-txt {
   margin: 0 5px;
   font-size: 20px;
   color: #232323;
 }
 
-.edit-icon-font{
+.edit-icon-font {
   font-size: 20px;
   color: #232323;
 }
 
-.select-font{
+.select-font {
   display: inline-block;
   border: 1px solid rgb(190, 190, 190);
   border-radius: 15px;
@@ -154,10 +145,9 @@ export default {
   padding-right: 25px;
 }
 
-.font-icon{
+.font-icon {
   margin: 10px 0;
 }
-
 
 .edit-txt-section img {
   height: 25px;
@@ -168,20 +158,20 @@ export default {
 .font-icon,
 .textColor-icon,
 .textSize-icon,
-.textBold-icon{
+.textBold-icon {
   border-radius: 3px;
   cursor: pointer;
 }
 
-.textSize-icon{
-   color: #232323;
-   font-size: 18px;
-   margin: auto 0;
+.textSize-icon {
+  color: #232323;
+  font-size: 18px;
+  margin: auto 0;
 }
-.textBold-icon{
-   color: #232323;
-   font-size: 18px;
-   margin: 10px 45px;
+.textBold-icon {
+  color: #232323;
+  font-size: 18px;
+  margin: 10px 45px;
 }
 
 .align-icon img {

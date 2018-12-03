@@ -16,12 +16,15 @@
           </div>
         </div>
       </div>
-      <button @click="publish">Publish</button>
     </div>
+    <button class="publish" @click="publish">Publish</button>
+    <publish-modal v-if="show" @close="show=false"></publish-modal>
   </section>
 </template>
 
 <script>
+import publishModal from '@/components/PublishModal.vue'
+
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
@@ -33,7 +36,13 @@ import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
 import templateService from "@/services/templateService";
 
 export default {
+  data() {
+    return {
+      show:false
+    };
+  },
   components: {
+    publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
@@ -41,7 +50,7 @@ export default {
     hour,
     location,
     socialMedia,
-    attending,
+    attending
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -53,9 +62,25 @@ export default {
       this.$emit("showEditor", { kind });
     },
     publish() {
+      this.show=true;
       templateService
         .add({
           cmps: this.dynamicCmps,
+          base:{
+            name:'first',
+            parts:{
+              part1:`
+                  <div class="edit-template-section">
+                     <div class="template-container" :style="userStyleBackground">
+                       <div class="backgroun-frame">
+                         <div class="card-container">`,
+              part2:`
+                        </div>
+                     </div>
+                  </div>
+                 </div> `
+            }
+          },
           name: "Puki's birrthday",
           modified: Date.now(),
           creatorId: "abc123" // TODO: currLoggedinuserId here
@@ -80,8 +105,6 @@ export default {
 </script>
 
 <style>
-
-  
 </style>
  
  

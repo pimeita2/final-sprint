@@ -3,6 +3,7 @@ export default {
         currentIdx: null,
         templateCmps: [{
             id: 0,
+            kind:'text',
             type: 'invaitorName',
             isEdit: true,
             data: {
@@ -21,6 +22,7 @@ export default {
         },
         {
             id: 1,
+            kind:'text',
             type: 'eventTitle',
             isEdit: true,
             data: {
@@ -39,6 +41,7 @@ export default {
         },
         {
             id: 2,
+            kind:'text',
             type: 'shortDescription',
             isEdit: true,
             data: {
@@ -57,6 +60,7 @@ export default {
         },
         {
             id: 3,
+            kind:'text',
             type: 'day',
             isEdit: true,
             data: {
@@ -75,6 +79,7 @@ export default {
         },
         {
             id: 4,
+            kind:'text',
             type: 'hour',
             isEdit: true,
             data: {
@@ -93,6 +98,7 @@ export default {
         },
         {
             id: 5,
+            kind:'text',
             type: 'location',
             isEdit: true,
             data: {
@@ -111,6 +117,7 @@ export default {
         },
         {
             id: 6,
+            kind:'cmp',
             type: 'attending',
             isEdit: true,
             data: {
@@ -121,6 +128,7 @@ export default {
         },
         {
             id: 7,
+            kind:'cmp',
             type: 'socialMedia',
             isEdit: true,
             data: {
