@@ -18,7 +18,7 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
-    <publish-modal v-if="show" @close="show=false"></publish-modal>
+    <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
 </template>
 
@@ -38,7 +38,8 @@ import templateService from "@/services/templateService";
 export default {
   data() {
     return {
-      show:false
+      show:false,
+      type:'first'
     };
   },
   components: {
