@@ -1,14 +1,16 @@
 <template>
   <section class="first-template">
-    <div class="edit-template-section">
-      <div class="template-container" :style="userStyleBackground">
-        <div class="backgroun-frame">
-          <div class="card-container">
+    <div class="edit-template-section" >
+      <div class="template-container" :style="userStyleBackground" @click="connectToEditor" >
+        <div class="backgroun-frame" @click="connectToEditor" >
+          <div class="card-container" @click.stop >
             <!-- <title-cmp/> -->
             <component
+             
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
+             
               :key="cmp.id"
               :is="cmp.type"
               :data="cmp.data"
@@ -54,12 +56,13 @@ export default {
   },
   methods: {
     connectToCmpPart(cmpPart) {
-      console.log("in first", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
     },
     showEditor({ kind }) {
-      console.log(kind);
       this.$emit("showEditor", { kind });
+    },
+     connectToEditor() {
+      this.$emit("showEditor", { kind: "background" });
     },
     publish() {
       this.show=true;

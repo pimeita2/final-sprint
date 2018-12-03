@@ -140,6 +140,7 @@ export default {
         },
         {
             id: 8,
+            kind:'background',
             type: 'background',
             css: {
                 backgroundColor: '#ff9a90',

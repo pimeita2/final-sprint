@@ -12,10 +12,10 @@
       <i class="fa fa-font edit-icon-font"></i>
       <select class="select-font">
         <option value="font" disable-selection>font</option>
-        <option value="coral">coral</option>
-        <option value="arial">arial</option>
-        <option value="david">david</option>
-        <option value="cursive">cursive</option>
+        <option value="Quicksand">Quicksand</option>
+        <option value="AsapCondensed">AsapCondensed</option>
+        <option value="Merriweather">Merriweather</option>
+        <option value="Oswald">Oswald</option>
       </select>
     </p>
 
@@ -184,5 +184,8 @@ export default {
   margin: 10px 35px;
   height: 25px;
   width: 25px;
+}
+.fa-text-height{
+  margin:5px 15px;
 }
 </style>
