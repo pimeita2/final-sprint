@@ -8,11 +8,12 @@
       <div class="pepoleCountSpan">{{pepoleCount}}</div>
       <button class="reducePepole" @click="lessPepole">-</button>
       </div>
-      <br>
+    
 
       <input class="guests-name" type="text" placeholder="Enter your full name please" required>
       <input class="guests-mobile" type="text" placeholder="Enter your mobile number please" required>
       <br>
+    
 
       <button class="btn-attending btn-ariving">ariving</button>
       <button class="btn-attending btn-not-ariving">not ariving</button>
@@ -50,27 +51,34 @@ export default {
 <style>
 .attending-title {
   margin: 16px 0 0 0;
+  font-family: 'Asap Condensed';
 }
 .attending-sub-title {
   margin: 3px;
   font-size: 12px;
+  font-family:'Asap Condensed';
 }
 .counter-view {
   width: 30px;
 }
 .addPeople, .reducePepole{
-  border-radius: 50%;
-  background: #F08080;
-  color:white;
+  border-radius: 30%;
+  /* background: #F08080; */
+  color:black;
   padding:8px;
   cursor: pointer;
+  width:30px;
+  height: 28px;
+  font-size: 15px;
+  text-align: center;
 }
 .pepoleCountSpan{
   background: #D3D3D3;
   color:black;
-  height: 25px;
-  width: 50px;
+  height: 27px;
+  width: 58px;
   border-radius: 5px;
+  text-align: center;
 }
 
 .incomingPepole{
@@ -83,6 +91,7 @@ input.guests-name {
     text-align: center;
     border: gray;
     border-radius: 10px;
+    padding:6px;
     width: 70%;
     margin:0;
     
@@ -90,9 +99,9 @@ input.guests-name {
 input.guests-mobile {
     text-align: center;
     border: gray;
-    border-radius: 15px;
+    border-radius: 10px;
     width: 70%;
-    padding:5px;
+    padding:6px;
     margin:5px;
   
 }
@@ -102,7 +111,7 @@ input.guests-mobile {
   padding: 6px 3px;
   text-align: center;
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   margin: 0 2px;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -111,7 +120,7 @@ input.guests-mobile {
   border-radius: 10px;
 }
 .btn-ariving{
-  background:#F08080;
+  background:red;
 }
 .btn-not-ariving{
   background:gray;

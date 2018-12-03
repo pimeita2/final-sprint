@@ -44,6 +44,7 @@ export default {
   margin: 5px;
   color: rgb(153, 49, 54);
   text-transform: capitalize;
+  width:55%;
 }
 
 </style>

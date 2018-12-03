@@ -29,8 +29,8 @@
     >
     
     <p @click="handleSize" class="textSize-icon">
-      <i class="fa fa-text-height" @click.stop="handleSize(1)"></i>
-      <i class="fa fa-text-height" @click.stop="handleSize(-1)"></i>
+      <i class="fa fa-text-height" @click.stop="handleSize(2)"></i>
+      <i class="fa fa-text-height" @click.stop="handleSize(-2)"></i>
     </p>
 
       <p @click="handleBold" class="textBold-icon">
@@ -76,10 +76,12 @@ export default {
       });
     },
     handleSize(sizeChange) {
+      // console.log(this.currCmpPart, ':this.currCmpPart' , sizeChange, ':sizeChange')
+      console.log 
       const currCmpObj=this.textStyle.find(obj=>obj.cmpPartName===this.currCmpPart);
       // console.log(currCmpObj, currCmpObj.style.fontSize, typeof sizeChange);
-      const newFontSize =  currCmpObj.style.fontSize + sizeChange;
-      console.log( currCmpObj.style.fontSize);
+      const newFontSize =  currCmpObj.css.fontSize + sizeChange;
+      console.log( currCmpObj.css.fontSize);
      this.$emit("styleTextUpdate", {
         field: "fontSize",
         css: { fontSize:newFontSize}
@@ -96,7 +98,7 @@ export default {
      handleBold(){
         this.isBold=!this.isBold;
        let weight;
-       if(this.isBold===true)     weight='bold';
+       if(this.isBold===true)   weight='bold';
        else weight='normal';
         this.$emit("styleTextUpdate", {
         field: "fontWeight",
@@ -107,7 +109,7 @@ export default {
   },
   computed:{
   textStyle() {
-      return this.$store.getters.getUserStyle;
+      return this.$store.getters.dynamicCmps;
     }
   }
 };
