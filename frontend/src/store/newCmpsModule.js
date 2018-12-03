@@ -120,10 +120,7 @@ export default {
             kind:'cmp',
             type: 'attending',
             isEdit: true,
-            data: {
-               
-             
-              
+            data: {     
             }
         },
         {
@@ -132,10 +129,10 @@ export default {
             type: 'socialMedia',
             isEdit: true,
             data: {
-                F: '@/assets/f.png',
-                L: '',
-                T: '',
-                I: ''
+                txtF: '',
+                txtL: '',
+                txtT: '',
+                txtI: ''
             }
         },
         {
@@ -152,7 +149,6 @@ export default {
     mutations: {
         setBackground(state, { field, css }) {
             state.templateCmps[state.templateCmps.length - 1].css = css;
-            
         },
       
         setUserStyle(state, { field, css, currCmpPart }) {

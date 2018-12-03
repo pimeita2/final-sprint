@@ -1,21 +1,26 @@
 <template>
   <section class="contact-container">
     <div class="social-media">
-      <a href="#" class="facebook social-media-box">
-        <!-- <img :src="require(data.F)" alt> -->
-        <img src="@/assets/f.png" alt>
-        <!-- <i class="fas fa-stroopwafel"></i> -->
+      <a href="#" class="facebook social-media-box" style="color: white;" @click="toggle = !toggle">
+        <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="#" class="twitter social-media-box">
-        <img src="@/assets/L.png" alt>
+      <input v-model="data.txtF" class="facebookLink" v-show="toggle" placeholder="Copy your profile link to here">
+
+      <a href="#" class="twitter social-media-box" style="color: white;" @click="toggle = !toggle">
+        <i class="fab fa-twitter"></i>
       </a>
-      <a href="#" class="be social-media-box">
-        <img src="@/assets/f.png" alt>
+      <input v-model="data.txtL" class="facebookLink" v-show="toggle" placeholder="Copy your profile link to here">
+
+      <a href="#" class="be social-media-box" style="color: white;" @click="toggle = !toggle">
+        <i class="fab fa-linkedin-in"></i>
       </a>
-      <a href="#" class="orange social-media-box">
-        <img src="@/assets/L.png" alt>
-        <!-- <i class="fab fa-linkedin-in"></i> -->
+      <input v-model="data.txtT" class="facebookLink" v-show="toggle" placeholder="Copy your profile link to here">
+
+      <a href="#" class="orange social-media-box" style="color: white;" @click="toggle = !toggle">
+        <i class="fab fa-instagram"></i>
       </a>
+      <input v-model="data.txtI" class="facebookLink" v-show="toggle" placeholder="Copy your profile link to here">
+
     </div>
   </section>
 </template>
@@ -25,14 +30,14 @@ export default {
   props: {
     data: Object
   },
-  created() {
-    
+  data() {
+    return {
+      toggle: false
+    };
   },
-  computed: {
-    facebook() {
-      return this.data.F;
-    }
-  }
+  created() {},
+  computed: {},
+  methods: {}
 };
 </script>
 
@@ -50,5 +55,17 @@ export default {
 .social-media-box:hover {
   cursor: pointer;
   background-color: #516fad;
+}
+a {
+  position: relative;
+}
+.facebookLink {
+  position: absolute;
+  bottom: 140px;
+  right: 365px;
+  background-color: rgba(240, 248, 255, 0.74);
+  padding: 6px;
+  width: 18%;
+  border-radius: 5px;
 }
 </style>

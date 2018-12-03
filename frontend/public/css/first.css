@@ -19,8 +19,9 @@
   
   .card-container {
     width: 320px;
+    padding: 10px;
     /* height: 450px; */
-    background-color: rgba(255, 255, 255, 0.492);
+    background-color: rgba(255, 255, 255, 0.75);
     border-radius: 5px;
     margin: 0 auto;
   }
@@ -36,17 +37,21 @@
     font-size: 50px;
     /* font-family: "Satisfy", cursive; */
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: rgb(153, 49, 54);
     }
     .event-title-container {
     /* padding: 18px; */
+    margin-bottom: 5px;
     font-size: 34px;
     font-weight: bold;
     display: flex;
     align-items: center;
     color: rgb(153, 49, 54);
     max-width: 300px;
+    }
+    .event-name{
+      padding: 10px;
     }
   
   .backround-img {
@@ -93,6 +98,7 @@
     text-align: center;
   }
   .short-description-container {
+    margin: 10px;
     padding: 10px;
     /* color: rgb(153, 49, 54); */
   }
@@ -104,3 +110,18 @@
       display: flex;
       flex-direction: column;
   }
+  .social-media-box {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin: 20px 10px;
+    background-color: rgb(187, 185, 185);
+    transition: background-color 0.5s;
+  }
+  .social-media-box:hover {
+    cursor: pointer;
+    background-color: #516fad;
+  }
+  
