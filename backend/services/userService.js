@@ -25,22 +25,6 @@ function getById(id) {
 }
 
 
-// function addUserTemplate(template, id) {
-//     const templateId = new ObjectId(template.id)
-//     getById(id).then(currUser => {
-//         currUser.templateParts.push(template);
-//     })
-// }
-
-
-// function removeUserTemplate(template, id) {
-//     const templateId = new ObjectId(template.id)
-//     getById(id).then(currUser => {
-//         currUser.templateParts.splice(id, 1);
-//     })
-// }
-
-
 
 function addUser({ nickname }) {
     var user = { nickname }
