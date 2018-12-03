@@ -4,6 +4,8 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Template from './views/Template.vue'
 import First from './components/templates/First.vue'
+import FirstPreview from './components/templates/FirstPreview.vue'
+
 // import Second from './components/templates/Second.vue'
 // import Third from './components/templates/Third.vue'
 
@@ -32,15 +34,21 @@ export default new Router({
     //   component: () => import('./views/Login.vue')
     // },
     {
+      path: '/FirstPreview',
+      name: 'FirstPreview',
+      component:FirstPreview
+    },
+    {
       path: '/template',
       name: 'template',
       component: Template,
       children: [
         {
           path: '1',
-          name:'first',
+          name:'First',
           component: First
         },
+     
         // {
         //   path: '2',
         //   name:'Second',

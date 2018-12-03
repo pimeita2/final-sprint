@@ -137,7 +137,9 @@ export default {
         },
         {
             id: 8,
+            kind:'background',
             type: 'background',
+            kind:'other',
             css: {
                 backgroundColor: '#ff9a90',
                 backgroundImage: ``,

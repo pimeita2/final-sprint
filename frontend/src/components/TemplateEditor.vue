@@ -6,19 +6,25 @@
         <p class="bkground-icon">&#x25A8;</p>
         <h4 class="h4-template-edit">Bkground</h4>
       </a>-->
-      <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
+      <!-- <a class="bkground-edit icon-btn" @click="showBkgMenu=true">
         <edit-bkg v-if="showBkgMenu" @styleUpdate="styleUpdate"></edit-bkg>
         <span class="bkground-edit-icon">
           <p class="bkground-icon">&#x25A8;</p>
           <h4 class="h4-template-edit">Bkground</h4>
         </span>
-      </a>
+      </a> -->
 
       <!-- <hr>
       <div class="template-edit icon-btn">
         <p class="template-icon">&#9704;</p>
         <h4 class="h4-template-edit">Template</h4>
       </div>-->
+      
+      <div class="publish-edit icon-btn">
+        <i class="fa fa-upload"></i>
+        <h4 class="h4-publish-edit">Publish</h4>
+      </div>
+      
       <hr>
       <div class="delete-edit icon-btn">
         <i class="fa fa-trash"></i>
@@ -108,7 +114,7 @@ export default {
   color:rgb(182, 159, 159);
 }
 
-.h4-text-edit,
+.h4-publish-edit,
 .h4-template-edit,
 .h4-delete-edit,
 .h4-uploadImg-edit,
@@ -137,7 +143,8 @@ hr {
 .template-edit:hover,
 .delete-edit:hover,
 .upload-edit:hover,
-.backHome-page:hover {
+.backHome-page:hover,
+.publish-edit:hover {
   color: ghostwhite;
 }
 .icon-btn {
@@ -153,6 +160,11 @@ hr {
 }
 .bkground-icon {
   margin: 0;
+  font-size: 25px;
+  cursor: pointer;
+}
+.fa-upload{
+   margin: 0;
   font-size: 25px;
   cursor: pointer;
 }

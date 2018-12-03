@@ -8,9 +8,11 @@
           <span @click="$emit('close')" class="close" title="Close Modal">&times;</span>
           <h6>Your Invitation has been created successfully</h6>
           <p>link to you Invitation:</p>
-          <div class="unEditable-invite">url
-              <button @click="showPreview">Preview</button>
-              <uneditable-template v-if="show"></uneditable-template>
+          <div class="unEditable-invite"></div>
+            url
+            <router-link to="/FirstPreview">preview</router-link>
+            
+            <!-- <uneditable-template  :template="template"></uneditable-template> -->
           </div>
           <button>Go back to Editting</button>
           <button>More templates</button>
@@ -21,22 +23,47 @@
 </template>
 
 <script>
-import uneditableTemplate from '@/components/UneditableTemplate.vue'
+import uneditableTemplate from "@/components/templates/UneditableTemplate.vue";
+import templateService from "../services/templateService.js";
 export default {
-data(){
-return{
-    show:false
-}
-},
-methods: {
-    showPreview(){
-         this.show=true;
-    }
-},
-components:{
-   uneditableTemplate
-}
-}
+  props: ["type"],
+  data() {
+    return {
+      // show: false,
+      template:{},
+    };
+  },
+  created() {},
+  methods: {
+    // showPreview() {
+      // this.show = true;
+      // templateService.query().then(res => {
+      //   console.log(res);
+      //   const currTemplate = res.find(temp => {
+      //     console.log("templateService.query", this.type, temp.base.name);
+      //     if (temp.base.name === this.type) return temp;
+      //   });
+      //  this.template=currTemplate;
+      //  console.log(this.template);
+
+      // });
+    // },
+    // getData() {
+    //   templateService.query().then(res => {
+    //     console.log(res);
+    //     const currTemplate = res.find(temp => {
+    //       console.log("templateService.query", this.type, temp.base.name);
+    //       if (temp.base.name === this.type) return temp;
+    //     });
+    //     console.log(currTemplate);
+    //   });
+    // }
+  // },
+  },
+  components: {
+    uneditableTemplate
+  }
+};
 </script>
 
 

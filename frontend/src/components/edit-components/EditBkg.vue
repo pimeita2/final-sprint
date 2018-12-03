@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="edit-bkg-section">
-    <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange"/>
+    <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange" />
       
       <div class="edit-upload-section">
       <input type="file" style="display:none" ref="fileInput" accept="image/*" @change="onFilePicked " >
@@ -25,6 +25,7 @@ export default {
       bgcImage:""
     };
   },
+ 
   methods: {
     handleChange() {
       this.$emit("styleUpdate", {
@@ -53,7 +54,9 @@ export default {
           fileReader.readAsDataURL(files[0]) 
           this.image=files[0]
         console.log('this.imageUrl:' , this.image)
-      }
+      },
+      
+   
 
   }
 };

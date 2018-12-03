@@ -80,14 +80,6 @@ header .routers.btn:hover{
 	animation: text-shadow-pop-tr 0.5s both;
 }
 
-/* header .routers:hover {
-  background-color: #ddd;
-  color: black;
-} */
-
-/* header .routers.active {
-  color: white;
-} */
 
 .header-right {
   float: right;
@@ -109,7 +101,7 @@ header .routers.btn:hover{
 }
 
 
-@keyframes text-shadow-pop-tr {
+/* @keyframes text-shadow-pop-tr {
   0% {
     text-shadow: 0 0 #222222, 0 0 #222222, 0 0 #222222, 0 0 #222222, 0 0 #222222, 0 0 #222222;
     transform: translateX(0) translateY(0);
@@ -118,7 +110,7 @@ header .routers.btn:hover{
     text-shadow: 1px -1px #222222, 2px -2px #222222, 3px -3px #222222, 4px -4px #222222, 5px -5px #222222, 6px -6px #222222;
     transform: translateX(-4px) translateY(4px);
   }
-}
+} */
 
 
 

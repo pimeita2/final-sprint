@@ -24,9 +24,9 @@
           <input type="password" placeholder="Enter Password" name="psw" required>
           
           <button class="loginBtn" type="submit">Login</button>
-          <label>
+          <!-- <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
+          </label> -->
           <div class="notUser"><label> Not a user?
           </label> <a id="signupA" @click="$emit('signup')" >Sign-up</a>
           </div>

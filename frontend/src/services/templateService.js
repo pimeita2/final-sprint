@@ -16,18 +16,18 @@ function saveData(key, value) {
 }
 
 function query(key) {
-    // var queryParams = new URLSearchParams()
+    var queryParams = new URLSearchParams()
     // queryParams.append('inStock', filter.byStatus)
     // queryParams.append('name', filter.byName)
     // queryParams.append('type', filter.byType)
     // queryParams.append('sortBy', filter.sort)
-    // return axios.get(`${BASE_URL}/template?${queryParams}`)
-    //     .then(res => res.data)
-    // .catch(err =>{
-    //     console.log('ERROR:', err);
-    return storageService.loadFromStorage(key);
+    return axios.get(`${BASE_URL}/template?${queryParams}`)
+        .then(res => res.data)
+    .catch(err =>{
+        console.log('ERROR:', err);
+    // return storageService.loadFromStorage(key);
 
-    // })
+    })
 }
 
 function getById(templateId) {
