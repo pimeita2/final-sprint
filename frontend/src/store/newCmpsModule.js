@@ -15,8 +15,8 @@ export default {
                         isBold: false,
                         value: 'normal'
                     },
-                    fontFamily: 'arial',
-                    fontSize: 16
+                    fontFamily: 'Oswald',
+                    fontSize: 12
                 }
             }
         },
@@ -34,8 +34,8 @@ export default {
                         isBold: false,
                         value: 'normal'
                     },
-                    fontFamily: 'arial',
-                    fontSize: 30
+                    fontFamily: 'Satisfy',
+                    fontSize: 32
                 }
             }
         },
@@ -53,7 +53,7 @@ export default {
                         isBold: false,
                         value: 'normal'
                     },
-                    fontFamily: 'arial',
+                    fontFamily: 'Asap Condensed',
                     fontSize: 16
                 }
             }
@@ -72,7 +72,7 @@ export default {
                         isBold: false,
                         value: 'normal'
                     },
-                    fontFamily: 'arial',
+                    fontFamily: 'Asap Condensed',
                     fontSize: 16
                 }
             }
@@ -91,8 +91,8 @@ export default {
                         isBold: false,
                         value: 'normal'
                     },
-                    fontFamily: 'arial',
-                    fontSize: 16
+                    fontFamily: 'Satisfy',
+                    fontSize: 18,
                 }
             }
         },
@@ -110,7 +110,7 @@ export default {
                         isBold: false,
                         value: 'normal'
                     },
-                    fontFamily: 'arial',
+                    fontFamily: 'Asap Condensed',
                     fontSize: 16
                 }
             }

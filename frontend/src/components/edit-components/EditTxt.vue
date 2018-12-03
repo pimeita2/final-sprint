@@ -22,8 +22,8 @@
     <input class="textColor-icon" type="color" @change="handleColor" value="#ff0000">
 
     <p @click="handleSize" class="textSize-icon">
-      <i class="fa fa-text-height" @click.stop="handleSize(1)"></i>
-      <i class="fa fa-text-height" @click.stop="handleSize(-1)"></i>
+      <i class="fa fa-text-height" @click.stop="handleSize(2)"></i>
+      <i class="fa fa-text-height" @click.stop="handleSize(-2)"></i>
     </p>
 
     <p @click="handleBold" class="textBold-icon">
@@ -86,12 +86,12 @@ export default {
         css: { color: this.color }
       });
     },
-    handleBold() {
-      this.isBold = !this.isBold;
-      let weight;
-      if (this.isBold === true) weight = "bold";
-      else weight = "normal";
-      this.$emit("styleTextUpdate", {
+     handleBold(){
+        this.isBold=!this.isBold;
+       let weight;
+       if(this.isBold===true)   weight='bold';
+       else weight='normal';
+        this.$emit("styleTextUpdate", {
         field: "fontWeight",
         css: { fontWeight: weight }
       });

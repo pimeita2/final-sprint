@@ -1,7 +1,5 @@
 <template>
   <section class="date-container">
-    <div class="date-details">
-      <p class="date">
         <input
           class="date"
           v-model="data.txt"
@@ -12,8 +10,6 @@
               fontFamily:data.css.fontFamily,
               fontSize:data.css.size+'px'}"
         >
-      </p>
-    </div>
   </section>
 </template>
 
@@ -31,26 +27,24 @@ export default {
     }
   },
   computed: {
-    // dateStyle() {
-    //   return this.$store.getters.getUserStyle;
-    // }
+    
   }
 };
 </script>
 
 <style>
-.date-details input {
+.date-container input {
   margin: 5px;
   color: rgb(153, 49, 54);
   text-transform: capitalize;
-}
-.date {
   display: flex;
   justify-content: start;
   margin: 0 2px;
 }
 
-.date input {
-  margin: 0 5px;
+.date-container{
+  width:40%;
+  display: flex;
 }
+
 </style>

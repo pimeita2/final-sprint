@@ -34,9 +34,9 @@
 
       <hr>
       <a class="backHome-page">
-        <span class="back-home-icon" @click="goHome">
+        <span class="back-home-icon">
           <i class="fa fa-home"></i>
-          <h4 class="h4-backHome-page">Go Back</h4>
+          <a class="backHome-page-a" href="/"><h4 class="h4-backHome-page">Go Home</h4></a>
         </span>
       </a>
     </div>
@@ -78,7 +78,7 @@ export default {
         currCmpPart: this.currCmpPart
          });
     }},
-    goHome() {}
+    
   }
 };
 </script>
@@ -101,6 +101,11 @@ export default {
   cursor: pointer;
   margin-bottom: 0;
   font-size: 20px;
+}
+
+.backHome-page-a{
+  text-decoration: none;
+  color:rgb(182, 159, 159);
 }
 
 .h4-text-edit,

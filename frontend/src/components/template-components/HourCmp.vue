@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <div class="time-details">
-    <p class="time">
+  <section class="time-container">
+   
+   
       <input
         class="time"
         type="time"
@@ -12,8 +12,8 @@
               fontFamily:data.css.fontFamily,
               fontSize:data.css.size+'px'}"
       >
-    </p>
-    </div>
+    
+   
   </section>
 </template>
 
@@ -41,14 +41,17 @@ export default {
   margin: 5px;
   color: rgb(153, 49, 54);
   text-transform: capitalize;
-}
-.time {
-  display: flex;
-  justify-content: start;
+    display: flex;
+  /* justify-content: start; */
   margin: 0 2px;
+  width:40%;
+  /* font-size: 18px; */
 }
 
-.time input {
-  margin: 0 5px;
+
+.time-container{
+  width:40%;
+  display: flex;
+  float: right;
 }
 </style>
