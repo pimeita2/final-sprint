@@ -3,12 +3,14 @@
     <input
       class="invaitor-name"
       v-model="data.txt"
+      :class="{'select-box-border': isSelected}"
       :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontWeight:data.css.fontWeight,
-              fontSize:data.css.fontSize+'px'}"
+              fontSize:data.css.fontSize}"
       @click="connectToEditor('invaitorName')"
+      @focusout ="isSelected = false"
       @input="updateInvaitorName($event)"
     >
 
@@ -23,21 +25,23 @@ export default {
     data: Object
   },
   data() {
-    return {};
+    return {
+      isSelected: false
+    };
   },
   created() {},
   methods: {
     connectToEditor(cmpPart) {
-      console.log("in connect to editor", cmpPart);
+      this.isSelected = true;
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
     },
     updateInvaitorName(ev) {
       var newInvaitorName = ev.target.value;
-      console.log(newInvaitorName);
       // this.$store.dispatch({ : "" });// changing to is edit true
       templateService.saveData(newInvaitorName);
-    }
+    },
+   
   },
   computed: {
 
@@ -50,6 +54,10 @@ export default {
 </script>
 
 <style>
+
+.select-box-border{
+  border:1px dashed black;
+}
 
 /* .invaitor-name {
   text-align: center;

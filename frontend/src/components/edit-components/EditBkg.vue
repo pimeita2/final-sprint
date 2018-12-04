@@ -1,8 +1,10 @@
 <template>
   <section>
     <div class="edit-bkg-section">
-    <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange" />
-      
+      <h4 class="bkg-title">Background Color:</h4>
+      <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange" />
+    
+    <hr class="hr-box">
       <div class="edit-upload-section">
       <input type="file" style="display:none" ref="fileInput" accept="image/*" @change="onFilePicked " >
 
@@ -64,26 +66,23 @@ export default {
 
 <style>
 .edit-bkg-section {
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: row;
-    position: fixed;
-    left: 100px;
-    top: 0px;
-    width: 100%;
-    height: 7%;
-    overflow: auto;
-    background-color: rgb(256,256,256);
-    border-radius: 0px 10px 10px 0px;
-    border-bottom: 1px solid rgb(190, 190, 190);
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: column; 
+  width:200px;
+  height: 215px;
+  overflow: auto;
+  background-image: linear-gradient(to top, #f3f3f3, #ffffff, #f3f3f3 ); 
+  border-radius: 10px;
 }
+
 .bkg-picker {
   border-radius: 3px;
   cursor: pointer;
-  margin: 10px 35px;
-  height: 25px;
-  width: 25px;
+  margin: 10px auto;
+  height: 50px;
+  width: 50px;
 }
 
 .close-edit-bkg-section {
@@ -94,21 +93,33 @@ export default {
     font-size: 15px;
     font-weight: bold;
 }
+
 .uploadImg-btn {
   padding: 10px;
-  margin: 4px;
+  margin: 20px;
+  width: 80%;
   border-radius: 10px;
   background: #504f4f;
   border: none;
-  color: rgb(182, 159, 159);
+  color: white;
   font-size: 15px;
   cursor: pointer;
   font-family: "Quicksand", sans-serif;
+  font-weight: 400;
 }
+
 .uploadImg-btn:hover {
   background: rgb(190, 183, 183);
   color: white;
 }
 
+.bkg-title{
+  margin-top: 10px;
+  font-family: 'Quicksand'
+}
+
+.hr-box{
+  margin:0;
+}
 </style>
 

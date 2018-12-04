@@ -7,7 +7,7 @@
     display: flex;
     width: 400px;
     /* border: 1px solid gray; */
-    margin-top: 55px;
+    margin-top: 10px;
     padding:20px;
   }
   .backround-img {
@@ -15,6 +15,15 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+  }
+
+  .template{
+    position: relative;
+  }
+  .first-template{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .card-container {

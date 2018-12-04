@@ -16,6 +16,8 @@
     </div>
 
     <input class="input is-small guests-name" type="text" placeholder="full name" required>
+    <input class="guests-name" type="text" placeholder="Full Name " required>
+    <input class="guests-mobile" type="text" placeholder="Mobile Number" required>
     <br>
     <input class="input is-small guests-mobile" type="text" placeholder="mobile number" required>
     <button class="button is-small is-primary">ariving</button>
@@ -67,6 +69,7 @@ export default {
 .reducePepole {
   /* border-radius: 30%;
   background: #F08080;
+  border-radius: 30%;
   color: black;
   padding: 8px;
   cursor: pointer;

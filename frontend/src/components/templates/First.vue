@@ -10,7 +10,6 @@
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
-             
               :key="cmp.id"
               :is="cmp.type"
               :data="cmp.data"
@@ -20,6 +19,7 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
+    <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
 </template>
@@ -72,18 +72,6 @@ export default {
           cmps: this.dynamicCmps,
           base:{
             name:'first',
-            parts:{
-              part1:`
-                  <div class="edit-template-section">
-                     <div class="template-container" :style="userStyleBackground">
-                       <div class="backgroun-frame">
-                         <div class="card-container">`,
-              part2:`
-                        </div>
-                     </div>
-                  </div>
-                 </div> `
-            }
           },
           name: "Puki's birrthday",
           modified: Date.now(),

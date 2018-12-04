@@ -10,18 +10,16 @@
               :is="cmp.type"
               :data="cmp.data"
 
-            /> -->
-             <p v-for="cmp in template.cmps" :key="cmp.id">
-                <template 
-                 v-if="cmp.kind === 'text'">
-                  {{cmp.data.txt}}
-                </template>
-                <!-- <pre>{{cmp.data}}</pre> -->
-                                 <!-- :style="{cmp.data.css}" -->
-
-             </p>
-          
-            <!-- <pre>{{template.cmps}}</pre> -->
+            />-->
+            <div v-for="cmp in template.cmps" :key="cmp.id">
+              <div v-if="cmp.kind === 'text'" :style="cmp.data.css">
+                {{cmp.data.txt}}
+                <!-- <pre>{{cmp.data.css}}</pre> -->
+              </div>
+              <div v-if="cmp.kind ==='cmp'" :style="cmp.data.css">
+                <component :key="cmp.id" :is="cmp.type" :data="cmp.data"/>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -30,7 +28,7 @@
 </template>
 
 <script>
-import publishModal from '@/components/PublishModal.vue'
+import publishModal from "@/components/PublishModal.vue";
 
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
@@ -45,13 +43,13 @@ import templateService from "@/services/templateService";
 export default {
   data() {
     return {
-      show:false,
-      type:'first',
-      template:null
+      show: false,
+      type: "first",
+      template: null
     };
   },
-  created(){
-      templateService.query().then(res => {
+  created() {
+    templateService.query().then(res => {
       const currTemplate = res.find(temp => {
         console.log("templateService.query", this.type, temp.base.name);
         if (temp.base.name === "first") return temp; // put event bus to get the type of template
@@ -71,12 +69,8 @@ export default {
     socialMedia,
     attending
   },
-  methods: {
-  
-  },
-  computed: {
-
-  }
+  methods: {},
+  computed: {}
 };
 </script>
 
