@@ -4,23 +4,44 @@
       <a href="#" class="facebook social-media-box" style="color: white;" @click="toggle = !toggle">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <input v-model="data.txtF" class="facebookLink" v-show="toggle" placeholder="Copy your profile link to here">
-
+      <input
+        v-model="data.txtF"
+        class="facebookLink input is-small"
+        type="text"
+        v-show="toggle"
+        placeholder="Copy your profile link to here"
+      >
+      <!-- <input class="input"  placeholder="Text input"> -->
+      
       <a href="#" class="twitter social-media-box" style="color: white;" @click="toggle = !toggle">
         <i class="fab fa-twitter"></i>
       </a>
-      <input v-model="data.txtL" class="facebookLink" v-show="toggle" placeholder="Copy your profile link to here">
-
+      <input
+        v-model="data.txtL"
+ class="facebookLink input is-small"
+        type="text"        v-show="toggle"
+        placeholder="Copy your profile link to here"
+      >
+      
       <a href="#" class="be social-media-box" style="color: white;" @click="toggle = !toggle">
         <i class="fab fa-linkedin-in"></i>
       </a>
-      <input v-model="data.txtT" class="facebookLink" v-show="toggle" placeholder="Copy your profile link to here">
-
+      <input
+        v-model="data.txtT"
+ class="facebookLink input is-small"
+        type="text"        v-show="toggle"
+        placeholder="Copy your profile link to here"
+      >
+      
       <a href="#" class="orange social-media-box" style="color: white;" @click="toggle = !toggle">
         <i class="fab fa-instagram"></i>
       </a>
-      <input v-model="data.txtI" class="facebookLink" v-show="toggle" placeholder="Copy your profile link to here">
-
+      <input
+        v-model="data.txtI"
+ class="facebookLink input is-small"
+        type="text"        v-show="toggle"
+        placeholder="Copy your profile link to here"
+      >
     </div>
   </section>
 </template>
@@ -56,16 +77,19 @@ export default {
   cursor: pointer;
   background-color: #516fad;
 }
-a {
+.social-media {
   position: relative;
 }
 .facebookLink {
   position: absolute;
-  bottom: 140px;
-  right: 365px;
-  background-color: rgba(240, 248, 255, 0.74);
-  padding: 6px;
-  width: 18%;
-  border-radius: 5px;
+  bottom: -35px;
+  left: 57px;
+  right: 0;
+  /* background-color: rgba(240, 248, 255, 0.74); */
+  /* padding: 6px; */
+  /* border-radius: 5px; */
+}
+input.facebookLink{
+  width: 63%;
 }
 </style>

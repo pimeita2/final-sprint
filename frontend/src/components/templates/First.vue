@@ -97,6 +97,12 @@ export default {
 </script>
 
 <style>
+.date{
+position: inl;
+ }
+.time{
+
+}
 </style>
  
  
