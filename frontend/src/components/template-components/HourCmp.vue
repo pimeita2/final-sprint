@@ -7,10 +7,12 @@
         type="time"
         v-model="data.txt"
         @click="connectToEditor('hour')"
+        :class="{'select-box-border': isSelected}"
         :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontSize:data.css.size}"
+              @focusout ="isSelected = false"
       >
     
    
@@ -22,8 +24,15 @@ export default {
   props: {
     data: Object
   },
+  data(){
+    return{
+       isSelected: false
+
+    }
+  },
   methods: {
     connectToEditor(cmpPart) {
+      this.isSelected = true;
       console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
@@ -37,6 +46,10 @@ export default {
 </script>
 
 <style>
+.select-box-border{
+  border:1px dashed black;
+}
+
 .time-details input {
   margin: 5px;
   color: rgb(153, 49, 54);

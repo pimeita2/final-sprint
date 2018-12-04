@@ -3,12 +3,14 @@
         <input
           class="date"
           v-model="data.txt"
+          :class="{'select-box-border': isSelected}"
           type="date"
           @click="connectToEditor('day')"
           :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontSize:data.css.size}"
+              @focusout ="isSelected = false"
         >
   </section>
 </template>
@@ -18,8 +20,14 @@ export default {
   props: {
     data: Object
   },
+  data(){
+    return{
+      isSelected:false,
+    }
+  },
   methods: {
     connectToEditor(cmpPart) {
+      this.isSelected=true;
       console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
@@ -45,6 +53,10 @@ export default {
 .date-container{
   width:40%;
   display: flex;
+}
+
+.select-box-border{
+  border:1px dashed black;
 }
 
 </style>

@@ -4,11 +4,13 @@
       <input
         class="address"
         v-model="data.txt"
+        :class="{'select-box-border': isSelected}"
         @click="connectToEditor('location')"
         :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontSize:data.css.size}"
+              @focusout ="isSelected=false"
       >
     </div>
   </section>
@@ -17,10 +19,18 @@
 <script>
 export default {
   props: {
-    data: Object
+    data: Object,
+    
+  },
+  data(){
+    return{
+      isSelected:false,
+
+    }
   },
   methods: {
     connectToEditor(cmpPart) {
+      this.isSelected=true;
       console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
@@ -45,6 +55,10 @@ export default {
   color: rgb(153, 49, 54);
   text-transform: capitalize;
   width:55%;
+}
+
+.select-box-border{
+  border:1px dashed black;
 }
 
 </style>

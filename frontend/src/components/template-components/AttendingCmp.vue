@@ -23,8 +23,8 @@
       <button class="reducePepole" @click="lessPepole">-</button> -->
     </div>
 
-    <input class="guests-name" type="text" placeholder="Enter your full name please" required>
-    <input class="guests-mobile" type="text" placeholder="Enter your mobile number please" required>
+    <input class="guests-name" type="text" placeholder="Full Name " required>
+    <input class="guests-mobile" type="text" placeholder="Mobile Number" required>
     <br>
 
     <button class="btn-attending btn-ariving">ariving</button>
@@ -71,7 +71,6 @@ export default {
 .addPeople,
 .reducePepole {
   border-radius: 30%;
-  /* background: #F08080; */
   color: black;
   padding: 8px;
   cursor: pointer;
@@ -96,7 +95,6 @@ export default {
 }
 
 input.guests-name {
-  text-align: center;
   border: gray;
   border-radius: 10px;
   padding: 6px;
@@ -104,7 +102,6 @@ input.guests-name {
   margin: 0;
 }
 input.guests-mobile {
-  text-align: center;
   border: gray;
   border-radius: 10px;
   width: 70%;

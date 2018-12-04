@@ -1,7 +1,4 @@
 
-
-
-
 <template>
   <section>
     <!-- <div v-html="template.base.parts.part1">cmpsData</div>
