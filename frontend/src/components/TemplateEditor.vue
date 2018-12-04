@@ -28,10 +28,7 @@ export default {
   },
   methods: {
     styleUpdate({ field, css }) {
-      console.log("in template editor", field, css);
-      if (field === "background")
-        this.$store.dispatch({ type: "setBackgroundStyle", field, css });
-        else{
+      // console.log("in template editor", field, css);
       this.$store.dispatch({
         type: "setUserStyleOfCmp",
         field,
@@ -41,7 +38,7 @@ export default {
     }},
     
   }
-};
+;
 </script>
 
 <style>

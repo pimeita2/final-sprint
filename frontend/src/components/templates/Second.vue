@@ -1,95 +1,107 @@
 <template>
-  <section class="template1">
-    <!-- <main-header id="nav"></main-header> -->
-    <div class="edit-template-section">
-      <template-edit></template-edit>
-      <div class="template1-container">
-        <div class="col-1"></div>
-        <div class="col-2">
-          <p class="email">reut1990@gmail.com</p>
-          <h1>Coocking session</h1>
-          <h6>Come study with us how to make your finest dishes</h6>
-          <p
-            class="description"
-          >Three days workshop where you study how to master coocking. Dishes includes:lots of cakes</p>
-          <p>Date: 01/12/2018</p>
-          <p>Hour:20:00</p>
-          <p>Location:Ramat Aviv</p>
-          <p>SEE YA!</p>
-        </div>
+  <section class="second-template">
+    <div class="edit-second" >
+      <div class="second-container" :style="userStyleBackground" @click.stop="connectToEditor" >
+             <!-- <component
+             
+              @connectToCmpPart="connectToCmpPart"
+              @showEditor="showEditor"
+              v-for="cmp in dynamicCmps"
+              :key="cmp.id"
+              :is="cmp.type"
+              :data="cmp.data"
+            />  -->
+   
       </div>
     </div>
-    <button>Save</button>
+    <button class="publish" @click="publish">Publish</button>
+    <!-- TO check if this is the right place!!! -->
+    <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
 </template>
 
 <script>
-import templateEdit from "@/components/TemplateEdit.vue";
-// import mainHeader from "@/components/MainHeader.vue";
+import publishModal from '@/components/PublishModal.vue'
+
+import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
+import eventTitle from "@/components/template-components/EventTitleCmp.vue";
+import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
+import day from "@/components/template-components/DayCmp.vue";
+import hour from "@/components/template-components/HourCmp.vue";
+import location from "@/components/template-components/AddressCmp.vue";
+import attending from "@/components/template-components/AttendingCmp.vue";
+import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
+import templateService from "@/services/templateService";
 
 export default {
-  name: "second-template",
+  data() {
+    return {
+      show:false,
+      type:'first'
+    };
+  },
   components: {
-    templateEdit
-    // mainHeader
+    publishModal,
+    invaitorName,
+    eventTitle,
+    shortDescription,
+    day,
+    hour,
+    location,
+    socialMedia,
+    attending
+  },
+  methods: {
+    connectToCmpPart(cmpPart) {
+      this.$emit("connectToCmpPart", cmpPart);
+    },
+    showEditor({ kind }) {
+      this.$emit("showEditor", { kind });
+    },
+     connectToEditor() {
+      this.$emit("showEditor", { kind: "background" });
+    },
+    publish() {
+      this.show=true;
+      templateService
+        .add({
+          cmps: this.dynamicCmps,
+          base:{
+            name:'first',
+          },
+          name: "Puki's birrthday",
+          modified: Date.now(),
+          creatorId: "abc123" // TODO: currLoggedinuserId here
+        })
+        .then(template =>
+          console.log("template was added successfully", template)
+        );
+    }
+  },
+  computed: {
+    userStyleBackground() {
+      return this.$store.getters.userStyleBackground;
+    },
+    // getUserStyle() {
+    //   return this.$store.getters.getUserStyle;
+    // },
+    dynamicCmps() {
+      return this.$store.getters.dynamicCmps;
+    }
   }
 };
 </script>
 
+<style>
 
-<style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Indie+Flower|Sedgwick+Ave");
+.second-container{
+   background-image: url(/img/Our-Wedding.c3b96601.png);
+    background-position: center;
+    width: 500px;
+    background-size: cover;
+    height: 550px;
 
-#nav {
-  position: relative;
-  padding: 0px;
-}
-
-.template1-container {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  width: 80%;
-  margin: auto;
-  border: 2px solid lightcyan;
-  max-width: 500px;
-}
-.col-1 {
-  background: url("../assets/food2.jpg");
-  //   height: 150px;
-  padding: 15px;
-  background-position: center;
-}
-
-.col-2 {
-  background-color: brown;
-  color: white;
-  font-family: Indie Flower, sans-serif;
-  font-size: 18px;
-}
-
-.col-2 h1 {
-  font-size: 40px;
-  font-family: Sedgwick Ave, sans-serif;
-}
-
-.col-2 h6 {
-  font-size: 20px;
-  padding: 0 15px;
-}
-
-.description {
-  padding: 0 10px;
-}
-.email {
-  text-align: right;
-  padding-right: 15px;
-}
-
-.edit-template-section {
-  display: flex;
-}
-
-button {
-  float: left;
 }
 </style>
+ 
+ 

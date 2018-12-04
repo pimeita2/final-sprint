@@ -55,7 +55,7 @@ export default {
           })
           fileReader.readAsDataURL(files[0]) 
           this.image=files[0]
-        console.log('this.imageUrl:' , this.image)
+        // console.log('this.imageUrl:' , this.image)
       },
       
    
