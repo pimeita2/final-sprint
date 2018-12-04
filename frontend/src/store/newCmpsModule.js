@@ -3,7 +3,7 @@ export default {
         currentIdx: null,
         templateCmps: [{
             id: 0,
-            kind:'text',
+            kind: 'text',
             type: 'invaitorName',
             isEdit: true,
             data: {
@@ -16,13 +16,13 @@ export default {
                         value: 'normal'
                     },
                     fontFamily: 'Oswald',
-                    fontSize: 12
+                    fontSize: 12 + 'px'
                 }
             }
         },
         {
             id: 1,
-            kind:'text',
+            kind: 'text',
             type: 'eventTitle',
             isEdit: true,
             data: {
@@ -35,13 +35,13 @@ export default {
                         value: 'normal'
                     },
                     fontFamily: 'Satisfy',
-                    fontSize: 32
+                    fontSize: 28 + 'px'
                 }
             }
         },
         {
             id: 2,
-            kind:'text',
+            kind: 'text',
             type: 'shortDescription',
             isEdit: true,
             data: {
@@ -54,51 +54,51 @@ export default {
                         value: 'normal'
                     },
                     fontFamily: 'Asap Condensed',
-                    fontSize: 16
+                    fontSize: 16 + 'px'
                 }
             }
         },
         {
             id: 3,
-            kind:'text',
+            kind: 'text',
             type: 'day',
             isEdit: true,
             data: {
                 txt: '01/12/1990',
                 css: {
                     color: 'black',
-                    textAlign: 'right',
+                    textAlign: 'center',
                     fontWeight: {
                         isBold: false,
                         value: 'normal'
                     },
                     fontFamily: 'Asap Condensed',
-                    fontSize: 16
+                    fontSize: 16 + 'px'
                 }
             }
         },
         {
             id: 4,
-            kind:'text',
+            kind: 'text',
             type: 'hour',
             isEdit: true,
             data: {
                 txt: '00:30',
                 css: {
                     color: 'black',
-                    textAlign: 'left',
+                    textAlign: 'center',
                     fontWeight: {
                         isBold: false,
                         value: 'normal'
                     },
                     fontFamily: 'Satisfy',
-                    fontSize: 18,
+                    fontSize: 18 + 'px'
                 }
             }
         },
         {
             id: 5,
-            kind:'text',
+            kind: 'text',
             type: 'location',
             isEdit: true,
             data: {
@@ -111,21 +111,21 @@ export default {
                         value: 'normal'
                     },
                     fontFamily: 'Asap Condensed',
-                    fontSize: 16
+                    fontSize: 16 + 'px'
                 }
             }
         },
         {
             id: 6,
-            kind:'cmp',
+            kind: 'cmp',
             type: 'attending',
             isEdit: true,
-            data: {     
+            data: {
             }
         },
         {
             id: 7,
-            kind:'cmp',
+            kind: 'cmp',
             type: 'socialMedia',
             isEdit: true,
             data: {
@@ -137,9 +137,9 @@ export default {
         },
         {
             id: 8,
-            kind:'background',
+            kind: 'background',
             type: 'background',
-            kind:'other',
+            kind: 'other',
             css: {
                 backgroundColor: '#ff9a90',
                 backgroundImage: ``,
@@ -147,16 +147,20 @@ export default {
         },
         ],
     },
-   
+
     mutations: {
         setBackground(state, { field, css }) {
             state.templateCmps[state.templateCmps.length - 1].css = css;
         },
-      
+
         setUserStyle(state, { field, css, currCmpPart }) {
-            console.log('setUserStyle', css ,currCmpPart)
+            console.log('setUserStyle', css, field, currCmpPart)
             state.templateCmps.map(obj => {
-                if (obj.type === currCmpPart) obj.data.css[field] = css[field];
+                if (obj.type === currCmpPart) {
+                    if (currCmpPart === 'fontSize') obj.data.css.fontSize =css[field];
+                    else obj.data.css[field] = css[field];
+                } 
+
             });
         }
     },

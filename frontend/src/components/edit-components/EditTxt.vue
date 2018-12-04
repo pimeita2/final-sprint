@@ -22,8 +22,8 @@
     <input class="textColor-icon" type="color" @change="handleColor" value="#ff0000">
 
     <p @click="handleSize" class="textSize-icon">
-      <i class="fa fa-text-height" @click.stop="handleSize(2)"></i>
-      <i class="fa fa-text-height" @click.stop="handleSize(-2)"></i>
+      <i class="fa fa-text-height" @click.stop="handleSize(1)"></i>
+      <i class="fa fa-text-height" @click.stop="handleSize(-1)"></i>
     </p>
 
     <p @click="handleBold" class="textBold-icon">
@@ -34,6 +34,8 @@
 
 
 <script>
+
+
 export default {
   props: ["currCmpPart"],
   data() {
@@ -72,10 +74,13 @@ export default {
       const currCmpObj = this.cmps.find(cmp => {
         return cmp.type === this.currCmpPart;
       });
-      const newFontSize = currCmpObj.data.css.fontSize + sizeChange;
+      let numb=+(currCmpObj.data.css.fontSize.substring(0, currCmpObj.data.css.fontSize.length-2));
+      console.log(numb, typeof numb);
+      const newFontSize = numb +sizeChange ;
+
       this.$emit("styleTextUpdate", {
         field: "fontSize",
-        css: { fontSize: newFontSize }
+        css: { fontSize: newFontSize+'px' }
       });
     },
     handleColor(event) {
@@ -86,12 +91,12 @@ export default {
         css: { color: this.color }
       });
     },
-     handleBold(){
-        this.isBold=!this.isBold;
-       let weight;
-       if(this.isBold===true)   weight='bold';
-       else weight='normal';
-        this.$emit("styleTextUpdate", {
+    handleBold() {
+      this.isBold = !this.isBold;
+      let weight;
+      if (this.isBold === true) weight = "bold";
+      else weight = "normal";
+      this.$emit("styleTextUpdate", {
         field: "fontWeight",
         css: { fontWeight: weight }
       });
@@ -185,7 +190,7 @@ export default {
   height: 25px;
   width: 25px;
 }
-.fa-text-height{
-  margin:5px 15px;
+.fa-text-height {
+  margin: 5px 15px;
 }
 </style>

@@ -8,7 +8,7 @@
           :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
-              fontSize:data.css.size+'px'}"
+              fontSize:data.css.size}"
         >
   </section>
 </template>

@@ -9,7 +9,7 @@
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontWeight:data.css.fontWeight,
-              fontSize:data.css.fontSize+'px'}"
+              fontSize:data.css.fontSize}"
       @click="connectToEditor('eventTitle')"
       @input="updateEventName($event)"
     />

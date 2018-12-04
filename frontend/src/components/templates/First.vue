@@ -10,7 +10,6 @@
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
-             
               :key="cmp.id"
               :is="cmp.type"
               :data="cmp.data"
@@ -72,18 +71,6 @@ export default {
           cmps: this.dynamicCmps,
           base:{
             name:'first',
-            parts:{
-              part1:`
-                  <div class="edit-template-section">
-                     <div class="template-container" :style="userStyleBackground">
-                       <div class="backgroun-frame">
-                         <div class="card-container">`,
-              part2:`
-                        </div>
-                     </div>
-                  </div>
-                 </div> `
-            }
           },
           name: "Puki's birrthday",
           modified: Date.now(),
