@@ -1,6 +1,5 @@
 <template>
   <section class="template1">
-    <!-- <main-header id="nav"></main-header> -->
     <div class="edit-template-section">
       <template-edit></template-edit>
       <div class="template1-container">

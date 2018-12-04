@@ -70,6 +70,7 @@ export default {
 .edit-toolbox{
   position: absolute;
   top: 23%;
-  left: 10%;
+  left: 70%;
+  /* z-index: 1; */
 }
 </style>

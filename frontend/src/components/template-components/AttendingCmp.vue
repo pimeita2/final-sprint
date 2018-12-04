@@ -15,11 +15,11 @@
       </div>
     </div>
 
-    <input class="input is-small guests-name" type="text" placeholder="full name" required>
+    <!-- <input class="input is-small guests-name" type="text" placeholder="full name" required> -->
     <input class="guests-name" type="text" placeholder="Full Name " required>
     <input class="guests-mobile" type="text" placeholder="Mobile Number" required>
     <br>
-    <input class="input is-small guests-mobile" type="text" placeholder="mobile number" required>
+    <!-- <input class="input is-small guests-mobile" type="text" placeholder="mobile number" required> -->
     <button class="button is-small is-primary">ariving</button>
     <!-- <button class="btn-attending btn-not-ariving">not ariving</button> -->
   </section>
