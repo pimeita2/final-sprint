@@ -7,16 +7,16 @@ export default {
             type: 'invaitorName',
             isEdit: true,
             data: {
-                txt: 'meital invaits you',
+                txt: 'Meital invaits you',
                 css: {
-                    color: 'black',
+                    color: '#2c3e50',
                     textAlign: 'center',
                     fontWeight: {
                         isBold: false,
                         value: 'normal'
-                    },
-                    fontFamily: 'Oswald',
-                    fontSize: 12
+                    },  
+                    fontFamily: 'Asap Condensed',
+                    fontSize: 15
                 }
             }
         },

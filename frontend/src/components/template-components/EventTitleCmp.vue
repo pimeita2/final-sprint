@@ -2,7 +2,7 @@
 
 <template>
   <section class="event-title-container">
-    <textarea
+    <textarea rows=1
       class="event-name"
       v-model="data.txt"
       :style="{color: data.css.color,
