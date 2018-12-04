@@ -3,12 +3,14 @@
        <input
       class="short-description"
       v-model="data.txt"
+      :class="{'select-box-border': isSelected}"
       :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontWeight:data.css.fontWeight,
               fontSize:data.css.fontSize+'px'}"
       @click="connectToEditor('shortDescription')"
+      @focusout ="isSelected = false"
       @input="updateShortDescription($event)"
     > 
     
@@ -24,12 +26,14 @@ export default {
     data: Object
   },
   data() {
-    return {};
+    return {
+      isSelected: false,
+    };
   },
   created() {},
   methods: {
     connectToEditor(cmpPart) {
-      console.log("in connect to editor", cmpPart);
+      this.isSelected = true;
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
     },
@@ -46,6 +50,9 @@ export default {
 };
 </script>
 <style>
+.select-box-border{
+  border:1px dashed black;
+}
 /* .short-description {
   background-color: rgb(153, 49, 54);
   font-size: 12px;

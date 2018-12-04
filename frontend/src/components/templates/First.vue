@@ -20,6 +20,7 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
+    <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
 </template>

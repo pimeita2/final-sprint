@@ -7,7 +7,6 @@
       
       <i class="fa fa-align-right edit-icon-txt" @click.stop="handleAlignment('right')"></i>
     </p>
-
     <p @click="handleFont" class="font-icon">
       <i class="fa fa-font edit-icon-font"></i>
       <select class="select-font">
@@ -18,7 +17,6 @@
         <option value="Oswald">Oswald</option>
       </select>
     </p>
-
     <input class="textColor-icon" type="color" @change="handleColor" value="#ff0000">
 
     <p @click="handleSize" class="textSize-icon">
@@ -38,15 +36,11 @@ export default {
   props: ["currCmpPart"],
   data() {
     return {
-      //  isBold:false,
-      // align: "center",
-      // fontFamily: "arial",
-      // color: "#FFFFFF",
-      // fontSize: 16
+     
     };
   },
   created() {
-    //  console.log('in edit txt we work on', this.currCmpPart);
+   
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -110,50 +104,53 @@ export default {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  flex-direction: row;
-  position: fixed;
-  left: 100px;
-  top: 0px;
-  width: 100%;
-  height: 7%;
+  flex-direction: column; 
+  width:200px;
+  height: 215px;
   overflow: auto;
-  background-color: rgb(256, 256, 256);
-  border-radius: 0px 10px 10px 0px;
-  border-bottom: 1px solid rgb(190, 190, 190);
+  background-image: linear-gradient(to top, #f3f3f3, #ffffff, #f3f3f3 ); 
+  border-radius: 10px;
+
 }
 
 .edit-type-icon {
-  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .edit-icon-txt {
   margin: 0 5px;
   font-size: 20px;
-  color: #232323;
+  color: #464545;
 }
 
 .edit-icon-font {
   font-size: 20px;
-  color: #232323;
+  color: #464545;
+  position: relative;
+  top: 3px;
 }
 
 .select-font {
   display: inline-block;
-  border: 1px solid rgb(190, 190, 190);
-  border-radius: 15px;
+  box-shadow: -2px 2px 5px lightblue;
+  /* border: 1px solid rgb(190, 190, 190); */
+  border-radius: 5px;
   padding: 4px;
   padding-right: 25px;
+  margin-left: 8px;
 }
 
 .font-icon {
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
-.edit-txt-section img {
+/* .edit-txt-section img {
   height: 25px;
   width: 25px;
   cursor: pointer;
-}
+} */
 .align-icon,
 .font-icon,
 .textColor-icon,
@@ -161,12 +158,16 @@ export default {
 .textBold-icon {
   border-radius: 3px;
   cursor: pointer;
+  flex-flow: row;
+  margin:0 auto;
+  /* padding:10px; */
 }
 
 .textSize-icon {
   color: #232323;
   font-size: 18px;
-  margin: auto 0;
+  margin: 0 auto;
+  padding:10px;
 }
 .textBold-icon {
   color: #232323;
@@ -174,18 +175,17 @@ export default {
   margin: 10px 45px;
 }
 
-.align-icon img {
-  height: 25px;
-  width: 25px;
-  margin: 0 10px;
+.align-icon {
+  padding:10px;
 }
 
 .textColor-icon {
-  margin: 10px 35px;
   height: 25px;
   width: 25px;
+  padding:12px;
 }
 .fa-text-height{
   margin:5px 15px;
 }
+
 </style>

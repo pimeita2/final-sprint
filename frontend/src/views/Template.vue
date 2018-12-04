@@ -1,14 +1,13 @@
 <template>
   <section class="template">
-    <!-- <div class="template"> -->
+   
     <template-editor :currCmpPart="currCmpPart"></template-editor>
-    <edit-txt :currCmpPart="currCmpPart" v-if="showTxtMenu" @styleTextUpdate="styleUpdate"></edit-txt>
-    <edit-bgc v-if="showBgcMenu" @showEditor="showEditor" @styleUpdate="styleUpdate"></edit-bgc>
+    <edit-txt class="edit-toolbox" :currCmpPart="currCmpPart" v-if="showTxtMenu" @styleTextUpdate="styleUpdate"></edit-txt>
+    <edit-bgc class="edit-toolbox" v-if="showBgcMenu" @showEditor="showEditor" @styleUpdate="styleUpdate"></edit-bgc>
 
-    <!-- <component :is="currEditCmp" :data="data"/> -->
-    <div class="spacer"></div>
+    <div class="spacenr"></div>
     <router-view @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"/>
-    <!-- </div> -->
+    
   </section>
 </template>
 
@@ -31,7 +30,6 @@ export default {
   },
   methods: {
     connectToCmpPart(cmpPart) {
-      console.log("in template +editor page", cmpPart);
       this.currCmpPart = cmpPart;
     },
     showEditor(cmp) {
@@ -63,8 +61,15 @@ export default {
 .template {
   display: flex;
   background: rgb(189, 187, 187, 0.5);
+  height: 120vh;
 }
 .spacer {
   flex-grow: 0.5;
+}
+
+.edit-toolbox{
+  position: absolute;
+  top: 23%;
+  left: 10%;
 }
 </style>
