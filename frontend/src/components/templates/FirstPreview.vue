@@ -51,7 +51,7 @@ export default {
   created() {
     templateService.query().then(res => {
       const currTemplate = res.find(temp => {
-        console.log("templateService.query", this.type, temp.base.name);
+        // console.log("templateService.query", this.type, temp.base.name);
         if (temp.base.name === "first") return temp; // put event bus to get the type of template
       });
       this.template = currTemplate;

@@ -46,11 +46,11 @@ export default {
   },
   methods: {
     connectToCmpPart(cmpPart) {
-      console.log("Connect to", cmpPart);
+      // console.log("Connect to", cmpPart);
       this.currCmpPart = cmpPart;
     },
     handleAlignment(align) {
-      console.log("handleAlignment", align);
+      // console.log("handleAlignment", align);
       this.$emit("styleTextUpdate", {
         field: "textAlign",
         css: { textAlign: align }
@@ -58,7 +58,7 @@ export default {
     },
     handleFont(event) {
       const fontSelected = event.target.value;
-      console.log("font chosen", fontSelected);
+      // console.log("font chosen", fontSelected);
       this.$emit("styleTextUpdate", {
         field: "fontFamily",
         css: { fontFamily: fontSelected }
@@ -69,7 +69,7 @@ export default {
         return cmp.type === this.currCmpPart;
       });
       let numb=+(currCmpObj.data.css.fontSize.substring(0, currCmpObj.data.css.fontSize.length-2));
-      console.log(numb, typeof numb);
+      // console.log(numb, typeof numb);
       const newFontSize = numb +sizeChange ;
 
       this.$emit("styleTextUpdate", {
