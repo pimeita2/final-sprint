@@ -1,0 +1,15 @@
+.template-third-container {
+    background-image: url("https://media-public.canva.com/MADFF1IWeQM/2/screen.png");
+    background-repeat: no-repeat;
+    background-size: 600px 600px;
+    display: flex;
+    width: 400px;
+    margin-top: 10px;
+    padding:20px;
+  }
+  .backround-third-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }

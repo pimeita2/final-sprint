@@ -5,6 +5,7 @@ import About from './views/About.vue'
 import Template from './views/Template.vue'
 import First from './components/templates/First.vue'
 import FirstPreview from './components/templates/FirstPreview.vue'
+import Third from './components/templates/Third.vue'
 
 // import Second from './components/templates/Second.vue'
 // import Third from './components/templates/Third.vue'
@@ -54,11 +55,11 @@ export default new Router({
         //   name:'Second',
         //   component: Second
         // },
-        // {
-        //   path: '3',
-        //   name:'third',
-        //   component: ()=> import('./components/templates/Third.vue')
-        // },
+        {
+          path: '3',
+          name:'Third',
+          component: Third
+        },
 
       ]
     },

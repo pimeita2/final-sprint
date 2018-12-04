@@ -1,76 +1,107 @@
 <template>
-  <section class="template-3">
-    <div class="template3-container">
-      <div class="row-1-details">
-        <div class="inner-text">
-          <h1>Nails time!</h1>
-          <!-- <h6>Take care of your Nails, they will thank you</h6> -->
-          <p
-            class="description"
-          >Speciel sell for the holidays. dont miss this once in a life time event!</p>
+  <section class="first-template">
+    <div class="edit-template-section" >
+      <div class="template-third-container" :style="userStyleBackground" @click.stop="connectToEditor" >
+          <div class="card-container" @click.stop >
+            <!-- <title-cmp/> -->
+            <component
+             
+              @connectToCmpPart="connectToCmpPart"
+              @showEditor="showEditor"
+              v-for="cmp in dynamicCmps"
+              :key="cmp.id"
+              :is="cmp.type"
+              :data="cmp.data"
+            />
+          </div>
         </div>
       </div>
-       <div class="row-2-location">
-        <!-- <loc-map/> -->
-      </div>
-      <div class="row-3-coming">set up an appiontement today:
-        <!-- <date-time-picker></date-time-picker> -->
-      </div>
-    </div>
-
    
+    <button class="publish" @click="publish">Publish</button>
+    <!-- TO check if this is the right place!!! -->
+    <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
 </template>
+
 <script>
-// import LocMap from "../components/LocMap.vue";
-// import DateTimePicker from "vue-vanilla-datetime-picker";
- export default {
-  name: "third",
-  created() {},
+import publishModal from '@/components/PublishModal.vue'
+
+import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
+import eventTitle from "@/components/template-components/EventTitleCmp.vue";
+import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
+import day from "@/components/template-components/DayCmp.vue";
+import hour from "@/components/template-components/HourCmp.vue";
+import location from "@/components/template-components/AddressCmp.vue";
+import attending from "@/components/template-components/AttendingCmp.vue";
+import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
+import templateService from "@/services/templateService";
+
+export default {
+  data() {
+    return {
+      show:false,
+      type:'first'
+    };
+  },
   components: {
-    // LocMap
+    publishModal,
+    invaitorName,
+    eventTitle,
+    shortDescription,
+    day,
+    hour,
+    location,
+    socialMedia,
+    attending
+  },
+  methods: {
+    connectToCmpPart(cmpPart) {
+      this.$emit("connectToCmpPart", cmpPart);
+    },
+    showEditor({ kind }) {
+      this.$emit("showEditor", { kind });
+    },
+     connectToEditor() {
+      this.$emit("showEditor", { kind: "background" });
+    },
+    publish() {
+      this.show=true;
+      templateService
+        .add({
+          cmps: this.dynamicCmps,
+          base:{
+            name:'first',
+          },
+          name: "Puki's birrthday",
+          modified: Date.now(),
+          creatorId: "abc123" // TODO: currLoggedinuserId here
+        })
+        .then(template =>
+          console.log("template was added successfully", template)
+        );
+    }
+  },
+  computed: {
+    userStyleBackground() {
+      return this.$store.getters.userStyleBackground;
+    },
+    // getUserStyle() {
+    //   return this.$store.getters.getUserStyle;
+    // },
+    dynamicCmps() {
+      return this.$store.getters.dynamicCmps;
+    }
   }
 };
 </script>
-<style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Indie+Flower|Sedgwick+Ave");
-.template3-container {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  width: 100%;
-  margin: auto;
-  border: 2px solid lightcyan;
-  max-width: 500px;
-}
- .row-1-details {
-  background-image: url("../assets/nails.png");
-  background-size: cover;
-  background-position: center;
-  grid-column: 1/12;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-items: center;
-  color: white;
-  font-weight: 700;
-}
- .inner-text {
-  background-color: white;
-  color: black;
-  opacity: 0.8;
-  margin: 10px 20px;
-}
- .row-1-details h1 {
-  font-family: Indie Flower, sans-serif;
-  letter-spacing: 5px;
-  font-size: 35px;
-}
- .row-1-details .description {
-  padding: 0 10px;
-}
-.row-2-location {
-   grid-column: 1/12;
-  height: 150px;
+
+<style>
+.date{
+position: inl;
+ }
+.time{
+
 }
 </style>
+ 
+ 
