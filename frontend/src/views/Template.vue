@@ -1,6 +1,6 @@
 <template>
   <section class="template">
-    <template-editor :currCmpPart="currCmpPart"></template-editor>
+    <template-editor :currCmpPart="currCmpPart" ></template-editor>
     <edit-txt
       class="edit-toolbox"
       :currCmpPart="currCmpPart"
@@ -45,7 +45,7 @@ export default {
         this.showTxtMenu = true;
         this.showBgcMenu = false;
       }
-      if (cmp.kind === "background") {
+      else if (cmp.kind === "background") {
         this.showBgcMenu = true;
         this.showTxtMenu = false;
       }
@@ -79,7 +79,7 @@ export default {
 .edit-toolbox {
   position: absolute;
   top: 23%;
-  left: 70%;
+  left: 76%;
   /* z-index: 1; */
 }
 </style>

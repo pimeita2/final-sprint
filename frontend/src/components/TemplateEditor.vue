@@ -70,8 +70,8 @@ export default {
 
   data() {
     return {
-      showBkgMenu: false,
-      showUploadMenu: false
+      // showBkgMenu: false,
+      // showUploadMenu: false
      
     };
   },
@@ -85,6 +85,9 @@ export default {
         currCmpPart: this.currCmpPart
          });
     }},
+    //  connectToEditor() {
+    //   this.$emit("showEditor", { kind: "background" });
+    // },
     
   }
 ;
