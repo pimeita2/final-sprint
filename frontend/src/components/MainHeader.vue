@@ -1,6 +1,6 @@
 <template>
     <header class="nav scrollme" :class="{'active': isActive}">
-        <router-link  to="/" class=" routers logo">Templ<span class="it">it</span></router-link>
+        <router-link  to="/" class=" routers logo">Invite<span class="it">Me</span></router-link>
          <div class="header-right">
             <router-link class="routers btn" to="/contact" >Contact Us </router-link>
             <router-link class="routers btn" to="/about" >About</router-link>

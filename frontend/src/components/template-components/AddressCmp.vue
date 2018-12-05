@@ -6,11 +6,8 @@
         v-model="data.txt"
         :class="{'select-box-border': isSelected}"
         @click="connectToEditor('location')"
-        :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontSize:data.css.size}"
-              @focusout ="isSelected=false"
+        :style="data.css"
+        @focusout ="isSelected=false"
       >
     </div>
   </section>

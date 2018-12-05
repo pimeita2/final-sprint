@@ -5,10 +5,7 @@
       v-model="data.txt"
       type="date"
       @click="connectToEditor('day')"
-      :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontSize:data.css.size+'px'}"
+      :style="data.css"
     >
     <datepicker
       placeholder="European Format ('d-m-Y')"

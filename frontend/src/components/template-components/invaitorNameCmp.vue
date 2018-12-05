@@ -4,11 +4,7 @@
       class="invaitor-name"
       v-model="data.txt"
       :class="{'select-box-border': isSelected}"
-      :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontWeight:data.css.fontWeight,
-              fontSize:data.css.fontSize}"
+      :style="data.css"
       @click="connectToEditor('invaitorName')"
       @focusout ="isSelected = false"
       @input="updateInvaitorName($event)"
@@ -56,6 +52,9 @@ export default {
 
 .select-box-border{
   border:1px dashed black;
+}
+.invaitor-name{
+  width:100%;
 }
 
 /* .invaitor-name {

@@ -4,11 +4,7 @@
       class="short-description"
       v-model="data.txt"
       :class="{'select-box-border': isSelected}"
-      :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontWeight:data.css.fontWeight,
-              fontSize:data.css.fontSize}"
+     :style="data.css"
       @click="connectToEditor('shortDescription')"
       @focusout ="isSelected = false"
       @input="updateShortDescription($event)"
@@ -53,6 +49,9 @@ export default {
 .select-box-border{
   border:1px dashed black;
 }
+.short-description-container{
+  width: 100%;
+}
 /* .short-description {
   background-color: rgb(153, 49, 54);
   font-size: 12px;
@@ -61,10 +60,7 @@ export default {
   width: 100%;
   text-align: center;
 }
-.short-description-container {
-  padding: 10px; */
-  /* color: rgb(153, 49, 54); */
-/* }
+
 .short-description-container:hover {
   cursor: all-scroll;
 } */

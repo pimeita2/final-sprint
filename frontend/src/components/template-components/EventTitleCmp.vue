@@ -6,11 +6,7 @@
       class="event-name"
       v-model="data.txt"
       :class="{'select-box-border': isSelected}"
-      :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontWeight:data.css.fontWeight,
-              fontSize:data.css.fontSize}"
+      :style="data.css"
       @click="connectToEditor('eventTitle')"
       @focusout ="isSelected = false"
       @input="updateEventName($event)"
@@ -52,6 +48,10 @@ export default {
 <style>
 .select-box-border{
   border:1px dashed black;
+}
+
+.event-title-container{
+  width:100%;
 }
 
 </style>

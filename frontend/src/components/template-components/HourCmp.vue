@@ -8,10 +8,7 @@
         v-model="data.txt"
         @click="connectToEditor('hour')"
         :class="{'select-box-border': isSelected}"
-        :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontSize:data.css.size}"
+       :style="data.css"
               @focusout ="isSelected = false"
       >
     

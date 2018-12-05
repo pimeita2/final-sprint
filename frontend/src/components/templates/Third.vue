@@ -6,7 +6,7 @@
         <div @click="connectToEditor" >
           <div class="card-third-container" @click.stop >
             
-            <div class="cmpThird">
+           
             <component
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
@@ -17,7 +17,7 @@
             />
             </div>
           </div>
-        </div>
+        
         </div>
       </div>
    
@@ -107,39 +107,20 @@ export default {
           txt: `YOU ARE INVITED TO A`,
           css: {
             color: "white",
-            textAlign: "right",
+            textAlign: "center",
+            padding: 13+"px",
+            margin:"0 auto",
             fontWeight: {
               isBold: true,
               value: "normal"
             },
             fontFamily: "Oswald",
-            fontSize: 20 + "px"
+            fontSize: 27 + "px"
           }
         }
-      },
-      {
-        id: 1,
-        kind: "text",
-        type: "shortDescription",
-        isEdit: true,
-        data: {
-          txt: `Join us For Rotem's 26th Birthday `,
-          css: {
-            color: "white",
-            textAlign: "left",
-            paddingRight: "261px",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
-          }
-        }
-      },
-
+      },     
             {
-        id: 2,
+        id: 1,
         kind: "text",
         type: "eventTitle",
         isEdit: true,
@@ -148,12 +129,41 @@ export default {
           css: {
             color: "white",
             textAlign: "center",
+            width:"100%",
+            padding:"",
+            paddingTop:32+"px",
+            margin:"",
+            marginRight:76+"px",
+            transform: "rotate(-20deg)",
             fontWeight: {
               isBold: false,
               value: "normal"
             },
             fontFamily: "Oswald",
             fontSize: 28 + "px"
+          }
+        }
+      },
+       {
+        id: 2,
+        kind: "text",
+        type: "shortDescription",
+        isEdit: true,
+        data: {
+          txt: `Join us For Rotem's 26th Birthday `,
+          css: {
+            color: "white",
+            textAlign: "left",
+            padding:"",
+            paddingTop:35+"px",
+            margin:"",
+            marginLeft:-72+"px",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Asap Condensed",
+            fontSize: 16 + "px"
           }
         }
       },
@@ -167,6 +177,8 @@ export default {
           css: {
             color: "black",
             textAlign: "center",
+            padding:"",
+            margin:"",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -186,6 +198,8 @@ export default {
           css: {
             color: "white",
             textAlign: "center",
+            padding:"",
+            margin:"",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -205,6 +219,8 @@ export default {
           css: {
             color: "black",
             textAlign: "center",
+            padding:"",
+            margin:"",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -219,7 +235,12 @@ export default {
         kind: "cmp",
         type: "attending",
         isEdit: true,
-        data: {}
+        data: {
+          css:{
+            padding:"",
+            margin:"",
+          }
+        }
       },
       {
         id: 7,
