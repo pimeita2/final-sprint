@@ -1,32 +1,5 @@
 <template>
   <section @connectToCmpPart="connectToCmpPart">
-    <!-- <section class="edit-txt-section" @connectToCmpPart="connectToCmpPart">
-    <p @click="handleAlignment" class="align-icon edit-type-icon">
-      <i class="fa fa-align-left edit-icon-txt" @click.stop="handleAlignment('left')"></i>
-      
-      <i class="fa fa-align-center edit-icon-txt" @click.stop="handleAlignment('center')"></i>
-      
-      <i class="fa fa-align-right edit-icon-txt" @click.stop="handleAlignment('right')"></i>
-    </p>
-    <p @click="handleFont" class="font-icon">
-      <i class="fa fa-font edit-icon-font"></i>
-      <select class="select-font">
-        <option value="font" disable-selection>font</option>
-        <option value="Quicksand">Quicksand</option>
-        <option value="AsapCondensed">AsapCondensed</option>
-        <option value="Merriweather">Merriweather</option>
-        <option value="Oswald">Oswald</option>
-      </select>
-    </p>
-    <input class="textColor-icon" type="color" @change="handleColor" value="#ff0000">
-
-    <p @click="handleSize" class="textSize-icon">
-      <i class="fa fa-text-height" @click.stop="handleSize(1)"></i>
-      <i class="fa fa-text-height" @click.stop="handleSize(-1)"></i>
-    </p>-->
-    <p @click="handleBold" class="textBold-icon">
-      <i class="fa fa-bold"></i>
-    </p>
     <div class="editTxt-container">
       <div class="editTxt-hedear">
         <h4>style your text</h4>
@@ -41,11 +14,11 @@
             <option value="Oswald">Oswald</option>
           </select>
         </div>
-        <div class="edit-size" @click="handleSize">
+        <p class="edit-size" @click="handleSize">
           <!-- class="textSize-icon" -->
           <i class="fas fa-text-height" @click.stop="handleSize(1)"></i>
           <i class="fa fa-text-height" @click.stop="handleSize(-1)"></i>
-        </div>
+        </p>
         <div class="edit-color-bold">
           <div class="edit-color">
             <input class="textColor-icon" type="color" @change="handleColor" value="black">
@@ -56,11 +29,9 @@
           </div>
         </div>
         <div class="edit-aling" @click="handleAlignment">
-          <!-- <p  class="align-icon edit-type-icon"> -->
           <i class="fa fa-align-left edit-icon-txt" @click.stop="handleAlignment('left')"></i>
           <i class="fa fa-align-center edit-icon-txt" @click.stop="handleAlignment('center')"></i>
           <i class="fa fa-align-right edit-icon-txt" @click.stop="handleAlignment('right')"></i>
-          <!-- </p> -->
         </div>
       </div>
       <div class="editTxt-footer"></div>
@@ -68,7 +39,6 @@
     </div>
   </section>
 </template>
-
 
 <script>
 import { Photoshop } from "vue-color";
