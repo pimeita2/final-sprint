@@ -28,13 +28,13 @@
 </template>
 
 <script>
-import publishModal from "@/components/PublishModal.vue";
-
+import publishModal from '@/components/PublishModal.vue';
+// import timedate from "@/components/template-components/TimeAndDateCmp.vue";
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 import day from "@/components/template-components/DayCmp.vue";
-import hour from "@/components/template-components/HourCmp.vue";
+import map from "@/components/template-components/MapCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
@@ -50,12 +50,14 @@ export default {
     };
   },
   components: {
+    // timedate,
+    map,
     publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
     day,
-    hour,
+    // hour,
     location,
     socialMedia,
     attending
@@ -256,12 +258,5 @@ export default {
 </script>
 
 <style>
-.date{
-position: inl
- }
-.time{
 
-}
 </style>
- 
- 
