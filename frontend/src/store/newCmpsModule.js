@@ -1,7 +1,9 @@
+import { stat } from "fs";
 
 export default {
     state: {
         currentIdx: null,
+        currenEditing: null,
         templateCmps: null,
         generalStyle: {}
     },
@@ -10,13 +12,13 @@ export default {
 
         setUserStyle(state, { field, css, currCmpPart }) {
             console.log('setUserStyle', field, css, currCmpPart);
-            const cmp = state.templateCmps.find(cmp =>cmp.id === currCmpPart)
+            const cmp = state.templateCmps.find(cmp => cmp.id === currCmpPart)
             cmp.data.css[field] = css[field]; console.log(cmp);
         },
-        setGenralStyle(state, { field, css} ){
-            console.log(' setGenralStyle',  field, css );
-           state.generalStyle=css;
-           console.log('general style', state.generalStyle);
+        setGenralStyle(state, { field, css }) {
+            console.log(' setGenralStyle', field, css);
+            state.generalStyle = css;
+            console.log('general style', state.generalStyle);
         },
         setCurrTemplate(state, context) {
 
@@ -32,12 +34,15 @@ export default {
                 }
             })
         },
+        changecurrenEditing(state, { id }) {
+            state.currenEditing = id
+        }
     },
     actions: {
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
         },
-        setGenralStyle(context, { field, css}){
+        setGenralStyle(context, { field, css }) {
             context.commit({ type: 'setGenralStyle', field, css })
         },
         updateTxt(context, { newTxt, cmpId }) {
@@ -46,7 +51,9 @@ export default {
         setCurrTemplate(context, payload) {
             // console.log('setCurrTemplate', payload)
             context.commit({ type: 'setCurrTemplate', payload })
-
+        },
+        changeEditingStatus(context, { id }) {
+            context.commit({ type: 'changecurrenEditing', id })
         }
     },
     getters: {
@@ -54,6 +61,7 @@ export default {
         //     return state.templateCmps[state.templateCmps.length - 1].css;
         // },
         dynamicCmps: state => state.templateCmps,
-        generalStyle: state => state.generalStyle
+        generalStyle: state => state.generalStyle,
+        currenEditing: state => state.currenEditing
     }
 }

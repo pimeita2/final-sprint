@@ -3,13 +3,12 @@
     <input
       class="invaitor-name"
       v-model="data.txt"
-      :class="{'select-box-border': isSelected}"
       :style="data.css"
       @click="connectToEditor()"
-      @focusout ="isSelected = false"
       @input="updateInvaitorName($event, id)"
+      :class="{'select-box-border': isOnEdit}"
+      @focus="updateEditStatus"   
     >
-
   </section>
 </template>
 <script>
@@ -19,14 +18,9 @@ import userLogin from "@/components/UserLogin.vue";
 export default {
   props: {
     data: Object,
-    id:String
+    id: String
   },
  
-  data() {
-    return {
-      isSelected: false
-    };
-  },
   created() {},
   methods: {
     connectToEditor() {
@@ -34,40 +28,29 @@ export default {
       this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
     },
-    updateInvaitorName(ev) {
-      var newInvaitorName = ev.target.value;
-      // this.$store.dispatch({ : "" });// changing to is edit true
-      templateService.saveData(newInvaitorName);
+     updateInvaitorName(ev, cmpId) {
+      var newTxt = ev.target.value;
+      this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
+      // templateService.saveData(newInvaitorName);
     },
-   
+    updateEditStatus() {
+      this.$store.dispatch("changeEditingStatus", { id: this.id });
+    }
   },
   computed: {
-
-
+     isOnEdit() {
+      return this.$store.getters.currenEditing === this.id;
+    }
   },
-  components: {
-    
-  }
+
 };
 </script>
 
 <style>
-
-.select-box-border{
-  border:1px dashed black;
+.select-box-border {
+  border: 1px dashed black;
 }
 .invaitor-name{
-  width:100%;
+  width: 100%;
 }
-
-/* .invaitor-name {
-  text-align: center;
-  font-size: 14px;
-  font-family: "Satisfy", cursive;
-  text-transform: uppercase;
-  margin-bottom: 7px;
-  color: rgb(153, 49, 54);
-} */
-
-
 </style>

@@ -15,8 +15,8 @@
           </select>
         </div>
         <p class="edit-size" @click="handleSize">
-          <i class="fas fa-font fa-lg" @click.stop="handleSize(1)"></i>
-          <i class="fas fa-font fa-2x" @click.stop="handleSize(-1)"></i>
+          <i class="fas fa-font fa-lg" @click.stop="handleSize(-1)"></i>
+          <i class="fas fa-font fa-2x" @click.stop="handleSize(+1)"></i>
         </p>
         <div class="edit-color-bold">
           <div class="edit-color">
@@ -33,13 +33,16 @@
         </div>
       </div>
       <div class="editTxt-footer"></div>
-      <button class="btn-done button is-primary" @click.stop="closeEdit">done</button>
+      <button
+        class="btn-done button is-primary"
+        @click.stop="closeEdit"
+
+      >done</button>
     </div>
   </section>
 </template>
 
 <script>
-
 export default {
   props: ["currCmpPart"],
   data() {
@@ -51,9 +54,8 @@ export default {
       // console.log("Connect to", cmpPart);
       this.currCmpPart = cmpPart;
     },
-    closeEdit(){
-      console.log('1');
-      this.$emit('closeEditor')
+    closeEdit() {
+      this.$emit('closeEditor');
     },
     handleAlignment(align) {
       // console.log("handleAlignment", align);
@@ -72,7 +74,7 @@ export default {
     },
     handleSize(sizeChange) {
       const currCmpObj = this.cmps.find(cmp => {
-        return cmp.type === this.currCmpPart;
+        return cmp.id === this.currCmpPart;
       });
       let numb = +currCmpObj.data.css.fontSize.substring(
         0,

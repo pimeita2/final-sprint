@@ -1,16 +1,14 @@
 <template>
   <section class="short-description-container">
-       <input
+    <input
       class="short-description"
       v-model="data.txt"
-      :class="{'select-box-border': isSelected}"
       :style="data.css"
       @click="connectToEditor()"
-      @focusout ="isSelected = false"
-      @input="updateShortDescription($event)"
-    > 
-    
-
+      :class="{'select-box-border': isOnEdit}"
+      @focus="updateEditStatus"
+      @input="updateShortDescription($event, id)"
+    >
   </section>
 </template>
 <script>
@@ -20,49 +18,42 @@ import userLogin from "@/components/UserLogin.vue";
 export default {
   props: {
     data: Object,
-    id:String
+    id: String
   },
   data() {
     return {
-      isSelected: false,
+      isSelected: false
     };
   },
   created() {},
   methods: {
     connectToEditor() {
       this.isSelected = true;
-      this.$emit("connectToCmpPart", id);
+      this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
     },
-    updateShortDescription(ev) {
+    updateShortDescription(ev, cmpId) {
       var newShortDescription = ev.target.value;
       templateService.saveData(newShortDescription);
+      this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
+    },
+    updateEditStatus() {
+      this.$store.dispatch("changeEditingStatus", { id: this.id });
     }
   },
   computed: {
-  
-  },
-  components: {
+    isOnEdit() {
+      return this.$store.getters.currenEditing === this.id;
+    }
   }
 };
 </script>
 <style>
-.select-box-border{
-  border:1px dashed black;
+.select-box-border {
+  border: 1px dashed black;
 }
-.short-description-container{
+.short-description{
   width: 100%;
+  margin-bottom: 10px;
 }
-/* .short-description {
-  background-color: rgb(153, 49, 54);
-  font-size: 12px;
-  color: white;
-  max-width: 300px;
-  width: 100%;
-  text-align: center;
-}
-
-.short-description-container:hover {
-  cursor: all-scroll;
-} */
 </style>
