@@ -56,12 +56,23 @@ export default {
     },
     styleUpdate({ field, css }) {
       console.log("in template editor", field, css);
-      this.$store.dispatch({
-        type: "setUserStyleOfCmp",
-        field,
-        css,
-        currCmpPart: this.currCmpPart
-      });
+      if (this.currCmpPart === "background") {
+        this.$store.dispatch({
+          type: "setGenralStyle",
+          field,
+          css
+        });
+      } else {
+        this.$store.dispatch({
+          type: "setUserStyleOfCmp",
+          field,
+          css,
+          currCmpPart: this.currCmpPart
+        });
+        //   if (field === "background")
+        //     this.$store.dispatch({ type: "setBackgroundStyle", field, css });
+        // }
+      }
     }
   }
 };
