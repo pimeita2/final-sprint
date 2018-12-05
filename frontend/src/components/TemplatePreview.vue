@@ -29,7 +29,7 @@ export default {
 .container-template {
   width: 200px;
   height: 250px;
-  /* border: 1px solid gray; */
+  border: 1px solid gray;
 }
 .container-template:hover {
   border: 2px solid lightgray;
