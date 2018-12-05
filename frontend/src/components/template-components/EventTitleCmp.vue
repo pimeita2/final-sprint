@@ -6,10 +6,9 @@
       class="event-name"
       v-model="data.txt"
       :class="{'select-box-border': isSelected}"
-           :style="data.css"
-
+      :style="data.css"
       @click="connectToEditor()"
-      @focusout ="isSelected = false"
+      @focusout="isSelected = false"
       @input="updateEventName($event, id)"
     />
     <!-- <P>{{data.txt}}</P> -->
@@ -35,7 +34,7 @@ export default {
     },
     updateEventName(ev, cmpId) {
       var newTxt = ev.target.value;
-      this.$store.dispatch({type:"updateTxt", newTxt, cmpId});
+      this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
       // templateService.saveData(newInvaitorName);
     }
   },

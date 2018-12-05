@@ -20,7 +20,7 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
-    <pre>{{generalStyle}}</pre>
+    <!-- <pre>{{generalStyle}}</pre> -->
     <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
@@ -68,14 +68,8 @@ export default {
     },
     connectToEditor() {
       // for background!!!!
-      this.$emit(
-        "connectToCmpPart",
-        this.dynamicCmps[this.dynamicCmps.length - 1].id
-      );
+      this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
-    },
-    background() {
-      return this.dynamicCmps[this.dynamicCmps.length - 1].data.css;
     },
 
     publish() {
@@ -102,8 +96,8 @@ export default {
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
     },
-    generalStyle(){
-       return this.$store.getters.generalStyle;
+    generalStyle() {
+      return this.$store.getters.generalStyle;
     }
   },
   created() {
@@ -171,7 +165,10 @@ export default {
         type: "day",
         isEdit: true,
         data: {
-          txt: "01/12/1990",
+          txt: {
+            date: "01/12/2018",
+            time: "00:30"
+          },
           css: {
             color: "black",
             textAlign: "center",
@@ -186,25 +183,6 @@ export default {
       },
       {
         id: "4",
-        kind: "text",
-        type: "hour",
-        isEdit: true,
-        data: {
-          txt: "00:30",
-          css: {
-            color: "black",
-            textAlign: "center",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Satisfy",
-            fontSize: 18 + "px"
-          }
-        }
-      },
-      {
-        id: "5",
         kind: "text",
         type: "location",
         isEdit: true,
@@ -223,14 +201,14 @@ export default {
         }
       },
       {
-        id: "6",
+        id: "5",
         kind: "cmp",
         type: "attending",
         isEdit: true,
         data: {}
       },
       {
-        id: "7",
+        id: "6",
         kind: "cmp",
         type: "socialMedia",
         isEdit: true,
