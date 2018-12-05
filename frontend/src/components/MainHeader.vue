@@ -1,5 +1,5 @@
 <template>
-    <header class="nav scrollme" :class="{'active': isActive}">
+    <header class="nav scrollme" id="navbar" :class="{'active': isActive}">
         <router-link  to="/" class=" routers logo">Invite<span class="it">Me</span></router-link>
          <div class="header-right">
             <router-link class="routers btn" to="/contact" >Contact </router-link>
@@ -44,10 +44,18 @@ export default {
 
 <style>
 .nav{
-  position:sticky;
+  /* position:sticky; */
   top: 0;
   width: 100%;
+  height:3em;
   z-index: 2;
+  position: fixed;
+  left: 0;
+  /* background-color: #EEE; */
+  box-sizing: border-box;
+  padding: 12px 18px;
+  /* box-shadow: 0px 4px 7px #777; */
+  transition: background-color 0.4s ease-out;
 
 }
 
