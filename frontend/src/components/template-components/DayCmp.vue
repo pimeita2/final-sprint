@@ -1,11 +1,10 @@
 <template>
   <section class="date-time-container">
-    <div>
+    <div class="date-container">
       <datepicker
-        class="date-container"
-        placeholder="Date ('d-m-Y')"
+        placeholder="12.05.2018"
         :config="{ dateFormat: 'd-m-Y', static: true }"
-        v-model="data.txt"
+        v-model="data.txt.day"
         @click="connectToEditor()"
         :style="{color: data.css.color,
               textAlign:data.css.textAlign,
@@ -17,7 +16,7 @@
     <div class="time-container">
       <input
         type="text"
-        v-model="data.txt"
+        v-model="data.txt.time"
         placeholder="00:00"
         @click="connectToEditor('hour')"
         class="time-input"
@@ -28,17 +27,15 @@
         @focusout="isSelected = false"
       >
     </div>
-    <!-- :class="{'select-box-border': isSelected}" -->
   </section>
 </template>
-
 <script>
 import Datepicker from "vue-bulma-datepicker";
 
 export default {
   props: {
     data: Object,
-    id:String
+    id: String
   },
   data() {
     return {
@@ -47,7 +44,7 @@ export default {
   },
   methods: {
     connectToEditor() {
-      this.isSelected=true;
+      this.isSelected = true;
       // console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
@@ -60,24 +57,20 @@ export default {
 </script>
 
 <style>
-
-.date-time-container{
+.date-time-container {
   display: flex;
-  align-content: space-between;
-  
-}
-.select-box-border {
-  border: 1px dashed black;
+  justify-content: space-evenly;
 }
 .date-container {
-  width: 100px;
-  margin: 0 100px;
-  /* border: 1px solid #ccc; */
+  width: 117px;
+}
+input {
+  width: 117px;
 }
 .time-container {
   padding: 0;
+  color: #191616;
   height: 36px;
-  /* border: 1px solid #ccc; */
 }
 .time-input {
   width: 117px;
