@@ -1,5 +1,5 @@
 <template>
-    <header class="nav scrollme" id="navbar" :class="{'active': isActive}">
+    <header class="nav scrollme" :class="{'active': scrolled}">
         <router-link  to="/" class=" routers logo">Invite<span class="it">Me</span></router-link>
          <div class="header-right">
             <router-link class="routers btn" to="/contact" >Contact </router-link>
@@ -20,18 +20,27 @@ export default {
     components:{
         userLogin,
         userSingup
+        
     },
 
     data(){
       return {
         showLogin:false,
         showSignup:false,
-
+        scrolled: false
       }
     },
     methods:{
-     
-    }
+       handleScroll () {
+        this.scrolled = window.scrollY > 300;
+      }
+    },
+    created () {
+     window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+}
    
     
 
@@ -49,33 +58,25 @@ export default {
   width: 100%;
   height:3em;
   z-index: 2;
-  position: fixed;
-  left: 0;
-  /* background-color: #EEE; */
-  box-sizing: border-box;
-  padding: 12px 18px;
-  /* box-shadow: 0px 4px 7px #777; */
-  transition: background-color 0.4s ease-out;
+  transition: all .5s;
 
 }
 
 .it{
-  color: lightblue;
+  color: #232323;
 }
 header {
   overflow: hidden;
-  /* background: linear-gradient(to right, #556270, #4ECDC4);  */
-  /* background-image: linear-gradient(to right top, #393538, #353336, #323034, #2e2e32, #2b2c2f, #27292c, #232629, #1f2326, #191f21, #121a1c, #0a1617, #001110); */
-  /* background-image: linear-gradient(to right top, #2968bb, #556ac3, #776ac8, #9669ca, #b368c9, #b460bd, #b557b1, #b54fa5, #9d3f8f, #862e7a, #6f1e66, #590c52); */
-  /* background-image: linear-gradient(to right top, #243a57, #2d3f6a, #40417a, #5a4187, #773d8e, #7f378a, #872f85, #8e267f, #802074, #731968, #66135d, #590c52); */
-  /* background-image: linear-gradient(to right top, #060809, #151718, #202124, #2c2c30, #39373c, #464448, #545155, #625e62, #737074, #848386, #979698, #aaaaaa); */
   background-color:transparent;
   padding: 20px 40px;
 }
 
 .active{
-  background-image: linear-gradient(to right top, #060809, #151718, #202124, #2c2c30, #39373c, #464448, #545155, #625e62, #737074, #848386, #979698, #aaaaaa);
+    background-color: #3a3838;
+    height:55px;
+    padding: 5px;
   }
+
 header .routers {
   float: left;
   color: rgb(252, 235, 204);

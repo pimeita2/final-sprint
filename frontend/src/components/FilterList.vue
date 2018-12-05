@@ -1,11 +1,14 @@
 
 
 <template>
+
  <form class="filter">
-     
+
      <label>
-         <input  class="search" type="search"  placeholder="Search...">
+         <input class="search-input" type="search"  placeholder="Search Design...">
      </label>
+     
+     <i class="fas fa-search"></i>
       <h6>Filter By:</h6>
      <label>
          <input type="checkbox" value="lastCreated">Last Created
@@ -16,7 +19,7 @@
       <label>
          <input type="checkbox" value="lastCreated">Most Used
      </label>
-    
+      
  </form>
 </template>
 
@@ -37,14 +40,7 @@ export default {
       
       }
     }
-   
-    
-
-
-
-
 </script>
-
 
 
 <style>
@@ -52,8 +48,11 @@ export default {
      width:200px;
      border-right: 2px solid lightgrey;
  }
-.search{
+
+.search-input{
   border: 2px solid lightgray;
+  border-radius: 6px;
+  padding: 5px;
 }
 
  .filter label{
