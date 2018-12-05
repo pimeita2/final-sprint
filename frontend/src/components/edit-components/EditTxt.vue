@@ -15,8 +15,8 @@
           </select>
         </div>
         <p class="edit-size" @click="handleSize">
-          <i class="fas fa-font fa-lg" @click.stop="handleSize(1)"></i>
-          <i class="fas fa-font fa-2x" @click.stop="handleSize(-1)"></i>
+          <i class="fas fa-font fa-lg" @click.stop="handleSize(-1)"></i>
+          <i class="fas fa-font fa-2x" @click.stop="handleSize(+1)"></i>
         </p>
         <div class="edit-color-bold">
           <div class="edit-color">
@@ -72,7 +72,7 @@ export default {
     },
     handleSize(sizeChange) {
       const currCmpObj = this.cmps.find(cmp => {
-        return cmp.type === this.currCmpPart;
+        return cmp.id === this.currCmpPart;
       });
       let numb = +currCmpObj.data.css.fontSize.substring(
         0,
