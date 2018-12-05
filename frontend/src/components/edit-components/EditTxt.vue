@@ -15,45 +15,45 @@
           </select>
         </div>
         <p class="edit-size" @click="handleSize">
-          <!-- class="textSize-icon" -->
-          <i class="fas fa-text-height" @click.stop="handleSize(1)"></i>
-          <i class="fa fa-text-height" @click.stop="handleSize(-1)"></i>
+          <i class="fas fa-font fa-lg" @click.stop="handleSize(1)"></i>
+          <i class="fas fa-font fa-2x" @click.stop="handleSize(-1)"></i>
         </p>
         <div class="edit-color-bold">
           <div class="edit-color">
             <input class="textColor-icon" type="color" @change="handleColor" value="black">
-            <chrome-picker :value="colors"></chrome-picker>
           </div>
           <div @click="handleBold" class="edit-bold">
-            <i class="fa fa-bold"></i>
+            <i class="fa fa-bold fa-lg"></i>
           </div>
         </div>
         <div class="edit-aling" @click="handleAlignment">
-          <i class="fa fa-align-left edit-icon-txt" @click.stop="handleAlignment('left')"></i>
-          <i class="fa fa-align-center edit-icon-txt" @click.stop="handleAlignment('center')"></i>
-          <i class="fa fa-align-right edit-icon-txt" @click.stop="handleAlignment('right')"></i>
+          <i class="fa fa-align-left fa-lg" @click.stop="handleAlignment('left')"></i>
+          <i class="fa fa-align-center fa-lg" @click.stop="handleAlignment('center')"></i>
+          <i class="fa fa-align-right fa-lg" @click.stop="handleAlignment('right')"></i>
         </div>
       </div>
       <div class="editTxt-footer"></div>
-      <button class="btn-done button is-primary">done</button>
+      <button class="btn-done button is-primary" @click.stop="closeEdit">done</button>
     </div>
   </section>
 </template>
 
 <script>
-import { Photoshop } from "vue-color";
 
 export default {
   props: ["currCmpPart"],
   data() {
-    return {
-    };
+    return {};
   },
   created() {},
   methods: {
     connectToCmpPart(cmpPart) {
       // console.log("Connect to", cmpPart);
       this.currCmpPart = cmpPart;
+    },
+    closeEdit(){
+      console.log('1');
+      this.$emit('closeEditor')
     },
     handleAlignment(align) {
       // console.log("handleAlignment", align);
@@ -74,10 +74,11 @@ export default {
       const currCmpObj = this.cmps.find(cmp => {
         return cmp.type === this.currCmpPart;
       });
-      let numb=+(currCmpObj.data.css.fontSize.substring(0, currCmpObj.data.css.fontSize.length-2));
-      // console.log(numb, typeof numb);
-      const newFontSize = numb +sizeChange ;
-
+      let numb = +currCmpObj.data.css.fontSize.substring(
+        0,
+        currCmpObj.data.css.fontSize.length - 2
+      );
+      const newFontSize = numb + sizeChange;
       this.$emit("styleTextUpdate", {
         field: "fontSize",
         css: { fontSize: newFontSize + "px" }
@@ -106,8 +107,7 @@ export default {
     cmps() {
       return this.$store.getters.dynamicCmps;
     }
-  },
-  
+  }
 };
 </script>
 
@@ -115,7 +115,7 @@ export default {
 .editTxt-container {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 310px;
   width: 200px;
   border-color: #b9b9b9;
   border-width: 0;
@@ -125,6 +125,8 @@ export default {
 }
 .editTxt-hedear {
   padding: 15px 15px 7px 8px;
+  font-family: "Museo-700";
+  font-size: 22px;
 }
 .select-font {
   text-align: center;
@@ -150,7 +152,7 @@ export default {
   border-bottom: 1px solid #e8e8e8;
 }
 .edit-color-bold {
-  margin-top: 7px;
+  margin-top: 17px;
   padding-bottom: 17px;
   display: flex;
   flex-direction: row;
@@ -159,14 +161,14 @@ export default {
   border-bottom: 1px solid #e8e8e8;
 }
 .textColor-icon {
-  width: 50px;
+  width: 30px;
+  height: 25px;
 }
 .edit-size {
+  display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-evenly;
-}
-.edit-bold {
 }
 .edit-txt-section {
   display: flex;
@@ -183,73 +185,4 @@ export default {
   margin: 5% 25%;
   width: 100px;
 }
-/* .edit-type-icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.edit-icon-txt {
-  margin: 0 5px;
-  font-size: 20px;
-  color: #464545;
-}
-
-.edit-icon-font {
-  font-size: 20px;
-  color: #464545;
-  position: relative;
-  top: 3px;
-}
-
-.select-font {
-  display: inline-block;
-  box-shadow: -2px 2px 5px lightblue;
-  border: 1px solid rgb(190, 190, 190);
-  border-radius: 5px;
-  padding: 4px;
-  padding-right: 25px;
-  margin-left: 8px;
-}
-
-.font-icon {
-  margin: 15px 0;
-}
-
-/* .edit-txt-section img {
-  height: 25px;
-  width: 25px;
-  cursor: pointer;
-} */
-/* .align-icon,
-.font-icon,
-.textColor-icon,
-.textSize-icon,
-.textBold-icon {
-  border-radius: 3px;
-  cursor: pointer;
-  flex-flow: row;
-  margin: 0 auto;
-  padding:10px;
-}
-
-.textSize-icon {
-  color: #232323;
-  font-size: 18px;
-  margin: 0 auto;
-  padding: 10px;
-}
-.textBold-icon {
-  color: #232323;
-  font-size: 18px;
-  margin: 10px 45px;
-}
-
-.align-icon {
-  padding: 10px;
-}
-
-.fa-text-height {
-  margin: 5px 15px;
-}  */
 </style>

@@ -2,16 +2,20 @@
   <section>
     <div class="edit-bkg-section">
       <h4 class="bkg-title">Background Color:</h4>
-      <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange" />
-    
-    <hr class="hr-box">
-      <div class="edit-upload-section">
-      <input type="file" style="display:none" ref="fileInput" accept="image/*" @change="onFilePicked " >
+      <input class="bkg-picker" type="color" v-model="bgc" @change="handleChange">
 
-      <button class="uploadImg-btn" @click="onPickFile">Upload Background Image</button>
-    </div>
-      
-    
+      <hr class="hr-box">
+      <div class="edit-upload-section">
+        <input
+          type="file"
+          style="display:none"
+          ref="fileInput"
+          accept="image/*"
+          @change="onFilePicked "
+        >
+        
+        <button class="uploadImg-btn" @click="onPickFile">Upload Background Image</button>
+      </div>
     </div>
   </section>
 </template>
@@ -21,13 +25,13 @@ export default {
   data() {
     return {
       bgc: "#ff9a90",
-      image:'',
-      imageUrl:'',
-      name:'',
-      bgcImage:""
+      image: "",
+      imageUrl: "",
+      name: "",
+      bgcImage: ""
     };
   },
- 
+
   methods: {
     handleChange() {
       this.$emit("styleUpdate", {
@@ -35,31 +39,29 @@ export default {
         css: { backgroundColor: this.bgc }
       });
     },
-          onPickFile(){
-          this.$refs.fileInput.click()
-      },
-      onFilePicked(event){
-          const files = event.target.files;
-          let filename = files[0].name;
-          if(filename.lastIndexOf('.')<= 0){
-              return alert ('please add a valid file!')
-          }
-          const fileReader = new FileReader()
-          fileReader.addEventListener('load',() =>{
-              this.imageUrl = fileReader.result
-               this.$emit("styleUpdate", {
-                field: "background",
-                css: { backgroundImage: 'url('+this.imageUrl+')' }
+    onPickFile() {
+      this.$refs.fileInput.click();
+    },
+    onFilePicked(event) {
+      const files = event.target.files;
+      let filename = files[0].name;
+      console.log('files', files)
+      if (filename.lastIndexOf(".") <= 0) {
+        return alert("please add a valid file!");
+      }
+      const fileReader = new FileReader();
+      fileReader.addEventListener("load", () => {
+        this.imageUrl = fileReader.result;
+        console.log('resalt', this.imageUrl)
+        this.$emit("styleUpdate", {
+          field: "background",
+          css: { background: "url('" + this.imageUrl + "')" }
+        });
       });
-           
-          })
-          fileReader.readAsDataURL(files[0]) 
-          this.image=files[0]
-        // console.log('this.imageUrl:' , this.image)
-      },
-      
-   
-
+      fileReader.readAsDataURL(files[0]);
+      this.image = files[0];
+      // console.log('this.imageUrl:' , this.image)
+    }
   }
 };
 </script>
@@ -69,11 +71,11 @@ export default {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  flex-direction: column; 
-  width:200px;
+  flex-direction: column;
+  width: 200px;
   height: 215px;
   overflow: auto;
-  background-image: linear-gradient(to top, #f3f3f3, #ffffff, #f3f3f3 ); 
+  background-image: linear-gradient(to top, #f3f3f3, #ffffff, #f3f3f3);
   border-radius: 10px;
 }
 
@@ -86,12 +88,12 @@ export default {
 }
 
 .close-edit-bkg-section {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 15px;
-    font-weight: bold;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .uploadImg-btn {
@@ -113,13 +115,13 @@ export default {
   color: white;
 }
 
-.bkg-title{
+.bkg-title {
   margin-top: 10px;
-  font-family: 'Quicksand'
+  font-family: "Quicksand";
 }
 
-.hr-box{
-  margin:0;
+.hr-box {
+  margin: 0;
 }
 </style>
 

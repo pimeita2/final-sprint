@@ -1,8 +1,8 @@
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <div class="template-container" :style="dynamicCmps[dynamicCmps.length-1].data.css" @click="connectToEditor('template')">
-        <div class="backgroun-frame" @click="connectToEditor('template')">
+      <div class="template-container" :style="generalStyle" @click="connectToEditor()">
+        <div class="backgroun-frame" @click="connectToEditor()">
           <div class="card-container" @click.stop>
             <!-- <title-cmp/> -->
             <!-- dynamicCmps[dynamicCmp.length-1].css -->
@@ -20,8 +20,7 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
-   
-    <!-- <pre>{{dynamicCmps}}</pre> -->
+    <!-- <pre>{{generalStyle}}</pre> -->
     <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
@@ -44,20 +43,16 @@ export default {
   data() {
     return {
       show: false,
-      type: "first",
-      bsckground:this.dynamicCmps[dynamicCmps.length-1].css
-      
+      type: "first"
     };
   },
   components: {
-    // timedate,
     map,
     publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
     day,
-    // hour,
     location,
     socialMedia,
     attending
@@ -69,11 +64,12 @@ export default {
     showEditor({ kind }) {
       this.$emit("showEditor", { kind });
     },
-    connectToEditor(cmpPart) {
-      this.$emit("connectToCmpPart", cmpPart);
-      console.log('cmpPart,first:',cmpPart)
+    connectToEditor() {
+      // for background!!!!
+      this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
     },
+
     publish() {
       this.show = true;
       templateService
@@ -98,10 +94,13 @@ export default {
     // },
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
+    },
+    generalStyle() {
+      return this.$store.getters.generalStyle;
     }
   },
   created() {
-    const first = [
+    const cmps = [
       {
         id: '0',
         kind: "text",
@@ -212,7 +211,7 @@ export default {
               value: "normal"
             },
             fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
+            fontSize: 17 + "px"
           }
         }
       },
@@ -234,24 +233,15 @@ export default {
           txtT: "",
           txtI: ""
         }
-      },
-      {
-        id: '8',
-        kind: "background",
-        type: "template",
-        kind: "other",
-        data: {
-          css: {
-            backgroundColor: "#ff9a90",
-            // backgroundImage: ``
-          }
-        }
       }
     ];
-
+    const general = {
+      backgroundColor: "#ff9a90"
+    };
     this.$store.dispatch({
       type: "setCurrTemplate",
-      tmpData: first
+      tmpData: cmps,
+      general
     });
   }
 };

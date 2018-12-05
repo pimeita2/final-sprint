@@ -1,5 +1,5 @@
 <template>
-  <section class="event-details-container">
+  <section>
     <div class="address-details">
       <input
         class="address"
@@ -36,12 +36,12 @@ export default {
 </script>
 
 <style>
-.address-details input {
+.address {
   margin: 5px;
   text-transform: capitalize;
   color: black;
   width:100%;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 .select-box-border {

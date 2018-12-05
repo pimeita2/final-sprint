@@ -2,9 +2,9 @@
   <section class="short-description-container">
        <input
       class="short-description"
-      v-model="cmp.data.txt"
+      v-model="data.txt"
       :class="{'select-box-border': isSelected}"
-      :style="cmp.data.css"
+      :style="data.css"
       @click="connectToEditor()"
       @focusout ="isSelected = false"
       @input="updateShortDescription($event)"
