@@ -2,17 +2,14 @@
   <section class="event-description-container">
     <input
       class="invaitor-name"
-      v-model="data.txt"
+      v-model="cmp.data.txt"
       :class="{'select-box-border': isSelected}"
-      :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontWeight:data.css.fontWeight,
-              fontSize:data.css.fontSize}"
-      @click="connectToEditor('invaitorName')"
+      :style="cmp.data.css"
+      @click="connectToEditor()"
       @focusout ="isSelected = false"
       @input="updateInvaitorName($event)"
     >
+
   </section>
 </template>
 <script>
@@ -21,8 +18,9 @@ import userLogin from "@/components/UserLogin.vue";
 
 export default {
   props: {
-    data: Object
+    cmp: Object
   },
+ 
   data() {
     return {
       isSelected: false
@@ -30,9 +28,9 @@ export default {
   },
   created() {},
   methods: {
-    connectToEditor(cmpPart) {
+    connectToEditor() {
       this.isSelected = true;
-      this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("connectToCmpPart", this.cmp.id);
       this.$emit("showEditor", { kind: "text" });
     },
     updateInvaitorName(ev) {

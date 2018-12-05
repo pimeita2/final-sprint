@@ -11,16 +11,17 @@
               @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
               :key="cmp.id"
+              :id="cmp.id"
               :is="cmp.type"
-              :data="cmp.data"
+              :data="data"
             />
           </div>
         </div>
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
-
-    <!-- <pre>{{dynamicCmps[dynamicCmps.length-1].data.css}}</pre> -->
+   
+    <pre>{{dynamicCmps}}</pre>
     <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
@@ -44,7 +45,7 @@ export default {
     return {
       show: false,
       type: "first",
-      bsckground:this.dynamicCmps[dynamicCmp.length-1].css
+      bsckground:this.dynamicCmps[dynamicCmps.length-1].css
       
     };
   },
@@ -100,7 +101,7 @@ export default {
   created() {
     const first = [
       {
-        id: 0,
+        id: '0',
         kind: "text",
         type: "invaitorName",
         isEdit: true,
@@ -119,7 +120,7 @@ export default {
         }
       },
       {
-        id: 1,
+        id: '1',
         kind: "text",
         type: "eventTitle",
         isEdit: true,
@@ -138,7 +139,7 @@ export default {
         }
       },
       {
-        id: 2,
+        id: '2',
         kind: "text",
         type: "shortDescription",
         isEdit: true,
@@ -157,7 +158,7 @@ export default {
         }
       },
       {
-        id: 3,
+        id: '3',
         kind: "text",
         type: "day",
         isEdit: true,
@@ -176,7 +177,7 @@ export default {
         }
       },
       {
-        id: 4,
+        id: '4',
         kind: "text",
         type: "hour",
         isEdit: true,
@@ -195,7 +196,7 @@ export default {
         }
       },
       {
-        id: 5,
+        id: '5',
         kind: "text",
         type: "location",
         isEdit: true,
@@ -214,14 +215,14 @@ export default {
         }
       },
       {
-        id: 6,
+        id: '6',
         kind: "cmp",
         type: "attending",
         isEdit: true,
         data: {}
       },
       {
-        id: 7,
+        id: '7',
         kind: "cmp",
         type: "socialMedia",
         isEdit: true,
@@ -233,7 +234,7 @@ export default {
         }
       },
       {
-        id: 8,
+        id: '8',
         kind: "background",
         type: "template",
         kind: "other",

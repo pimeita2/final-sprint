@@ -14,32 +14,32 @@ Vue.config.productionTip = false
 //   }
 // });
 
-// window.vm = 
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-  created() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  data(){
-    return{
-      isActive: false
+window.vm =
+  new Vue({
+    router,
+    store,
+    render: h => h(App),
+    created() {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    data() {
+      return {
+        isActive: false
+      }
+    },
+    methodes: {
+      handleScroll() {
+        const els = document.querySelectorAll('.scrollme')
+        els.forEach((el) => {
+          const elTop = el.getBoundingClientRect().top
+          const elBottom = el.getBoundingClientRect().bottom
+          // console.log(elBottom)
+          if (elTop >= 0 || elBottom <= 0) {
+            this.isActive = false
+          } if (elTop <= 0 && elBottom >= 0) {
+            this.isActive = true
+          }
+        })
+      }
     }
-  },
-  methodes:{
-    handleScroll () {
-      const els = document.querySelectorAll('.scrollme')
-      els.forEach((el) => {
-        const elTop = el.getBoundingClientRect().top
-        const elBottom = el.getBoundingClientRect().bottom
-        // console.log(elBottom)
-        if (elTop >= 0 || elBottom <= 0) {
-          this.isActive = false
-        } if (elTop <= 0 && elBottom >= 0) {
-          this.isActive = true
-        } 
-    })
-  }
-}
-}).$mount('#app')
+  }).$mount('#app')

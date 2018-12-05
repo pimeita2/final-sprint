@@ -2,13 +2,11 @@
   <section class="date-container">
     <input
       class="date"
-      v-model="data.txt"
+      v-model="cmp.data.txt"
       type="date"
-      @click="connectToEditor('day')"
-      :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontSize:data.css.size+'px'}"
+      @click="connectToEditor()"
+         :style="cmp.data.css"
+
     >
     <datepicker
       placeholder="European Format ('d-m-Y')"
@@ -34,7 +32,7 @@ import Datepicker from "vue-bulma-datepicker";
 
 export default {
   props: {
-    data: Object
+    cmp: Object
   },
   data(){
     return{
@@ -42,10 +40,10 @@ export default {
     }
   },
   methods: {
-    connectToEditor(cmpPart) {
+    connectToEditor() {
       this.isSelected=true;
       // console.log("in connect to editor", cmpPart);
-      this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("connectToCmpPart", this.cmp.id);
       this.$emit("showEditor", { kind: "text" });
     }
   },

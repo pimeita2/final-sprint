@@ -2,14 +2,10 @@
   <section class="short-description-container">
        <input
       class="short-description"
-      v-model="data.txt"
+      v-model="cmp.data.txt"
       :class="{'select-box-border': isSelected}"
-      :style="{color: data.css.color,
-              textAlign:data.css.textAlign,
-              fontFamily:data.css.fontFamily,
-              fontWeight:data.css.fontWeight,
-              fontSize:data.css.fontSize}"
-      @click="connectToEditor('shortDescription')"
+      :style="cmp.data.css"
+      @click="connectToEditor()"
       @focusout ="isSelected = false"
       @input="updateShortDescription($event)"
     > 
@@ -23,7 +19,7 @@ import userLogin from "@/components/UserLogin.vue";
 
 export default {
   props: {
-    data: Object
+    cmp: Object
   },
   data() {
     return {
@@ -32,9 +28,9 @@ export default {
   },
   created() {},
   methods: {
-    connectToEditor(cmpPart) {
+    connectToEditor() {
       this.isSelected = true;
-      this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("connectToCmpPart", this.cmp.id);
       this.$emit("showEditor", { kind: "text" });
     },
     updateShortDescription(ev) {

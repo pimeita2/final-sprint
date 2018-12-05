@@ -11,7 +11,7 @@ export default {
             console.log('setUserStyle', field, css, currCmpPart);
             const cmp = state.templateCmps.find(cmp => {
                 // console.log(cmp.type, currCmpPart);
-                return cmp.type === currCmpPart
+                return cmp.id === currCmpPart
             })
             if(field==="background")  cmp.data.css=css;
             cmp.data.css[field] = css[field];            console.log(cmp);
