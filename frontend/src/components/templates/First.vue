@@ -63,6 +63,7 @@ export default {
     },
     connectToEditor(cmpPart) {
       this.$emit("connectToCmpPart", cmpPart);
+      console.log('cmpPart,first:',cmpPart)
       this.$emit("showEditor", { kind: "background" });
     },
     publish() {
