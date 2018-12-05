@@ -5,9 +5,9 @@
         class="address"
         v-model="data.txt"
         :class="{'select-box-border': isSelected}"
-        @click="connectToEditor('location')"
+        @click="connectToEditor()"
         :style="data.css"
-        @focusout ="isSelected=false"
+        @focusout="isSelected=false"
       >
     </div>
   </section>
@@ -17,45 +17,34 @@
 export default {
   props: {
     data: Object,
-    
+    id:String
   },
-  data(){
-    return{
-      isSelected:false,
-
-    }
+  data() {
+    return {
+      isSelected: false
+    };
   },
   methods: {
-    connectToEditor(cmpPart) {
-      this.isSelected=true;
+    connectToEditor() {
+      this.isSelected = true;
       // console.log("in connect to editor", cmpPart);
-      this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
-
     }
-    //  updateData(ev, cmpPart) { // how the make name of var as name of new var?
-    //   var {cmpPart} = ev.target.value;
-    //   templateService.saveData(cmpPart, cmpPart);
-    // },
   },
-  computed: {
-    // addressStyle() {
-    //   return this.$store.getters.getUserStyle;
-    // }
-  }
 };
 </script>
 
 <style>
 .address-details input {
   margin: 5px;
-  color: rgb(153, 49, 54);
   text-transform: capitalize;
-  width:55%;
+  color: black;
+  width:100%;
+  font-size: 20px;
 }
 
-.select-box-border{
-  border:1px dashed black;
+.select-box-border {
+  border: 1px dashed black;
 }
-
 </style>

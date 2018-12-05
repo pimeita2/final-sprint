@@ -12,14 +12,14 @@
         placeholder="Copy your profile link to here"
       >
       <!-- <input class="input"  placeholder="Text input"> -->
-      
       <a href="#" class="twitter social-media-box" style="color: white;" @click="toggle = !toggle">
         <i class="fab fa-twitter"></i>
       </a>
       <input
         v-model="data.txtL"
- class="facebookLink input is-small"
-        type="text"        v-show="toggle"
+        class="facebookLink input is-small"
+        type="text"
+        v-show="toggle"
         placeholder="Copy your profile link to here"
       >
       
@@ -28,8 +28,9 @@
       </a>
       <input
         v-model="data.txtT"
- class="facebookLink input is-small"
-        type="text"        v-show="toggle"
+        class="facebookLink input is-small"
+        type="text"
+        v-show="toggle"
         placeholder="Copy your profile link to here"
       >
       
@@ -38,8 +39,9 @@
       </a>
       <input
         v-model="data.txtI"
- class="facebookLink input is-small"
-        type="text"        v-show="toggle"
+        class="facebookLink input is-small"
+        type="text"
+        v-show="toggle"
         placeholder="Copy your profile link to here"
       >
     </div>
@@ -89,7 +91,7 @@ export default {
   /* padding: 6px; */
   /* border-radius: 5px; */
 }
-input.facebookLink{
+input.facebookLink {
   width: 63%;
 }
 </style>

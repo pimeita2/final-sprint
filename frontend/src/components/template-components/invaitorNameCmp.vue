@@ -5,10 +5,11 @@
       v-model="data.txt"
       :class="{'select-box-border': isSelected}"
       :style="data.css"
-      @click="connectToEditor('invaitorName')"
+      @click="connectToEditor()"
       @focusout ="isSelected = false"
-      @input="updateInvaitorName($event)"
+      @input="updateInvaitorName($event, id)"
     >
+
   </section>
 </template>
 <script>
@@ -17,8 +18,10 @@ import userLogin from "@/components/UserLogin.vue";
 
 export default {
   props: {
-    data: Object
+    data: Object,
+    id:String
   },
+ 
   data() {
     return {
       isSelected: false
@@ -26,9 +29,9 @@ export default {
   },
   created() {},
   methods: {
-    connectToEditor(cmpPart) {
+    connectToEditor() {
       this.isSelected = true;
-      this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
     },
     updateInvaitorName(ev) {
