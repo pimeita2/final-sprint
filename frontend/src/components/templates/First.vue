@@ -1,10 +1,11 @@
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <div class="template-container" :style="userStyleBackground" @click="connectToEditor('template')">
+      <div class="template-container" :style="dynamicCmps[dynamicCmps.length-1].data.css" @click="connectToEditor('template')">
         <div class="backgroun-frame" @click="connectToEditor('template')">
           <div class="card-container" @click.stop>
             <!-- <title-cmp/> -->
+            <!-- dynamicCmps[dynamicCmp.length-1].css -->
             <component
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
@@ -18,6 +19,8 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
+
+    <!-- <pre>{{dynamicCmps[dynamicCmps.length-1].data.css}}</pre> -->
     <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
@@ -40,7 +43,9 @@ export default {
   data() {
     return {
       show: false,
-      type: "first"
+      type: "first",
+      bsckground:this.dynamicCmps[dynamicCmp.length-1].css
+      
     };
   },
   components: {
@@ -234,7 +239,7 @@ export default {
         data: {
           css: {
             backgroundColor: "#ff9a90",
-            backgroundImage: ``
+            // backgroundImage: ``
           }
         }
       }
@@ -250,7 +255,7 @@ export default {
 
 <style>
 .date{
-position: inl;
+position: inl
  }
 .time{
 

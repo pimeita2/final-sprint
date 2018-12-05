@@ -8,7 +8,7 @@ export default {
     mutations: {
 
         setUserStyle(state, { field, css, currCmpPart }) {
-            // console.log('setUserStyle', field, css, currCmpPart);
+            console.log('setUserStyle', field, css, currCmpPart);
             const cmp = state.templateCmps.find(cmp => {
                 // console.log(cmp.type, currCmpPart);
                 return cmp.type === currCmpPart
@@ -27,7 +27,7 @@ export default {
     actions: {
 
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
-            // console.log(' setUserStyleOfCmp', field, css, currCmpPart);
+            console.log(' setUserStyleOfCmp', field, css, currCmpPart);
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
         },
         setCurrTemplate(context, payload) {
