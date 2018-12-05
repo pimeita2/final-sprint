@@ -13,7 +13,6 @@
       @focusout ="isSelected = false"
       @input="updateInvaitorName($event)"
     >
-
   </section>
 </template>
 <script>

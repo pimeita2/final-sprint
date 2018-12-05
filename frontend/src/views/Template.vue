@@ -1,13 +1,21 @@
 <template>
   <section class="template">
-   
-    <template-editor :currCmpPart="currCmpPart"></template-editor>
-    <edit-txt class="edit-toolbox" :currCmpPart="currCmpPart" v-if="showTxtMenu" @styleTextUpdate="styleUpdate"></edit-txt>
-    <edit-bgc class="edit-toolbox" v-if="showBgcMenu" @showEditor="showEditor" @styleUpdate="styleUpdate"></edit-bgc>
+    <template-editor :currCmpPart="currCmpPart" ></template-editor>
+    <edit-txt
+      class="edit-toolbox"
+      :currCmpPart="currCmpPart"
+      v-if="showTxtMenu"
+      @styleTextUpdate="styleUpdate"
+    ></edit-txt>
+    <edit-bgc
+      class="edit-toolbox"
+      v-if="showBgcMenu"
+      @showEditor="showEditor"
+      @styleUpdate="styleUpdate"
+    ></edit-bgc>
 
     <div class="spacenr"></div>
     <router-view @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"/>
-    
   </section>
 </template>
 
@@ -37,7 +45,7 @@ export default {
         this.showTxtMenu = true;
         this.showBgcMenu = false;
       }
-      if (cmp.kind === "background") {
+      else if (cmp.kind === "background") {
         this.showBgcMenu = true;
         this.showTxtMenu = false;
       }
@@ -50,8 +58,9 @@ export default {
         css,
         currCmpPart: this.currCmpPart
       });
-      if (field === "background")
-        this.$store.dispatch({ type: "setBackgroundStyle", field, css });
+      //   if (field === "background")
+      //     this.$store.dispatch({ type: "setBackgroundStyle", field, css });
+      // }
     }
   }
 };
@@ -67,9 +76,10 @@ export default {
   flex-grow: 0.5;
 }
 
-.edit-toolbox{
+.edit-toolbox {
   position: absolute;
   top: 23%;
-  left: 10%;
+  left: 76%;
+  /* z-index: 1; */
 }
 </style>

@@ -16,7 +16,7 @@
     </div>
     <!-- :class="{'select-box-border': isSelected}" -->
   </section>
-</template>
+</template>  n     
 
 <script>
 export default {
@@ -31,7 +31,7 @@ export default {
   methods: {
     connectToEditor(cmpPart) {
       this.isSelected = true;
-      console.log("in connect to editor", cmpPart);
+      // console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
     }

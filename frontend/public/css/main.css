@@ -1,7 +1,12 @@
 @import 'formReset.css';
 
+
+/* Helpers */
+@import 'helpers.css';
+
 /* Template */
 @import 'first.css';
+@import 'third.css';
 
 
 /* Edit component */
@@ -15,8 +20,9 @@
 @import 'fonts/Merriweather.css';
 @import 'fonts/AsapCondensed.css';
 @import 'fonts/Oswald.css';
-
-
+@import 'fonts/Acma.css';
+@import 'fonts/Anton-Regular.ttf'
+/* Bulma */
 @import 'bulma.css';
 
 

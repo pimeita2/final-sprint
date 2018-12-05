@@ -1,10 +1,11 @@
 <template>
   <section class="first-template">
-    <div class="edit-template-section" >
-      <div class="template-container" :style="userStyleBackground" @click="connectToEditor" >
-        <div class="backgroun-frame" @click="connectToEditor" >
-          <div class="card-container" @click.stop >
+    <div class="edit-template-section">
+      <div class="template-container" :style="dynamicCmps[dynamicCmps.length-1].data.css" @click="connectToEditor('template')">
+        <div class="backgroun-frame" @click="connectToEditor('template')">
+          <div class="card-container" @click.stop>
             <!-- <title-cmp/> -->
+            <!-- dynamicCmps[dynamicCmp.length-1].css -->
             <component
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
@@ -19,6 +20,8 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
+
+    <!-- <pre>{{dynamicCmps[dynamicCmps.length-1].data.css}}</pre> -->
     <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
@@ -40,8 +43,10 @@ import templateService from "@/services/templateService";
 export default {
   data() {
     return {
-      show:false,
-      type:'first'
+      show: false,
+      type: "first",
+      bsckground:this.dynamicCmps[dynamicCmp.length-1].css
+      
     };
   },
   components: {
@@ -64,16 +69,18 @@ export default {
     showEditor({ kind }) {
       this.$emit("showEditor", { kind });
     },
-     connectToEditor() {
+    connectToEditor(cmpPart) {
+      this.$emit("connectToCmpPart", cmpPart);
+      console.log('cmpPart,first:',cmpPart)
       this.$emit("showEditor", { kind: "background" });
     },
     publish() {
-      this.show=true;
+      this.show = true;
       templateService
         .add({
           cmps: this.dynamicCmps,
-          base:{
-            name:'first',
+          base: {
+            name: "first"
           },
           name: "Puki's birrthday",
           modified: Date.now(),
@@ -85,15 +92,167 @@ export default {
     }
   },
   computed: {
-    userStyleBackground() {
-      return this.$store.getters.userStyleBackground;
-    },
+ 
     // getUserStyle() {
     //   return this.$store.getters.getUserStyle;
     // },
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
     }
+  },
+  created() {
+    const first = [
+      {
+        id: 0,
+        kind: "text",
+        type: "invaitorName",
+        isEdit: true,
+        data: {
+          txt: "meital invaits you",
+          css: {
+            color: "black",
+            textAlign: "center",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Oswald",
+            fontSize: 12 + "px"
+          }
+        }
+      },
+      {
+        id: 1,
+        kind: "text",
+        type: "eventTitle",
+        isEdit: true,
+        data: {
+          txt: "Get your dance on",
+          css: {
+            color: "black",
+            textAlign: "center",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Satisfy",
+            fontSize: 28 + "px"
+          }
+        }
+      },
+      {
+        id: 2,
+        kind: "text",
+        type: "shortDescription",
+        isEdit: true,
+        data: {
+          txt: "learn how to dance in three simple steps",
+          css: {
+            color: "black",
+            textAlign: "center",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Asap Condensed",
+            fontSize: 16 + "px"
+          }
+        }
+      },
+      {
+        id: 3,
+        kind: "text",
+        type: "day",
+        isEdit: true,
+        data: {
+          txt: "01/12/1990",
+          css: {
+            color: "black",
+            textAlign: "center",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Asap Condensed",
+            fontSize: 16 + "px"
+          }
+        }
+      },
+      {
+        id: 4,
+        kind: "text",
+        type: "hour",
+        isEdit: true,
+        data: {
+          txt: "00:30",
+          css: {
+            color: "black",
+            textAlign: "center",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Satisfy",
+            fontSize: 18 + "px"
+          }
+        }
+      },
+      {
+        id: 5,
+        kind: "text",
+        type: "location",
+        isEdit: true,
+        data: {
+          txt: "23 Magal Street, Rishon-Lezion",
+          css: {
+            color: "black",
+            textAlign: "center",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Asap Condensed",
+            fontSize: 16 + "px"
+          }
+        }
+      },
+      {
+        id: 6,
+        kind: "cmp",
+        type: "attending",
+        isEdit: true,
+        data: {}
+      },
+      {
+        id: 7,
+        kind: "cmp",
+        type: "socialMedia",
+        isEdit: true,
+        data: {
+          txtF: "",
+          txtL: "",
+          txtT: "",
+          txtI: ""
+        }
+      },
+      {
+        id: 8,
+        kind: "background",
+        type: "template",
+        kind: "other",
+        data: {
+          css: {
+            backgroundColor: "#ff9a90",
+            // backgroundImage: ``
+          }
+        }
+      }
+    ];
+
+    this.$store.dispatch({
+      type: "setCurrTemplate",
+      tmpData: first
+    });
   }
 };
 </script>

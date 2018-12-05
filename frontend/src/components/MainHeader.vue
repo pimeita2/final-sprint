@@ -1,5 +1,5 @@
 <template>
-    <header class="nav">
+    <header class="nav scrollme" :class="{'active': isActive}">
         <router-link  to="/" class=" routers logo">Templ<span class="it">it</span></router-link>
          <div class="header-right">
             <router-link class="routers btn" to="/contact" >Contact Us </router-link>
@@ -28,6 +28,9 @@ export default {
         showSignup:false,
 
       }
+    },
+    methods:{
+     
     }
    
     
@@ -49,7 +52,7 @@ export default {
 }
 
 .it{
-  color: greenyellow
+  color: lightblue;
 }
 header {
   overflow: hidden;
@@ -62,6 +65,9 @@ header {
   padding: 20px 40px;
 }
 
+.active{
+  background-image: linear-gradient(to right top, #060809, #151718, #202124, #2c2c30, #39373c, #464448, #545155, #625e62, #737074, #848386, #979698, #aaaaaa);
+  }
 header .routers {
   float: left;
   color: rgb(252, 235, 204);
@@ -77,6 +83,8 @@ header .routers {
 header .routers.logo {
   font-family: 'Satisfy', cursive;
   font-size: 2rem;
+    text-shadow: 0px 0px 10px black;
+
 
 }
 
@@ -88,6 +96,7 @@ header .routers.btn:hover{
 
 .header-right {
   float: right;
+ text-shadow: 0px 0px 20px black;
 }
 
 .logo:hover{
@@ -96,8 +105,8 @@ header .routers.btn:hover{
 
 .login-btn{
   cursor: pointer;
-  border: 2px solid yellowgreen;
-  background: yellowgreen;
+  border: 2px solid lightblue;
+  background: lightblue;
   border-radius: 15px;
 }
 

@@ -29,7 +29,8 @@ export default {
   created() {},
   methods: {
     connectToEditor(cmpPart) {
-      console.log("in connect to editor", cmpPart);
+      this.isSelected = true;
+      // console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
     },

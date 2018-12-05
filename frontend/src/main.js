@@ -17,5 +17,28 @@ Vue.use(VueGoogleMaps, {
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  data(){
+    return{
+      isActive: false
+    }
+  },
+  methodes:{
+    handleScroll () {
+      const els = document.querySelectorAll('.scrollme')
+      els.forEach((el) => {
+        const elTop = el.getBoundingClientRect().top
+        const elBottom = el.getBoundingClientRect().bottom
+        // console.log(elBottom)
+        if (elTop >= 0 || elBottom <= 0) {
+          this.isActive = false
+        } if (elTop <= 0 && elBottom >= 0) {
+          this.isActive = true
+        } 
+    })
+  }
+}
 }).$mount('#app')
