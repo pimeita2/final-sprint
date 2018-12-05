@@ -74,7 +74,7 @@ import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 import day from "@/components/template-components/DayCmp.vue";
-import hour from "@/components/template-components/HourCmp.vue";
+
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
@@ -93,7 +93,7 @@ export default {
     eventTitle,
     shortDescription,
     day,
-    hour,
+    
     location,
     socialMedia,
     attending
