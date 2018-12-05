@@ -12,6 +12,7 @@
               @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
               :key="cmp.id"
+              :id="cmp.id"
               :is="cmp.type"
               :data="cmp.data"
             />
@@ -29,11 +30,13 @@
 
 <script>
 import publishModal from "@/components/PublishModal.vue";
+// import timedate from "@/components/template-components/TimeAndDateCmp.vue";
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 import day from "@/components/template-components/DayCmp.vue";
 import hour from "@/components/template-components/HourCmp.vue";
+import map from "@/components/template-components/MapCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
@@ -43,10 +46,12 @@ export default {
   data() {
     return {
       show: false,
-      type: "first"
+      type: "third"
     };
   },
   components: {
+    // timedate,
+    // map,
     publishModal,
     invaitorName,
     eventTitle,
@@ -178,7 +183,10 @@ export default {
             color: "black",
             textAlign: "center",
             padding:"",
-            margin:"",
+            margin:60+"px",
+            // display: "grid",
+            // justifyContent: "end",
+            // marginTop: 116 + "px",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -200,6 +208,9 @@ export default {
             textAlign: "center",
             padding:"",
             margin:"",
+            display: "grid",
+            justifyContent: "flex-end",
+            marginTop: 116+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -239,6 +250,7 @@ export default {
           css:{
             padding:"",
             margin:"",
+            marginTop:-53+"px",
           }
         }
       },
@@ -251,7 +263,10 @@ export default {
           txtF: "",
           txtL: "",
           txtT: "",
-          txtI: ""
+          txtI: "",
+          css:{
+            marginLeft:365+"px",
+          }
         }
       },
       {
@@ -277,9 +292,7 @@ export default {
 </script>
 
 <style>
-.date{
-position: inl;
- }
+
 
 </style>
  
