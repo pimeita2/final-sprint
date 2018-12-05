@@ -1,4 +1,5 @@
 <template>
+<!--need to put to components and fix style binding-->
   <section class="date-time-container">
     <div class="date-container">
       <datepicker

@@ -14,14 +14,12 @@
             @connectToCmpPart="connectToCmpPart"
             @showEditor="showEditor"
             :data="dynamicCmps[0].data"
-            :id="dynamicCmps[0].id"
           ></invaitor-name>
           <img class="and" src="../../assets/and.png" alt="and">
           <invaitor-name
             @connectToCmpPart="connectToCmpPart"
             @showEditor="showEditor"
             :data="dynamicCmps[1].data"
-            :id="dynamicCmps[1].id"
           ></invaitor-name>
         </div>
         <img class="heart" src="../../assets/heart2.png" alt="heart">
@@ -30,7 +28,6 @@
           @connectToCmpPart="connectToCmpPart"
           @showEditor="showEditor"
           :data="dynamicCmps[2].data"
-          :id="dynamicCmps[2].id"
         ></short-description>
 
         <div class="day-and-hour">
@@ -38,20 +35,17 @@
             @connectToCmpPart="connectToCmpPart"
             @showEditor="showEditor"
             :data="dynamicCmps[3].data"
-            :id="dynamicCmps[3].id"
           ></day>
           <hour
             @connectToCmpPart="connectToCmpPart"
             @showEditor="showEditor"
             :data="dynamicCmps[4].data"
-            :id="dynamicCmps[4].id"
           ></hour>
         </div>
         <location
           @connectToCmpPart="connectToCmpPart"
           @showEditor="showEditor"
           :data="dynamicCmps[5].data"
-          :id="dynamicCmps[5].id"
         ></location>
         <div
           :style="{border:'2px solid black', height:'100px', width:'90%', margin:'auto'}"
@@ -197,8 +191,7 @@ export default {
             textAlign: "center",
             fontWeight: {
               isBold: false,
-              value: "normal",
-              width:'100%'
+              value: "normal"
             },
             fontFamily: "cursive",
             fontSize: 20 + "px"
@@ -310,7 +303,6 @@ export default {
   flex-direction: row;
   padding: 20px;
   background-color: transparent;
-  justify-content: center;
 }
 
 .day-and-hour {
@@ -321,8 +313,21 @@ export default {
 }
 
 .second-part-container {
-  background-image: url("../../assets/img40.jpg")
-
+  background-image: linear-gradient(
+    to right bottom,
+    #1e161a,
+    #413b3f,
+    #686468,
+    #929093,
+    #bfbec0,
+    #c1c1c3,
+    #c4c5c6,
+    #c7c8c9,
+    #9ea1a2,
+    #767b7c,
+    #515758,
+    #2f3635
+  );
 }
 .heart {
   height: 50px;

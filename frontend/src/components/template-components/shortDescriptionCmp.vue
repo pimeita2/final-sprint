@@ -49,6 +49,9 @@ export default {
 .select-box-border{
   border:1px dashed black;
 }
+.short-description{
+  width: 100%;
+}
 /* .short-description {
   background-color: rgb(153, 49, 54);
   font-size: 12px;
