@@ -5,7 +5,6 @@
       rows="1"
       class="event-name"
       v-model="data.txt"
-      :class="{'select-box-border': isSelected}"
       :style="data.css"
       @click="connectToEditor()"
       @focusout="isSelected = false"

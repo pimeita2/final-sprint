@@ -6,10 +6,9 @@
       :class="{'select-box-border': isSelected}"
       :style="data.css"
       @click="connectToEditor()"
-      @focusout ="isSelected = false"
       @input="updateInvaitorName($event, id)"
+      @focusout="isSelected=false"
     >
-
   </section>
 </template>
 <script>
@@ -19,9 +18,8 @@ import userLogin from "@/components/UserLogin.vue";
 export default {
   props: {
     data: Object,
-    id:String
+    id: String
   },
- 
   data() {
     return {
       isSelected: false
@@ -38,33 +36,15 @@ export default {
       var newInvaitorName = ev.target.value;
       // this.$store.dispatch({ : "" });// changing to is edit true
       templateService.saveData(newInvaitorName);
-    },
-   
+    }
   },
-  computed: {
-
-
-  },
-  components: {
-    
-  }
+  computed: {},
+  components: {}
 };
 </script>
 
 <style>
-
-.select-box-border{
-  border:1px dashed black;
+.select-box-border {
+  border: 1px dashed black;
 }
-
-/* .invaitor-name {
-  text-align: center;
-  font-size: 14px;
-  font-family: "Satisfy", cursive;
-  text-transform: uppercase;
-  margin-bottom: 7px;
-  color: rgb(153, 49, 54);
-} */
-
-
 </style>

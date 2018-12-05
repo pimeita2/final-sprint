@@ -31,7 +31,7 @@ export default {
   methods: {
     connectToEditor() {
       this.isSelected = true;
-      this.$emit("connectToCmpPart", id);
+      this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
     },
     updateShortDescription(ev) {

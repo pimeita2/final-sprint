@@ -41,9 +41,7 @@ export default {
   text-transform: capitalize;
   color: black;
   width:100%;
-  /* font-size: 20px; */
 }
-
 .select-box-border {
   border: 1px dashed black;
 }
