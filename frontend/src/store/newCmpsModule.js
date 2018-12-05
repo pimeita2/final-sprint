@@ -2,34 +2,31 @@ export default {
     state: {
         currentIdx: null,
         templateCmps: [{
-            id: 0,
+            id: '0',
             kind: 'text',
             type: 'invaitorName',
             isEdit: true,
             data: {
-                txt: 'Meital invaits you',
+                txt: 'Invaitor name goes here ...',
                 css: {
                     color: '#2c3e50',
                     textAlign: 'center',
                     fontWeight: {
                         isBold: false,
                         value: 'normal'
-                    },  
-                    // fontFamily: 'Asap Condensed',
-                    // fontSize: 15
-                    // },
+                    },
                     fontFamily: 'Oswald',
                     fontSize: 12 + 'px'
                 }
             }
         },
         {
-            id: 1,
+            id: '1',
             kind: 'text',
             type: 'eventTitle',
             isEdit: true,
             data: {
-                txt: 'Get your dance on',
+                txt: 'Event title goed here !',
                 css: {
                     color: 'black',
                     textAlign: 'center',
@@ -43,12 +40,12 @@ export default {
             }
         },
         {
-            id: 2,
+            id: '2',
             kind: 'text',
             type: 'shortDescription',
             isEdit: true,
             data: {
-                txt: 'learn how to dance in three simple steps',
+                txt: 'add few word to describe your event',
                 css: {
                     color: 'black',
                     textAlign: 'center',
@@ -62,12 +59,12 @@ export default {
             }
         },
         {
-            id: 3,
+            id: '3',
             kind: 'text',
             type: 'day',
             isEdit: true,
             data: {
-                txt: '01/12/1990',
+                txt: '01/12/2018',
                 css: {
                     color: 'black',
                     textAlign: 'center',
@@ -81,7 +78,7 @@ export default {
             }
         },
         {
-            id: 4,
+            id: '4',
             kind: 'text',
             type: 'hour',
             isEdit: true,
@@ -94,18 +91,18 @@ export default {
                         isBold: false,
                         value: 'normal'
                     },
-                    fontFamily: 'Satisfy',
-                    fontSize: 18 + 'px'
+                    fontFamily: 'Asap condensed',
+                    fontSize: 28 + 'px'
                 }
             }
         },
         {
-            id: 5,
+            id: '5',
             kind: 'text',
             type: 'location',
             isEdit: true,
             data: {
-                txt: '23 Magal Street, Rishon-Lezion',
+                txt: 'type your full address here',
                 css: {
                     color: 'black',
                     textAlign: 'center',
@@ -114,12 +111,12 @@ export default {
                         value: 'normal'
                     },
                     fontFamily: 'Asap Condensed',
-                    fontSize: 16 + 'px'
+                    fontSize: 20 + 'px'
                 }
             }
         },
         {
-            id: 6,
+            id: '6',
             kind: 'cmp',
             type: 'attending',
             isEdit: true,
@@ -127,7 +124,7 @@ export default {
             }
         },
         {
-            id: 7,
+            id: '7',
             kind: 'cmp',
             type: 'socialMedia',
             isEdit: true,
@@ -139,7 +136,7 @@ export default {
             }
         },
         {
-            id: 8,
+            id: '8',
             kind: 'background',
             type: 'background',
             kind: 'other',
@@ -148,6 +145,13 @@ export default {
                 backgroundImage: ``,
             }
         },
+        // {
+        //     id:'9',
+        //     type: 'map',
+        //     data: {
+        //         map: '',
+        //     }
+        // }
         ],
     },
 
@@ -155,27 +159,33 @@ export default {
         setBackground(state, { field, css }) {
             state.templateCmps[state.templateCmps.length - 1].css = css;
         },
-
         setUserStyle(state, { field, css, currCmpPart }) {
             console.log('setUserStyle', css, field, currCmpPart)
             state.templateCmps.map(obj => {
                 if (obj.type === currCmpPart) {
-                    if (currCmpPart === 'fontSize') obj.data.css.fontSize =css[field];
+                    if (currCmpPart === 'fontSize') obj.data.css.fontSize = css[field];
                     else obj.data.css[field] = css[field];
-                } 
-
+                }
             });
-        }
+        },
+        updateUserTxt(state, newTxt, id) {
+            state.templateCmps.find(cmp => {
+                if (cmp.id === id) {
+                    cmp.data.txt = newTxt
+                }
+            })
+        },
     },
-
     actions: {
         setBackgroundStyle(context, { field, css }) {
-            // console.log('in setBackgroundStyle', field, css);
             context.commit({ type: 'setBackground', field, css })
         },
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
             console.log(' setUserStyleOfCmp', field, css, currCmpPart);
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
+        },
+        updateTxt(context, {newTxt, cmpId}) {
+            context.commit({type: 'updateUserTxt', newTxt, cmpId})
         }
     },
     getters: {

@@ -1,57 +1,48 @@
 
-
 <template>
   <section class="event-title-container">
-    <textarea rows=1
+    <textarea
+      rows="1"
       class="event-name"
       v-model="data.txt"
-      :class="{'select-box-border': isSelected}"
       :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontWeight:data.css.fontWeight,
-              fontSize:data.css.fontSize}"
+              fontSize:data.css.fontSize+'px'}"
       @click="connectToEditor('eventTitle')"
-      @focusout ="isSelected = false"
-      @input="updateEventName($event)"
+      @input="updateEventName($event, id)"
     />
-
+    <!-- <P>{{data.txt}}</P> -->
   </section>
 </template>
 <script>
 export default {
   props: {
-    data: Object
+    data: Object,
+    id: String
   },
+
   data() {
-    return {
-      isSelected: false,
-    };
+    return {};
   },
   created() {},
   methods: {
     connectToEditor(cmpPart) {
-      this.isSelected = true;
       console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
     },
-    updateEventName(ev) {
-      var newInvaitorName = ev.target.value;
-      templateService.saveData(newInvaitorName);
+    updateEventName(ev, cmpId) {
+      var newTxt = ev.target.value;
+      this.$store.dispatch({type:"updateTxt", newTxt, cmpId});
+      // templateService.saveData(newInvaitorName);
     }
   },
-  computed: {
-
-  },
-  components: {
-  }
+  computed: {},
+  components: {}
 };
 </script>
 
 <style>
-.select-box-border{
-  border:1px dashed black;
-}
-
 </style>

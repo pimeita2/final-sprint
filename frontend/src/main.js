@@ -3,18 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
-// import * as VueGoogleMaps from "vue2-google-maps";
+import * as VueGoogleMaps from "vue2-google-maps";
 
 Vue.config.productionTip = false
 
-// Vue.use(VueGoogleMaps, {
-//   load: {
-//     key: "AIzaSyBkMS8vslniSBgJ0bXczha-eVf5FCxGJQQ",
-//     libraries: "places" // necessary for places input
-//   }
-// });
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyAlsKfJhXRve0NoxT2s6Haaul2o2jZFcCo",
+    libraries: "places" // necessary for places input
+  }
+});
 
-// window.vm = 
 new Vue({
   router,
   store,

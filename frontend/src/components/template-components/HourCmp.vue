@@ -1,21 +1,20 @@
 <template>
   <section class="time-container">
-   
-   
+    <div >
       <input
-        class="time"
-        type="time"
+        type="text"
         v-model="data.txt"
+        placeholder="00:00"
         @click="connectToEditor('hour')"
-        :class="{'select-box-border': isSelected}"
+        class="time-input"
         :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
               fontSize:data.css.size}"
-              @focusout ="isSelected = false"
+        @focusout="isSelected = false"
       >
-    
-   
+    </div>
+    <!-- :class="{'select-box-border': isSelected}" -->
   </section>
 </template>
 
@@ -24,11 +23,10 @@ export default {
   props: {
     data: Object
   },
-  data(){
-    return{
-       isSelected: false
-
-    }
+  data() {
+    return {
+      isSelected: false
+    };
   },
   methods: {
     connectToEditor(cmpPart) {
@@ -36,35 +34,25 @@ export default {
       console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", cmpPart);
       this.$emit("showEditor", { kind: "text" });
-
     }
-  },
-  computed: {
-
   }
 };
 </script>
 
 <style>
-.select-box-border{
-  border:1px dashed black;
+.time-container {
+  width: 117px;
+  padding: 0;
+  height: 36px;
 }
+.time-input {
+    height: 36px;
 
-.time-details input {
-  margin: 5px;
-  color: rgb(153, 49, 54);
-  text-transform: capitalize;
-    display: flex;
-  /* justify-content: start; */
-  margin: 0 2px;
-  width:40%;
-  /* font-size: 18px; */
-}
-
-
-.time-container{
-  width:40%;
-  display: flex;
-  float: right;
+  background-color: #f1f1f1;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  font-family: Asap condensed;
+  text-align: center;
+  font-size: 1rem;
 }
 </style>
