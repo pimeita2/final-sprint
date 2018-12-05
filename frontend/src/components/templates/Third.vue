@@ -30,7 +30,7 @@
 
 <script>
 import publishModal from "@/components/PublishModal.vue";
-// import timedate from "@/components/template-components/TimeAndDateCmp.vue";
+import timedate from "@/components/template-components/TimeAndDateCmp.vue";
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
@@ -50,7 +50,7 @@ export default {
     };
   },
   components: {
-    // timedate,
+    timedate,
     // map,
     publishModal,
     invaitorName,
@@ -172,21 +172,21 @@ export default {
           }
         }
       },
-            {
-        id: 3,
+        {
+        id: "3",
         kind: "text",
         type: "day",
         isEdit: true,
         data: {
-          txt: "05/09/2019",
+          txt: {
+            date: "19/08/2018",
+            time: "12:30"
+          },
           css: {
             color: "black",
             textAlign: "center",
-            padding:"",
-            margin:60+"px",
             // display: "grid",
-            // justifyContent: "end",
-            // marginTop: 116 + "px",
+            marginLeft:467+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -196,66 +196,43 @@ export default {
           }
         }
       },
+    
       {
         id: 4,
         kind: "text",
-        type: "hour",
+        type: "location",
         isEdit: true,
         data: {
-          txt: "12:00",
+          txt: "bla bla bla, bla",
           css: {
-            color: "white",
+            color: "black",
             textAlign: "center",
             padding:"",
             margin:"",
-            display: "grid",
-            justifyContent: "flex-end",
-            marginTop: 116+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
             },
-            fontFamily: "Satisfy",
+            fontFamily: "Asap Condensed",
             fontSize: 18 + "px"
           }
         }
       },
       {
         id: 5,
-        kind: "text",
-        type: "location",
-        isEdit: true,
-        data: {
-          txt: "",
-          css: {
-            color: "black",
-            textAlign: "center",
-            padding:"",
-            margin:"",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
-          }
-        }
-      },
-      {
-        id: 6,
         kind: "cmp",
         type: "attending",
         isEdit: true,
         data: {
           css:{
             padding:"",
-            margin:"",
-            marginTop:-53+"px",
+            // margin:47+"px",
+            marginTop:47+"px",
           }
         }
       },
       {
-        id: 7,
+        id: 6,
         kind: "cmp",
         type: "socialMedia",
         isEdit: true,
@@ -270,7 +247,7 @@ export default {
         }
       },
       {
-        id: 8,
+        id: 7,
         kind: "background",
         type: "template",
         kind: "other",

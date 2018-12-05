@@ -5,7 +5,7 @@
     <!-- <router-link to="/second">second template</router-link> -->
     <div class="home">
       <section id="banner">
-        <h1>
+        <h1 class="titleBanner">
           Create
           Your Invitation
           <br>For
@@ -213,19 +213,19 @@ body {
   z-index: -1;
 }
 
-#banner h1 {
+.titleBanner {
   font-size: 3.1em;
   padding: 3em 0 0 0;
   letter-spacing: 3px;
   font-weight: 700;
+  font-family: 'Yeon Sung', cursive;
   text-align: center;
   color: white;
   opacity: 1;
  color: rgb(252, 235, 204);
   /* text-shadow: 0 0 10px #FFFFFF; */
    text-shadow: 0px 0px 10px black;
-   font-family: Anton, sans-serif;
-
+   
 }
 #banner a {
   color: #ffffff;
