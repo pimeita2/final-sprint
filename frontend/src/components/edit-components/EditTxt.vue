@@ -33,13 +33,16 @@
         </div>
       </div>
       <div class="editTxt-footer"></div>
-      <button class="btn-done button is-primary" @click.stop="closeEdit">done</button>
+      <button
+        class="btn-done button is-primary"
+        @click.stop="closeEdit"
+
+      >done</button>
     </div>
   </section>
 </template>
 
 <script>
-
 export default {
   props: ["currCmpPart"],
   data() {
@@ -51,9 +54,8 @@ export default {
       // console.log("Connect to", cmpPart);
       this.currCmpPart = cmpPart;
     },
-    closeEdit(){
-      console.log('1');
-      this.$emit('closeEditor')
+    closeEdit() {
+      this.$emit('closeEditor');
     },
     handleAlignment(align) {
       // console.log("handleAlignment", align);

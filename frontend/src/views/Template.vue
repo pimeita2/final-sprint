@@ -14,7 +14,6 @@
       @showEditor="showEditor"
       @styleUpdate="styleUpdate"
     ></edit-bgc>
-
     <div class="spacenr"></div>
     <router-view @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"/>
   </section>
@@ -51,9 +50,9 @@ export default {
       }
     },
     closeEditor() {
-      console.log('2');
       this.showTxtMenu = false;
     },
+   
     styleUpdate({ field, css }) {
       console.log("in template editor", field, css);
       if (this.currCmpPart === "background") {
@@ -69,9 +68,6 @@ export default {
           css,
           currCmpPart: this.currCmpPart
         });
-        //   if (field === "background")
-        //     this.$store.dispatch({ type: "setBackgroundStyle", field, css });
-        // }
       }
     }
   }

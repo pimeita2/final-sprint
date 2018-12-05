@@ -5,14 +5,14 @@
     <!-- <router-link to="/second">second template</router-link> -->
     <div class="home">
       <section id="banner">
-        <h1>
+        <h1 class="titleBanner">
           Create
           Your Invitation
           <br>For
           Your
           Occasion
         </h1>
-        <button class="btn-start">Get Started</button>
+        <button class="btn-get-start">Get Started</button>
       </section>
       <section class="templates">
         <div class="templates-container">
@@ -63,7 +63,7 @@ export default {
           image: "../assets/second.png"
         },
         {
-          name: "Birthday",
+          name: "Pool Party",
           stars: 5,
           downloadNum: 10,
           id: 3,
@@ -190,14 +190,14 @@ body {
   background-color: #e5474b;
   color: #f2a3a5;
   background-color: #0c0c0c;
-  background-image: url("../assets/img20.jpg");
+  background-image: url("../assets/img55.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   /* background-position: 100px; */
   position: relative;
   z-index: 0;
   margin-top: -145px;
-  height: 62vh;
+  height: 75vh;
   /* box-shadow: inset 0 0 0 100px rgba(36, 70, 105, 0.74); */
 }
 
@@ -213,31 +213,31 @@ body {
   z-index: -1;
 }
 
-#banner h1 {
+.titleBanner {
   font-size: 3.1em;
   padding: 3em 0 0 0;
   letter-spacing: 3px;
   font-weight: 700;
+  font-family: 'Yeon Sung', cursive;
   text-align: center;
   color: white;
   opacity: 1;
  color: rgb(252, 235, 204);
   /* text-shadow: 0 0 10px #FFFFFF; */
    text-shadow: 0px 0px 10px black;
-   font-family: Anton, sans-serif;
-
+   
 }
 #banner a {
   color: #ffffff;
 }
-.btn-start {
-  background-color: lightgreen;
+.btn-get-start {
+  background-color: #232323;
   color: #ffffff;
   cursor: pointer;
   z-index: 2;
   padding: 10px;
-  border-radius: 25px;
-  margin-top: -20px;
+  /* border-radius: 25px; */
+  margin-top: 75px;
   border: 2px solid lightgray;
   /* text-shadow: 2px 2px 2px lightslategrey;
     background-color: darkgray; */

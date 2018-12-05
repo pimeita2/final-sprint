@@ -1,11 +1,11 @@
 <template>
     <header class="nav scrollme" :class="{'active': isActive}">
-        <router-link  to="/" class=" routers logo">Templ<span class="it">it</span></router-link>
+        <router-link  to="/" class=" routers logo">Invite<span class="it">Me</span></router-link>
          <div class="header-right">
-            <router-link class="routers btn" to="/contact" >Contact Us </router-link>
-            <router-link class="routers btn" to="/about" >About</router-link>
-            <router-link class="routers btn" to="/template" >template</router-link>
-           <a class="active login-btn routers" @click="showLogin=true" >Login/Sign Up</a>
+            <router-link class="routers btn" to="/contact" >Contact </router-link>
+            <router-link class="routers btn" to="/about" >About Us</router-link>
+            <router-link class="routers btn" to="/template" >Create Templates</router-link>
+            <a class="a-login-signup" @click="showLogin=true" >Login/Sign Up</a>
            <user-login v-if="showLogin" @close="showLogin=false" @signup="showLogin=false;showSignup=true" ></user-login> 
            <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>       
           </div>
@@ -74,16 +74,20 @@ header .routers {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 18px; 
+  font-size: 14px; 
   line-height: 25px;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
 }
 
+header .routers:hover {
+ color:#232323;
+}
+
 header .routers.logo {
   font-family: 'Satisfy', cursive;
   font-size: 2rem;
-    text-shadow: 0px 0px 10px black;
+    /* text-shadow: 0px 0px 10px black; */
 
 
 }
@@ -96,11 +100,11 @@ header .routers.btn:hover{
 
 .header-right {
   float: right;
- text-shadow: 0px 0px 20px black;
+ /* text-shadow: 0px 0px 20px black; */
 }
 
 .logo:hover{
-  text-shadow: 0px 0px 10px black;
+  /* text-shadow: 0px 0px 10px black; */
 }
 
 .login-btn{
@@ -113,18 +117,6 @@ header .routers.btn:hover{
 .login-btn:hover{
   animation: heartbeat 1.5s ease-in-out infinite both;
 }
-
-
-/* @keyframes text-shadow-pop-tr {
-  0% {
-    text-shadow: 0 0 #222222, 0 0 #222222, 0 0 #222222, 0 0 #222222, 0 0 #222222, 0 0 #222222;
-    transform: translateX(0) translateY(0);
-  }
-  100% {
-    text-shadow: 1px -1px #222222, 2px -2px #222222, 3px -3px #222222, 4px -4px #222222, 5px -5px #222222, 6px -6px #222222;
-    transform: translateX(-4px) translateY(4px);
-  }
-} */
 
 
 
@@ -150,5 +142,18 @@ header .routers.btn:hover{
     transform: scale(1);
     animation-timing-function: ease-out;
   }
+}
+
+.a-login-signup{
+  text-decoration: none;
+     float: left;
+    color: rgb(252, 235, 204);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 25px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
 }
 </style>

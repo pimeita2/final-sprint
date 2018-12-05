@@ -6,18 +6,19 @@
         <div @click="connectToEditor" >
           <div class="card-third-container" @click.stop >
             
-            <div class="cmpThird">
+           
             <component
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
               :key="cmp.id"
+              :id="cmp.id"
               :is="cmp.type"
               :data="cmp.data"
             />
             </div>
           </div>
-        </div>
+        
         </div>
       </div>
    
@@ -33,7 +34,7 @@ import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 import day from "@/components/template-components/DayCmp.vue";
-import hour from "@/components/template-components/HourCmp.vue";
+import map from "@/components/template-components/MapCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
@@ -43,16 +44,16 @@ export default {
   data() {
     return {
       show: false,
-      type: "first"
+      type: "third"
     };
   },
   components: {
+    // map,
     publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
     day,
-    hour,
     location,
     socialMedia,
     attending,
@@ -107,39 +108,20 @@ export default {
           txt: `YOU ARE INVITED TO A`,
           css: {
             color: "white",
-            textAlign: "right",
+            textAlign: "center",
+            padding: 13+"px",
+            margin:"0 auto",
             fontWeight: {
               isBold: true,
               value: "normal"
             },
             fontFamily: "Oswald",
-            fontSize: 20 + "px"
+            fontSize: 27 + "px"
           }
         }
-      },
-      {
-        id: 1,
-        kind: "text",
-        type: "shortDescription",
-        isEdit: true,
-        data: {
-          txt: `Join us For Rotem's 26th Birthday `,
-          css: {
-            color: "white",
-            textAlign: "left",
-            paddingRight: "261px",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
-          }
-        }
-      },
-
+      },     
             {
-        id: 2,
+        id: 1,
         kind: "text",
         type: "eventTitle",
         isEdit: true,
@@ -148,6 +130,12 @@ export default {
           css: {
             color: "white",
             textAlign: "center",
+            width:"100%",
+            padding:"",
+            paddingTop:32+"px",
+            margin:"",
+            marginRight:76+"px",
+            transform: "rotate(-20deg)",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -157,16 +145,20 @@ export default {
           }
         }
       },
-            {
-        id: 3,
+       {
+        id: 2,
         kind: "text",
-        type: "day",
+        type: "shortDescription",
         isEdit: true,
         data: {
-          txt: "05/09/2019",
+          txt: `Join us For Rotem's 26th Birthday `,
           css: {
-            color: "black",
-            textAlign: "center",
+            color: "white",
+            textAlign: "left",
+            padding:"",
+            paddingTop:35+"px",
+            margin:"",
+            marginLeft:-72+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -176,53 +168,67 @@ export default {
           }
         }
       },
-      {
-        id: 4,
+        {
+        id: "3",
         kind: "text",
-        type: "hour",
+        type: "day",
         isEdit: true,
         data: {
-          txt: "12:00",
+          txt: {
+            date: "19/08/2018",
+            time: "12:30"
+          },
           css: {
-            color: "white",
+            color: "black",
             textAlign: "center",
+            // display: "grid",
+            marginLeft:467+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
             },
-            fontFamily: "Satisfy",
+            fontFamily: "Asap Condensed",
+            fontSize: 16 + "px"
+          }
+        }
+      },
+    
+      {
+        id: 4,
+        kind: "text",
+        type: "location",
+        isEdit: true,
+        data: {
+          txt: "bla bla bla, bla",
+          css: {
+            color: "black",
+            textAlign: "center",
+            padding:"",
+            margin:"",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Asap Condensed",
             fontSize: 18 + "px"
           }
         }
       },
       {
         id: 5,
-        kind: "text",
-        type: "location",
+        kind: "cmp",
+        type: "attending",
         isEdit: true,
         data: {
-          txt: "",
-          css: {
-            color: "black",
-            textAlign: "center",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
+          css:{
+            padding:"",
+            // margin:47+"px",
+            marginTop:47+"px",
           }
         }
       },
       {
         id: 6,
-        kind: "cmp",
-        type: "attending",
-        isEdit: true,
-        data: {}
-      },
-      {
-        id: 7,
         kind: "cmp",
         type: "socialMedia",
         isEdit: true,
@@ -230,11 +236,14 @@ export default {
           txtF: "",
           txtL: "",
           txtT: "",
-          txtI: ""
+          txtI: "",
+          css:{
+            marginLeft:365+"px",
+          }
         }
       },
       {
-        id: 8,
+        id: 7,
         kind: "background",
         type: "template",
         kind: "other",
@@ -256,9 +265,7 @@ export default {
 </script>
 
 <style>
-.date{
-position: inl;
- }
+
 
 </style>
  
