@@ -1,10 +1,11 @@
 <template>
   <section class="template">
-    <template-editor :currCmpPart="currCmpPart" ></template-editor>
+    <template-editor :currCmpPart="currCmpPart"></template-editor>
     <edit-txt
       class="edit-toolbox"
       :currCmpPart="currCmpPart"
       v-if="showTxtMenu"
+      @closeEditor="closeEditor"
       @styleTextUpdate="styleUpdate"
     ></edit-txt>
     <edit-bgc
@@ -44,11 +45,14 @@ export default {
       if (cmp.kind === "text") {
         this.showTxtMenu = true;
         this.showBgcMenu = false;
-      }
-      else if (cmp.kind === "background") {
+      } else if (cmp.kind === "background") {
         this.showBgcMenu = true;
         this.showTxtMenu = false;
       }
+    },
+    closeEditor() {
+      console.log('2');
+      this.showTxtMenu = false;
     },
     styleUpdate({ field, css }) {
       console.log("in template editor", field, css);
@@ -58,9 +62,6 @@ export default {
         css,
         currCmpPart: this.currCmpPart
       });
-      //   if (field === "background")
-      //     this.$store.dispatch({ type: "setBackgroundStyle", field, css });
-      // }
     }
   }
 };
@@ -75,11 +76,9 @@ export default {
 .spacer {
   flex-grow: 0.5;
 }
-
 .edit-toolbox {
   position: absolute;
   top: 23%;
   left: 76%;
-  /* z-index: 1; */
 }
 </style>

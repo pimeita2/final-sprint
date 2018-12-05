@@ -33,7 +33,6 @@
 
 <script>
 import publishModal from "@/components/PublishModal.vue";
-// import timedate from "@/components/template-components/TimeAndDateCmp.vue";
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
@@ -53,14 +52,12 @@ export default {
     };
   },
   components: {
-    // timedate,
     map,
     publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
     day,
-    // hour,
     location,
     socialMedia,
     attending
@@ -198,7 +195,7 @@ export default {
               value: "normal"
             },
             fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
+            fontSize: 17 + "px"
           }
         }
       },

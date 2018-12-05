@@ -18,6 +18,7 @@
         type="text"
         v-model="data.txt.time"
         placeholder="00:00"
+        maxlength="5"
         @click="connectToEditor('hour')"
         class="time-input"
         :style="{color: data.css.color,
