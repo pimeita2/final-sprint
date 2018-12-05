@@ -20,7 +20,7 @@
 export default {
   props: {
     data: Object,
-    id:Object
+    id:String
   },
   data() {
     return {
@@ -31,7 +31,7 @@ export default {
     connectToEditor() {
       this.isSelected = true;
       // console.log("in connect to editor", cmpPart);
-      this.$emit("connectToCmpPart", id.id);
+      this.$emit("connectToCmpPart", id);
       this.$emit("showEditor", { kind: "text" });
     }
   }

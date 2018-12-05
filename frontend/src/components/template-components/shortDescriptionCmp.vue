@@ -19,7 +19,8 @@ import userLogin from "@/components/UserLogin.vue";
 
 export default {
   props: {
-    cmp: Object
+    data: Object,
+    id:String
   },
   data() {
     return {
@@ -30,7 +31,7 @@ export default {
   methods: {
     connectToEditor() {
       this.isSelected = true;
-      this.$emit("connectToCmpPart", this.cmp.id);
+      this.$emit("connectToCmpPart", id);
       this.$emit("showEditor", { kind: "text" });
     },
     updateShortDescription(ev) {
