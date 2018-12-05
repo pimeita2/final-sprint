@@ -10,7 +10,6 @@
       @input="updateShortDescription($event)"
     > 
     
-
   </section>
 </template>
 <script>
