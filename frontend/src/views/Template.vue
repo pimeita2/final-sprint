@@ -1,6 +1,6 @@
 <template>
   <section class="template">
-    <template-editor :currCmpPart="currCmpPart" ></template-editor>
+    <template-editor :currCmpPart="currCmpPart"></template-editor>
     <edit-txt
       class="edit-toolbox"
       :currCmpPart="currCmpPart"
@@ -44,23 +44,30 @@ export default {
       if (cmp.kind === "text") {
         this.showTxtMenu = true;
         this.showBgcMenu = false;
-      }
-      else if (cmp.kind === "background") {
+      } else if (cmp.kind === "background") {
         this.showBgcMenu = true;
         this.showTxtMenu = false;
       }
     },
     styleUpdate({ field, css }) {
       console.log("in template editor", field, css);
-      this.$store.dispatch({
-        type: "setUserStyleOfCmp",
-        field,
-        css,
-        currCmpPart: this.currCmpPart
-      });
-      //   if (field === "background")
-      //     this.$store.dispatch({ type: "setBackgroundStyle", field, css });
-      // }
+      if (field === "background") {
+        this.$store.dispatch({
+          type: "setGenralStyle",
+          field,
+          css
+        });
+      } else {
+        this.$store.dispatch({
+          type: "setUserStyleOfCmp",
+          field,
+          css,
+          currCmpPart: this.currCmpPart
+        });
+        //   if (field === "background")
+        //     this.$store.dispatch({ type: "setBackgroundStyle", field, css });
+        // }
+      }
     }
   }
 };

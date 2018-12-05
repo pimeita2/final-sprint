@@ -1,8 +1,8 @@
 <template>
   <section class="first-template">
     <div class="edit-template-section">
-      <div class="template-container" :style="dynamicCmps[dynamicCmps.length-1].data.css" @click="connectToEditor('template')">
-        <div class="backgroun-frame" @click="connectToEditor('template')">
+      <div class="template-container" :style="generalStyle" @click="connectToEditor()">
+        <div class="backgroun-frame" @click="connectToEditor()">
           <div class="card-container" @click.stop>
             <!-- <title-cmp/> -->
             <!-- dynamicCmps[dynamicCmp.length-1].css -->
@@ -20,15 +20,14 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
-   
-    <!-- <pre>{{dynamicCmps}}</pre> -->
+    <pre>{{generalStyle}}</pre>
     <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
 </template>
 
 <script>
-import publishModal from '@/components/PublishModal.vue';
+import publishModal from "@/components/PublishModal.vue";
 // import timedate from "@/components/template-components/TimeAndDateCmp.vue";
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
@@ -44,9 +43,7 @@ export default {
   data() {
     return {
       show: false,
-      type: "first",
-      bsckground:this.dynamicCmps[dynamicCmps.length-1].css
-      
+      type: "first"
     };
   },
   components: {
@@ -69,11 +66,18 @@ export default {
     showEditor({ kind }) {
       this.$emit("showEditor", { kind });
     },
-    connectToEditor(cmpPart) {
-      this.$emit("connectToCmpPart", cmpPart);
-      console.log('cmpPart,first:',cmpPart)
+    connectToEditor() {
+      // for background!!!!
+      this.$emit(
+        "connectToCmpPart",
+        this.dynamicCmps[this.dynamicCmps.length - 1].id
+      );
       this.$emit("showEditor", { kind: "background" });
     },
+    background() {
+      return this.dynamicCmps[this.dynamicCmps.length - 1].data.css;
+    },
+
     publish() {
       this.show = true;
       templateService
@@ -92,18 +96,20 @@ export default {
     }
   },
   computed: {
- 
     // getUserStyle() {
     //   return this.$store.getters.getUserStyle;
     // },
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
+    },
+    generalStyle(){
+       return this.$store.getters.generalStyle;
     }
   },
   created() {
-    const first = [
+    const cmps = [
       {
-        id: '0',
+        id: "0",
         kind: "text",
         type: "invaitorName",
         isEdit: true,
@@ -122,7 +128,7 @@ export default {
         }
       },
       {
-        id: '1',
+        id: "1",
         kind: "text",
         type: "eventTitle",
         isEdit: true,
@@ -141,7 +147,7 @@ export default {
         }
       },
       {
-        id: '2',
+        id: "2",
         kind: "text",
         type: "shortDescription",
         isEdit: true,
@@ -160,7 +166,7 @@ export default {
         }
       },
       {
-        id: '3',
+        id: "3",
         kind: "text",
         type: "day",
         isEdit: true,
@@ -179,7 +185,7 @@ export default {
         }
       },
       {
-        id: '4',
+        id: "4",
         kind: "text",
         type: "hour",
         isEdit: true,
@@ -198,7 +204,7 @@ export default {
         }
       },
       {
-        id: '5',
+        id: "5",
         kind: "text",
         type: "location",
         isEdit: true,
@@ -217,14 +223,14 @@ export default {
         }
       },
       {
-        id: '6',
+        id: "6",
         kind: "cmp",
         type: "attending",
         isEdit: true,
         data: {}
       },
       {
-        id: '7',
+        id: "7",
         kind: "cmp",
         type: "socialMedia",
         isEdit: true,
@@ -234,29 +240,19 @@ export default {
           txtT: "",
           txtI: ""
         }
-      },
-      {
-        id: '8',
-        kind: "background",
-        type: "template",
-        kind: "other",
-        data: {
-          css: {
-            backgroundColor: "#ff9a90",
-            // backgroundImage: ``
-          }
-        }
       }
     ];
-
+    const general = {
+      backgroundColor: "#ff9a90"
+    };
     this.$store.dispatch({
       type: "setCurrTemplate",
-      tmpData: first
+      tmpData: cmps,
+      general
     });
   }
 };
 </script>
 
 <style>
-
 </style>

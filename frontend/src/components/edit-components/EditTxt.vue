@@ -49,7 +49,7 @@
         <div class="edit-color-bold">
           <div class="edit-color">
             <input class="textColor-icon" type="color" @change="handleColor" value="black">
-            <chrome-picker :value="colors"></chrome-picker>
+            <!-- <chrome-picker :value="colors"></chrome-picker> -->
           </div>
           <div @click="handleBold" class="edit-bold">
             <i class="fa fa-bold"></i>
