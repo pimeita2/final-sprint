@@ -1,4 +1,3 @@
-
 <template>
   <section class="event-title-container">
     <textarea
@@ -7,10 +6,10 @@
       v-model="data.txt"
       :style="data.css"
       @click="connectToEditor()"
-      @focusout="isSelected = false"
       @input="updateEventName($event, id)"
+      :class="{'select-box-border': isOnEdit}"
+      @focus="updateEditStatus"
     />
-    <!-- <P>{{data.txt}}</P> -->
   </section>
 </template>
 <script>
@@ -20,9 +19,6 @@ export default {
     id: String
   },
 
-  data() {
-    return {};
-  },
   created() {},
   methods: {
     connectToEditor() {
@@ -35,12 +31,29 @@ export default {
       var newTxt = ev.target.value;
       this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
       // templateService.saveData(newInvaitorName);
+    },
+    updateEditStatus() {
+      this.$store.dispatch("changeEditingStatus", { id: this.id });
     }
   },
-  computed: {},
-  components: {}
+  computed: {
+     isOnEdit() {
+      return this.$store.getters.currenEditing === this.id;
+    }
+  },
 };
 </script>
 
 <style>
+.select-box-border {
+  border: 1px dashed black;
+}
+.event-name{
+  width: 95%;
+}
+.event-name:focus{
+    /* border: 0 none #FFF; */
+    overflow: hidden;
+    outline:none;
+}
 </style>

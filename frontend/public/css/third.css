@@ -41,16 +41,7 @@
     margin-bottom: 15px;
     
     }
-    .event-title-container {
-    /* padding: 18px; */
-    margin-bottom: 5px;
-    font-size: 34px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    color: rgb(153, 49, 54);
-    max-width: 300px;
-  }
+   
   .event-name{
       padding: 10px;
     }
@@ -81,32 +72,9 @@
     display: flex;
   }
 
-    .event-title-container {
-    /* padding: 18px; */
-    font-size: 34px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    color: rgb(153, 49, 54);
-    max-width: 300px;
-    }
-    .short-description {
-    /* background-color: rgb(153, 49, 54); */
-    font-size: 12px;
-    color: white;
-    padding-right: 260px;
-    max-width: 300px;
-    width: 100%;
-    text-align: center;
-  }
-  .short-description-container {
-    margin: 10px;
-    padding: 10px;
-    /* color: rgb(153, 49, 54); */
-  }
-  /* .short-description-container:hover {
-    cursor: all-scroll;
-  } */
+
+
+ 
 
   .edit-template-third-section{
       display: flex;

@@ -3,11 +3,11 @@
     <input
       class="invaitor-name"
       v-model="data.txt"
-      :class="{'select-box-border': isSelected}"
       :style="data.css"
       @click="connectToEditor()"
       @input="updateInvaitorName($event, id)"
-      @focusout="isSelected=false"
+      :class="{'select-box-border': isOnEdit}"
+      @focus="updateEditStatus"   
     >
   </section>
 </template>
@@ -20,11 +20,7 @@ export default {
     data: Object,
     id: String
   },
-  data() {
-    return {
-      isSelected: false
-    };
-  },
+ 
   created() {},
   methods: {
     connectToEditor() {
@@ -32,19 +28,29 @@ export default {
       this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
     },
-    updateInvaitorName(ev) {
-      var newInvaitorName = ev.target.value;
-      // this.$store.dispatch({ : "" });// changing to is edit true
-      templateService.saveData(newInvaitorName);
+     updateInvaitorName(ev, cmpId) {
+      var newTxt = ev.target.value;
+      this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
+      // templateService.saveData(newInvaitorName);
+    },
+    updateEditStatus() {
+      this.$store.dispatch("changeEditingStatus", { id: this.id });
     }
   },
-  computed: {},
-  components: {}
+  computed: {
+     isOnEdit() {
+      return this.$store.getters.currenEditing === this.id;
+    }
+  },
+
 };
 </script>
 
 <style>
 .select-box-border {
   border: 1px dashed black;
+}
+.invaitor-name{
+  width: 100%;
 }
 </style>

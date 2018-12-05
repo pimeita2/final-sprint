@@ -1,27 +1,21 @@
 <template>
   <section class="first-template">
-    <div class="edit-template-section">
       <div class="template-container" :style="generalStyle" @click="connectToEditor()">
         <div class="backgroun-frame" @click="connectToEditor()">
           <div class="card-container" @click.stop>
-            <!-- <title-cmp/> -->
-            <!-- dynamicCmps[dynamicCmp.length-1].css -->
             <component
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
               :key="cmp.id"
-              :id="cmp.id"
               :is="cmp.type"
+              :id="cmp.id"
               :data="cmp.data"
             />
           </div>
         </div>
       </div>
-    </div>
     <button class="publish" @click="publish">Publish</button>
-    <!-- <pre>{{generalStyle}}</pre> -->
-    <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
 </template>
@@ -32,7 +26,6 @@ import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 import day from "@/components/template-components/DayCmp.vue";
-import map from "@/components/template-components/MapCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
@@ -46,7 +39,6 @@ export default {
     };
   },
   components: {
-    map,
     publishModal,
     invaitorName,
     eventTitle,
@@ -64,11 +56,9 @@ export default {
       this.$emit("showEditor", { kind });
     },
     connectToEditor() {
-      // for background!!!!
       this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
     },
-
     publish() {
       this.show = true;
       templateService
@@ -79,7 +69,7 @@ export default {
           },
           name: "Puki's birrthday",
           modified: Date.now(),
-          creatorId: "abc123" // TODO: currLoggedinuserId here
+          creatorId: "abc123"
         })
         .then(template =>
           console.log("template was added successfully", template)
@@ -87,9 +77,6 @@ export default {
     }
   },
   computed: {
-    // getUserStyle() {
-    //   return this.$store.getters.getUserStyle;
-    // },
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
     },
@@ -103,7 +90,6 @@ export default {
         id: "0",
         kind: "text",
         type: "invaitorName",
-        isEdit: true,
         data: {
           txt: "meital invaits you",
           css: {
@@ -114,7 +100,7 @@ export default {
               value: "normal"
             },
             fontFamily: "Oswald",
-            fontSize: 12 + "px"
+            fontSize: 16 + "px"
           }
         }
       },

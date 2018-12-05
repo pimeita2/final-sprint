@@ -4,10 +4,11 @@
       <input
         class="address"
         v-model="data.txt"
-        :class="{'select-box-border': isSelected}"
-        @click="connectToEditor()"
         :style="data.css"
-        @focusout="isSelected=false"
+        @click="connectToEditor()"
+        @input="updateName($event, id)"
+        :class="{'select-box-border': isOnEdit}"
+        @focus="updateEditStatus"
       >
     </div>
   </section>
@@ -17,12 +18,7 @@
 export default {
   props: {
     data: Object,
-    id:String
-  },
-  data() {
-    return {
-      isSelected: false
-    };
+    id: String
   },
   methods: {
     connectToEditor() {
@@ -30,8 +26,21 @@ export default {
       // console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
+    },
+       updateName(ev, cmpId) {
+      var newTxt = ev.target.value;
+      this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
+      // templateService.saveData(newInvaitorName);
+    },
+    updateEditStatus() {
+      this.$store.dispatch("changeEditingStatus", { id: this.id });
     }
   },
+  computed: {
+     isOnEdit() {
+      return this.$store.getters.currenEditing === this.id;
+    }
+  }
 };
 </script>
 
@@ -40,7 +49,7 @@ export default {
   margin: 5px;
   text-transform: capitalize;
   color: black;
-  width:100%;
+  width: 100%;
 }
 .select-box-border {
   border: 1px dashed black;
