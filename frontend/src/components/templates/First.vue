@@ -13,7 +13,7 @@
               :key="cmp.id"
               :id="cmp.id"
               :is="cmp.type"
-              :data="data"
+              :data="cmp.data"
             />
           </div>
         </div>
@@ -21,7 +21,7 @@
     </div>
     <button class="publish" @click="publish">Publish</button>
    
-    <pre>{{dynamicCmps}}</pre>
+    <!-- <pre>{{dynamicCmps}}</pre> -->
     <!-- TO check if this is the right place!!! -->
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>

@@ -30,7 +30,7 @@ export default {
     connectToEditor() {
       this.isSelected = true;
       // console.log("in connect to editor", cmpPart);
-      this.$emit("connectToCmpPart", id);
+      this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
     },
     updateEventName(ev, cmpId) {

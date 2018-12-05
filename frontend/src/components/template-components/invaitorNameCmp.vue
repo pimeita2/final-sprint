@@ -2,12 +2,12 @@
   <section class="event-description-container">
     <input
       class="invaitor-name"
-      v-model="cmp.data.txt"
+      v-model="data.txt"
       :class="{'select-box-border': isSelected}"
-      :style="cmp.data.css"
+      :style="data.css"
       @click="connectToEditor()"
       @focusout ="isSelected = false"
-      @input="updateInvaitorName($event)"
+      @input="updateInvaitorName($event, id)"
     >
 
   </section>
@@ -31,7 +31,7 @@ export default {
   methods: {
     connectToEditor() {
       this.isSelected = true;
-      this.$emit("connectToCmpPart", id);
+      this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
     },
     updateInvaitorName(ev) {

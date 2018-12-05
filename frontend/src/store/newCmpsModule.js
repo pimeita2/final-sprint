@@ -37,15 +37,16 @@ export default {
         },
         updateTxt(context, { newTxt, cmpId }) {
             context.commit({ type: 'updateUserTxt', newTxt, cmpId })
-            setCurrTemplate(context, payload) {
-                // console.log('setCurrTemplate', payload)
-                context.commit({ type: 'setCurrTemplate', payload })
-            }
         },
-        getters: {
-            // userStyleBackground(state) {
-            //     return state.templateCmps[state.templateCmps.length - 1].css;
-            // },
-            dynamicCmps: state => state.templateCmps,
+        setCurrTemplate(context, payload) {
+            // console.log('setCurrTemplate', payload)
+            context.commit({ type: 'setCurrTemplate', payload })
         }
+    },
+    getters: {
+        // userStyleBackground(state) {
+        //     return state.templateCmps[state.templateCmps.length - 1].css;
+        // },
+        dynamicCmps: state => state.templateCmps,
     }
+}
