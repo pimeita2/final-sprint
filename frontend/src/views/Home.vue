@@ -59,7 +59,7 @@ export default {
           stars: 5,
           downloadNum: 10,
           id: 2,
-          image: "../assets/second.png"
+          image: require("@/assets/template2.png")
         },
         {
           name: "Pool Party",
