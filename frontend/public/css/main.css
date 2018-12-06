@@ -22,6 +22,14 @@
 @import 'fonts/Oswald.css';
 @import 'fonts/Acma.css';
 @import 'fonts/Anton-Regular.ttf';
+@import 'fonts/YeonSung.css';
+@import url('https://fonts.googleapis.com/css?family=Charmonman');
+
+@import 'fonts/Comfortaa.css';
+@import 'fonts/Tangerine.css';
+
+
+
 /* Bulma */
 @import 'bulma.css';
 

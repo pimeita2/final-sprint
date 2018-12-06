@@ -11,7 +11,8 @@ export default {
         setUserStyle(state, { field, css, currCmpPart }) {
             console.log('setUserStyle', field, css, currCmpPart);
             const cmp = state.templateCmps.find(cmp => cmp.id === currCmpPart)
-            cmp.data.css[field] = css[field]; console.log(cmp);
+            cmp.data.css[field] = css[field]; 
+            console.log(cmp);
         },
         setGenralStyle(state, { field, css }) {
             console.log(' setGenralStyle', field, css);

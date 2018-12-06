@@ -5,14 +5,15 @@
     <!-- <router-link to="/second">second template</router-link> -->
     <div class="home">
       <section id="banner">
-        <h1>
-          Create
-          Your Invitation
-          <br>For
+        <h1 class="titleBanner first-line">
+           Invitation
+          <br>
+          </h1>
+          <h1 class="titleBanner second-line">For
           Your
           Occasion
         </h1>
-        <button class="btn-start">Get Started</button>
+      <!--   <button class="btn-get-start">Get Started</button> -->
       </section>
       <section class="templates">
         <div class="templates-container">
@@ -21,9 +22,7 @@
         </div>
       </section>
 
-      <router-link to="/template/1">First</router-link>|
-      <router-link to="/template/2">Second</router-link>|
-      <router-link to="/template/3">Third</router-link>
+
     </div>
     <main-footer></main-footer>
   </section>
@@ -53,126 +52,126 @@ export default {
           stars: 5,
           downloadNum: 100,
           id: 1,
-          image: "../assets/first.jpg"
+          image: require("@/assets/template1.png")
         },
         {
           name: "Wedding",
           stars: 5,
           downloadNum: 10,
           id: 2,
-          image: "../assets/second.png"
+          image: require("@/assets/template2.png")
         },
         {
-          name: "Birthday",
+          name: "Pool Party",
           stars: 5,
           downloadNum: 10,
           id: 3,
-          image: "../assets/third.jpg"
+          image:require("@/assets/template3.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
           id: 4,
-          image: "../assets/first.jpg"
+          image: require("@/assets/template4.png")
         },
         {
           name: "Wedding",
           stars: 5,
           downloadNum: 10,
           id: 5,
-          image: "../assets/second.png"
+          image: require("@/assets/template5.png")
         },
         {
           name: "Birthday",
           stars: 5,
           downloadNum: 10,
           id: 6,
-          image: "../assets/third.jpg"
+          image: require("@/assets/template6.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
           id: 7,
-          image: "../assets/first.jpg"
+          image: require("@/assets/template7.png")
         },
         {
           name: "Wedding",
           stars: 5,
           downloadNum: 10,
           id: 8,
-          image: "../assets/second.png"
+          image: require("@/assets/template8.png")
         },
         {
           name: "Birthday",
           stars: 5,
           downloadNum: 10,
           id: 9,
-          image: "../assets/third.jpg"
+          image: require("@/assets/template9.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
           id: 10,
-          image: "../assets/first.jpg"
+          image: require("@/assets/template10.png")
         },
         {
           name: "Wedding",
+          stars: 5,
+          downloadNum: 10,
+          id: 11,
+          image: require("@/assets/template11.png")
+        },
+        {
+          name: "Birthday",
           stars: 5,
           downloadNum: 10,
           id: 12,
-          image: "../assets/second.png"
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 13,
-          image: "../assets/third.jpg"
+          image: require("@/assets/template12.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
-          id: 14,
-          image: "../assets/first.jpg"
+          id: 13,
+          image: require("@/assets/template13.png")
         },
         {
           name: "Wedding",
+          stars: 5,
+          downloadNum: 10,
+          id: 14,
+          image: require("@/assets/template14.png")
+        },
+        {
+          name: "Birthday",
           stars: 5,
           downloadNum: 10,
           id: 15,
-          image: "../assets/second.png"
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 16,
-          image: "../assets/third.jpg"
+          image: require("@/assets/template15.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
-          id: 17,
-          image: "../assets/first.jpg"
+          id: 16,
+          image: require("@/assets/template16.png")
         },
         {
           name: "Wedding",
           stars: 5,
           downloadNum: 10,
-          id: 18,
-          image: "../assets/second.png"
+          id: 17,
+          image: require("@/assets/template17.png")
         },
         {
           name: "Birthday",
           stars: 5,
           downloadNum: 10,
-          id: 19,
-          image: "../assets/third.jpg"
+          id: 18,
+          image: require("@/assets/template18.png")
         }
       ]
       // template: this.$store.getters.getTemplatesForDisplay
@@ -190,19 +189,20 @@ body {
   background-color: #e5474b;
   color: #f2a3a5;
   background-color: #0c0c0c;
-  background-image: url("../assets/img20.jpg");
+  background-image: url("../assets/img56.jpg");
+  background-position-y: -100px;
   background-size: cover;
   background-repeat: no-repeat;
   /* background-position: 100px; */
   position: relative;
   z-index: 0;
   margin-top: -145px;
-  height: 62vh;
+  height: 85vh;
   /* box-shadow: inset 0 0 0 100px rgba(36, 70, 105, 0.74); */
 }
 
 #banner::after {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.34);
   content: "";
   display: block;
   position: absolute;
@@ -213,31 +213,37 @@ body {
   z-index: -1;
 }
 
-#banner h1 {
-  font-size: 3.1em;
-  padding: 3em 0 0 0;
+.titleBanner {
+  font-size: 3.4em;
+  padding: 3.3em 0 0 1em;
   letter-spacing: 3px;
   font-weight: 700;
-  text-align: center;
+  font-family: 'Comfortaa', cursive;
+  text-align: left;
   color: white;
   opacity: 1;
- color: rgb(252, 235, 204);
-  /* text-shadow: 0 0 10px #FFFFFF; */
-   text-shadow: 0px 0px 10px black;
-   font-family: Anton, sans-serif;
-
+  color: rgb(252, 235, 204);
+  margin-top: 10px;
+  animation: moveFromLeft 1.5s ;
 }
+
+.titleBanner.second-line{
+  text-align: right;
+  padding: 0 2.7em 0 0;
+  animation: moveFromRight 1.5s;
+}
+
 #banner a {
   color: #ffffff;
 }
-.btn-start {
-  background-color: lightgreen;
+.btn-get-start {
+  background-color: #232323;
   color: #ffffff;
   cursor: pointer;
   z-index: 2;
   padding: 10px;
-  border-radius: 25px;
-  margin-top: -20px;
+  /* border-radius: 25px; */
+  margin-top: 75px;
   border: 2px solid lightgray;
   /* text-shadow: 2px 2px 2px lightslategrey;
     background-color: darkgray; */
@@ -256,6 +262,36 @@ body {
 }
 .templates-container {
   display: flex;
+}
+
+@keyframes moveFromLeft{
+  0%{
+      transform: translateX(-150%);
+      opacity: 0;
+  }
+
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes moveFromRight{
+  0%{
+      transform: translateX(+150%);
+      opacity: 0;
+  }
+
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+      transform: translateX(0);
+      opacity: 1;
+  }
 }
 
 /* .new-img-container {

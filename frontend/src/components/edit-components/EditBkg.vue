@@ -11,16 +11,18 @@
           style="display:none"
           ref="fileInput"
           accept="image/*"
-          @change="onFilePicked "
+          @input="onFilePicked "
         >
         
         <button class="uploadImg-btn" @click="onPickFile">Upload Background Image</button>
       </div>
+      <button class="btn-done button is-primary" @click.stop="closeEdit">done</button>
     </div>
   </section>
 </template>
 
 <script>
+import cloudinaryService,{uploadImg} from '../../services/cloudinaryService.js'
 export default {
   data() {
     return {
@@ -43,24 +45,40 @@ export default {
       this.$refs.fileInput.click();
     },
     onFilePicked(event) {
-      const files = event.target.files;
-      let filename = files[0].name;
-      console.log('files', files)
-      if (filename.lastIndexOf(".") <= 0) {
-        return alert("please add a valid file!");
-      }
-      const fileReader = new FileReader();
-      fileReader.addEventListener("load", () => {
-        this.imageUrl = fileReader.result;
-        console.log('resalt', this.imageUrl)
-        this.$emit("styleUpdate", {
+      uploadImg(this.$refs.fileInput)
+        .then(url=>{
+          console.log('url',url);
+
+          this.$emit("styleUpdate", {
           field: "background",
-          css: { background: "url('" + this.imageUrl + "')" }
-        });
-      });
-      fileReader.readAsDataURL(files[0]);
-      this.image = files[0];
-      // console.log('this.imageUrl:' , this.image)
+          css: { backgroundImage: "url('" + url + "')" }
+        }); 
+    });
+    },
+
+
+
+      // const files = event.target.files;
+      // let filename = files[0].name;
+      // console.log('files', files)
+      // if (filename.lastIndexOf(".") <= 0) {
+      //   return alert("please add a valid file!");
+      // }
+      // const fileReader = new FileReader();
+      // fileReader.addEventListener("load", () => {
+      //   this.imageUrl = fileReader.result;
+      //   console.log('resalt', this.imageUrl)
+      //   this.$emit("styleUpdate", {
+      //     field: "background",
+      //     css: { background: "url('" + this.imageUrl + "')" }
+      //   });
+      // });
+      // fileReader.readAsDataURL(files[0]);
+      // this.image = files[0];
+      // // console.log('this.imageUrl:' , this.image)
+    
+        closeEdit() {
+      this.$emit('closeEditor');
     }
   }
 };
@@ -69,6 +87,16 @@ export default {
 <style>
 .edit-bkg-section {
   display: flex;
+  flex-direction: column;
+  height: 310px;
+  width: 200px;
+  border-color: #b9b9b9;
+  border-width: 0;
+  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  background: #fff;
+
+  /* display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   flex-direction: column;
@@ -76,7 +104,7 @@ export default {
   height: 215px;
   overflow: auto;
   background-image: linear-gradient(to top, #f3f3f3, #ffffff, #f3f3f3);
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 .bkg-picker {
@@ -122,6 +150,11 @@ export default {
 
 .hr-box {
   margin: 0;
+}
+
+.btn-done {
+  margin: 5% 25%;
+  width: 100px;
 }
 </style>
 

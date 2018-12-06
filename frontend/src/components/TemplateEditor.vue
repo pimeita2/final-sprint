@@ -1,6 +1,7 @@
 <template>
   <section class="template-editor-section">
-    <div class="editor-bckground-section" >
+    
+    <div class="editor-bckground-section" @click="showEditor" >
       <p class="icon-bkground-editor">&#x25A7;</p>
       <h4 class="h4-bkground-editor">Bkground</h4>
     </div>
@@ -84,7 +85,16 @@ export default {
         css,
         currCmpPart: this.currCmpPart
          });
-    }},
+      },
+      showEditor() {
+        this.$emit("showEditor", { kind: "background" });
+      },    
+      closeEdit() {
+        this.$emit('closeEditor');
+      }
+    },
+    
+ 
     //  connectToEditor() {
     //   this.$emit("showEditor", { kind: "background" });
     // },

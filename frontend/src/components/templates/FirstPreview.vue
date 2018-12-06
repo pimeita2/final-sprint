@@ -1,5 +1,5 @@
 <template>
-  <section class="first-template">
+  <section class="first-template full-page">
     <div class="edit-template-section">
       <div class="template-container" :style="userStyleBackground">
         <div class="backgroun-frame">
@@ -34,7 +34,7 @@ import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 import day from "@/components/template-components/DayCmp.vue";
-import hour from "@/components/template-components/HourCmp.vue";
+
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
@@ -49,10 +49,11 @@ export default {
     };
   },
   created() {
-    templateService.query().then(res => {
-      const currTemplate = res.find(temp => {
-        // console.log("templateService.query", this.type, temp.base.name);
-        if (temp.base.name === "first") return temp; // put event bus to get the type of template
+    templateService.query().then(res => {// check here//////////////////////////////////////////
+    console.log(res);
+    const currTemplate = res.find(temp => {
+        console.log("templateService.query", temp);
+        if (temp.id === "1p") return temp; // put event bus to get the type of template
       });
       this.template = currTemplate;
       console.log(this.template);
@@ -64,7 +65,7 @@ export default {
     eventTitle,
     shortDescription,
     day,
-    hour,
+   
     location,
     socialMedia,
     attending
@@ -75,6 +76,10 @@ export default {
 </script>
 
 <style>
+.full-page{
+    background-image: url('https://i.pinimg.com/564x/b4/38/9c/b4389cbe1b5fc601c8526d9896969fe0.jpg');
+}
+
 </style>
  
  

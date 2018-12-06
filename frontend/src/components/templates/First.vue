@@ -16,12 +16,12 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
-    <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
+    <publish-modal v-if="show" @close="show=false" :id="id"></publish-modal>
   </section>
 </template>
 
 <script>
-import publishModal from "@/components/PublishModal.vue";
+import publishModal from '@/components/PublishModal.vue';
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       show: false,
-      type: "first"
+      id: '1p'
     };
   },
   components: {
@@ -63,6 +63,7 @@ export default {
       this.show = true;
       templateService
         .add({
+          id:'1p',
           cmps: this.dynamicCmps,
           base: {
             name: "first"
@@ -89,7 +90,7 @@ export default {
   created() {
     const cmps = [
       {
-        id: "0",
+        id: '0',
         kind: "text",
         type: "invaitorName",
         data: {
@@ -107,7 +108,7 @@ export default {
         }
       },
       {
-        id: "1",
+        id: '1',
         kind: "text",
         type: "eventTitle",
         isEdit: true,
@@ -126,7 +127,7 @@ export default {
         }
       },
       {
-        id: "2",
+        id: '2',
         kind: "text",
         type: "shortDescription",
         isEdit: true,
@@ -145,15 +146,12 @@ export default {
         }
       },
       {
-        id: "3",
+        id: '3',
         kind: "text",
         type: "day",
         isEdit: true,
         data: {
-          txt: {
-            date: "01/12/2018",
-            time: "00:30"
-          },
+          txt: "01/12/1990",
           css: {
             color: "black",
             textAlign: "center",
@@ -167,7 +165,26 @@ export default {
         }
       },
       {
-        id: "4",
+        id: '4',
+        kind: "text",
+        type: "hour",
+        isEdit: true,
+        data: {
+          txt: "00:30",
+          css: {
+            color: "black",
+            textAlign: "center",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Satisfy",
+            fontSize: 18 + "px"
+          }
+        }
+      },
+      {
+        id: '5',
         kind: "text",
         type: "location",
         isEdit: true,
@@ -186,14 +203,14 @@ export default {
         }
       },
       {
-        id: "5",
+        id: '6',
         kind: "cmp",
         type: "attending",
         isEdit: true,
         data: {}
       },
       {
-        id: "6",
+        id: '7',
         kind: "cmp",
         type: "socialMedia",
         isEdit: true,

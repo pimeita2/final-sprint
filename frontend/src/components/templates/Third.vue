@@ -6,18 +6,19 @@
         <div @click="connectToEditor" >
           <div class="card-third-container" @click.stop >
             
-            <div class="cmpThird">
+           
             <component
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
               v-for="cmp in dynamicCmps"
               :key="cmp.id"
+              :id="cmp.id"
               :is="cmp.type"
               :data="cmp.data"
             />
             </div>
           </div>
-        </div>
+        
         </div>
       </div>
    
@@ -33,7 +34,7 @@ import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 import day from "@/components/template-components/DayCmp.vue";
-import hour from "@/components/template-components/HourCmp.vue";
+import map from "@/components/template-components/MapCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
@@ -43,16 +44,16 @@ export default {
   data() {
     return {
       show: false,
-      type: "first"
+      type: "third"
     };
   },
   components: {
+    // map,
     publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
     day,
-    hour,
     location,
     socialMedia,
     attending,
@@ -107,17 +108,19 @@ export default {
           txt: `YOU ARE INVITED TO A`,
           css: {
             color: "white",
-            textAlign: "right",
+            textAlign: "left",
+            padding: 13+"px",
+            margin:"0 auto",
             fontWeight: {
               isBold: true,
               value: "normal"
             },
             fontFamily: "Oswald",
-            fontSize: 20 + "px"
+            fontSize: 27 + "px"
           }
         }
       },
-      {
+             {
         id: 1,
         kind: "text",
         type: "shortDescription",
@@ -126,18 +129,22 @@ export default {
           txt: `Join us For Rotem's 26th Birthday `,
           css: {
             color: "white",
-            textAlign: "left",
-            paddingRight: "261px",
+            textAlign: "center",
+            padding:"",
+            paddingTop:35+"px",
+            margin:"",
+            marginLeft:189+"px",
+            marginTop:-88+"px",
+            transform: "rotate(14deg)",
             fontWeight: {
               isBold: false,
               value: "normal"
             },
             fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
+            fontSize: 20 + "px"
           }
         }
-      },
-
+      },     
             {
         id: 2,
         kind: "text",
@@ -148,25 +155,36 @@ export default {
           css: {
             color: "white",
             textAlign: "center",
+            width:"100%",
+            padding:"",
+            paddingTop:32+"px",
+            margin:"",
+            marginRight:76+"px",
+            // transform: "rotate(-14deg)",
             fontWeight: {
-              isBold: false,
+              isBold: true,
               value: "normal"
             },
-            fontFamily: "Oswald",
-            fontSize: 28 + "px"
+            fontFamily: "fantasy",
+            fontSize: 56 + "px"
           }
         }
       },
-            {
-        id: 3,
+
+        {
+        id: "3",
         kind: "text",
         type: "day",
         isEdit: true,
         data: {
-          txt: "05/09/2019",
+          txt: {
+            date: "19/08/2018",
+            time: "12:30"
+          },
           css: {
             color: "black",
             textAlign: "center",
+            marginTop:39+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -176,72 +194,52 @@ export default {
           }
         }
       },
+    
       {
         id: 4,
         kind: "text",
-        type: "hour",
+        type: "location",
         isEdit: true,
         data: {
-          txt: "12:00",
+          txt: "124 conch street,Bikini Bottom",
           css: {
-            color: "white",
+            color: "black",
             textAlign: "center",
+            padding:"",
+            margin:"",
+            marginLeft:175 +"px",
+            marginTop:35+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
             },
-            fontFamily: "Satisfy",
+            fontFamily: "Asap Condensed",
             fontSize: 18 + "px"
           }
         }
       },
       {
         id: 5,
-        kind: "text",
-        type: "location",
+        kind: "cmp",
+        type: "attending",
         isEdit: true,
         data: {
-          txt: "",
-          css: {
-            color: "black",
-            textAlign: "center",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
+          css:{
+            padding:"",
+            // margin:47+"px",
+            marginTop:47+"px",
           }
         }
       },
       {
-        id: 6,
-        kind: "cmp",
-        type: "attending",
-        isEdit: true,
-        data: {}
-      },
-      {
         id: 7,
-        kind: "cmp",
-        type: "socialMedia",
-        isEdit: true,
-        data: {
-          txtF: "",
-          txtL: "",
-          txtT: "",
-          txtI: ""
-        }
-      },
-      {
-        id: 8,
         kind: "background",
         type: "template",
         kind: "other",
         data: {
           css: {
             backgroundColor: "",
-            backgroundImage: ``
+            backgroundImage: ``,
           }
         }
       }
@@ -256,9 +254,7 @@ export default {
 </script>
 
 <style>
-.date{
-position: inl;
- }
+
 
 </style>
  

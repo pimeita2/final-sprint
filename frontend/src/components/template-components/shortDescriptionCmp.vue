@@ -33,7 +33,7 @@ export default {
       this.$emit("showEditor", { kind: "text" });
     },
     updateShortDescription(ev, cmpId) {
-      var newShortDescription = ev.target.value;
+      var newTxt = ev.target.value;
       templateService.saveData(newShortDescription);
       this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
     },
@@ -49,5 +49,18 @@ export default {
 };
 </script>
 <style>
-
+.select-box-border {
+  border: 1px dashed black;
+}
+.short-description{
+  width: 100%;
+}
+/* .short-description {
+  background-color: rgb(153, 49, 54);
+  font-size: 12px;
+  color: white;
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 10px;
+}*/
 </style>

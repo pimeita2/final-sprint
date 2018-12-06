@@ -1,6 +1,6 @@
 <template>
   <section class="template">
-    <template-editor :currCmpPart="currCmpPart"></template-editor>
+    <template-editor :currCmpPart="currCmpPart" @showEditor="showEditor"  ></template-editor>
     <edit-txt
       class="edit-toolbox"
       :currCmpPart="currCmpPart"
@@ -11,7 +11,7 @@
     <edit-bgc
       class="edit-toolbox"
       v-if="showBgcMenu"
-      @showEditor="showEditor"
+      @closeEditor="closeEditor"
       @styleUpdate="styleUpdate"
     ></edit-bgc>
     <div class="spacenr"></div>
@@ -52,6 +52,7 @@ export default {
     closeEditor() {
       this.showTxtMenu = false;
       this.$store.dispatch('removeEditingFrame')
+      this.showBgcMenu = false;
     },
    
     styleUpdate({ field, css }) {

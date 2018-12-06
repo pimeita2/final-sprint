@@ -36,7 +36,7 @@ export default new Router({
     //   component: () => import('./views/Login.vue')
     // },
     {
-      path: '/FirstPreview',
+      path: '/prv/1p',
       name: 'FirstPreview',
       component:FirstPreview
     },
