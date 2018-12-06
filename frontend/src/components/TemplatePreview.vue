@@ -2,9 +2,11 @@
   <li>
     <div class="container-template">
       <a :href="idAddress">      
-      <img class="img-div" src="../assets/third.jpg" alt="loading img...">
+      <img class="img-div" :src="this.template.image" alt="loading img...">
       </a>
-      <!-- :src="template.image" -->
+      <!-- <div class="img-div" ></div> -->
+      <!-- {{template.image.backgroundImage}} -->
+      
       <h5 class="template-name">{{template.name}}</h5>
       <div class="template-nums">
         <h5 class="template-stars">{{template.stars}}</h5>
@@ -28,6 +30,12 @@ export default {
     return{
       idAddress: `template/${this.template.id}`
     }
+  },
+  computed:{
+    templatesImgs(){
+      console.log('imges back', this.template.image )
+      return `"${this.template.image}"`
+    }
   }
 };
 </script>
@@ -37,9 +45,10 @@ export default {
   width: 300px;
   height: 375px;
   border: 1px solid gray;
+  border-radius: 6px;
 }
 .container-template:hover {
-  border: 2px solid lightgray;
+  background:rgba(0, 0, 0, 0.14);
 }
 
 h5 {
