@@ -7,9 +7,7 @@ export default {
         templateCmps: null,
         generalStyle: {}
     },
-
     mutations: {
-
         setUserStyle(state, { field, css, currCmpPart }) {
             console.log('setUserStyle', field, css, currCmpPart);
             const cmp = state.templateCmps.find(cmp => cmp.id === currCmpPart)
@@ -21,11 +19,8 @@ export default {
             console.log('general style', state.generalStyle);
         },
         setCurrTemplate(state, context) {
-
             state.templateCmps = context.payload.tmpData;
             state.generalStyle = context.payload.general;
-
-            // console.log('state:', state.templateCmps)
         },
         updateUserTxt(state, newTxt, id) {
             state.templateCmps.find(cmp => {
@@ -36,7 +31,10 @@ export default {
         },
         changecurrenEditing(state, { id }) {
             state.currenEditing = id
-        }
+        },
+        removeEditingFrame(state){
+            state.currenEditing=null
+        },
     },
     actions: {
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
@@ -45,23 +43,22 @@ export default {
         setGenralStyle(context, { field, css }) {
             context.commit({ type: 'setGenralStyle', field, css })
         },
+        removeEditingFrame(context){
+            context.commit({type: 'removeEditingFrame'})
+        },
         updateTxt(context, { newTxt, cmpId }) {
             context.commit({ type: 'updateUserTxt', newTxt, cmpId })
         },
         setCurrTemplate(context, payload) {
-            // console.log('setCurrTemplate', payload)
             context.commit({ type: 'setCurrTemplate', payload })
         },
         changeEditingStatus(context, { id }) {
             context.commit({ type: 'changecurrenEditing', id })
-        }
+        },
     },
     getters: {
-        // userStyleBackground(state) {
-        //     return state.templateCmps[state.templateCmps.length - 1].css;
-        // },
         dynamicCmps: state => state.templateCmps,
         generalStyle: state => state.generalStyle,
-        currenEditing: state => state.currenEditing
+        currenEditing: state => state.currenEditing,
     }
 }

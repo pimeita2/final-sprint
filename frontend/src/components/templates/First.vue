@@ -1,20 +1,20 @@
 <template>
   <section class="first-template">
-      <div class="template-container" :style="generalStyle" @click="connectToEditor()">
-        <div class="backgroun-frame" @click="connectToEditor()">
-          <div class="card-container" @click.stop>
-            <component
-              @connectToCmpPart="connectToCmpPart"
-              @showEditor="showEditor"
-              v-for="cmp in dynamicCmps"
-              :key="cmp.id"
-              :is="cmp.type"
-              :id="cmp.id"
-              :data="cmp.data"
-            />
-          </div>
+    <div class="template-container" :style="generalStyle" @click="connectToEditor()">
+      <div class="backgroun-frame" @click="connectToEditor()">
+        <div class="card-container">
+          <component
+            @connectToCmpPart="connectToCmpPart"
+            @showEditor="showEditor"
+            v-for="cmp in dynamicCmps"
+            :key="cmp.id"
+            :is="cmp.type"
+            :id="cmp.id"
+            :data="cmp.data"
+          />
         </div>
       </div>
+    </div>
     <button class="publish" @click="publish">Publish</button>
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
@@ -82,7 +82,9 @@ export default {
     },
     generalStyle() {
       return this.$store.getters.generalStyle;
-    }
+    },
+    removeEditPossibles() {
+    },
   },
   created() {
     const cmps = [
@@ -215,5 +217,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.card-container:hover {
+  input,
+  textarea {
+    // outline: 0.8px dashed black;
+  }
+}
 </style>

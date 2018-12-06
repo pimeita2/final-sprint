@@ -49,11 +49,5 @@ export default {
 };
 </script>
 <style>
-.select-box-border {
-  border: 1px dashed black;
-}
-.short-description{
-  width: 100%;
-  margin-bottom: 10px;
-}
+
 </style>

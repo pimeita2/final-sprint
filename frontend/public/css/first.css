@@ -32,3 +32,95 @@
   border-radius: 5px;
   margin: 0 auto;
 }
+
+.invaitor-name{
+  width: 100%;
+}
+.select-box-border {
+  border: 1px dashed black;
+}
+.short-description{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.event-name{
+  width: 95%;
+}
+.event-name:focus{
+    overflow: hidden;
+    outline:none;
+}
+.address {
+  margin: 5px;
+  text-transform: capitalize;
+  color: black;
+  width: 100%;
+}
+.attending-title {
+  margin: 16px 0 0 0;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-family: "Asap Condensed";
+}
+.attending-sub-title {
+  letter-spacing: 1px;
+  margin: 3px 3px 12px 3px;
+  font-size: 12px;
+  font-family: "Asap Condensed";
+}
+.counter-view {
+  width: 30px;
+}
+
+.incomingPepole {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0 10px;
+}
+
+input.guests-name {
+  width: 45%;
+  margin: 5px 10px 0 0;
+}
+input.guests-mobile {
+  width: 45%;
+  margin-bottom: 5px;
+}
+
+.control > input {
+  margin: 0px 0 22px 0;
+  width: 38px;
+}
+.pepole-counter {
+  background-color: white;
+  width: 30px;
+  color: black;
+  text-align: center;
+  padding: 4px 0;
+  height: 30px;
+}
+.date-time-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.date-container {
+  width: 117px;
+}
+input {
+  width: 117px;
+}
+.time-container {
+  padding: 0;
+  color: #191616;
+  height: 36px;
+}
+.time-input {
+  width: 117px;
+  height: 36px;
+  background-color: #f1f1f1;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  font-family: Asap condensed;
+  text-align: center;
+  font-size: 1rem;
+}

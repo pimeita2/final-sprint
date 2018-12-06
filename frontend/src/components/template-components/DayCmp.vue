@@ -15,9 +15,9 @@
     </div>
     <div class="time-container">
       <input
-        type="text"
+        type="time"
         v-model="data.txt.time"
-        placeholder="00:00"
+        placeholder="12:00"
         maxlength="5"
         @click="connectToEditor('hour')"
         class="time-input"

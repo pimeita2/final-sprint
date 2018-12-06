@@ -45,14 +45,8 @@ export default {
 </script>
 
 <style>
-.select-box-border {
-  border: 1px dashed black;
-}
-.event-name{
-  width: 95%;
-}
+
 .event-name:focus{
-    /* border: 0 none #FFF; */
     overflow: hidden;
     outline:none;
 }

@@ -51,6 +51,7 @@ export default {
     },
     closeEditor() {
       this.showTxtMenu = false;
+      this.$store.dispatch('removeEditingFrame')
     },
    
     styleUpdate({ field, css }) {
