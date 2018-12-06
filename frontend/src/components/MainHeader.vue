@@ -53,10 +53,10 @@ export default {
 
 <style>
 .nav{
-  /* position:sticky; */
+  position:sticky;
   top: 0;
   width: 100%;
-  height:3em;
+  height:4em;
   z-index: 2;
   transition: all .5s;
 

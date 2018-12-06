@@ -1,7 +1,9 @@
 <template>
   <li>
     <div class="container-template">
+      <a :href="idAddress">      
       <img class="img-div" src="../assets/third.jpg" alt="loading img...">
+      </a>
       <!-- :src="template.image" -->
       <h5 class="template-name">{{template.name}}</h5>
       <div class="template-nums">
@@ -21,14 +23,19 @@ export default {
   props: ["template"],
   components: {
     templateStar
+  },
+  data(){
+    return{
+      idAddress: `template/${this.template.id}`
+    }
   }
 };
 </script>
 
 <style>
 .container-template {
-  width: 200px;
-  height: 250px;
+  width: 300px;
+  height: 375px;
   border: 1px solid gray;
 }
 .container-template:hover {
@@ -43,7 +50,7 @@ h5 {
 .img-div {
   background: rgb(199, 191, 191);
   width: 100%;
-  height: 150px;
+  height: 290px;
 }
 .template-name {
   font-size: 1.1rem;
