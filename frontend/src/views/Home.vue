@@ -5,14 +5,16 @@
     <!-- <router-link to="/second">second template</router-link> -->
     <div class="home">
       <section id="banner">
-        <h1 class="titleBanner">
+        <h1 class="titleBanner first-line">
           Create
           Your Invitation
-          <br>For
+          <br>
+          </h1>
+          <h1 class="titleBanner second-line">For
           Your
           Occasion
         </h1>
-        <button class="btn-get-start">Get Started</button>
+      <!--   <button class="btn-get-start">Get Started</button> -->
       </section>
       <section class="templates">
         <div class="templates-container">
@@ -190,19 +192,20 @@ body {
   background-color: #e5474b;
   color: #f2a3a5;
   background-color: #0c0c0c;
-  background-image: url("../assets/img55.jpg");
+  background-image: url("../assets/img56.jpg");
+  background-position-y: -100px;
   background-size: cover;
   background-repeat: no-repeat;
   /* background-position: 100px; */
   position: relative;
   z-index: 0;
   margin-top: -145px;
-  height: 75vh;
+  height: 95vh;
   /* box-shadow: inset 0 0 0 100px rgba(36, 70, 105, 0.74); */
 }
 
 #banner::after {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.45);
   content: "";
   display: block;
   position: absolute;
@@ -214,19 +217,25 @@ body {
 }
 
 .titleBanner {
-  font-size: 3.1em;
-  padding: 3em 0 0 0;
+  font-size: 3.4em;
+  padding: 3.3em 0 0 1em;
   letter-spacing: 3px;
   font-weight: 700;
-  font-family: 'Yeon Sung', cursive;
-  text-align: center;
+  font-family: 'Comfortaa', cursive;
+  text-align: left;
   color: white;
   opacity: 1;
- color: rgb(252, 235, 204);
-  /* text-shadow: 0 0 10px #FFFFFF; */
-   text-shadow: 0px 0px 10px black;
-   
+  color: rgb(252, 235, 204);
+  margin-top: 10px;
+  animation: moveFromLeft 1.5s ;
 }
+
+.titleBanner.second-line{
+  text-align: right;
+  padding: 0 2.7em 0 0;
+  animation: moveFromRight 1.5s;
+}
+
 #banner a {
   color: #ffffff;
 }
@@ -256,6 +265,36 @@ body {
 }
 .templates-container {
   display: flex;
+}
+
+@keyframes moveFromLeft{
+  0%{
+      transform: translateX(-150%);
+      opacity: 0;
+  }
+
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes moveFromRight{
+  0%{
+      transform: translateX(+150%);
+      opacity: 0;
+  }
+
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+      transform: translateX(0);
+      opacity: 1;
+  }
 }
 
 /* .new-img-container {

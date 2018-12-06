@@ -3,6 +3,7 @@
       <div class="template-container" :style="generalStyle" @click="connectToEditor()">
         <div class="backgroun-frame" @click="connectToEditor()" >
           <div class="card-container" @click.stop>
+            
             <component
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
