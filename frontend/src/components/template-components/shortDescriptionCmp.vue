@@ -33,7 +33,7 @@ export default {
       this.$emit("showEditor", { kind: "text" });
     },
     updateShortDescription(ev, cmpId) {
-      var newShortDescription = ev.target.value;
+      var newTxt = ev.target.value;
       templateService.saveData(newShortDescription);
       this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
     },
@@ -62,5 +62,5 @@ export default {
   max-width: 300px;
   width: 100%;
   margin-bottom: 10px;
-}
+}*/
 </style>

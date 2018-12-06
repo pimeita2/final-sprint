@@ -1,79 +1,20 @@
 <template>
   <section class="second-template">
-    <div class="second-container">
-      <div class="wedding-img" @click.stop="handleImg">
-        <!-- will be img component-->
-      </div>
-      <div class="txt-ourWedding">
-        ∙∙·▫▫ᵒᴼᵒ▫ₒₒₒ▫ᵒᴼᵒ
-        <span>𝓞𝓾𝓻 𝓦𝓮𝓭𝓭𝓲𝓷𝓰</span> ᵒᴼᵒ▫ₒₒₒ▫ᵒᴼᵒ▫▫·∙∙
-      </div>
-      <div class="second-part-container">
-        <div class="invitors">
-          <invaitor-name
-            @connectToCmpPart="connectToCmpPart"
-            @showEditor="showEditor"
-            :data="dynamicCmps[0].data"
-            :id="dynamicCmps[0].id"
-          ></invaitor-name>
-          <img class="and" src="../../assets/and.png" alt="and">
-          <invaitor-name
-            @connectToCmpPart="connectToCmpPart"
-            @showEditor="showEditor"
-            :data="dynamicCmps[1].data"
-            :id="dynamicCmps[1].id"
-          ></invaitor-name>
-        </div>
-        <img class="heart" src="../../assets/heart2.png" alt="heart">
-
-        <short-description
+    <div class="second-template-container" :style="generalStyle" @click="connectToEditor()">
+      <div class="second-card-container" @click.stop>
+        <component
           @connectToCmpPart="connectToCmpPart"
           @showEditor="showEditor"
-          :data="dynamicCmps[2].data"
-          :id="dynamicCmps[2].id"
-        ></short-description>
-
-        <div class="day-and-hour">
-          <day
-            @connectToCmpPart="connectToCmpPart"
-            @showEditor="showEditor"
-            :data="dynamicCmps[3].data"
-            :id="dynamicCmps[3].id"
-          ></day>
-          <hour
-            @connectToCmpPart="connectToCmpPart"
-            @showEditor="showEditor"
-            :data="dynamicCmps[4].data"
-            :id="dynamicCmps[4].id"
-          ></hour>
-        </div>
-        <location
-          @connectToCmpPart="connectToCmpPart"
-          @showEditor="showEditor"
-          :data="dynamicCmps[5].data"
-          :id="dynamicCmps[5].id"
-        ></location>
-        <div
-          :style="{border:'2px solid black', height:'100px', width:'90%', margin:'auto'}"
-        >mappppppppp</div>
+          v-for="cmp in dynamicCmps"
+          :key="cmp.id"
+          :is="cmp.type"
+          :id="cmp.id"
+          :data="cmp.data"
+        />
       </div>
-
-      <!-- //  <component
-          //     @connectToCmpPart="connectToCmpPart"
-          //     @showEditor="showEditor"
-          //     v-for="cmp in dynamicCmps"
-          //     :key="cmp.id"
-          //     :id="cmp.id"
-          //     :is="cmp.type"
-          //     :data="cmp.data"
-          //   />
-          
-      -->
     </div>
     <button class="publish" @click="publish">Publish</button>
-    <!-- <pre>{{generalStyle}}</pre> -->
-    <!-- TO check if this is the right place!!! -->
-    <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
+    <publish-modal v-if="show" @close="show=false" :id="id"></publish-modal>
   </section>
 </template>
 
@@ -84,28 +25,26 @@ import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
 import day from "@/components/template-components/DayCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
-import attending from "@/components/template-components/AttendingCmp.vue";
-import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
 import templateService from "@/services/templateService";
-
+import  mapCmp from "@/components/template-components/MapCmp.vue"
+import countClock from "@/components/template-components/CountClock.vue"
 export default {
   data() {
     return {
       show: false,
-      type: "second"
+      id: "2p"
     };
   },
   components: {
-    map,
     publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
     day,
-    
     location,
-    socialMedia,
-    attending
+    mapCmp,
+    countClock
+ 
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -115,22 +54,21 @@ export default {
       this.$emit("showEditor", { kind });
     },
     connectToEditor() {
-      // for background!!!!
       this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
     },
-
     publish() {
       this.show = true;
       templateService
         .add({
+          id: "1p",
           cmps: this.dynamicCmps,
           base: {
-            name: "first"
+            name: "second"
           },
-          name: "Puki's birrthday",
+          name: "wedding",
           modified: Date.now(),
-          creatorId: "abc123" // TODO: currLoggedinuserId here
+          creatorId: "abc123"
         })
         .then(template =>
           console.log("template was added successfully", template)
@@ -148,70 +86,50 @@ export default {
   created() {
     const cmps = [
       {
-        id: "e2e",
+        id: "0",
         kind: "text",
         type: "invaitorName",
-        isEdit: true,
         data: {
-          txt: "Meital",
+          txt: "You are cordially invited to attend",
           css: {
-            color: "black",
+            color: "white",
             textAlign: "center",
             fontWeight: {
               isBold: false,
               value: "normal"
             },
-            fontFamily: "Oswald",
-            fontSize: 30 + "px"
-          }
-        }
-      },
-      {
-        id: "e22e",
-        kind: "text",
-        type: "invaitorName",
-        isEdit: true,
-        data: {
-          txt: "Don",
-          css: {
-            color: "black",
-            textAlign: "center",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Oswald",
-            fontSize: 30 + "px"
-          }
-        }
-      },
-      {
-        id: "e50e",
-        kind: "text",
-        type: "shortDescription",
-        isEdit: true,
-        data: {
-          txt: "Celebrat Love with us",
-          css: {
-            color: "black",
-            textAlign: "center",
-            fontWeight: {
-              isBold: false,
-              value: "normal",
-              width:'100%'
-            },
-            fontFamily: "cursive",
+            fontFamily: "Charmonman",
             fontSize: 20 + "px"
           }
         }
       },
       {
-        id: "e51e",
+        id: "1",
+        kind: "text",
+        type: "eventTitle",
+        isEdit: true,
+        data: {
+          txt: "Meital & Don Wedding ",
+          css: {
+            color: "white",
+            textAlign: "center",
+            fontFamily: "Charmonman",
+            fontSize: 70+"px",
+            fontWeight: {
+              isBold: true,
+              value: "bold"
+            }
+          }
+        }
+      },
+
+      {
+        id: "3",
         kind: "text",
         type: "day",
         isEdit: true,
         data: {
-          txt: "01/12/1990",
+          txt: "01/12/2018",
           css: {
             color: "black",
             textAlign: "center",
@@ -219,13 +137,13 @@ export default {
               isBold: false,
               value: "normal"
             },
-            fontFamily: "cursive",
-            fontSize: 20 + "px"
+            fontFamily: "Asap Condensed",
+            fontSize: 16 + "px"
           }
         }
       },
       {
-        id: "e52e",
+        id: "4",
         kind: "text",
         type: "hour",
         isEdit: true,
@@ -238,18 +156,18 @@ export default {
               isBold: false,
               value: "normal"
             },
-            fontFamily: "cursive",
-            fontSize: 20 + "px"
+            fontFamily: "Satisfy",
+            fontSize: 18 + "px"
           }
         }
       },
-      {
-        id: "e53e",
-        kind: "text",
-        type: "location",
+         {
+        id: "5",
+        kind: "cmp",
+        type: "countClock",
         isEdit: true,
         data: {
-          txt: "Nezer Sirani ,hasda 23, Rishon Le zion",
+          date:"2019-07-06 08:15:00",
           css: {
             color: "black",
             textAlign: "center",
@@ -257,14 +175,55 @@ export default {
               isBold: false,
               value: "normal"
             },
-            fontFamily: "cursive",
-            fontSize: 30 + "px"
+            fontFamily: "Satisfy",
+            fontSize: 18 + "px"
+          }
+        }
+      },
+      {
+        id: "6",
+        kind: "text",
+        type: "location",
+        isEdit: true,
+        data: {
+          txt: "Nezer Sireni, Tel-Aviv",
+          css: {
+            color: "white",
+            textAlign: "center",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Charmonman",
+            fontSize: 17 + "px"
+          }
+        }
+      },
+        {
+        id: "7",
+        kind: "cmp",
+        type: "map",
+        isEdit: true,
+        data: {
+          txt: "Nezer Sireni, Tel-Aviv",
+          css: {
+            color: "white",
+           width:'80%',
+           height:'150px'
           }
         }
       }
+      // {
+      //   id: '6',
+      //   kind: "cmp",
+      //   type: "attending",
+      //   isEdit: true,
+      //   data: {}
+      // },
     ];
     const general = {
-      backgroundColor: "#ff9a90"
+      backgroundImage:
+        'url("https://images.pexels.com/photos/3880/couple-love-romantic-silhouette.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")'
     };
     this.$store.dispatch({
       type: "setCurrTemplate",
@@ -275,58 +234,13 @@ export default {
 };
 </script>
 
-
 <style>
-.second-template {
-  margin-left: 25%;
-}
-.second-container {
-  margin-top: 50px;
-}
-
-.wedding-img {
-  height: 250px;
-  background-image: url("../../assets/wedding.jpeg");
-  background-position: center;
+.second-template-container {
+  background-image: url(https://images.pexels.com/photos/3880/couple-love-romantic-silhouette.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  margin: 50px 20px 0 200px;
   background-size: cover;
-  cursor: pointer;
-  margin: auto;
-}
-
-.txt-ourWedding {
-  font-size: 15px;
-  text-shadow: 0 0 20px lightblue;
-  background: dimgrey;
-  color: white;
-}
-
-.txt-ourWedding span {
-  font-size: 30px;
-}
-
-.invitors,
-.day-and-hour {
-  display: flex;
-  flex-direction: row;
-  padding: 20px;
-  background-color: transparent;
-  justify-content: center;
-}
-
-.day-and-hour {
-  justify-content: flex-end;
-}
-.and {
-  height: 40px;
-}
-
-.second-part-container {
-  background-image: url("../../assets/img40.jpg")
-
-}
-.heart {
-  height: 50px;
+  padding: 50px;
+  background-blend-mode: multiply;
+  background-color: burlywood;
 }
 </style>
- 
- 

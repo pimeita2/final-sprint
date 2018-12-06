@@ -4,16 +4,16 @@
   <section>
     <div class="modal">
       <div class="modal-content animate" action>
-        <div>
+        <div class="inner" style="padding:20%, width:100%">
           <span @click="$emit('close')" class="close" title="Close Modal">&times;</span>
           <h6>Your Invitation has been created successfully</h6>
-          <p>link to you Invitation:</p>
-          <div class="unEditable-invite"></div>
-            url
-            <router-link to="/FirstPreview">preview</router-link>
-            
-            <!-- <uneditable-template  :template="template"></uneditable-template> -->
-          </div>
+          <p>link to your Invitation:</p>
+          <input type="text" v-model="this.url" class="url">
+          <button @click="copyUrl()">Copy text</button>
+
+          <router-link target="_blank"  to="/prv/1p">preview</router-link>
+
+          <!-- <uneditable-template  :template="template"></uneditable-template> -->
           <button>Go back to Editting</button>
           <button>More templates</button>
         </div>
@@ -30,35 +30,19 @@ export default {
   data() {
     return {
       // show: false,
-      template:{},
+      template: {},
+      url:"http://localhost:8080/template/1"
     };
   },
   created() {},
   methods: {
-    // showPreview() {
-      // this.show = true;
-      // templateService.query().then(res => {
-      //   console.log(res);
-      //   const currTemplate = res.find(temp => {
-      //     console.log("templateService.query", this.type, temp.base.name);
-      //     if (temp.base.name === this.type) return temp;
-      //   });
-      //  this.template=currTemplate;
-      //  console.log(this.template);
-
-      // });
-    // },
-    // getData() {
-    //   templateService.query().then(res => {
-    //     console.log(res);
-    //     const currTemplate = res.find(temp => {
-    //       console.log("templateService.query", this.type, temp.base.name);
-    //       if (temp.base.name === this.type) return temp;
-    //     });
-    //     console.log(currTemplate);
-    //   });
-    // }
-  // },
+    copyUrl() {
+ 
+      document.querySelector('.url');
+      copyTxt.select();
+      document.execCommand("copy");
+      // alert("Copied the text: " + copyTxt.value);
+    }
   },
   components: {
     uneditableTemplate
@@ -69,6 +53,17 @@ export default {
 
 
 <style>
+.inner {
+  width: 100%;
+  height: 80%;
+}
+
+.content-modal {
+  padding: 20%;
+  font-size: 20px;
+  background-color: mediumturquoise;
+}
+
 .modal {
   display: block;
   position: fixed;
@@ -105,7 +100,7 @@ export default {
   color: red;
   cursor: pointer;
 }
-button {
+.modal button {
   background-color: #888;
   border: 2px solid black;
   margin: 10px;
@@ -134,6 +129,16 @@ button {
   }
 }
 
+.inner {
+  width: 100%;
+  height: 80%;
+}
+
+.content-modal {
+  padding: 20%;
+  font-size: 20px;
+  background-color: mediumturquoise;
+}
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 800px) {
   .cancelbtn {
