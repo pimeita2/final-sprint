@@ -1,7 +1,7 @@
 <template>
   <section class="first-template">
       <div class="template-container" :style="generalStyle" @click="connectToEditor()">
-        <div class="backgroun-frame" @click="connectToEditor()">
+        <div class="backgroun-frame" @click="connectToEditor()" >
           <div class="card-container" @click.stop>
             
             <component
@@ -17,7 +17,7 @@
         </div>
       </div>
     <button class="publish" @click="publish">Publish</button>
-    <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
+    <publish-modal v-if="show" @close="show=false" :id="id"></publish-modal>
   </section>
 </template>
 
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       show: false,
-      type: "first"
+      id: '1p'
     };
   },
   components: {
@@ -64,6 +64,7 @@ export default {
       this.show = true;
       templateService
         .add({
+          id:'1p',
           cmps: this.dynamicCmps,
           base: {
             name: "first"
