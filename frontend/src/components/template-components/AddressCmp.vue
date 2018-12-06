@@ -20,6 +20,9 @@ export default {
     data: Object,
     id: String
   },
+  created() {
+    this.showEditPossible
+  },
   methods: {
     connectToEditor() {
       this.isSelected = true;
@@ -27,7 +30,7 @@ export default {
       this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
     },
-       updateName(ev, cmpId) {
+    updateName(ev, cmpId) {
       var newTxt = ev.target.value;
       this.$store.dispatch({ type: "updateTxt", newTxt, cmpId });
       // templateService.saveData(newInvaitorName);
@@ -37,8 +40,15 @@ export default {
     }
   },
   computed: {
-     isOnEdit() {
+    isOnEdit() {
       return this.$store.getters.currenEditing === this.id;
+    },
+    showEditPossible() {
+      var canBeEdit = this.$store.getters.possibleEditing;
+      console.log("hover 4" , canBeEdit);
+      if (canBeEdit) {
+        isOnEdit() === true;
+      }
     }
   }
 };
@@ -46,12 +56,6 @@ export default {
 
 <style>
 .address {
-  margin: 5px;
-  text-transform: capitalize;
-  color: black;
   width: 100%;
-}
-.select-box-border {
-  border: 1px dashed black;
 }
 </style>

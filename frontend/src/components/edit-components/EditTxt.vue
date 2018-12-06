@@ -36,7 +36,6 @@
       <button
         class="btn-done button is-primary"
         @click.stop="closeEdit"
-
       >done</button>
     </div>
   </section>
@@ -45,9 +44,6 @@
 <script>
 export default {
   props: ["currCmpPart"],
-  data() {
-    return {};
-  },
   created() {},
   methods: {
     connectToCmpPart(cmpPart) {

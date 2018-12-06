@@ -108,7 +108,7 @@ export default {
           txt: `YOU ARE INVITED TO A`,
           css: {
             color: "white",
-            textAlign: "center",
+            textAlign: "left",
             padding: 13+"px",
             margin:"0 auto",
             fontWeight: {
@@ -119,9 +119,34 @@ export default {
             fontSize: 27 + "px"
           }
         }
+      },
+             {
+        id: 1,
+        kind: "text",
+        type: "shortDescription",
+        isEdit: true,
+        data: {
+          txt: `Join us For Rotem's 26th Birthday `,
+          css: {
+            color: "white",
+            textAlign: "center",
+            padding:"",
+            paddingTop:35+"px",
+            margin:"",
+            marginLeft:189+"px",
+            marginTop:-88+"px",
+            transform: "rotate(14deg)",
+            fontWeight: {
+              isBold: false,
+              value: "normal"
+            },
+            fontFamily: "Asap Condensed",
+            fontSize: 20 + "px"
+          }
+        }
       },     
             {
-        id: 1,
+        id: 2,
         kind: "text",
         type: "eventTitle",
         isEdit: true,
@@ -135,39 +160,17 @@ export default {
             paddingTop:32+"px",
             margin:"",
             marginRight:76+"px",
-            transform: "rotate(-20deg)",
+            // transform: "rotate(-14deg)",
             fontWeight: {
-              isBold: false,
+              isBold: true,
               value: "normal"
             },
-            fontFamily: "Oswald",
-            fontSize: 28 + "px"
+            fontFamily: "fantasy",
+            fontSize: 56 + "px"
           }
         }
       },
-       {
-        id: 2,
-        kind: "text",
-        type: "shortDescription",
-        isEdit: true,
-        data: {
-          txt: `Join us For Rotem's 26th Birthday `,
-          css: {
-            color: "white",
-            textAlign: "left",
-            padding:"",
-            paddingTop:35+"px",
-            margin:"",
-            marginLeft:-72+"px",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Asap Condensed",
-            fontSize: 16 + "px"
-          }
-        }
-      },
+
         {
         id: "3",
         kind: "text",
@@ -181,8 +184,7 @@ export default {
           css: {
             color: "black",
             textAlign: "center",
-            // display: "grid",
-            marginLeft:467+"px",
+            marginTop:39+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -199,12 +201,14 @@ export default {
         type: "location",
         isEdit: true,
         data: {
-          txt: "bla bla bla, bla",
+          txt: "124 conch street,Bikini Bottom",
           css: {
             color: "black",
             textAlign: "center",
             padding:"",
             margin:"",
+            marginLeft:175 +"px",
+            marginTop:35+"px",
             fontWeight: {
               isBold: false,
               value: "normal"
@@ -228,21 +232,6 @@ export default {
         }
       },
       {
-        id: 6,
-        kind: "cmp",
-        type: "socialMedia",
-        isEdit: true,
-        data: {
-          txtF: "",
-          txtL: "",
-          txtT: "",
-          txtI: "",
-          css:{
-            marginLeft:365+"px",
-          }
-        }
-      },
-      {
         id: 7,
         kind: "background",
         type: "template",
@@ -250,7 +239,7 @@ export default {
         data: {
           css: {
             backgroundColor: "",
-            backgroundImage: ``
+            backgroundImage: ``,
           }
         }
       }

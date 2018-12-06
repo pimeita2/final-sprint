@@ -59,6 +59,7 @@ export default {
     },
     closeEditor() {
       this.showTxtMenu = false;
+      this.$store.dispatch('removeEditingFrame')
       this.showBgcMenu = false;
     },
         publish() {

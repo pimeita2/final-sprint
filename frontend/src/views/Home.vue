@@ -6,8 +6,7 @@
     <div class="home">
       <section id="banner">
         <h1 class="titleBanner first-line">
-          Create
-          Your Invitation
+           Invitation
           <br>
           </h1>
           <h1 class="titleBanner second-line">For
@@ -23,9 +22,7 @@
         </div>
       </section>
 
-      <router-link to="/template/1">First</router-link>|
-      <router-link to="/template/2">Second</router-link>|
-      <router-link to="/template/3">Third</router-link>
+
     </div>
     <main-footer></main-footer>
   </section>
@@ -55,126 +52,126 @@ export default {
           stars: 5,
           downloadNum: 100,
           id: 1,
-          image: "../assets/first.jpg"
+          image: require("@/assets/template1.png")
         },
         {
           name: "Wedding",
           stars: 5,
           downloadNum: 10,
           id: 2,
-          image: "../assets/second.png"
+          image: require("@/assets/template2.png")
         },
         {
           name: "Pool Party",
           stars: 5,
           downloadNum: 10,
           id: 3,
-          image: "../assets/third.jpg"
+          image:require("@/assets/template3.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
           id: 4,
-          image: "../assets/first.jpg"
+          image: require("@/assets/template4.png")
         },
         {
           name: "Wedding",
           stars: 5,
           downloadNum: 10,
           id: 5,
-          image: "../assets/second.png"
+          image: require("@/assets/template5.png")
         },
         {
           name: "Birthday",
           stars: 5,
           downloadNum: 10,
           id: 6,
-          image: "../assets/third.jpg"
+          image: require("@/assets/template6.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
           id: 7,
-          image: "../assets/first.jpg"
+          image: require("@/assets/template7.png")
         },
         {
           name: "Wedding",
           stars: 5,
           downloadNum: 10,
           id: 8,
-          image: "../assets/second.png"
+          image: require("@/assets/template8.png")
         },
         {
           name: "Birthday",
           stars: 5,
           downloadNum: 10,
           id: 9,
-          image: "../assets/third.jpg"
+          image: require("@/assets/template9.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
           id: 10,
-          image: "../assets/first.jpg"
+          image: require("@/assets/template10.png")
         },
         {
           name: "Wedding",
+          stars: 5,
+          downloadNum: 10,
+          id: 11,
+          image: require("@/assets/template11.png")
+        },
+        {
+          name: "Birthday",
           stars: 5,
           downloadNum: 10,
           id: 12,
-          image: "../assets/second.png"
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 13,
-          image: "../assets/third.jpg"
+          image: require("@/assets/template12.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
-          id: 14,
-          image: "../assets/first.jpg"
+          id: 13,
+          image: require("@/assets/template13.png")
         },
         {
           name: "Wedding",
+          stars: 5,
+          downloadNum: 10,
+          id: 14,
+          image: require("@/assets/template14.png")
+        },
+        {
+          name: "Birthday",
           stars: 5,
           downloadNum: 10,
           id: 15,
-          image: "../assets/second.png"
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 16,
-          image: "../assets/third.jpg"
+          image: require("@/assets/template15.png")
         },
         {
           name: "Dancing Lesson",
           stars: 5,
           downloadNum: 100,
-          id: 17,
-          image: "../assets/first.jpg"
+          id: 16,
+          image: require("@/assets/template16.png")
         },
         {
           name: "Wedding",
           stars: 5,
           downloadNum: 10,
-          id: 18,
-          image: "../assets/second.png"
+          id: 17,
+          image: require("@/assets/template17.png")
         },
         {
           name: "Birthday",
           stars: 5,
           downloadNum: 10,
-          id: 19,
-          image: "../assets/third.jpg"
+          id: 18,
+          image: require("@/assets/template18.png")
         }
       ]
       // template: this.$store.getters.getTemplatesForDisplay
@@ -200,12 +197,12 @@ body {
   position: relative;
   z-index: 0;
   margin-top: -145px;
-  height: 95vh;
+  height: 85vh;
   /* box-shadow: inset 0 0 0 100px rgba(36, 70, 105, 0.74); */
 }
 
 #banner::after {
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.34);
   content: "";
   display: block;
   position: absolute;

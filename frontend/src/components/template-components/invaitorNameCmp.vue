@@ -47,10 +47,5 @@ export default {
 </script>
 
 <style>
-.select-box-border {
-  border: 1px dashed black;
-}
-.invaitor-name{
-  width: 100%;
-}
+
 </style>
