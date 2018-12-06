@@ -1,23 +1,25 @@
 <template>
-  <section class="first-template full-page">
-    <div class="edit-template-section">
-      <div class="template-container" :style="userStyleBackground">
-        <div class="backgroun-frame">
-          <div class="card-container">
-            <!-- <component
+  <section class="full-page">
+    <div class="first-template height">
+      <div class="edit-template-section">
+        <div class="template-container" :style="userStyleBackground">
+          <div class="backgroun-frame">
+            <div class="card-container">
+              <!-- <component
               v-for="cmp in template.cmps"
               :key="cmp.id"
               :is="cmp.type"
               :data="cmp.data"
 
-            />-->
-            <div v-for="cmp in template.cmps" :key="cmp.id">
-              <div v-if="cmp.kind === 'text'" :style="cmp.data.css">
-                {{cmp.data.txt}}
-                <!-- <pre>{{cmp.data.css}}</pre> -->
-              </div>
-              <div v-if="cmp.kind ==='cmp'" :style="cmp.data.css">
-                <component :key="cmp.id" :is="cmp.type" :data="cmp.data"/>
+              />-->
+              <div v-for="cmp in template.cmps" :key="cmp.id">
+                <div v-if="cmp.kind === 'text'" :style="cmp.data.css">
+                  {{cmp.data.txt}}
+                  <!-- <pre>{{cmp.data.css}}</pre> -->
+                </div>
+                <div v-if="cmp.kind ==='cmp'" :style="cmp.data.css">
+                  <component :key="cmp.id" :is="cmp.type" :data="cmp.data"/>
+                </div>
               </div>
             </div>
           </div>
@@ -49,9 +51,10 @@ export default {
     };
   },
   created() {
-    templateService.query().then(res => {// check here//////////////////////////////////////////
-    console.log(res);
-    const currTemplate = res.find(temp => {
+    templateService.query().then(res => {
+      // check here//////////////////////////////////////////
+      console.log(res);
+      const currTemplate = res.find(temp => {
         console.log("templateService.query", temp);
         if (temp.id === "1p") return temp; // put event bus to get the type of template
       });
@@ -65,7 +68,7 @@ export default {
     eventTitle,
     shortDescription,
     day,
-   
+
     location,
     socialMedia,
     attending
@@ -76,10 +79,17 @@ export default {
 </script>
 
 <style>
-.full-page{
-    background-image: url('https://i.pinimg.com/564x/b4/38/9c/b4389cbe1b5fc601c8526d9896969fe0.jpg');
+.full-page {
+  background-image: url("https://i.pinimg.com/564x/b4/38/9c/b4389cbe1b5fc601c8526d9896969fe0.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
+.height{
+  height:85vh
+}
 </style>
  
  

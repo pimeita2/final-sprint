@@ -118,7 +118,8 @@ export default {
             fontWeight: {
               isBold: true,
               value: "bold"
-            }
+            },
+            minHeight:'170px'
           }
         }
       },

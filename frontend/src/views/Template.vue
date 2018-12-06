@@ -1,6 +1,6 @@
 <template>
   <section class="template">
-    <template-editor :currCmpPart="currCmpPart" @showEditor="showEditor"  ></template-editor>
+    <template-editor :currCmpPart="currCmpPart" @showEditor="showEditor" @publish="publish" @close="show=false"></template-editor>
     <edit-txt
       class="edit-toolbox"
       :currCmpPart="currCmpPart"
@@ -15,6 +15,7 @@
       @styleUpdate="styleUpdate"
     ></edit-bgc>
     <div class="spacenr"></div>
+    <publish-modal v-if="show" @publish="publish" :id="id"></publish-modal>
     <router-view @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"/>
   </section>
 </template>
@@ -23,18 +24,25 @@
 import TemplateEditor from "@/components/TemplateEditor.vue";
 import EditTxt from "@/components/edit-components/EditTxt.vue";
 import EditBgc from "@/components/edit-components/EditBkg.vue";
+import templateService from "@/services/templateService";
+import publishModal from '@/components/PublishModal.vue';
+
+
 export default {
   data() {
     return {
       currCmpPart: "",
       showTxtMenu: false,
-      showBgcMenu: false
+      showBgcMenu: false,
+      show: false,
+      id: '1p'
     };
   },
   components: {
     TemplateEditor,
     EditTxt,
-    EditBgc
+    EditBgc,
+    publishModal
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -53,7 +61,24 @@ export default {
       this.showTxtMenu = false;
       this.showBgcMenu = false;
     },
-   
+        publish() {
+      console.log('publish button has been clicked');
+      this.show = true;
+      templateService
+        .add({
+          id:'1p',
+          cmps: this.dynamicCmps,
+          base: {
+            name: "first"
+          },
+          name: "Puki's birrthday",
+          modified: Date.now(),
+          creatorId: "abc123"
+        })
+        .then(template =>
+          console.log("template was added successfully", template)
+        );
+    },
     styleUpdate({ field, css }) {
       console.log("in template editor", field, css);
       if (this.currCmpPart === "background") {

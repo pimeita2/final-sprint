@@ -8,14 +8,14 @@
           <span @click="$emit('close')" class="close" title="Close Modal">&times;</span>
           <h6>Your Invitation has been created successfully</h6>
           <p>link to your Invitation:</p>
-          <input type="text" v-model="this.url" class="url">
+          <div class="url-container">
+            <input type="text" v-model="this.url" class="url">
+            <router-link target="_blank"  to="/prv/1p">preview</router-link>
           <button @click="copyUrl()">Copy text</button>
+          </div>
+          
 
-          <router-link target="_blank"  to="/prv/1p">preview</router-link>
 
-          <!-- <uneditable-template  :template="template"></uneditable-template> -->
-          <button>Go back to Editting</button>
-          <button>More templates</button>
         </div>
       </div>
     </div>
@@ -31,14 +31,14 @@ export default {
     return {
       // show: false,
       template: {},
-      url:"http://localhost:8080/template/1"
+      url:"http://localhost:8080/prv/1p"
     };
   },
   created() {},
   methods: {
     copyUrl() {
  
-      document.querySelector('.url');
+      const copyTxt=document.querySelector('.url');
       copyTxt.select();
       document.execCommand("copy");
       // alert("Copied the text: " + copyTxt.value);
@@ -58,12 +58,21 @@ export default {
   height: 80%;
 }
 
-.content-modal {
-  padding: 20%;
+
+.inner h6{
+  font-size:40px;
+  padding: 20px;
+  font-family: Quicksand;
+}
+.inner p{
   font-size: 20px;
-  background-color: mediumturquoise;
 }
 
+.url-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .modal {
   display: block;
   position: fixed;
@@ -82,8 +91,10 @@ export default {
   background-color: #fefefe;
   margin: 5% auto 15% auto;
   border: 1px solid #888;
-  width: 40%;
+  width: 80%;
   /* height: 80%;; */
+  padding: 30px;
+  font-family: 25px;
 }
 
 .close {
@@ -101,9 +112,13 @@ export default {
   cursor: pointer;
 }
 .modal button {
-  background-color: #888;
-  border: 2px solid black;
-  margin: 10px;
+    padding: 10px;
+    background-color: lightgreen;
+    border: 2px solid lightgreen;
+    margin: 10px;
+    border-radius: 25px;
+    font-family: cursive;
+    letter-spacing: 1px;
 }
 
 .animate {

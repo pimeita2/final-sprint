@@ -16,13 +16,11 @@
           </div>
         </div>
       </div>
-    <button class="publish" @click="publish">Publish</button>
-    <publish-modal v-if="show" @close="show=false" :id="id"></publish-modal>
+
   </section>
 </template>
 
 <script>
-import publishModal from '@/components/PublishModal.vue';
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
@@ -30,17 +28,15 @@ import day from "@/components/template-components/DayCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
-import templateService from "@/services/templateService";
 
 export default {
   data() {
     return {
-      show: false,
-      id: '1p'
+      // show: false,
+      // id: '1p'
     };
   },
   components: {
-    publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
@@ -59,24 +55,8 @@ export default {
     connectToEditor() {
       this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
-    },
-    publish() {
-      this.show = true;
-      templateService
-        .add({
-          id:'1p',
-          cmps: this.dynamicCmps,
-          base: {
-            name: "first"
-          },
-          name: "Puki's birrthday",
-          modified: Date.now(),
-          creatorId: "abc123"
-        })
-        .then(template =>
-          console.log("template was added successfully", template)
-        );
     }
+  
   },
   computed: {
     dynamicCmps() {
