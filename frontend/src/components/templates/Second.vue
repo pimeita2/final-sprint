@@ -14,7 +14,7 @@
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
-    <publish-modal v-if="show" @close="show=false" :id="id"></publish-modal>
+    <publish-modal v-if="show" @close="this.show=false" :id="id"></publish-modal>
   </section>
 </template>
 

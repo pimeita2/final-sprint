@@ -14,6 +14,7 @@
           />
         </div>
       </div>
+    </div>
   </section>
 </template>
 
@@ -213,10 +214,5 @@ export default {
 </script>
 
 <style lang="scss">
-.card-container:hover {
-  input,
-  textarea {
-    // outline: 0.8px dashed black;
-  }
-}
+
 </style>

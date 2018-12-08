@@ -5,7 +5,7 @@
       class="event-name"
       v-model="data.txt"
       :style="data.css"
-      @click="connectToEditor()"
+      @click.stop="connectToEditor()"
       @input="updateEventName($event, id)"
       :class="{'select-box-border': isOnEdit}"
       @focus="updateEditStatus"

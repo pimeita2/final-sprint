@@ -16,9 +16,4 @@
   
 
 
-       <ourWedding
-            @connectToCmpPart="connectToCmpPart"
-            @showEditor="showEditor"
-            :data="dynamicCmps[0].data"
-          ></ourWedding>
-         <invitorsCmp></invitorsCmp
+    

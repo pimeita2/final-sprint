@@ -8,7 +8,7 @@
         v-model="data.txt"
         :class="{'select-box-border': isSelected}"
         :style="data.css"
-        @click="connectToEditor()"
+        @click.stop="connectToEditor()"
         @focusout="isSelected = false"
         @input="updateInvaitorName($event, id)"
       >

@@ -6,7 +6,7 @@
         placeholder="12.05.2018"
         :config="{ dateFormat: 'd-m-Y', static: true }"
         v-model="data.txt.day"
-        @click="connectToEditor()"
+        @click.stop="connectToEditor()"
         :style="{color: data.css.color,
               textAlign:data.css.textAlign,
               fontFamily:data.css.fontFamily,
@@ -20,7 +20,7 @@
         v-model="data.txt.time"
         placeholder="12:00"
         maxlength="5"
-        @click="connectToEditor('hour')"
+        @click.stop="connectToEditor('hour')"
         class="time-input"
         :style="{color: data.css.color,
               textAlign:data.css.textAlign,
