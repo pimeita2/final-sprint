@@ -45,6 +45,7 @@ export default {
       this.$refs.fileInput.click();
     },
     onFilePicked(event) {
+      // console.log(this.$refs.fileInput)
       uploadImg(this.$refs.fileInput)
         .then(url=>{
           console.log('url',url);
