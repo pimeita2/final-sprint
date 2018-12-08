@@ -2,7 +2,7 @@
   <li>
     <div class="container-template">
       <a :href="idAddress">      
-      <img class="img-div" :src="this.template.image" alt="loading img...">
+      <img class="img-div" :src='template.image' alt="loading img...">
       </a>
       <!-- <div class="img-div" ></div> -->
       <!-- {{template.image.backgroundImage}} -->

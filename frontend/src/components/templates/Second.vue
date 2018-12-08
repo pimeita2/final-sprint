@@ -26,8 +26,8 @@ import shortDescription from "@/components/template-components/ShortDescriptionC
 import day from "@/components/template-components/DayCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import templateService from "@/services/templateService";
-import  mapCmp from "@/components/template-components/MapCmp.vue"
-import countClock from "@/components/template-components/CountClock.vue"
+import mapCmp from "@/components/template-components/MapCmp.vue";
+import countClock from "@/components/template-components/CountClock.vue";
 export default {
   data() {
     return {
@@ -44,7 +44,6 @@ export default {
     location,
     mapCmp,
     countClock
- 
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -114,12 +113,12 @@ export default {
             color: "white",
             textAlign: "center",
             fontFamily: "Charmonman",
-            fontSize: 70+"px",
+            fontSize: 70 + "px",
             fontWeight: {
               isBold: true,
               value: "bold"
             },
-            minHeight:'170px'
+            minHeight: "170px"
           }
         }
       },
@@ -162,13 +161,13 @@ export default {
           }
         }
       },
-         {
+      {
         id: "5",
         kind: "cmp",
         type: "countClock",
         isEdit: true,
         data: {
-          date:"2019-07-06 08:15:00",
+          date: "2019-07-06 08:15:00",
           css: {
             color: "black",
             textAlign: "center",
@@ -200,18 +199,16 @@ export default {
           }
         }
       },
-        {
+      {
         id: "7",
         kind: "cmp",
-        type: "map",
+        type: "mapCmp",
         isEdit: true,
         data: {
-          txt: "Nezer Sireni, Tel-Aviv",
-          css: {
-            color: "white",
-           width:'80%',
-           height:'150px'
-          }
+          markers: [],
+          places: [],
+          currentPlace: null,
+          center: { lat: 45.508, lng: -73.587 }
         }
       }
       // {
@@ -224,7 +221,8 @@ export default {
     ];
     const general = {
       backgroundImage:
-        'url("https://images.pexels.com/photos/3880/couple-love-romantic-silhouette.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")'
+        'url("https://images.pexels.com/photos/3880/couple-love-romantic-silhouette.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
+      backgroundPosition:'center'
     };
     this.$store.dispatch({
       type: "setCurrTemplate",

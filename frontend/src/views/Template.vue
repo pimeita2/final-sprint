@@ -1,6 +1,6 @@
 <template>
   <section class="template">
-    <template-editor :currCmpPart="currCmpPart" @showEditor="showEditor" @publish="publish" @close="show=false"></template-editor>
+    <template-editor :currCmpPart="currCmpPart" @showEditor="showEditor" @publish="publish"></template-editor>
     <edit-txt
       class="edit-toolbox"
       :currCmpPart="currCmpPart"
@@ -14,8 +14,14 @@
       @closeEditor="closeEditor"
       @styleUpdate="styleUpdate"
     ></edit-bgc>
+    <edit-map
+      class="edit-toolbox"
+      v-if="showMapMenu"
+      @closeEditor="closeEditor"
+      @mapUpdate="mapUpdate"
+    ></edit-map>
     <div class="spacenr"></div>
-    <publish-modal v-if="show" @publish="publish" :id="id"></publish-modal>
+    <publish-modal v-if="show" :id="id" @close="close"></publish-modal>
     <router-view @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"/>
   </section>
 </template>
@@ -25,24 +31,33 @@ import TemplateEditor from "@/components/TemplateEditor.vue";
 import EditTxt from "@/components/edit-components/EditTxt.vue";
 import EditBgc from "@/components/edit-components/EditBkg.vue";
 import templateService from "@/services/templateService";
-import publishModal from '@/components/PublishModal.vue';
-
-
+import publishModal from "@/components/PublishModal.vue";
+import EditMap from "@/components/edit-components/EditMap.vue";
 export default {
   data() {
     return {
-      currCmpPart: "",
+      currCmpPart: "", // it is id!!!!!!!!!!!!!!!!!!!
       showTxtMenu: false,
       showBgcMenu: false,
+      showMapMenu: false,
       show: false,
-      id: '1p'
+      id: "1p" // general id
     };
   },
   components: {
     TemplateEditor,
     EditTxt,
     EditBgc,
-    publishModal
+    publishModal,
+    EditMap
+  },
+  computed: {
+    dynamicCmps() {
+      return this.$store.getters.dynamicCmps;
+    },
+    generalStyle() {
+      return this.$store.getters.generalStyle;
+    }
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -52,22 +67,32 @@ export default {
       if (cmp.kind === "text") {
         this.showTxtMenu = true;
         this.showBgcMenu = false;
+        this.showMapMenu = false;
       } else if (cmp.kind === "background") {
         this.showBgcMenu = true;
         this.showTxtMenu = false;
+        this.showMapMenu = false;
+      } else if (cmp.kind === "map") {
+        this.showBgcMenu = false;
+        this.showTxtMenu = false;
+        this.showMapMenu = true;
       }
     },
     closeEditor() {
       this.showTxtMenu = false;
-      this.$store.dispatch('removeEditingFrame')
+      this.$store.dispatch("removeEditingFrame");
       this.showBgcMenu = false;
     },
-        publish() {
-      console.log('publish button has been clicked');
+    close() {
+      this.show = false;
+      console.log("in template close modal");
+    },
+    publish() {
+      console.log("publish button has been clicked");
       this.show = true;
       templateService
         .add({
-          id:'1p',
+          id: "1p",
           cmps: this.dynamicCmps,
           base: {
             name: "first"
@@ -80,9 +105,18 @@ export default {
           console.log("template was added successfully", template)
         );
     },
+    mapUpdate({ field, data }) {
+      this.$store.dispatch({
+        type: "setUserMap",
+        field,
+        data,
+        currCmpPart: this.currCmpPart
+      });
+    },
     styleUpdate({ field, css }) {
       console.log("in template editor", field, css);
-      if (this.currCmpPart !== "text" && this.currCmpPart !== "cmp" ) {
+      if (this.currCmpPart !== "text" && this.currCmpPart !== "cmp") {
+        // it is id now!! so how works?
         this.$store.dispatch({
           type: "setGenralStyle",
           field,

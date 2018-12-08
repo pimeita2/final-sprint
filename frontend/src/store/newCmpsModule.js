@@ -14,6 +14,12 @@ export default {
             cmp.data.css[field] = css[field]; 
             console.log(cmp);
         },
+        setMap(state, { field, data, currCmpPart }) {
+            console.log('setMap', field, data, currCmpPart);
+            const cmp = state.templateCmps.find(cmp => cmp.id === currCmpPart)
+            cmp.data = data; 
+            console.log(cmp);
+        },
         setGenralStyle(state, { field, css }) {
             console.log(' setGenralStyle', field, css);
             state.generalStyle = css;
@@ -44,6 +50,9 @@ export default {
         setGenralStyle(context, { field, css }) {
             context.commit({ type: 'setGenralStyle', field, css })
         },
+        setUserMap(context, {field, data, currCmpPart}){
+            context.commit({ type: 'setMap', field, data,  currCmpPart})
+        },
         removeEditingFrame(context){
             context.commit({type: 'removeEditingFrame'})
         },
@@ -55,7 +64,7 @@ export default {
         },
         changeEditingStatus(context, { id }) {
             context.commit({ type: 'changecurrenEditing', id })
-        },
+        }
     },
     getters: {
         dynamicCmps: state => state.templateCmps,

@@ -1,6 +1,7 @@
 <template>
   <section class="template-editor-section">
-    <div class="editor-publish-section" @click="publish"><!-- change classes-->
+    <div class="editor-publish-section" @click="publish">
+      <!-- change classes-->
       <!-- <p class="icon-bkground-editor">&#x25A7;</p> -->
       <h4 class="h4-Publish-editor">Publish</h4>
     </div>
@@ -89,18 +90,16 @@ export default {
     closeEdit() {
       this.$emit("closeEditor");
     },
-    publish(){
-      console.log('clicked publish');
+    publish() {
+      console.log("clicked publish");
       this.$emit("publish");
-    },
     }
- 
   }
+};
 
-  //  connectToEditor() {
-  //   this.$emit("showEditor", { kind: "background" });
-  // },
-
+//  connectToEditor() {
+//   this.$emit("showEditor", { kind: "background" });
+// },
 </script>
 
 <style>
@@ -139,13 +138,13 @@ hr {
   font-family: "Acme";
 }
 
-.h4-Publish-editor{
-  margin-top:5px;
+.h4-Publish-editor {
+  margin-top: 5px;
   font-size: 20px;
-  color:white;
+  color: white;
 }
-.h4-Publish-editor:hover{
-  color:yellowgreen;
+.h4-Publish-editor:hover {
+  color: yellowgreen;
 }
 
 .editor-bckground-section:hover,
