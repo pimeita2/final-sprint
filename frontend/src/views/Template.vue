@@ -82,7 +82,7 @@ export default {
     },
     styleUpdate({ field, css }) {
       console.log("in template editor", field, css);
-      if (this.currCmpPart === "background") {
+      if (this.currCmpPart !== "text" && this.currCmpPart !== "cmp" ) {
         this.$store.dispatch({
           type: "setGenralStyle",
           field,

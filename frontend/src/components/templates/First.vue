@@ -1,7 +1,7 @@
 <template>
   <section class="first-template">
-    <div class="template-container" :style="generalStyle" @click="connectToEditor()">
-      <div class="backgroun-frame" @click="connectToEditor()">
+    <div class="template-container" :style="generalStyle" >
+      <div class="backgroun-frame">
         <div class="card-container">
           <component
             @connectToCmpPart="connectToCmpPart"
@@ -143,27 +143,27 @@ export default {
           }
         }
       },
+      // {
+      //   id: '4',
+      //   kind: "text",
+      //   type: "hour",
+      //   isEdit: true,
+      //   data: {
+      //     txt: "00:30",
+      //     css: {
+      //       color: "black",
+      //       textAlign: "center",
+      //       fontWeight: {
+      //         isBold: false,
+      //         value: "normal"
+      //       },
+      //       fontFamily: "Satisfy",
+      //       fontSize: 18 + "px"
+      //     }
+      //   }
+      // },
       {
         id: '4',
-        kind: "text",
-        type: "hour",
-        isEdit: true,
-        data: {
-          txt: "00:30",
-          css: {
-            color: "black",
-            textAlign: "center",
-            fontWeight: {
-              isBold: false,
-              value: "normal"
-            },
-            fontFamily: "Satisfy",
-            fontSize: 18 + "px"
-          }
-        }
-      },
-      {
-        id: '5',
         kind: "text",
         type: "location",
         isEdit: true,
@@ -182,14 +182,14 @@ export default {
         }
       },
       {
-        id: '6',
+        id: '5',
         kind: "cmp",
         type: "attending",
         isEdit: true,
         data: {}
       },
       {
-        id: '7',
+        id: '6',
         kind: "cmp",
         type: "socialMedia",
         isEdit: true,

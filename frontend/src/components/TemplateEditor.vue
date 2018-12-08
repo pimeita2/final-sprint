@@ -1,8 +1,8 @@
 <template>
   <section class="template-editor-section">
-    <div class="editor-bckground-section" @click="publish"><!-- change classes-->
+    <div class="editor-publish-section" @click="publish"><!-- change classes-->
       <!-- <p class="icon-bkground-editor">&#x25A7;</p> -->
-      <h4 class="h4-bkground-editor">Publish</h4>
+      <h4 class="h4-Publish-editor">Publish</h4>
     </div>
     <hr>
     <div class="editor-bckground-section" @click="showEditor">
@@ -36,7 +36,7 @@
 
     <div class="editor-uploadMap-section">
       <i class="fas fa-map-marked-alt"></i>
-      <h4 class="h4-uploadMap-editor">Upload Map</h4>
+      <h4 class="h4-uploadMap-editor">Add Map</h4>
     </div>
     <hr>
 
@@ -132,10 +132,20 @@ hr {
 .editor-socialMedia-section,
 .editor-uploadImg-section,
 .editor-uploadMap-section,
-.editor-home-section {
+.editor-home-section,
+.editor-publish-section {
   padding-bottom: 10px;
   cursor: pointer;
   font-family: "Acme";
+}
+
+.h4-Publish-editor{
+  margin-top:5px;
+  font-size: 20px;
+  color:white;
+}
+.h4-Publish-editor:hover{
+  color:yellowgreen;
 }
 
 .editor-bckground-section:hover,
