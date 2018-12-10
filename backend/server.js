@@ -18,6 +18,8 @@ const addTemplateRoutes = require('./routes/templateRoutes')
 addTemplateRoutes(app);
 const addUserRoutes = require('./routes/userRoutes')
 addUserRoutes(app);
+const addInviteRoutes = require('./routes/inviteRoutes')
+addInviteRoutes(app);
 
 // app.post('/singup', (req, res) => {
 //     const nickname = req.body.nickname
