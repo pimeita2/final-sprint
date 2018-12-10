@@ -57,7 +57,8 @@ export default {
       // console.log("handleAlignment", align);
       this.$emit("styleTextUpdate", {
         field: "textAlign",
-        css: { textAlign: align }
+        css: { textAlign: align },
+        kind: "text"
       });
     },
     handleFont(event) {
@@ -65,7 +66,8 @@ export default {
       // console.log("font chosen", fontSelected);
       this.$emit("styleTextUpdate", {
         field: "fontFamily",
-        css: { fontFamily: fontSelected }
+        css: { fontFamily: fontSelected },
+        kind: "text"
       });
     },
     handleSize(sizeChange) {
@@ -79,7 +81,8 @@ export default {
       const newFontSize = numb + sizeChange;
       this.$emit("styleTextUpdate", {
         field: "fontSize",
-        css: { fontSize: newFontSize + "px" }
+        css: { fontSize: newFontSize + "px" },
+        kind: "text"
       });
     },
     handleColor(event) {
@@ -87,7 +90,8 @@ export default {
       this.color = event.target.value;
       this.$emit("styleTextUpdate", {
         field: "color",
-        css: { color: this.color }
+        css: { color: this.color },
+        kind: "text"
       });
     },
     handleBold() {
@@ -97,7 +101,8 @@ export default {
       else weight = "normal";
       this.$emit("styleTextUpdate", {
         field: "fontWeight",
-        css: { fontWeight: weight }
+        css: { fontWeight: weight },
+        kind: "text"
       });
     }
   },

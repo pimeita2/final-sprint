@@ -9,6 +9,7 @@
       @focus="updateEditStatus"
       @input="updateShortDescription($event, id)"
     >
+     <button class="delete-cmp" :class="{'delete-cmp-show':isOnEdit}" @click="deleteCmp"><i class="far fa-trash-alt"></i></button>
   </section>
 </template>
 <script>
@@ -25,7 +26,9 @@ export default {
       isSelected: false
     };
   },
-  created() {},
+  created() {
+    console.log(this.id);
+  },
   methods: {
     connectToEditor() {
       this.isSelected = true;
@@ -39,6 +42,9 @@ export default {
     },
     updateEditStatus() {
       this.$store.dispatch("changeEditingStatus", { id: this.id });
+    },
+     deleteCmp(){
+      this.$emit("deleteCmp",this.id);
     }
   },
   computed: {

@@ -1,12 +1,9 @@
 <template>
   <section class="third-template">
     <div class="edit-template-third-section">
-      <div class="template-third-container" :style="userStyleBackground" @click="connectToEditor">
-          
-        <div @click="connectToEditor" >
-          <div class="card-third-container" @click.stop >
-            
-           
+      <div class="template-third-container" :style="generalStyle">
+          <div class="card-third-container" >
+           <draggable>
             <component
               @connectToCmpPart="connectToCmpPart"
               @showEditor="showEditor"
@@ -15,14 +12,12 @@
               :id="cmp.id"
               :is="cmp.type"
               :data="cmp.data"
+              @deleteCmp="deleteCmpPart"
             />
+            </draggable>
             </div>
-          </div>
-        
         </div>
       </div>
-   
-
     <button class="publish" @click="publish">Publish</button>
     <publish-modal v-if="show" @close="show=false" :type="type"></publish-modal>
   </section>
@@ -39,6 +34,7 @@ import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
 import templateService from "@/services/templateService";
+import draggable from "vuedraggable";
 
 export default {
   data() {
@@ -57,7 +53,8 @@ export default {
     location,
     socialMedia,
     attending,
-    templateService
+    templateService,
+    draggable
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -86,6 +83,18 @@ export default {
         .then(template =>
           console.log("template was added successfully", template)
         );
+    },
+      deleteCmpPart(cmpId){
+      // get the cmps of template
+      let cmps = this.$store.getters.dynamicCmps;
+      console.log(cmps);
+ 
+      cmps = cmps.filter(cmp => cmp.id !== cmpId );
+      console.log(cmps);
+      this.$store.dispatch({
+        type: "setCurrTemplate",
+        tmpData: cmps
+      });
     }
   },
   computed: {
@@ -95,12 +104,15 @@ export default {
     // },
     dynamicCmps() {
       return this.$store.getters.dynamicCmps;
-    }
+    },
+      generalStyle() {
+      return this.$store.getters.generalStyle;
+    },
   },
   created() {
-    const third = [
+    const cmps = [
       {
-        id: 0,
+        id: "0",
         kind: "text",
         type: "invaitorName",
         isEdit: true,
@@ -121,7 +133,7 @@ export default {
         }
       },
              {
-        id: 1,
+        id: "1",
         kind: "text",
         type: "shortDescription",
         isEdit: true,
@@ -146,7 +158,7 @@ export default {
         }
       },     
             {
-        id: 2,
+        id: "2",
         kind: "text",
         type: "eventTitle",
         isEdit: true,
@@ -196,7 +208,7 @@ export default {
       },
     
       {
-        id: 4,
+        id: "4",
         kind: "text",
         type: "location",
         isEdit: true,
@@ -219,35 +231,28 @@ export default {
         }
       },
       {
-        id: 5,
+        id: "5",
         kind: "cmp",
         type: "attending",
         isEdit: true,
         data: {
           css:{
             padding:"",
-            // margin:47+"px",
             marginTop:47+"px",
           }
         }
       },
-      {
-        id: 7,
-        kind: "background",
-        type: "template",
-        kind: "other",
-        data: {
-          css: {
-            backgroundColor: "",
-            backgroundImage: ``,
-          }
-        }
-      }
+   
     ];
+      const general = {
+      backgroundColor: "",
 
+    };
     this.$store.dispatch({
       type: "setCurrTemplate",
-      tmpData: third
+      tmpData: cmps,
+      general
+
     });
   }
 };

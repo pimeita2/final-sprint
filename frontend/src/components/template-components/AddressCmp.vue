@@ -10,7 +10,9 @@
         :class="{'select-box-border': isOnEdit}"
         @focus="updateEditStatus"
       >
+     
     </div>
+      <button class="delete-cmp" :class="{'delete-cmp-show':isOnEdit}" @click="deleteCmp"><i class="far fa-trash-alt"></i></button>
   </section>
 </template>
 
@@ -25,7 +27,7 @@ export default {
   },
   methods: {
     connectToEditor() {
-      this.isSelected = true;
+    
       // console.log("in connect to editor", cmpPart);
       this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "text" });
@@ -37,6 +39,9 @@ export default {
     },
     updateEditStatus() {
       this.$store.dispatch("changeEditingStatus", { id: this.id });
+    },
+    deleteCmp(){
+      this.$emit("deleteCmp",this.id);
     }
   },
   computed: {
@@ -45,7 +50,7 @@ export default {
     },
     showEditPossible() {
       var canBeEdit = this.$store.getters.possibleEditing;
-      console.log("hover 4" , canBeEdit);
+      // console.log("hover 4" , canBeEdit);
       if (canBeEdit) {
         isOnEdit() === true;
       }
@@ -58,4 +63,5 @@ export default {
 .address {
   width: 100%;
 }
+
 </style>

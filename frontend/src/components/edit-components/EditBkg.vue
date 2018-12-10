@@ -56,28 +56,7 @@ export default {
         }); 
     });
     },
-
-
-
-      // const files = event.target.files;
-      // let filename = files[0].name;
-      // console.log('files', files)
-      // if (filename.lastIndexOf(".") <= 0) {
-      //   return alert("please add a valid file!");
-      // }
-      // const fileReader = new FileReader();
-      // fileReader.addEventListener("load", () => {
-      //   this.imageUrl = fileReader.result;
-      //   console.log('resalt', this.imageUrl)
-      //   this.$emit("styleUpdate", {
-      //     field: "background",
-      //     css: { background: "url('" + this.imageUrl + "')" }
-      //   });
-      // });
-      // fileReader.readAsDataURL(files[0]);
-      // this.image = files[0];
-      // // console.log('this.imageUrl:' , this.image)
-    
+   
         closeEdit() {
       this.$emit('closeEditor');
     }

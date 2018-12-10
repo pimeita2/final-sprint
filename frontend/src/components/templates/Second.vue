@@ -2,6 +2,7 @@
   <section class="second-template">
     <div class="second-template-container" :style="generalStyle" @click="connectToEditor()">
       <div class="second-card-container" @click.stop>
+        <draggable>
         <component
           @connectToCmpPart="connectToCmpPart"
           @showEditor="showEditor"
@@ -10,7 +11,9 @@
           :is="cmp.type"
           :id="cmp.id"
           :data="cmp.data"
+          @deleteCmp="deleteCmpPart"
         />
+        </draggable>
       </div>
     </div>
     <button class="publish" @click="publish">Publish</button>
@@ -26,8 +29,9 @@ import shortDescription from "@/components/template-components/ShortDescriptionC
 import day from "@/components/template-components/DayCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import templateService from "@/services/templateService";
-import  mapCmp from "@/components/template-components/MapCmp.vue"
-import countClock from "@/components/template-components/CountClock.vue"
+import  mapCmp from "@/components/template-components/MapCmp.vue";
+import countClock from "@/components/template-components/CountClock.vue";
+import draggable from "vuedraggable";
 export default {
   data() {
     return {
@@ -43,7 +47,8 @@ export default {
     day,
     location,
     mapCmp,
-    countClock
+    countClock,
+    draggable
  
   },
   methods: {
@@ -73,6 +78,18 @@ export default {
         .then(template =>
           console.log("template was added successfully", template)
         );
+    },
+      deleteCmpPart(cmpId){
+      // get the cmps of template
+      let cmps = this.$store.getters.dynamicCmps;
+      console.log(cmps);
+ 
+      cmps = cmps.filter(cmp => cmp.id !== cmpId );
+      console.log(cmps);
+      this.$store.dispatch({
+        type: "setCurrTemplate",
+        tmpData: cmps
+      });
     }
   },
   computed: {

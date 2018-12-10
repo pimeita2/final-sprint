@@ -21,6 +21,7 @@
     <input class="input is-small guests-mobile" type="text" placeholder="mobile number" required>
     <br>
     <button class="button is-primary">Submit</button>
+    
   </section>
 </template>
 

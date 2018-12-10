@@ -39,6 +39,7 @@ export default {
     },
     actions: {
         setUserStyleOfCmp(context, { field, css, currCmpPart }) {
+            // console.log('field: ', field, 'css: ', css , 'currCmpPart: ', currCmpPart)
             context.commit({ type: 'setUserStyle', field, css, currCmpPart })
         },
         setGenralStyle(context, { field, css }) {

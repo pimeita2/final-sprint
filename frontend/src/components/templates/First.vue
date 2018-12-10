@@ -3,6 +3,7 @@
     <div class="template-container" :style="generalStyle" >
       <div class="backgroun-frame">
         <div class="card-container">
+          <draggable>
           <component
             @connectToCmpPart="connectToCmpPart"
             @showEditor="showEditor"
@@ -11,7 +12,9 @@
             :is="cmp.type"
             :id="cmp.id"
             :data="cmp.data"
+            @deleteCmp="deleteCmpPart"
           />
+          </draggable>
         </div>
       </div>
       </div>
@@ -26,6 +29,7 @@ import day from "@/components/template-components/DayCmp.vue";
 import location from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
+import draggable from "vuedraggable";
 
 export default {
   data() {
@@ -41,7 +45,8 @@ export default {
     day,
     location,
     socialMedia,
-    attending
+    attending,
+    draggable
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -53,6 +58,18 @@ export default {
     connectToEditor() {
       this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
+    },
+    deleteCmpPart(cmpId){
+      // get the cmps of template
+      let cmps = this.$store.getters.dynamicCmps;
+      console.log(cmps);
+ 
+      cmps = cmps.filter(cmp => cmp.id !== cmpId );
+      console.log(cmps);
+      this.$store.dispatch({
+        type: "setCurrTemplate",
+        tmpData: cmps
+      });
     }
   
   },
@@ -67,7 +84,7 @@ export default {
     },
   },
   created() {
-    const cmps = [
+    let cmps = [
       {
         id: '0',
         kind: "text",
@@ -214,10 +231,10 @@ export default {
 </script>
 
 <style lang="scss">
-.card-container:hover {
-  input,
-  textarea {
-    // outline: 0.8px dashed black;
-  }
-}
+// .card-container:hover {
+//   input,
+//   textarea {
+//     // outline: 0.8px dashed black;
+//   }
+// }
 </style>

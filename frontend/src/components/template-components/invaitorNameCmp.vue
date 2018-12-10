@@ -9,6 +9,7 @@
       :class="{'select-box-border': isOnEdit}"
       @focus="updateEditStatus"   
     >
+     <button class="delete-cmp" :class="{'delete-cmp-show':isOnEdit}" @click="deleteCmp"><i class="far fa-trash-alt"></i></button>
   </section>
 </template>
 <script>
@@ -35,6 +36,9 @@ export default {
     },
     updateEditStatus() {
       this.$store.dispatch("changeEditingStatus", { id: this.id });
+    },
+      deleteCmp(){
+      this.$emit("deleteCmp",this.id);
     }
   },
   computed: {

@@ -80,9 +80,10 @@ export default {
           console.log("template was added successfully", template)
         );
     },
-    styleUpdate({ field, css }) {
-      console.log("in template editor", field, css);
-      if (this.currCmpPart !== "text" && this.currCmpPart !== "cmp" ) {
+    styleUpdate({ field, css, kind }) {
+      // console.log("in template editor ", field, css);
+      // console.log("the cmp is ->> ", this.currCmpPart);
+      if (kind !== "text" && kind !== "cmp" ) {
         this.$store.dispatch({
           type: "setGenralStyle",
           field,
