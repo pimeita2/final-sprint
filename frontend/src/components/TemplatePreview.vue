@@ -1,9 +1,10 @@
 <template>
   <li>
-    <div class="container-template">
-      <a :href="idAddress">      
-      <img class="img-div" :src='template.image' alt="loading img...">
-      </a>
+  
+    <div class="container-template" >
+      <router-link :to="`invite/${template._id}`">      
+      <img class="img-div" :src="templateImg" alt="loading img...">
+      </router-link>
       <!-- <div class="img-div" ></div> -->
       <!-- {{template.image.backgroundImage}} -->
       
@@ -13,7 +14,8 @@
         <template-star class="stars-rate" :score="template.stars"></template-star>
         <h5 class="template-download">{{template.downloadNum}}</h5>
       </div>
-    </div>
+    </div>  
+        
   </li>
 </template>
 
@@ -22,19 +24,18 @@ import templateStar from "@/components/TemplateStar.vue";
 
 export default {
   name: "templatePrev",
-  props: ["template"],
+  props: ["template", "index"],
   components: {
     templateStar
   },
   data(){
     return{
-      idAddress: `template/${this.template.id}`
+      idAddress: `template/${this.template.id}`,
     }
   },
   computed:{
-    templatesImgs(){
-      console.log('imges back', this.template.image )
-      return `"${this.template.image}"`
+    templateImg(){
+      return require(`../assets/template${this.index}.png`);
     }
   }
 };

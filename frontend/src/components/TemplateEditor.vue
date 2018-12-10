@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     styleUpdate({ field, css }) {
-      // console.log("in template editor", field, css);
+      console.log("in template editor", field, css);
       this.$store.dispatch({
         type: "setUserStyleOfCmp",
         field,

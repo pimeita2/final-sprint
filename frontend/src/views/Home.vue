@@ -18,6 +18,7 @@
       <section class="templates">
         <div class="templates-container">
           <filter-list></filter-list>
+
           <templateList :templates="templates"></templateList>
         </div>
       </section>
@@ -47,9 +48,15 @@ export default {
   },
   computed: {},
   created(){
+    console.log('created');
    templateService.query()
    .then(res=>{
+     console.log(res);
      this.templates=res;
+     console.log(this,templates);
+   })
+   .catch(err=>{
+     console.log('err', err);
    })
   },
   data() {

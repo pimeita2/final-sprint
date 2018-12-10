@@ -22,7 +22,7 @@
     ></edit-map>
     <div class="spacenr"></div>
     <publish-modal v-if="show" :id="id" @close="close"></publish-modal>
-    <router-view @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"/>
+    <general-template @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"></general-template>
   </section>
 </template>
 
@@ -33,6 +33,7 @@ import EditBgc from "@/components/edit-components/EditBkg.vue";
 import templateService from "@/services/templateService";
 import publishModal from "@/components/PublishModal.vue";
 import EditMap from "@/components/edit-components/EditMap.vue";
+import GeneralTemplate from "@/components/templates/GeneralTemplate.vue"
 export default {
   data() {
     return {
@@ -49,7 +50,8 @@ export default {
     EditTxt,
     EditBgc,
     publishModal,
-    EditMap
+    EditMap,
+   GeneralTemplate
   },
   computed: {
     dynamicCmps() {
@@ -114,9 +116,8 @@ export default {
       });
     },
     styleUpdate({ field, css }) {
-      console.log("in template editor", field, css);
-      if (this.currCmpPart !== "text" && this.currCmpPart !== "cmp") {
-        // it is id now!! so how works?
+      console.log("in template ", field, css);
+      if (this.kind==="background") {
         this.$store.dispatch({
           type: "setGenralStyle",
           field,

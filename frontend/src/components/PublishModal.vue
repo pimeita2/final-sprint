@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import uneditableTemplate from "@/components/templates/UneditableTemplate.vue";
 import templateService from "../services/templateService.js";
 export default {
   props: ["type"],
@@ -49,7 +48,6 @@ export default {
     }
   },
   components: {
-    uneditableTemplate
   }
 };
 </script>

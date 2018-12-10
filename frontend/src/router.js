@@ -7,7 +7,7 @@ import First from './components/templates/First.vue'
 import Second from './components/templates/Second.vue'
 import FirstPreview from './components/templates/FirstPreview.vue'
 import Third from './components/templates/Third.vue'
-
+import GeneralTemplate from './components/templates/GeneralTemplate.vue'
 // import Second from './components/templates/Second.vue'
 // import Third from './components/templates/Third.vue'
 
@@ -25,50 +25,14 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: About
     },
-    // {
-    //   path: '/login',
-    //   name: 'login',
-    //   component: () => import('./views/Login.vue')
-    // },
     {
-      path: '/prv/1p',
-      name: 'FirstPreview',
-      component:FirstPreview
-    },
-    {
-      path: '/template',
+      path: '/invite/:id',
       name: 'template',
-      component: Template,
-      children: [
-        {
-          path: '1',
-          name:'First',
-          component: First
-        },
-        {
-          path: '2',
-          name:'second',
-          component: Second
-        },
-     
-        // {
-        //   path: '2',
-        //   name:'Second',
-        //   component: Second
-        // },
-        {
-          path: '3',
-          name:'Third',
-          component: Third
-        },
-
-      ]
+      component: Template,// it is the editor+invite page
     },
+  
     {
       path: '/contact',
       name: 'contact',
