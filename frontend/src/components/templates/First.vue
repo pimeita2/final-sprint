@@ -1,6 +1,6 @@
 <template>
   <section class="first-template">
-    <div class="template-container" :style="generalStyle" >
+    <div class="template-container-first" :style="generalStyle" >
       <div class="backgroun-frame">
         <div class="card-container">
           <draggable>
@@ -17,7 +17,7 @@
           </draggable>
         </div>
       </div>
-      </div>
+    </div>
   </section>
 </template>
 

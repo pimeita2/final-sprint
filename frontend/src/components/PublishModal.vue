@@ -5,7 +5,7 @@
     <div class="modal">
       <div class="modal-content animate" action>
         <div class="inner" style="padding:20%, width:100%">
-          <span @click="$emit('close')" class="close" title="Close Modal">&times;</span>
+          <span @click="close" class="close" title="Close Modal">&times;</span>
           <h6>Your Invitation has been created successfully</h6>
           <p>link to your Invitation:</p>
           <div class="url-container">
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import uneditableTemplate from "@/components/templates/UneditableTemplate.vue";
 import templateService from "../services/templateService.js";
 export default {
   props: ["type"],
@@ -42,10 +41,13 @@ export default {
       copyTxt.select();
       document.execCommand("copy");
       // alert("Copied the text: " + copyTxt.value);
+    },
+    close(){
+      console.log('in publish modal clicked x');
+      this.$emit("close");
     }
   },
   components: {
-    uneditableTemplate
   }
 };
 </script>

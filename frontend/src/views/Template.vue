@@ -1,6 +1,6 @@
 <template>
   <section class="template">
-    <template-editor :currCmpPart="currCmpPart" @showEditor="showEditor" @publish="publish" @close="show=false"></template-editor>
+    <template-editor :currCmpPart="currCmpPart" @showEditor="showEditor" @publish="publish"></template-editor>
     <edit-txt
       class="edit-toolbox"
       :currCmpPart="currCmpPart"
@@ -14,9 +14,15 @@
       @closeEditor="closeEditor"
       @styleUpdate="styleUpdate"
     ></edit-bgc>
+    <edit-map
+      class="edit-toolbox"
+      v-if="showMapMenu"
+      @closeEditor="closeEditor"
+      @mapUpdate="mapUpdate"
+    ></edit-map>
     <div class="spacenr"></div>
-    <publish-modal v-if="show" @publish="publish" :id="id"></publish-modal>
-    <router-view @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"/>
+    <publish-modal v-if="show" :id="id" @close="close"></publish-modal>
+    <general-template @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"></general-template>
   </section>
 </template>
 
@@ -25,24 +31,35 @@ import TemplateEditor from "@/components/TemplateEditor.vue";
 import EditTxt from "@/components/edit-components/EditTxt.vue";
 import EditBgc from "@/components/edit-components/EditBkg.vue";
 import templateService from "@/services/templateService";
-import publishModal from '@/components/PublishModal.vue';
-
-
+import publishModal from "@/components/PublishModal.vue";
+import EditMap from "@/components/edit-components/EditMap.vue";
+import GeneralTemplate from "@/components/templates/GeneralTemplate.vue"
 export default {
   data() {
     return {
-      currCmpPart: "",
+      currCmpPart: "", // it is id!!!!!!!!!!!!!!!!!!!
       showTxtMenu: false,
       showBgcMenu: false,
+      showMapMenu: false,
       show: false,
-      id: '1p'
+      id: "1p" // general id
     };
   },
   components: {
     TemplateEditor,
     EditTxt,
     EditBgc,
-    publishModal
+    publishModal,
+    EditMap,
+   GeneralTemplate
+  },
+  computed: {
+    dynamicCmps() {
+      return this.$store.getters.dynamicCmps;
+    },
+    generalStyle() {
+      return this.$store.getters.generalStyle;
+    }
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -52,22 +69,32 @@ export default {
       if (cmp.kind === "text") {
         this.showTxtMenu = true;
         this.showBgcMenu = false;
+        this.showMapMenu = false;
       } else if (cmp.kind === "background") {
         this.showBgcMenu = true;
         this.showTxtMenu = false;
+        this.showMapMenu = false;
+      } else if (cmp.kind === "map") {
+        this.showBgcMenu = false;
+        this.showTxtMenu = false;
+        this.showMapMenu = true;
       }
     },
     closeEditor() {
       this.showTxtMenu = false;
-      this.$store.dispatch('removeEditingFrame')
+      this.$store.dispatch("removeEditingFrame");
       this.showBgcMenu = false;
     },
-        publish() {
-      console.log('publish button has been clicked');
+    close() {
+      this.show = false;
+      console.log("in template close modal");
+    },
+    publish() {
+      console.log("publish button has been clicked");
       this.show = true;
       templateService
         .add({
-          id:'1p',
+          id: "1p",
           cmps: this.dynamicCmps,
           base: {
             name: "first"

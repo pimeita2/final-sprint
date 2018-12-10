@@ -4,7 +4,7 @@
       class="invaitor-name"
       v-model="data.txt"
       :style="data.css"
-      @click="connectToEditor()"
+      @click.stop="connectToEditor()"
       @input="updateInvaitorName($event, id)"
       :class="{'select-box-border': isOnEdit}"
       @focus="updateEditStatus"   

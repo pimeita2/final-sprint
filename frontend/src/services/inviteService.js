@@ -6,12 +6,11 @@ export default {
     query,
     remove,
     getById,
-    saveTemplate,
+    saveinvite,
     saveData,
-    add: item => axios.post(BASE_URL+'/template', item).then(res => res.data)
+    add: item => axios.post(BASE_URL+'/invite', item).then(res => res.data)
 }
 
-console.log('in templateService');
 function saveData(key, value) {
     storageService.saveToStorage(key, value)
 }
@@ -22,8 +21,10 @@ function query(key) {
     // queryParams.append('name', filter.byName)
     // queryParams.append('type', filter.byType)
     // queryParams.append('sortBy', filter.sort)
-    return axios.get(`${BASE_URL}/template?${queryParams}`)
-        .then(res => res.data)
+    return axios.get(`${BASE_URL}/invite?${queryParams}`)
+        .then(res =>{ 
+            console.log('in query invite service the res', res)
+            return res.data})
     .catch(err =>{
         console.log('ERROR:', err);
     // return storageService.loadFromStorage(key);
@@ -31,22 +32,22 @@ function query(key) {
     })
 }
 
-function getById(templateId) {
-    return axios.get(`${BASE_URL}/template/${templateId}`)
+function getById(inviteId) {
+    return axios.get(`${BASE_URL}/invite/${inviteId}`)
         .then(res => res.data)
 }
 
-function remove(templateId) {
-    return axios.delete(`${BASE_URL}/template/${templateId}`)
+function remove(inviteId) {
+    return axios.delete(`${BASE_URL}/invite/${inviteId}`)
     // .then(res => res.data)
 }
 function filter() { }
 
-function saveTemplate(template) {
-    if (template._id) {
-        return axios.put(`${BASE_URL}/template/${template._id}`, template)
+function saveinvite(invite) {
+    if (invite._id) {
+        return axios.put(`${BASE_URL}/invite/${invite._id}`, invite)
     } else {
-        // template.createdAt = Date.now()
-        return axios.post(`${BASE_URL}/template`, template)
+        // invite.createdAt = Date.now()
+        return axios.post(`${BASE_URL}/invite`, invite)
     }
 }

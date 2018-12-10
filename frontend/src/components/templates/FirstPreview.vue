@@ -80,7 +80,7 @@ export default {
 
 <style>
 .full-page {
-  background-image: url("https://i.pinimg.com/564x/b4/38/9c/b4389cbe1b5fc601c8526d9896969fe0.jpg");
+  /* background-image: url("https://i.pinimg.com/564x/b4/38/9c/b4389cbe1b5fc601c8526d9896969fe0.jpg"); */
   background-size: cover;
   display: flex;
   align-items: center;

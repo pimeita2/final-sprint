@@ -4,7 +4,7 @@
       class="short-description"
       v-model="data.txt"
       :style="data.css"
-      @click="connectToEditor()"
+      @click.stop="connectToEditor()"
       :class="{'select-box-border': isOnEdit}"
       @focus="updateEditStatus"
       @input="updateShortDescription($event, id)"

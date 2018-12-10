@@ -1,7 +1,7 @@
 <template>
   <section>
     <ul>
-      <templatePreview v-for="template in templates" :template="template" :key="template.id"></templatePreview>
+      <template-preview v-for="(template,index) in templates" :template="template" :index="index" :key="index"></template-preview>
     </ul>
   </section>
 </template> 

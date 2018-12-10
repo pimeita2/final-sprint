@@ -18,6 +18,7 @@
       <section class="templates">
         <div class="templates-container">
           <filter-list></filter-list>
+
           <templateList :templates="templates"></templateList>
         </div>
       </section>
@@ -29,10 +30,12 @@
 </template>
 
 <script>
-import templateList from "@/components/TemplateList.vue";
+// import templateList from "@/components/TemplateList.vue";
 import mainHeader from "@/components/MainHeader.vue";
 import mainFooter from "@/components/MainFooter.vue";
 import filterList from "@/components/FilterList.vue";
+import templateList from "@/components/TemplateList.vue";
+import templateService from "@/services/templateService.js";
 
 export default {
   name: "home",
@@ -40,142 +43,26 @@ export default {
     templateList,
     mainHeader,
     mainFooter,
-    filterList
+    filterList,
+
   },
   computed: {},
-
+  created(){
+    console.log('created');
+   templateService.query()
+   .then(res=>{
+     console.log(res);
+     this.templates=res;
+     console.log(this,templates);
+   })
+   .catch(err=>{
+     console.log('err', err);
+   })
+  },
   data() {
     return {
-      templates: [
-        {
-          name: "Dancing Lesson",
-          stars: 5,
-          downloadNum: 100,
-          id: 1,
-          image: require("@/assets/template1.png")
-        },
-        {
-          name: "Wedding",
-          stars: 5,
-          downloadNum: 10,
-          id: 2,
-          image: require("@/assets/template2.png")
-        },
-        {
-          name: "Pool Party",
-          stars: 5,
-          downloadNum: 10,
-          id: 3,
-          image:require("@/assets/template3.png")
-        },
-        {
-          name: "Dancing Lesson",
-          stars: 5,
-          downloadNum: 100,
-          id: 4,
-          image: require("@/assets/template4.png")
-        },
-        {
-          name: "Wedding",
-          stars: 5,
-          downloadNum: 10,
-          id: 5,
-          image: require("@/assets/template5.png")
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 6,
-          image: require("@/assets/template6.png")
-        },
-        {
-          name: "Dancing Lesson",
-          stars: 5,
-          downloadNum: 100,
-          id: 7,
-          image: require("@/assets/template7.png")
-        },
-        {
-          name: "Wedding",
-          stars: 5,
-          downloadNum: 10,
-          id: 8,
-          image: require("@/assets/template8.png")
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 9,
-          image: require("@/assets/template9.png")
-        },
-        {
-          name: "Dancing Lesson",
-          stars: 5,
-          downloadNum: 100,
-          id: 10,
-          image: require("@/assets/template10.png")
-        },
-        {
-          name: "Wedding",
-          stars: 5,
-          downloadNum: 10,
-          id: 11,
-          image: require("@/assets/template11.png")
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 12,
-          image: require("@/assets/template12.png")
-        },
-        {
-          name: "Dancing Lesson",
-          stars: 5,
-          downloadNum: 100,
-          id: 13,
-          image: require("@/assets/template13.png")
-        },
-        {
-          name: "Wedding",
-          stars: 5,
-          downloadNum: 10,
-          id: 14,
-          image: require("@/assets/template14.png")
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 15,
-          image: require("@/assets/template15.png")
-        },
-        {
-          name: "Dancing Lesson",
-          stars: 5,
-          downloadNum: 100,
-          id: 16,
-          image: require("@/assets/template16.png")
-        },
-        {
-          name: "Wedding",
-          stars: 5,
-          downloadNum: 10,
-          id: 17,
-          image: require("@/assets/template17.png")
-        },
-        {
-          name: "Birthday",
-          stars: 5,
-          downloadNum: 10,
-          id: 18,
-          image: require("@/assets/template18.png")
-        }
-      ]
-      // template: this.$store.getters.getTemplatesForDisplay
-    };
+      templates:[]
+    }
   }
 };
 </script>
