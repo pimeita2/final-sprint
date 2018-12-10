@@ -1,108 +1,425 @@
-[
-    {
-        "templateName": "basic",
-        "templateParts": [
-            {
-                "partName": "left-column",
-                "value": "../assets/food2.jpg",
-                "style": {
-                    "background-image": "url('../assets/food2.jpg')",
-                    "backgroound-size": "cover"
+[{
+    "templateId": "5c0c0abe44df657f259b8803",
+    "cmps": [{
+            "id": "0",
+            "kind": "text",
+            "type": "invaitorName",
+            "data": {
+                "txt": "meital invaits you",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Oswald",
+                    "fontSize": "16px"
                 }
-            },
-            {
-                "partName": "right-column",
-                "style": {
-                    "background-color": "brown"
-                },
-                "innerParts": [
-                    {
-                        "partName": "top",
-                        "value": "reutMail",
-                        "style": {
-                            "color": "green",
-                            "font-family": "arial",
-                            "font-size": 16,
-                            "text-align": "center",
-                            "text-shadow": false
-                        }
-                    },
-                    {
-                        "partName": "mainTitle",
-                        "value": "cookingSession",
-                        "style": {
-                            "color": "green",
-                            "font-family": "ariel",
-                            "font-size": 30,
-                            "text-align": "center",
-                            "text-shadow": false
-                        }
-                    },
-                    {
-                        "partName": "subTitle",
-                        "value": "Come study with us how to make your finest dishes",
-                        "style": {
-                            "color": "green",
-                            "font-family": "arial",
-                            "font-size": 20,
-                            "text-align": "center",
-                            "text-shadow": false
-                        }
-                    },
-                    {
-                        "partName": "description",
-                        "value": "Three days workshop where you study how to master coocking. Dishes includes:lots of cakes",
-                        "style": {
-                            "color": "green",
-                            "font-family": "arial",
-                            "font-size": 16,
-                            "text-align": "center",
-                            "text-shadow": false
-                        }
-                    },
-                    {
-                        "partName": "date",
-                        "value": "01-12-2018",
-                        "style": {
-                            "color": "green",
-                            "font-family": "arial",
-                            "font-size": 16,
-                            "text-align": "center",
-                            "text-shadow": false
-                        }
-                    },
-                    {
-                        "partName": "hour",
-                        "value": "20:00",
-                        "style": {
-                            "color": "green",
-                            "font-family": "arial",
-                            "font-size": 16,
-                            "text-align": "center",
-                            "text-shadow": false
-                        }
-                    },
-                    {
-                        "partName": "location",
-                        "value": "ramat aviv",
-                        "style": {
-                            "color": "green",
-                            "font-family": "arial",
-                            "font-size": 16,
-                            "text-align": "center",
-                            "text-shadow": false
-                        }
-                    }
-                ]
             }
-        ]
+        },
+        {
+            "id": "1",
+            "kind": "text",
+            "type": "eventTitle",
+            "isEdit": true,
+            "data": {
+                "txt": "Get your dance on",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Satisfy",
+                    "fontSize": "28px"
+                }
+            }
+        },
+        {
+            "id": "2",
+            "kind": "text",
+            "type": "shortDescription",
+            "isEdit": true,
+            "data": {
+                "txt": "learn how to dance in three simple steps",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Asap Condensed",
+                    "fontSize": "16px"
+                }
+            }
+        },
+        {
+            "id": "3",
+            "kind": "text",
+            "type": "day",
+            "isEdit": true,
+            "data": {
+                "txt": "01/12/1990",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Asap Condensed",
+                    "fontSize": "16px"
+                }
+            }
+        },
+        {
+            "id": "4",
+            "kind": "text",
+            "type": "location",
+            "isEdit": true,
+            "data": {
+                "txt": "23 Magal Street, Rishon-Lezion",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Asap Condensed",
+                    "fontSize": "17px"
+                }
+            }
+        },
+        {
+            "id": "5",
+            "kind": "cmp",
+            "type": "attending",
+            "isEdit": true,
+            "data": {}
+        },
+        {
+            "id": "6",
+            "kind": "cmp",
+            "type": "socialMedia",
+            "isEdit": true,
+            "data": {
+                "txtF": "",
+                "txtL": "",
+                "txtT": "",
+                "txtI": ""
+            }
+        }
+    ],
+    "generalStyle": {
+        "backgroundColor": "#ff9a90"
     },
-    {
-        "templateName": "meitalus",
-        "templateParts": []
+    "creatorId": 123456,
+    "modifiedAt": "",
+    "createdAt": "",
+    "attends": []
+},
+{
+    "templateId": "5c0c0abe44df657f259b8804",
+    "cmps": [{
+            "id": "0",
+            "kind": "text",
+            "type": "invaitorName",
+            "data": {
+                "txt": "You are cordially invited to attend",
+                "css": {
+                    "color": "white",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Charmonman",
+                    "fontSize": "20px"
+                }
+            }
+        },
+        {
+            "id": "1",
+            "kind": "text",
+            "type": "eventTitle",
+            "isEdit": true,
+            "data": {
+                "txt": "Meital & Don Wedding ",
+                "css": {
+                    "color": "white",
+                    "textAlign": "center",
+                    "fontFamily": "Charmonman",
+                    "fontSize": "70px",
+                    "fontWeight": {
+                        "isBold": true,
+                        "value": "bold"
+                    },
+                    "minHeight": "170px"
+                }
+            }
+        },
+        {
+            "id": "3",
+            "kind": "text",
+            "type": "day",
+            "isEdit": true,
+            "data": {
+                "txt": "01/12/2018",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Asap Condensed",
+                    "fontSize": "16px"
+                }
+            }
+        },
+        {
+            "id": "4",
+            "kind": "text",
+            "type": "hour",
+            "isEdit": true,
+            "data": {
+                "txt": "20:30",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Satisfy",
+                    "fontSize": "18px"
+                }
+            }
+        },
+        {
+            "id": "5",
+            "kind": "cmp",
+            "type": "countClock",
+            "isEdit": true,
+            "data": {
+                "date": "2019-07-06 08:15:00",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Satisfy",
+                    "fontSize": "18px"
+                }
+            }
+        },
+        {
+            "id": "6",
+            "kind": "text",
+            "type": "location",
+            "isEdit": true,
+            "data": {
+                "txt": "Nezer Sireni, Tel-Aviv",
+                "css": {
+                    "color": "white",
+                    "textAlign": "center",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Charmonman",
+                    "fontSize": "17px"
+                }
+            }
+        },
+        {
+            "id": "7",
+            "kind": "cmp",
+            "type": "mapCmp",
+            "isEdit": true,
+            "data": {
+                "markers": [],
+                "places": [],
+                "currentPlace": null,
+                "center": {
+                    "lat": 45.508,
+                    "lng": -73.587
+                }
+            }
+        }
+    ],
+    "generalStyle": {
+        "backgroundImage": "url('https://images.pexels.com/photos/3880/couple-love-romantic-silhouette.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",
+        "backgroundPosition": "center",
+        "margin": "50px 20px 0 200px",
+        "background-size": "cover",
+        "padding": "50px",
+        "backgroundBlendMode": "multiply",
+        "backgroundColor": "burlywood"
     },
-    {
-        "templateName": "kuki",
-        "templateParts": []
-    }
+    "creatorId": 898989,
+    "modifiedAt": "",
+    "createdAt": "",
+    "attends": []
+},
+{
+    "templateId": "5c0c0abe44df657f259b8805",
+    "cmps": [{
+            "id": "0",
+            "kind": "text",
+            "type": "invaitorName",
+            "isEdit": true,
+            "data": {
+                "txt": "YOU ARE INVITED TO A",
+                "css": {
+                    "color": "white",
+                    "textAlign": "left",
+                    "padding": "13px",
+                    "margin": "0 auto",
+                    "fontWeight": {
+                        "isBold": true,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Oswald",
+                    "fontSize": "27px"
+                }
+            }
+        },
+        {
+            "id": "1",
+            "kind": "text",
+            "type": "shortDescription",
+            "isEdit": true,
+            "data": {
+                "txt": "Join us For Rotem's 26th Birthday ",
+                "css": {
+                    "color": "white",
+                    "textAlign": "center",
+                    "padding": "",
+                    "paddingTop": "35px",
+                    "margin": "",
+                    "marginLeft": "189px",
+                    "marginTop": "-88px",
+                    "transform": "rotate(14deg)",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Asap Condensed",
+                    "fontSize": "20px"
+                }
+            }
+        },
+        {
+            "id": "2",
+            "kind": "text",
+            "type": "eventTitle",
+            "isEdit": true,
+            "data": {
+                "txt": "P O O L   P A R T Y",
+                "css": {
+                    "color": "white",
+                    "textAlign": "center",
+                    "width": "100%",
+                    "padding": "",
+                    "paddingTop": "32px",
+                    "margin": "",
+                    "marginRight": "76px",
+                    "fontWeight": {
+                        "isBold": true,
+                        "value": "normal"
+                    },
+                    "fontFamily": "fantasy",
+                    "fontSize": "56px"
+                }
+            }
+        },
+        {
+            "id": "3",
+            "kind": "text",
+            "type": "day",
+            "isEdit": true,
+            "data": {
+                "txt": {
+                    "date": "19/08/2018",
+                    "time": "12:30"
+                },
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "marginTop": "39px",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Asap Condensed",
+                    "fontSize": "16px"
+                }
+            }
+        },
+        {
+            "id": "4",
+            "kind": "text",
+            "type": "location",
+            "isEdit": true,
+            "data": {
+                "txt": "124 conch street,Bikini Bottom",
+                "css": {
+                    "color": "black",
+                    "textAlign": "center",
+                    "padding": "",
+                    "margin": "",
+                    "marginLeft": "175px",
+                    "marginTop": "35px",
+                    "fontWeight": {
+                        "isBold": false,
+                        "value": "normal"
+                    },
+                    "fontFamily": "Asap Condensed",
+                    "fontSize": "18px"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "kind": "cmp",
+            "type": "attending",
+            "isEdit": true,
+            "data": {
+                "css": {
+                    "padding": "",
+                    "marginTop": "47px"
+                }
+            }
+        },
+        {
+            "id": "7",
+            "kind": "background",
+            "type": "template",
+            "data": {
+                "css": {
+                    "backgroundColor": "",
+                    "backgroundImage": ""
+                }
+            }
+        }
+    ],
+    "generalStyle": {
+        "backgroundImage": "url('https://i.ibb.co/cy10bP3/pool-template.png')",
+        "backgroundPosition": "center",
+        "margin": "50px 20px 0 200px",
+        "background-size": "cover",
+        "padding": "50px"
+    },
+    "creatorId": 565656,
+    "modifiedAt": "",
+    "createdAt": "",
+    "attends": []
+}
 ]
