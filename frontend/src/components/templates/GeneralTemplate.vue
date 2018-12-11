@@ -14,12 +14,11 @@
       />
       </draggable>
     </div>
-    <publish-modal v-if="show" @close="this.show=false" :id="id"></publish-modal>
+    
   </section>
 </template>
 
 <script>
-import publishModal from "@/components/PublishModal.vue";
 import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
 import eventTitle from "@/components/template-components/EventTitleCmp.vue";
 import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
@@ -31,18 +30,17 @@ import mapCmp from "@/components/template-components/MapCmp.vue";
 import countClock from "@/components/template-components/CountClock.vue";
 import addressCmp from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
-import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue";
+import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
 import draggable from "vuedraggable";
 
 export default {
   data() {
     return {
-    show:false
-   
+    show:false,
+    inviteId:''
     };
   },
   components: {
-    publishModal,
     invaitorName,
     eventTitle,
     shortDescription,
@@ -52,12 +50,12 @@ export default {
     countClock,
     addressCmp,
     attending,
-    socialMediaCmp,
+    socialMedia,
     draggable
   },
   methods: {
     connectToCmpPart(cmpPart) {
-      this.$emit("connectToCmpPart", cmpPart);
+      this.$emit("connectToCmpPart", cmpPart, this.inviteId);
     },
     showEditor({ kind }) {
       this.$emit("showEditor", { kind });
@@ -65,23 +63,6 @@ export default {
     connectToEditor() {
       this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
-    },
-    publish() {
-      this.show = true;
-      templateService
-        .add({
-          id: "1p",
-          cmps: this.dynamicCmps,
-          base: {
-            name: "second"
-          },
-          name: "wedding",
-          modified: Date.now(),
-          creatorId: "abc123"
-        })
-        .then(template =>
-          console.log("template was added successfully", template)
-        );
     },
        deleteCmpPart(cmpId){
       // get the cmps of template
@@ -93,7 +74,9 @@ export default {
         type: "setCurrTemplate",
         tmpData: cmps
       });
+
     }
+ 
   },
   computed: {
     dynamicCmps() {
@@ -104,16 +87,12 @@ export default {
     }
   },
   created() {
-    const inviteId = this.$route.params.id;
-    console.log('inviteId', inviteId);
+    this.inviteId = this.$route.params.id;
     inviteService.query().then(res => {
 
       const currInvite = res.find(invite =>{
-                    console.log(invite.templateId, inviteId);
+        return invite.templateId === this.inviteId});
 
-        return invite.templateId === inviteId});
-
-      console.log(currInvite);
       this.$store.dispatch({
         type: "setCurrTemplate",
         tmpData: {

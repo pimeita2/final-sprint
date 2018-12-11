@@ -21,8 +21,9 @@
       @mapUpdate="mapUpdate"
     ></edit-map>
     <div class="spacenr"></div>
-    <publish-modal v-if="show" :id="id" @close="close"></publish-modal>
+    <publish-modal v-if="show" @close="close" :currInvite="currInvite"></publish-modal>
     <general-template @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"></general-template>
+  {{this.currInvite}}
   </section>
 </template>
 
@@ -30,10 +31,10 @@
 import TemplateEditor from "@/components/TemplateEditor.vue";
 import EditTxt from "@/components/edit-components/EditTxt.vue";
 import EditBgc from "@/components/edit-components/EditBkg.vue";
-import templateService from "@/services/templateService";
+import inviteService from "@/services/inviteService";
 import publishModal from "@/components/PublishModal.vue";
 import EditMap from "@/components/edit-components/EditMap.vue";
-import GeneralTemplate from "@/components/templates/GeneralTemplate.vue"
+import GeneralTemplate from "@/components/templates/GeneralTemplate.vue";
 export default {
   data() {
     return {
@@ -42,7 +43,7 @@ export default {
       showBgcMenu: false,
       showMapMenu: false,
       show: false,
-      id: "1p" // general id
+      currInvite: ""
     };
   },
   components: {
@@ -51,7 +52,7 @@ export default {
     EditBgc,
     publishModal,
     EditMap,
-   GeneralTemplate
+    GeneralTemplate
   },
   computed: {
     dynamicCmps() {
@@ -62,8 +63,10 @@ export default {
     }
   },
   methods: {
-    connectToCmpPart(cmpPart) {
+    connectToCmpPart(cmpPart, inviteId) {
       this.currCmpPart = cmpPart;
+      this.currInvite=inviteId;
+      console.log('invite id in template', inviteId)
     },
     showEditor(cmp) {
       if (cmp.kind === "text") {
@@ -92,25 +95,23 @@ export default {
     publish() {
       console.log("publish button has been clicked");
       this.show = true;
-      templateService
+      inviteService
         .add({
-          id: "1p",
           cmps: this.dynamicCmps,
-          base: {
-            name: "first"
-          },
-          name: "Puki's birrthday",
-          modified: Date.now(),
-          creatorId: "abc123"
+          generalStyle:this.generalStyle,
+          templateId:this.currInviteCreated,
+          creatorId: 123456.0,
+          modifiedAt: Date.now(),
+          attends: []
         })
-        .then(template =>
-          console.log("template was added successfully", template)
+        .then(invite =>
+          console.log("invite was added successfully", invite)
         );
     },
     styleUpdate({ field, css, kind }) {
       // console.log("in template editor ", field, css);
       // console.log("the cmp is ->> ", this.currCmpPart);
-      if (kind !== "text" && kind !== "cmp" ) {
+      if (kind !== "text" && kind !== "cmp") {
         this.$store.dispatch({
           type: "setGenralStyle",
           field,

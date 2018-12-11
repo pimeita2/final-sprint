@@ -22,7 +22,8 @@ export default {
         },
         setGenralStyle(state, { field, css }) {
             console.log(' setGenralStyle', field, css);
-            state.generalStyle = css;
+            state.generalStyle[field] = css[field];
+
             console.log('general style', state.generalStyle);
         },
         setCurrTemplate(state, context) {

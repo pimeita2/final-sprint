@@ -1,0 +1,93 @@
+
+<template>
+  <section class="template">
+    
+    
+    <div class="template-container" :style="generalStyle" @click.stop="connectToEditor()"> 
+         reutttt
+
+      <div v-for="cmp in dynamicCmps" :key="cmp.id">
+        <div v-if="cmp.kind === 'text'" :style="cmp.data.css">
+          {{cmp.data.txt}}
+        </div>
+        <div v-else-if="cmp.kind ==='cmp'" :style="cmp.data.css">
+          <component
+            @connectToCmpPart="connectToCmpPart"
+            @showEditor="showEditor"
+            :key="cmp.id"
+            :is="cmp.type"
+            :id="cmp.id"
+            :data="cmp.data"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import publishModal from "@/components/PublishModal.vue";
+import invaitorName from "@/components/template-components/InvaitorNameCmp.vue";
+import eventTitle from "@/components/template-components/EventTitleCmp.vue";
+import shortDescription from "@/components/template-components/ShortDescriptionCmp.vue";
+import day from "@/components/template-components/DayCmp.vue";
+import location from "@/components/template-components/AddressCmp.vue";
+import templateService from "@/services/templateService";
+import inviteService from "@/services/inviteService";
+import mapCmp from "@/components/template-components/MapCmp.vue";
+import countClock from "@/components/template-components/CountClock.vue";
+import addressCmp from "@/components/template-components/AddressCmp.vue";
+import attending from "@/components/template-components/AttendingCmp.vue";
+import socialMedia from "@/components/template-components/SocialMediaCmp.vue";
+
+export default {
+  data() {
+    return {
+      invite: null
+    };
+  },
+  created() {
+    inviteService.getById().then(invite => {
+      console.log('in general preview',invite);
+      // const currInvite = invites.find(invite => {
+      //   console.log("inviteService.query", invite);
+      //   if (invite.templateId === inviteId) return invite; 
+      //   // function from server isnt right
+      //   // put event bus to get the type of template
+      // });
+      // this.invite = currInvite;
+      // console.log(this.invite);
+    });
+  },
+  components: {
+    publishModal,
+    invaitorName,
+    eventTitle,
+    shortDescription,
+    day,
+    location,
+    mapCmp,
+    countClock,
+    addressCmp,
+    attending,
+    socialMedia
+  },
+  methods: {},
+  computed: {}
+};
+</script>
+
+<style>
+.full-page {
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.height {
+  height: 85vh;
+}
+</style>
+ 
+ 

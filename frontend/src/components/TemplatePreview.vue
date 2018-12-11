@@ -35,7 +35,7 @@ export default {
   },
   computed:{
     templateImg(){
-      return require(`../assets/template${this.index}.png`);
+      return require(`../assets/template${this.index+1}.png`);
     }
   }
 };

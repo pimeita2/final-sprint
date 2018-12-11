@@ -5,6 +5,7 @@ import About from './views/About.vue'
 import Template from './views/Template.vue'
 
 import GeneralTemplate from './components/templates/GeneralTemplate.vue'
+import GeneralPreview from './components/templates/GeneralPreview.vue'
 
 
 Vue.use(Router)
@@ -26,9 +27,13 @@ export default new Router({
     {
       path: '/invite/:id',
       name: 'template',
-      component: Template,// it is the editor+invite page
+      component: Template// it is the editor+invite page
     },
-  
+    {
+      path: '/invite/prv/:id',
+      name: 'GeneralPreview',
+      component: GeneralPreview
+    },
     {
       path: '/contact',
       name: 'contact',
