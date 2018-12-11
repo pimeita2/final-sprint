@@ -37,7 +37,7 @@ export default {
   methods: {
     handleChange() {
       this.$emit("styleUpdate", {
-        field: "background",
+        field: "backgroundColor",
         css: { backgroundColor: this.bgc }
       });
     },
@@ -51,7 +51,7 @@ export default {
           console.log('url',url);
 
           this.$emit("styleUpdate", {
-          field: "background",
+          field: "backgroundImage",
           css: { backgroundImage: "url('" + url + "')" }
         }); 
     });

@@ -20,7 +20,7 @@
         </p>
         <div class="edit-color-bold">
           <div class="edit-color">
-            <input class="textColor-icon" type="color" @change="handleColor" value="black">
+            <input class="textColor-icon" type="color"  @input="handleColor" v-model="color">
           </div>
           <div @click="handleBold" class="edit-bold">
             <i class="fa fa-bold fa-lg"></i>
@@ -44,6 +44,11 @@
 <script>
 export default {
   props: ["currCmpPart"],
+  data(){
+    return{
+        color:"red"
+    }
+  },
   created() {},
   methods: {
     connectToCmpPart(cmpPart) {
@@ -88,6 +93,7 @@ export default {
     handleColor(event) {
       // console.log("in color:", event.target.value);
       this.color = event.target.value;
+      console.log('color chosen in edit txt', this.color);
       this.$emit("styleTextUpdate", {
         field: "color",
         css: { color: this.color },

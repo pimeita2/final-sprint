@@ -3,13 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Template from './views/Template.vue'
-import First from './components/templates/First.vue'
-import Second from './components/templates/Second.vue'
-import FirstPreview from './components/templates/FirstPreview.vue'
-import Third from './components/templates/Third.vue'
-import GeneralTemplate from './components/templates/GeneralTemplate.vue'
-// import Second from './components/templates/Second.vue'
-// import Third from './components/templates/Third.vue'
+import GeneralPreview from './components/templates/GeneralPreview.vue'
+
 
 Vue.use(Router)
 
@@ -30,9 +25,13 @@ export default new Router({
     {
       path: '/invite/:id',
       name: 'template',
-      component: Template,// it is the editor+invite page
+      component: Template// it is the editor+invite page
     },
-  
+    {
+      path: '/invite/prv/:id',
+      name: 'GeneralPreview',
+      component: GeneralPreview
+    },
     {
       path: '/contact',
       name: 'contact',
