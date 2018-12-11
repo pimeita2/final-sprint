@@ -1,7 +1,8 @@
 import axios from 'axios';
+import storageService from '../services/storageService.js'
 
-const BASE_URL = (process.env.NODE_ENV !== 'development')
-            //    ? '/user' : 'http://localhost:3003/user';
+const BASE_URL = (process.env.NODE_ENV !== 'development')?
+              '/user' : 'http://localhost:3000/user';
 
 function getById(id) {
     return axios.get(`${BASE_URL}/${id}`)
@@ -21,10 +22,14 @@ function remove(id) {
 function login(user, rememberPref = false) {
     if (!user) return;
     if (rememberPref) {
-        localStorage.setItem('user', JSON.stringify(user));
+        storageService.saveToStorage('user', JSON.stringify(user));
     } else {
-        sessionStorage.setItem('user', JSON.stringify(user));
+        storageService.saveToStorage('user', JSON.stringify(user));
     }
+}
+
+function saveData(key, value) {
+    storageService.saveToStorage(key, value)
 }
 
 
@@ -34,4 +39,5 @@ export default {
     remove,
     getAll,
     login,
+    saveData
 }

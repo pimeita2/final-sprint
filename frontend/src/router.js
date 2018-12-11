@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Template from './views/Template.vue'
+
+import GeneralTemplate from './components/templates/GeneralTemplate.vue'
 import GeneralPreview from './components/templates/GeneralPreview.vue'
 
 
@@ -37,6 +39,22 @@ export default new Router({
       name: 'contact',
       component: () => import( './views/Contact.vue')
     },
+    // {
+    //   path: '/signup',
+    //   name: 'signup',
+    //   component: () => import('./views/signup.vue')
+    // },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: () => import('./views/login.vue')
+    // },
+
+    // {
+    //   path: '/user/:userId',
+    //   name: 'user',
+    //   component: () => import('./views/user-details.vue')
+    // },
 
   
 
