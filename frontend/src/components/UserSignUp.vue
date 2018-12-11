@@ -1,11 +1,11 @@
 <template>
 <section>
 <div id="id01" class="modal">
-  <form class="modal-content" action="">
+  <form class="modal-content" action="/" method="POST" >
       <div class="x-container">
          <span @click="$emit('close')" class="close" title="Close Modal">&times;</span>
          </div>
-    <div class="container">
+    <div class="container-sign-up">
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
@@ -25,7 +25,7 @@
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
       <div class="clearfix">
-        <button type="submit" class="signupbtn">Sign Up</button>
+        <button type="submit" id="signupbtn">Sign Up</button>
       </div>
     </div>
   </form>
@@ -62,7 +62,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Set a style for all buttons */
-.signupbtn {
+#signupbtn {
   background-color: rgb(48, 173, 161);
   color: white;
   padding: 14px 20px;
@@ -70,10 +70,10 @@ input[type=text]:focus, input[type=password]:focus {
   border: none;
   cursor: pointer;
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.9%;
 }
 
-.signupbtn:hover {
+#signupbtn:hover {
   opacity:1;
 }
 
@@ -84,13 +84,13 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn, #signupbtn {
   float: left;
   width: 50%;
 }
 
 /* Add padding to container elements */
-.container {
+.container-sign-up {
   padding: 16px;
 }
 

@@ -1,6 +1,7 @@
 <template>
   <section class="template">
     <div class="template-container" :style="generalStyle" @click.stop="connectToEditor()">
+      <draggable>
       <component
         @connectToCmpPart="connectToCmpPart"
         @showEditor="showEditor"
@@ -9,7 +10,9 @@
         :is="cmp.type"
         :id="cmp.id"
         :data="cmp.data"
+        @deleteCmp="deleteCmpPart"
       />
+      </draggable>
     </div>
     <publish-modal v-if="show" @close="this.show=false" :id="id"></publish-modal>
   </section>
@@ -29,6 +32,7 @@ import countClock from "@/components/template-components/CountClock.vue";
 import addressCmp from "@/components/template-components/AddressCmp.vue";
 import attending from "@/components/template-components/AttendingCmp.vue";
 import socialMediaCmp from "@/components/template-components/SocialMediaCmp.vue";
+import draggable from "vuedraggable";
 
 export default {
   data() {
@@ -48,7 +52,8 @@ export default {
     countClock,
     addressCmp,
     attending,
-    socialMediaCmp
+    socialMediaCmp,
+    draggable
   },
   methods: {
     connectToCmpPart(cmpPart) {
@@ -77,6 +82,17 @@ export default {
         .then(template =>
           console.log("template was added successfully", template)
         );
+    },
+       deleteCmpPart(cmpId){
+      // get the cmps of template
+      let cmps = this.$store.getters.dynamicCmps;
+      console.log(cmps);
+      cmps = cmps.filter(cmp => cmp.id !== cmpId );
+      console.log(cmps);
+      this.$store.dispatch({
+        type: "setCurrTemplate",
+        tmpData: cmps
+      });
     }
   },
   computed: {

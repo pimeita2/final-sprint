@@ -65,7 +65,7 @@ export default {
       console.log(cmps);
  
       cmps = cmps.filter(cmp => cmp.id !== cmpId );
-      console.log(cmps);
+      console.log(cmp.id);
       this.$store.dispatch({
         type: "setCurrTemplate",
         tmpData: cmps

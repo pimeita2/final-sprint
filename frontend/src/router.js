@@ -3,13 +3,9 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Template from './views/Template.vue'
-import First from './components/templates/First.vue'
-import Second from './components/templates/Second.vue'
-import FirstPreview from './components/templates/FirstPreview.vue'
-import Third from './components/templates/Third.vue'
+
 import GeneralTemplate from './components/templates/GeneralTemplate.vue'
-// import Second from './components/templates/Second.vue'
-// import Third from './components/templates/Third.vue'
+
 
 Vue.use(Router)
 
@@ -38,6 +34,22 @@ export default new Router({
       name: 'contact',
       component: () => import( './views/Contact.vue')
     },
+    // {
+    //   path: '/signup',
+    //   name: 'signup',
+    //   component: () => import('./views/signup.vue')
+    // },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: () => import('./views/login.vue')
+    // },
+
+    // {
+    //   path: '/user/:userId',
+    //   name: 'user',
+    //   component: () => import('./views/user-details.vue')
+    // },
 
   
 
