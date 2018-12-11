@@ -10,7 +10,7 @@
           <p>link to your Invitation:</p>
           <div class="url-container">
             <input type="text" v-model="this.url" class="url">
-            <router-link target="_blank"  :to="`/invite/prv/${currInvite}`">preview</router-link>
+            <router-link target="_blank"  :to="`/invite/prv/${inviteId}`">preview</router-link>
           <button @click="copyUrl()">Copy text</button>
           </div>
            <!-- :to="`/edit/${toy._id}`" -->
@@ -24,16 +24,16 @@
 <script>
 import templateService from "../services/templateService.js";
 export default {
-  props: ["currInvite"],
+  props: ["inviteId"],
   data() {
     return {
       // show: false,
       template: {},
-      url:"'"+`http://localhost:8080/prv/${this.currInvite}`+"'"
+      url:`http://localhost:8080/invite/prv/${this.inviteId}`
     };
   },
   created() {
-    console.log(' curr inviteId', this.currInvite);
+    console.log(' curr inviteId', this.inviteId);
   },
   methods: {
     copyUrl() {
