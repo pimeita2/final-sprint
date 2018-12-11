@@ -17,7 +17,7 @@ function addRoutesUser(app) {
     app.get(`/user/:userId`, (req, res) => {
         const userId = req.params.userId;
         userService.getById(userId)
-            .then((user) => res.json(user))
+            .then(user => res.json(user))
     })
 
     app.delete('/user/:userId', (req, res) => {
