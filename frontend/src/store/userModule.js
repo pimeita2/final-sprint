@@ -4,10 +4,10 @@ import authService from '../services/authService.js';
 export default {
     state: {
         loggedinUser: null,
-        user:{
-            nickname:'',
-            _id:'',
-            password:''
+        user: {
+            nickname: '',
+            _id: '',
+            password: ''
         },
 
     },
@@ -17,14 +17,15 @@ export default {
             return state.loggedinUser;
         },
         isUserLoggedIn: state => !!state.user._id,
-        loggedInUser : state => state.user
+        loggedInUser: state => state.user
     },
 
     mutations: {
-        setUser(state, { user, rememberPref }) {
+        setUser(state, { user }) {
+            console.log('in mutations setUser', user)
             state.loggedinUser = user;
-            userService.login(user, rememberPref);
-            console.log('logged in user', state.loggedinUser);
+            // userService.login(user);
+            // console.log('logged in user', state.loggedinUser);
         },
     },
 
@@ -63,13 +64,14 @@ export default {
         // },
 
 
-        login(context, { user, password }) {
-            return authService.login(user, password )
+        login(context, { user }) {
+            console.log('in user store', user.nickname, user.password)
+            return authService.login(user.nickname, user.password)
                 .then(user => {
-                    if (user && password) {
-                        context.commit({type: 'setUser',user})
-                        localStorage.setItem('loggedInUser', JSON.stringify(user))
-                    }
+                    // if (user.nickname && user.password) {
+                    context.commit({ type: 'setUser', user })
+                    localStorage.setItem('loggedInUser', JSON.stringify(user))
+                    // }
                     return user
                 })
         },

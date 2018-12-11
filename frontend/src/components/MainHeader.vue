@@ -1,81 +1,101 @@
 <template>
-    <header class="nav scrollme" :class="{'active': scrolled}">
-        <router-link  to="/" class=" routers logo">Invite<span class="it">Me</span></router-link>
-         <div class="header-right">
-            <router-link class="routers btn" to="/contact" >Contact </router-link>
-            <router-link class="routers btn" to="/about" >About Us</router-link>
-            <router-link class="routers btn" to="/template" >Create Templates</router-link>
-            <a class="a-login-signup" @click="showLogin=true" >Login/Sign Up</a>
-           <user-login v-if="showLogin" @close="showLogin=false" @signup="showLogin=false;showSignup=true" ></user-login> 
-           <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>       
-          </div>
-    </header>
+  <header class="nav scrollme" :class="{'active': scrolled}">
+    <router-link to="/" class="routers logo">Invite
+      <span class="it">Me</span>
+    </router-link>
+    <div class="header-right">
 
+      <div v-if="userLogged">
+      <input class="hello-userLogged" v-model="this.userLogged[0].nickName" type="text" >
+      logOut
+      </div>
+
+      <router-link class="routers btn" to="/contact">Contact</router-link>
+      <router-link class="routers btn" to="/about">About Us</router-link>
+      <router-link class="routers btn" to="/template">Create Templates</router-link>
+      
+      <a class="a-login-signup" @click="showLogin=true">Login/Sign Up</a>
+       
+       <user-login
+        v-if="showLogin" 
+        @userLogged="logged"
+        @close="showLogin=false"
+        @signup="showLogin=false;showSignup=true"
+      ></user-login>
+      <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>
+    </div>
+    
+  </header>
 </template>
 
 <script>
-import userLogin from '@/components/UserLogin.vue'
-import userSingup from '@/components/UserSignUp.vue'
+import userLogin from "@/components/UserLogin.vue";
+import userSingup from "@/components/UserSignUp.vue";
 export default {
-    components:{
-        userLogin,
-        userSingup
-        
-    },
+  components: {
+    userLogin,
+    userSingup
+  },
 
-    data(){
-      return {
-        showLogin:false,
-        showSignup:false,
-        scrolled: false
-      }
+  data() {
+    return {
+      showLogin: false,
+      showSignup: false,
+      scrolled: false,
+      userLogged:''
+    };
+  },
+  methods: {
+    handleScroll() {
+      this.scrolled = window.scrollY > 300;
     },
-    methods:{
-       handleScroll () {
-        this.scrolled = window.scrollY > 300;
-      }
-    },
-    created () {
-     window.addEventListener('scroll', this.handleScroll);
-    },
-    destroyed () {
-    window.removeEventListener('scroll', this.handleScroll);
+     created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+
+  logged(user){
+    this.userLogged = user;
+    console.log ('this.userLogged: ',this.userLogged, this.userLogged[0].nickName)
+  }
 }
-   
-    
 
-}
-
-
+};
 </script>
 
 
 
 <style>
-.nav{
-  position:sticky;
+.nav {
+  position: sticky;
   top: 0;
   width: 100%;
-  height:4em;
+  height: 4em;
   z-index: 2;
-  transition: all .5s;
-
+  transition: all 0.5s;
 }
 
-.it{
+.hello-userLogged{
+  background: none;
+  /* color:azure; */
+}
+
+.it {
   color: #232323;
 }
 header {
   overflow: hidden;
-  background-color:transparent;
+  background-color: transparent;
   padding: 20px 40px;
 }
 
-.active{
-    background-color: #3a3838;
-    height:55px;
-    padding: 5px;
-  }
+.active {
+  background-color: #3a3838;
+  height: 55px;
+  padding: 5px;
+}
 
 header .routers {
   float: left;
@@ -83,51 +103,46 @@ header .routers {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 14px; 
+  font-size: 14px;
   line-height: 25px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 500;
 }
 
 header .routers:hover {
- color:#232323;
+  color: #232323;
 }
 
 header .routers.logo {
-  font-family: 'Satisfy', cursive;
+  font-family: "Satisfy", cursive;
   font-size: 2rem;
-    /* text-shadow: 0px 0px 10px black; */
-
-
-}
-
-header .routers.btn:hover{
-  /* color:#75be; */
-	animation: text-shadow-pop-tr 0.5s both;
-}
-
-
-.header-right {
-  float: right;
- /* text-shadow: 0px 0px 20px black; */
-}
-
-.logo:hover{
   /* text-shadow: 0px 0px 10px black; */
 }
 
-.login-btn{
+header .routers.btn:hover {
+  /* color:#75be; */
+  animation: text-shadow-pop-tr 0.5s both;
+}
+
+.header-right {
+  float: right;
+  /* text-shadow: 0px 0px 20px black; */
+}
+
+.logo:hover {
+  /* text-shadow: 0px 0px 10px black; */
+}
+
+.login-btn {
   cursor: pointer;
   border: 2px solid lightblue;
   background: lightblue;
   border-radius: 15px;
 }
 
-.login-btn:hover{
+.login-btn:hover {
   animation: heartbeat 1.5s ease-in-out infinite both;
 }
-
-
 
 @keyframes heartbeat {
   from {
@@ -153,16 +168,16 @@ header .routers.btn:hover{
   }
 }
 
-.a-login-signup{
+.a-login-signup {
   text-decoration: none;
-     float: left;
-    color: rgb(252, 235, 204);
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 25px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
+  float: left;
+  color: rgb(252, 235, 204);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 25px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
 }
 </style>

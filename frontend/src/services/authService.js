@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const BASE_URL = (process.env.NODE_ENV !== 'development') ?
-             '' : 'http://localhost:3000';
+    '' : 'http://localhost:3000';
 
-             
+
 
 
 function signup(user) {
@@ -11,19 +11,18 @@ function signup(user) {
         .then(res => res.data);
 }
 
-function login({nickname, password}){
+function login(nickname, password) {
     console.log("singing up ........")
     return axios.get(`${BASE_URL}/user`)
-    .then(res => {
-        const logged = res.data(
-            user => {
-                if 
-                ((user.nickName === nickname) && (user.password === password))
-                console.log("logged user is: ", logged)
+        .then(res => {
+            const logged = res.data.filter(user => {
+                const userPass = '' + user.password;
+                if (user.nickName === nickname && userPass === password) return user;
             });
+            return logged;
+        })
+        .catch()
         
-        
-    })
 }
 
 
@@ -51,7 +50,7 @@ function checkUser(user) {
 // }
 function getLoggedInUser() {
     return axios.get(`${BASE_URL}/loggedin`)
-        .then(res=>res.data)
+        .then(res => res.data)
 }
 
 export default {
