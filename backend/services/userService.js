@@ -1,35 +1,39 @@
 const mongoService = require('./mongoService')
 const ObjectId = require('mongodb').ObjectId;
 
-// const CURR_COLLECTION='user';
+const COLLECTION_NAME = 'user';
+
 module.exports = {
     query,
     getById,
     remove,
     add,
-    update
+    update,
+    checkLogin
 
 }
 function query() {
     return mongoService.connectToDb()
-        .then(dbConn => {
-            const collection = dbConn.collection('user');
-            return collection.find().toArray();
-        })
-        .catch(err => {
-            console.log('err:', err);
-        })
+        .then(dbConn => dbConn.collection(COLLECTION_NAME).find({}).toArray())
+            .then (users =>{
+                users.forEach(user => {
+                    delete user.password;
+                })
+        return users;
+})
 }
 
 
 function getById(userId) {
-    const userId = new ObjectId(userId)
+    var userId = new ObjectId(userId)
     return mongoService.connectToDb()
-        .then(dbConn => {
-            const userCollection =dbConn.collectiom('user');
-            return userCollection.findOne({_id: userId})
+        .then(dbConn => dbConn.collection(COLLECTION_NAME).findOne({userId}))
+            .then(user => {
+                delete user.password;
+                return user;
             })
 }
+
 
 function remove(userId) {
     userId = new ObjectId(userId)
@@ -45,8 +49,8 @@ function add(user) {
     user.modified = new Date(user.modified)
     return mongoService.connectToDb()
         .then(dbConn => {
-            const collectiom = dbConn.collection('user');
-            return collectiom.insertOne(user)
+            const collection = dbConn.collection('user');
+            return collection.insertOne(user)
                 .then(result => {
                     user._id = result.insertedId;
                     return user;
@@ -67,12 +71,14 @@ function update(user) {
         })
 }
 
-function checkLogin({ nickname }) {
-    return mongoService.connect()
-        .then(db => db.collection('user').findOne({ nickname }))
+function checkLogin({ nickname, password }) {
+    return mongoService.connectToDb()
+        .then(dbConn => dbConn.collection(COLLECTION_NAME).findOne({ nickname }))
+        .then(user =>{
+                if (user.password === password) return user;
+            throw new Error('The Password does not match');
+        })
 }
-
-
 
 
 
