@@ -3,10 +3,9 @@
   <section class="template">
     
     
-    <div class="template-container" :style="generalStyle" @click.stop="connectToEditor()"> 
-         reutttt
+    <div class="template-container" :style="this.invite.generalStyle" @click.stop="connectToEditor()"> 
 
-      <div v-for="cmp in dynamicCmps" :key="cmp.id">
+      <div v-for="cmp in this.invite.cmps" :key="cmp.id">
         <div v-if="cmp.kind === 'text'" :style="cmp.data.css">
           {{cmp.data.txt}}
         </div>
@@ -47,7 +46,10 @@ export default {
     };
   },
   created() {
-    inviteService.getById().then(invite => {
+    const id = this.$route.params.id
+    inviteService.getById(id).then(invite => { 
+           this.invite = invite;
+
       console.log('in general preview',invite);
       // const currInvite = invites.find(invite => {
       //   console.log("inviteService.query", invite);

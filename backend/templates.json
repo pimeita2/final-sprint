@@ -1,5 +1,5 @@
 [{
-    "templateId": "5c0c0abe44df657f259b8803",
+    "templateId": "5c0d77df3b508889842b7484",
     "cmps": [{
             "id": "0",
             "kind": "text",
@@ -115,7 +115,11 @@
         }
     ],
     "generalStyle": {
-        "backgroundColor": "#ff9a90"
+        "backgroundColor": "#ff9a90",
+        "backgroundPosition": "center",
+        "margin": "50px 20px 0 200px",
+        "background-size": "cover",
+        "padding": "50px"
     },
     "creatorId": 123456,
     "modifiedAt": "",
@@ -123,7 +127,7 @@
     "attends": []
 },
 {
-    "templateId": "5c0c0abe44df657f259b8804",
+    "templateId": "5c0d77df3b508889842b7485",
     "cmps": [{
             "id": "0",
             "kind": "text",
@@ -181,25 +185,7 @@
                 }
             }
         },
-        {
-            "id": "4",
-            "kind": "text",
-            "type": "hour",
-            "isEdit": true,
-            "data": {
-                "txt": "20:30",
-                "css": {
-                    "color": "black",
-                    "textAlign": "center",
-                    "fontWeight": {
-                        "isBold": false,
-                        "value": "normal"
-                    },
-                    "fontFamily": "Satisfy",
-                    "fontSize": "18px"
-                }
-            }
-        },
+     
         {
             "id": "5",
             "kind": "cmp",
@@ -269,7 +255,7 @@
     "attends": []
 },
 {
-    "templateId": "5c0c0abe44df657f259b8805",
+    "templateId": "5c0d77df3b508889842b7486",
     "cmps": [{
             "id": "0",
             "kind": "text",

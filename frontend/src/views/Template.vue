@@ -21,9 +21,8 @@
       @mapUpdate="mapUpdate"
     ></edit-map>
     <div class="spacenr"></div>
-    <publish-modal v-if="show" @close="close" :currInvite="currInvite"></publish-modal>
+    <publish-modal v-if="show" @close="close" :invite-id="inviteId"></publish-modal>
     <general-template @connectToCmpPart="connectToCmpPart" @showEditor="showEditor"></general-template>
-  {{this.currInvite}}
   </section>
 </template>
 
@@ -43,7 +42,7 @@ export default {
       showBgcMenu: false,
       showMapMenu: false,
       show: false,
-      currInvite: ""
+      inviteId: ""
     };
   },
   components: {
@@ -65,8 +64,6 @@ export default {
   methods: {
     connectToCmpPart(cmpPart, inviteId) {
       this.currCmpPart = cmpPart;
-      this.currInvite=inviteId;
-      console.log('invite id in template', inviteId)
     },
     showEditor(cmp) {
       if (cmp.kind === "text") {
@@ -94,7 +91,7 @@ export default {
     },
     publish() {
       console.log("publish button has been clicked");
-      this.show = true;
+      // this.show = true;
       inviteService
         .add({
           cmps: this.dynamicCmps,
@@ -104,9 +101,11 @@ export default {
           modifiedAt: Date.now(),
           attends: []
         })
-        .then(invite =>
+        .then(invite => {
           console.log("invite was added successfully", invite)
-        );
+          this.inviteId = invite._id
+          this.show = true;
+        });
     },
     styleUpdate({ field, css, kind }) {
       // console.log("in template editor ", field, css);

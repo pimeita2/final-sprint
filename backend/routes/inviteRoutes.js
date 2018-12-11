@@ -19,6 +19,12 @@ function addRoutes(app) {
             .then(invite => res.json(invite))
     })
 
+    app.get('/invite/prv/:inviteId', (req, res) => {
+        const inviteId = req.params.inviteId;
+        inviteService.getById(inviteId)
+            .then(invite => res.json(invite))
+    })
+
     app.delete('/invite/:inviteId', (req, res) => {
         const inviteId = req.params.inviteId;
         inviteService.remove(inviteId)
