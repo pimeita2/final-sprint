@@ -6,11 +6,11 @@
     <div class="home">
       <section id="banner">
         <h1 class="titleBanner first-line">
-           Invitation
+           ONLINE Invitation
           <br>
           </h1>
-          <h1 class="titleBanner second-line">For
-          Your
+          <h1 class="titleBanner second-line">
+          For any
           Occasion
         </h1>
       <!--   <button class="btn-get-start">Get Started</button> -->

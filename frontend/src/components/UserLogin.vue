@@ -61,7 +61,8 @@ export default {
             this.$emit("userLogged", user);
           }
         });
-    }
+    },
+
   }
 };
 </script>
