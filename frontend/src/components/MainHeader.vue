@@ -1,30 +1,35 @@
 <template>
   <header class="nav scrollme" :class="{'active': scrolled}">
-    <router-link to="/" class="routers logo">Invite
+    <router-link to="/" class="routers logo">
+      Invite
       <span class="it">Me</span>
     </router-link>
     <div class="header-right">
-
-      <div v-if="userLogged">
-      <input class="hello-userLogged" v-model="this.userLogged[0].nickName" type="text" >
-      logOut
-      </div>
-
       <router-link class="routers btn" to="/contact">Contact</router-link>
       <router-link class="routers btn" to="/about">About Us</router-link>
       <router-link class="routers btn" to="/template">Create Templates</router-link>
+
+      <a v-if="!isUserLogged" class="a-login-signup" @click="showLogin=true">Login/Sign Up</a>
       
-      <a class="a-login-signup" @click="showLogin=true">Login/Sign Up</a>
-       
-       <user-login
-        v-if="showLogin" 
+      <a v-if="isUserLogged" class="a-logout" @click="logoutUser">Logout</a>
+      <a v-if="isUserLogged" class="routers btn welcome-user">
+        <span class="welcomeUserSpan">WELCOME</span>
+        <input
+          id="hello-userLogged"
+          class="routers"
+          v-model="this.userLogged[0].nickName"
+          type="text"
+        >
+      </a>
+
+      <user-login
+        v-if="showLogin"
         @userLogged="logged"
-        @close="showLogin=false"
         @signup="showLogin=false;showSignup=true"
+        @close="showLogin=false"
       ></user-login>
       <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>
     </div>
-    
   </header>
 </template>
 
@@ -42,32 +47,60 @@ export default {
       showLogin: false,
       showSignup: false,
       scrolled: false,
-      userLogged:''
+      userLogged: "",
+      isUserLogged: false
     };
   },
-  methods: {
-    handleScroll() {
-      this.scrolled = window.scrollY > 300;
-    },
-     created() {
+  created() {
     window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
   },
-
-  logged(user){
-    this.userLogged = user;
-    console.log ('this.userLogged: ',this.userLogged, this.userLogged[0].nickName)
+  methods: {
+    handleScroll() {
+      this.scrolled = window.scrollY > 300;
+    },
+    logged(user) {
+      this.userLogged = user;
+      this.isUserLogged = true;
+      this.showLogin = false;
+      console.log(
+        "this.userLogged: ",
+        this.userLogged,
+        this.userLogged[0].nickName
+      );
+    },
+    logoutUser() {
+      this.isUserLogged = false;
+      console.log("bye bye");
+    }
   }
-}
-
 };
 </script>
 
 
 
 <style>
+.welcome-user {
+  display: flex;
+  flex-direction: row;
+}
+#hello-userLogged {
+  /* width: 22%; */
+  background: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  padding-left: 10px;
+  color: aqua;
+  /* font-size: 15px;
+  padding:10px;
+  margin-bottom:10px; */
+}
+.welcomeUserSpan {
+  color: aqua;
+}
 .nav {
   position: sticky;
   top: 0;
@@ -77,7 +110,7 @@ export default {
   transition: all 0.5s;
 }
 
-.hello-userLogged{
+.hello-userLogged {
   background: none;
   /* color:azure; */
 }
@@ -168,7 +201,8 @@ header .routers.btn:hover {
   }
 }
 
-.a-login-signup {
+.a-login-signup,
+.a-logout {
   text-decoration: none;
   float: left;
   color: rgb(252, 235, 204);
