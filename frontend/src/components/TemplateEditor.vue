@@ -35,7 +35,7 @@
     </div>
     <hr>
 
-    <div class="editor-uploadMap-section">
+    <div class="editor-uploadMap-section" @click="addMap">
       <i class="fas fa-map-marked-alt"></i>
       <h4 class="h4-uploadMap-editor">Add Map</h4>
     </div>
@@ -93,6 +93,10 @@ export default {
     publish() {
       console.log("clicked publish");
       this.$emit("publish");
+    },
+    addMap(){
+      console.log('addMap button was clicked');
+      this.$emit("addMap");
     }
   }
 };
