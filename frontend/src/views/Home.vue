@@ -6,7 +6,7 @@
     <div class="home">
       <section id="banner">
         <h1 class="titleBanner first-line">
-           ONLINE Invitation
+           Online Invitation
           <br>
           </h1>
           <h1 class="titleBanner second-line">
