@@ -37,7 +37,6 @@ export default {
   data() {
     return {
     show:false,
-    inviteId:''
     };
   },
   components: {
@@ -55,7 +54,7 @@ export default {
   },
   methods: {
     connectToCmpPart(cmpPart) {
-      this.$emit("connectToCmpPart", cmpPart, this.inviteId);
+      this.$emit("connectToCmpPart", cmpPart);
     },
     showEditor({ kind }) {
       this.$emit("showEditor", { kind });

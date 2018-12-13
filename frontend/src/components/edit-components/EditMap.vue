@@ -1,29 +1,25 @@
 <template>
-  <section  @connectToCmpPart="connectToCmpPart">
-       <h2>Search and add a pin</h2>
+  <section @connectToCmpPart="connectToCmpPart">
+    <h2>Search and add a pin</h2>
     <label>
       <gmap-autocomplete @place_changed="setPlace"></gmap-autocomplete>
-      <button @click="addMarker">Add</button>
+      <button class="add" @click="addMarker">Add</button>
     </label>
-  
-       <button
-        class="btn-done button is-primary"
-        @click.stop="closeEdit"
-      >done</button>
+    
+    <button class="btn-done button is-primary" @click.stop="closeEdit">done</button>
   </section>
 </template>
 <script>
 export default {
- data(){
-     return{
-              markers: [],
+  data() {
+    return {
+      markers: [],
       places: [],
       currentPlace: null
-     }
- },
- 
+    };
+  },
 
- props: ["currCmpPart"],
+  props: ["currCmpPart"],
   created() {},
   methods: {
     connectToCmpPart(cmpPart) {
@@ -31,16 +27,19 @@ export default {
       this.currCmpPart = cmpPart;
     },
     closeEdit() {
-      this.$emit('closeEditor');
+      this.$emit("closeEditor");
     },
     handleMap() {
-      // console.log("handleAlignment", align);
       this.$emit("mapUpdate", {
         field: "map",
-        data:this.data
+        data: {
+          markers: this.markers,
+          places: this.places,
+          currentPlace: this.currentPlace
+        }
       });
     },
-            setPlace(place) {
+    setPlace(place) {
       this.currentPlace = place;
     },
     addMarker() {
@@ -52,21 +51,19 @@ export default {
         this.markers.push({ position: marker });
         this.places.push(this.currentPlace);
         this.center = marker;
-        this.currentPlace = null;
         this.handleMap();
+        this.currentPlace = null;
       }
-    },
     }
-}
-   
-
+  }
+};
 </script>
 
 <style>
-  .editMap{
-      background-color: ghostwhite;
-      padding: 10px;
-  }
+.editMap {
+  background-color: ghostwhite;
+  padding: 10px;
+}
 </style>
 
 

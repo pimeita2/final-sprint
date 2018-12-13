@@ -15,10 +15,15 @@ export default {
             console.log('state', state);
         },
         setMap(state, { field, data, currCmpPart }) {
-            console.log('setMap', field, data, currCmpPart);
             const cmp = state.templateCmps.find(cmp => cmp.id === currCmpPart)
-            cmp.data = data; 
-            console.log(cmp);
+            cmp.data =field.data;// check why//// 
+            console.log('in set map',cmp);
+        },
+        setAddMap(state, {map}){
+              state.templateCmps.push(
+              map
+              );
+              console.log(state.templateCmps , ' after adding map')
         },
         setGenralStyle(state, { field, css }) {
             console.log(' setGenralStyle', field, css);
@@ -52,6 +57,9 @@ export default {
         setGenralStyle(context, { field, css }) {
             context.commit({ type: 'setGenralStyle', field, css })
         },
+        addMap(context, {map}){
+            context.commit({ type: 'setAddMap', map});
+        },
         setUserMap(context, {field, data, currCmpPart}){
             context.commit({ type: 'setMap', field, data,  currCmpPart})
         },
@@ -73,5 +81,6 @@ export default {
         dynamicCmps: state => state.templateCmps,
         generalStyle: state => state.generalStyle,
         currenEditing: state => state.currenEditing,
+        
     }
 }

@@ -9,15 +9,14 @@
       <br>
     </div> -->
     
-    <gmap-map  :center="center" :zoom="12" style="width:300px;  height: 300px;" @click="connectToEditor">
+    <gmap-map  :center="center" :zoom="12" style="width:200px;  height: 200px;" @click.native.stop="connectToEditor">
       <gmap-marker
         :key="index"
-        v-for="(m, index) in data.markers"
+        v-for="(m, index) in this.markers"
         :position="m.position"
         @click="center=m.position"
       ></gmap-marker>
     </gmap-map>
-  
   </div>
 </template>
 
@@ -32,10 +31,10 @@ export default {
     return {
       // default to Montreal to keep it simple
       // change this to whatever makes sense
-      center: this.data.center
-      // markers: [],
-      // places: [],
-      // currentPlace: null
+      center: this.data.center,
+      markers:this.data.markers,
+      places: this.data.places,
+      currentPlace:this.data.currentPlace
     };
   },
 
@@ -67,7 +66,7 @@ export default {
       this.$emit("showEditor", { kind: "map" });
     },
     geolocate: function() {
-      console.log(this.data.center);
+      console.log(this.center);
        navigator.geolocation.getCurrentPosition(position => {
         this.center = {
           lat: position.coords.latitude,

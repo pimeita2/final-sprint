@@ -7,13 +7,13 @@ export default {
     remove,
     getById,
     saveinvite,
-    saveData,
+    // saveData,
     add: item => axios.post(BASE_URL+'/invite', item).then(res => res.data)
 }
 
-function saveData(key, value) {
-    storageService.saveToStorage(key, value)
-}
+// function saveData(key, value) {
+//     storageService.saveToStorage(key, value)
+// }
 
 function query(key) {
     var queryParams = new URLSearchParams()

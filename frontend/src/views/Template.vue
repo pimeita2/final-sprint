@@ -1,6 +1,11 @@
 <template>
   <section class="template">
-    <template-editor :currCmpPart="currCmpPart" @showEditor="showEditor" @publish="publish"></template-editor>
+    <template-editor
+      :currCmpPart="currCmpPart"
+      @showEditor="showEditor"
+      @publish="publish"
+      @addMap="addMap"
+    ></template-editor>
     <edit-txt
       class="edit-toolbox"
       :currCmpPart="currCmpPart"
@@ -95,17 +100,45 @@ export default {
       inviteService
         .add({
           cmps: this.dynamicCmps,
-          generalStyle:this.generalStyle,
-          templateId:this.currInviteCreated,
+          generalStyle: this.generalStyle,
+          templateId: this.currInviteCreated,
           creatorId: 123456.0,
           modifiedAt: Date.now(),
           attends: []
         })
         .then(invite => {
-          console.log("invite was added successfully", invite)
-          this.inviteId = invite._id
+          console.log("invite was added successfully", invite);
+          this.inviteId = invite._id;
           this.show = true;
         });
+    },
+    addMap() {
+      console.log("add map got to template");
+      this.$store.dispatch({
+        type: "addMap",
+        map: {
+          id: "1007", // add id generator
+          kind: "cmp",
+          type: "mapCmp",
+          isEdit: true,
+          data: {
+            markers: [],
+            places: [],
+            currentPlace: null,
+            center: {
+              lat: 45.508,
+              lng: -73.587
+            }
+          }
+        }
+      });
+    },
+    mapUpdate(field, data){
+      this.$store.dispatch({
+         type:"setUserMap",
+         field,
+         data,
+         currCmpPart: this.currCmpPart});
     },
     styleUpdate({ field, css, kind }) {
       // console.log("in template editor ", field, css);
@@ -142,5 +175,21 @@ export default {
   position: absolute;
   top: 23%;
   left: 76%;
+  background-color: azure;
+  padding: 10px;
+}
+
+.edit-toolbox h2{
+  font-weight: 700;
+}
+
+.edit-toolbox input{
+  height: 20px;
+}
+
+.add{
+  color:blue;
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>
