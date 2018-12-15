@@ -9,7 +9,6 @@ export async function uploadImg(elInput) {
    
     // A function to be called if request succeeds
     function onSuccess(res) {
-        console.log('uploadedImg', res.secure_url);
         return res.secure_url;
     }
 

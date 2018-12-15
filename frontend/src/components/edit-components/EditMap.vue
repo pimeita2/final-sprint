@@ -23,7 +23,6 @@ export default {
   created() {},
   methods: {
     connectToCmpPart(cmpPart) {
-      // console.log("Connect to", cmpPart);
       this.currCmpPart = cmpPart;
     },
     closeEdit() {

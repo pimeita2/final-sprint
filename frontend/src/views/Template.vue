@@ -64,6 +64,9 @@ export default {
     },
     generalStyle() {
       return this.$store.getters.generalStyle;
+    },
+    user() {
+      return this.$store.getters.user;
     }
   },
   methods: {
@@ -92,28 +95,24 @@ export default {
     },
     close() {
       this.show = false;
-      console.log("in template close modal");
     },
     publish() {
-      console.log("publish button has been clicked");
       // this.show = true;
       inviteService
         .add({
           cmps: this.dynamicCmps,
           generalStyle: this.generalStyle,
           templateId: this.currInviteCreated,
-          creatorId: 123456.0,
+          creatorId: this.user.id,
           modifiedAt: Date.now(),
           attends: []
         })
         .then(invite => {
-          console.log("invite was added successfully", invite);
           this.inviteId = invite._id;
           this.show = true;
         });
     },
     addMap() {
-      console.log("add map got to template");
       this.$store.dispatch({
         type: "addMap",
         map: {
@@ -141,8 +140,6 @@ export default {
          currCmpPart: this.currCmpPart});
     },
     styleUpdate({ field, css, kind }) {
-      // console.log("in template editor ", field, css);
-      // console.log("the cmp is ->> ", this.currCmpPart);
       if (kind !== "text" && kind !== "cmp") {
         this.$store.dispatch({
           type: "setGenralStyle",

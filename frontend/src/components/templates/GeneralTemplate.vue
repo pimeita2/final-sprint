@@ -13,6 +13,8 @@
         @deleteCmp="deleteCmpPart"
       />
       </draggable>
+
+
     </div>
     
   </section>
@@ -66,9 +68,7 @@ export default {
        deleteCmpPart(cmpId){
       // get the cmps of template
       let cmps = this.$store.getters.dynamicCmps;
-      console.log(cmps);
       cmps = cmps.filter(cmp => cmp.id !== cmpId );
-      console.log(cmps);
       this.$store.dispatch({
         type: "setCurrTemplate",
         tmpData: cmps
@@ -83,9 +83,14 @@ export default {
     },
     generalStyle() {
       return this.$store.getters.generalStyle;
+    },
+    user(){
+      return this.$store.getters.loggedInUser;
     }
+    
   },
   created() {
+
     this.inviteId = this.$route.params.id;
     inviteService.query().then(res => {
 

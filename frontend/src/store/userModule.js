@@ -3,8 +3,8 @@ import authService from '../services/authService.js';
 
 export default {
     state: {
-        loggedinUser: null,
-        user: {
+        user: { 
+            loggedinUser: null,
             nickname: '',
             _id: '',
             password: ''
@@ -13,19 +13,21 @@ export default {
     },
 
     getters: {
-        getUser(state) {
-            return state.loggedinUser;
-        },
-        isUserLoggedIn: state => !!state.user._id,
-        loggedInUser: state => state.user
+        // getUser(state) {
+        //     return state.loggedinUser;
+        // },
+        // isUserLoggedIn: state => !!state.user._id,
+        user: state => state.user
     },
 
     mutations: {
-        setUser(state, { user }) {
-            console.log('in mutations setUser', user)
-            state.loggedinUser = user;
+        setUser(state, { userDetails, id }) {
+            console.log(id);
+            state.user = userDetails;
+            state.user.id=id;  
+            console.log('in set user', state.user);
+
             // userService.login(user);
-            // console.log('logged in user', state.loggedinUser);
         },
     },
 
@@ -64,12 +66,12 @@ export default {
         // },
 
 
-        login(context, { user }) {
-            console.log('in user store', user.nickname, user.password)
-            return authService.login(user.nickname, user.password)
+        login(context, { userDetails }) {
+            // console.log(userDetails);
+            return authService.login(userDetails.nickname, userDetails.password, )
                 .then(user => {
-                    // if (user.nickname && user.password) {
-                    context.commit({ type: 'setUser', user })
+                    console.log('from service', user[0]._id)
+                   context.commit({ type: 'setUser', userDetails, id:user[0]._id })
                     localStorage.setItem('loggedInUser', JSON.stringify(user))
                     // }
                     return user
