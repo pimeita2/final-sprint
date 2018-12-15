@@ -165,8 +165,9 @@ export default {
 <style>
 .template {
   display: flex;
-  background: rgb(189, 187, 187, 0.5);
+  background: rgb(189, 187, 187);
   height: 120vh;
+  margin: 0 auto;
 }
 .spacer {
   flex-grow: 0.5;
@@ -175,7 +176,7 @@ export default {
   position: absolute;
   top: 23%;
   left: 76%;
-  background-color: azure;
+  /* background-color: azure; */
   padding: 10px;
 }
 

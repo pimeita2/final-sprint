@@ -5,11 +5,11 @@
       <span class="it">Me</span>
     </router-link>
     <div class="header-right">
-      <router-link class="routers btn" to="/contact">Contact</router-link>
-      <router-link class="routers btn" to="/about">About Us</router-link>
-      <router-link class="routers btn" to="/template">Create Templates</router-link>
+      <router-link class="routers btn" :class="{'active-router': scrolled}" to="/contact">Contact</router-link>
+      <router-link class="routers btn" :class="{'active-router': scrolled}" to="/about">About Us</router-link>
+      <router-link class="routers btn" :class="{'active-router': scrolled}" to="/template">Create Templates</router-link>
 
-      <a v-if="!isUserLogged" class="a-login-signup" @click="showLogin=true">Login/Sign Up</a>
+      <a v-if="!isUserLogged" class="a-login-signup" :class="{'active-router': scrolled}" @click="showLogin=true">Login/Sign Up</a>
       
       <a v-if="isUserLogged" class="a-logout" @click="logoutUser">Logout</a>
       <a v-if="isUserLogged" class="routers btn welcome-user">
@@ -87,36 +87,33 @@ export default {
   flex-direction: row;
 }
 #hello-userLogged {
-  /* width: 22%; */
   background: none;
   border: none;
   padding: 0px;
   margin: 0px;
   padding-left: 10px;
   color: aqua;
-  /* font-size: 15px;
-  padding:10px;
-  margin-bottom:10px; */
 }
+
 .welcomeUserSpan {
   color: aqua;
 }
+
 .nav {
   position: sticky;
   top: 0;
   width: 100%;
   height: 4em;
   z-index: 2;
-  transition: all 0.5s;
+  transition: all 0.7s;
 }
 
 .hello-userLogged {
   background: none;
-  /* color:azure; */
 }
 
 .it {
-  color: #232323;
+  color: #db3131;
 }
 header {
   overflow: hidden;
@@ -130,9 +127,13 @@ header {
   padding: 5px;
 }
 
+.routers.btn.active-router, .a-login-signup.active-router{
+  color:white;
+}
+
 header .routers {
   float: left;
-  color: rgb(252, 235, 204);
+  color: rgb(0, 0, 0);
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -162,9 +163,6 @@ header .routers.btn:hover {
   /* text-shadow: 0px 0px 20px black; */
 }
 
-.logo:hover {
-  /* text-shadow: 0px 0px 10px black; */
-}
 
 .login-btn {
   cursor: pointer;
@@ -205,7 +203,6 @@ header .routers.btn:hover {
 .a-logout {
   text-decoration: none;
   float: left;
-  color: rgb(252, 235, 204);
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -213,5 +210,6 @@ header .routers.btn:hover {
   line-height: 25px;
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
+  color: black;
 }
 </style>

@@ -6,8 +6,12 @@
     <div class="template-container" :style="this.invite.generalStyle" @click.stop="connectToEditor()"> 
 
       <div v-for="cmp in this.invite.cmps" :key="cmp.id">
-        <div v-if="cmp.kind === 'text'" :style="cmp.data.css">
+        <div v-if="cmp.kind === 'text' && cmp.type !== 'day'" :style="cmp.data.css">
           {{cmp.data.txt}}
+        </div>
+        <div v-else-if="cmp.kind ==='text' && cmp.type === 'day'" :style="cmp.data.css">
+          <i class="far fa-calendar-alt"></i> {{cmp.data.txt.day}} &nbsp; | &nbsp;
+          <i class="far fa-clock"></i> {{cmp.data.txt.time}}
         </div>
         <div v-else-if="cmp.kind ==='cmp'" :style="cmp.data.css">
           <component

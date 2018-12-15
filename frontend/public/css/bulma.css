@@ -1978,13 +1978,13 @@
   }
   
   .button.is-primary {
-    background-color: #00d1b2;
+    background-color: #E4D64E;
     border-color: transparent;
     color: #fff;
   }
   
   .button.is-primary:hover, .button.is-primary.is-hovered {
-    background-color: #00c4a7;
+    background-color: #556B2F;
     border-color: transparent;
     color: #fff;
   }

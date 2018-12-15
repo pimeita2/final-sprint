@@ -116,10 +116,9 @@ export default {
 }
 .modal button {
     padding: 10px;
-    background-color: lightgreen;
-    border: 2px solid lightgreen;
+    background-color: #ffa751;
+    border: 2px solid #ffa751;
     margin: 10px;
-    border-radius: 25px;
     font-family: cursive;
     letter-spacing: 1px;
 }

@@ -132,8 +132,8 @@ input {
 .delete-cmp-show{
   display: inline-block;
   position: relative;
-  left: 290px;
-  bottom: 15px;
+  left: 184px;
+  bottom: 9px;
   font-size: 15px;
 }
 .delete-cmp-show:hover{

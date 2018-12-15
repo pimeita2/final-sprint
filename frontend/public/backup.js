@@ -6,7 +6,7 @@ export default {
             type: 'titleCmp',
             isEdit: true,
             data: {
-                invaitorName: 'meital invaits you',
+                invaitorName: 'R.M.R invaits you',
                 eventName: 'Get your dance on',
                 shortDescription: 'learn how to dance in three simple steps'
             },

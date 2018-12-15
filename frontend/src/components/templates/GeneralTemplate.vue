@@ -2,16 +2,16 @@
   <section class="template">
     <div class="template-container" :style="generalStyle" @click.stop="connectToEditor()">
       <draggable>
-      <component
-        @connectToCmpPart="connectToCmpPart"
-        @showEditor="showEditor"
-        v-for="cmp in dynamicCmps"
-        :key="cmp.id"
-        :is="cmp.type"
-        :id="cmp.id"
-        :data="cmp.data"
-        @deleteCmp="deleteCmpPart"
-      />
+        <component
+          @connectToCmpPart="connectToCmpPart"
+          @showEditor="showEditor"
+          v-for="cmp in dynamicCmps"
+          :key="cmp.id"
+          :is="cmp.type"
+          :id="cmp.id"
+          :data="cmp.data"
+          @deleteCmp="deleteCmpPart"
+        />
       </draggable>
     </div>
     
@@ -63,15 +63,14 @@ export default {
       this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
     },
-       deleteCmpPart(cmpId){
+    deleteCmpPart(cmpId){
       // get the cmps of template
       let cmps = this.$store.getters.dynamicCmps;
-      console.log(cmps);
       cmps = cmps.filter(cmp => cmp.id !== cmpId );
-      console.log(cmps);
+      let generalStyle = this.$store.getters.generalStyle;
       this.$store.dispatch({
         type: "setCurrTemplate",
-        tmpData: cmps
+        tmpData: {cmps, generalStyle}
       });
 
     }

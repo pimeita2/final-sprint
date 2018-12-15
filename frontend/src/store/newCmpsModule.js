@@ -32,7 +32,7 @@ export default {
             console.log('general style', state.generalStyle);
         },
         setCurrTemplate(state, context) {
-            state.templateCmps = context.payload.tmpData.cmps;
+            state.templateCmps = context.payload.tmpData.cmps;           
             state.generalStyle = context.payload.tmpData.generalStyle;
         },
         updateUserTxt(state, newTxt, id) {
