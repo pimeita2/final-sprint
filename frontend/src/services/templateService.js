@@ -11,7 +11,6 @@ export default {
     add: item => axios.post(BASE_URL+'/template', item).then(res => res.data)
 }
 
-console.log('in templateService');
 function saveData(key, value) {
     storageService.saveToStorage(key, value)
 }

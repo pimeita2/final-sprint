@@ -52,14 +52,12 @@ export default {
   created() {},
   methods: {
     connectToCmpPart(cmpPart) {
-      // console.log("Connect to", cmpPart);
       this.currCmpPart = cmpPart;
     },
     closeEdit() {
       this.$emit('closeEditor');
     },
     handleAlignment(align) {
-      // console.log("handleAlignment", align);
       this.$emit("styleTextUpdate", {
         field: "textAlign",
         css: { textAlign: align },
@@ -68,7 +66,6 @@ export default {
     },
     handleFont(event) {
       const fontSelected = event.target.value;
-      // console.log("font chosen", fontSelected);
       this.$emit("styleTextUpdate", {
         field: "fontFamily",
         css: { fontFamily: fontSelected },
@@ -91,9 +88,7 @@ export default {
       });
     },
     handleColor(event) {
-      // console.log("in color:", event.target.value);
       this.color = event.target.value;
-      console.log('color chosen in edit txt', this.color);
       this.$emit("styleTextUpdate", {
         field: "color",
         css: { color: this.color },

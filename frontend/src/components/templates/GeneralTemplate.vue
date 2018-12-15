@@ -13,6 +13,8 @@
           @deleteCmp="deleteCmpPart"
         />
       </draggable>
+
+
     </div>
     
   </section>
@@ -82,9 +84,14 @@ export default {
     },
     generalStyle() {
       return this.$store.getters.generalStyle;
+    },
+    user(){
+      return this.$store.getters.loggedInUser;
     }
+    
   },
   created() {
+
     this.inviteId = this.$route.params.id;
     inviteService.query().then(res => {
 

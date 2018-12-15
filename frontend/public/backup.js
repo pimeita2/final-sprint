@@ -53,7 +53,6 @@ export default {
     data: Object
   },
   created() {
-    console.log();
     //  @blur="updateInvaitorName"
     //  @blur="updateEventName"
     //  @blur="updateShortDescription"

@@ -12,10 +12,8 @@ function signup(user) {
 }
 
 function login(nickname, password) {
-    console.log("singing up ........")
     return axios.get(`${BASE_URL}/user`)
         .then(res => {
-           console.log ('promiseee')
             const logged = res.data.filter(user => {
 
                 const userPass = '' + user.password;

@@ -8,28 +8,28 @@
       <router-link class="routers btn" :class="{'active-router': scrolled}" to="/contact">Contact</router-link>
       <router-link class="routers btn" :class="{'active-router': scrolled}" to="/about">About Us</router-link>
       <router-link class="routers btn" :class="{'active-router': scrolled}" to="/template">Create Templates</router-link>
-
+      <!--user login/logout -->
       <a v-if="!isUserLogged" class="a-login-signup" :class="{'active-router': scrolled}" @click="showLogin=true">Login/Sign Up</a>
-      
-      <a v-if="isUserLogged" class="a-logout" @click="logoutUser">Logout</a>
-      <a v-if="isUserLogged" class="routers btn welcome-user">
-        <span class="welcomeUserSpan">WELCOME</span>
-        <input
-          id="hello-userLogged"
-          class="routers"
-          v-model="this.userLogged[0].nickName"
-          type="text"
-        >
-      </a>
 
-      <user-login
-        v-if="showLogin"
-        @userLogged="logged"
-        @signup="showLogin=false;showSignup=true"
-        @close="showLogin=false"
-      ></user-login>
-      <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>
+      <div class="dropdown">
+        <button v-if="isUserLogged" id="hello-userLogged" class="dropbtn routers btn welcome-user">
+          <span class="welcomeUserSpan">WELCOME</span>
+          {{''+userLogged[0].nickName}}
+        </button>
+        <div class="dropdown-content">
+          <router-link to="/userArea" >Personal Area</router-link>
+          <a href="#" @click="logoutUser">Logout</a>
+        </div>
+      </div>
     </div>
+
+    <user-login
+      v-if="showLogin"
+      @userLogged="logged"
+      @signup="showLogin=false;showSignup=true"
+      @close="showLogin=false"
+    ></user-login>
+    <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>
   </header>
 </template>
 
@@ -48,7 +48,8 @@ export default {
       showSignup: false,
       scrolled: false,
       userLogged: "",
-      isUserLogged: false
+      isUserLogged: false,
+      showUserMenu: false
     };
   },
   created() {
@@ -73,6 +74,15 @@ export default {
     },
     logoutUser() {
       this.isUserLogged = false;
+      this.showUserMenu = false;
+      this.$store.dispatch({
+        type: "login",
+        userDetails: {
+          nickname: "",
+          password: "",
+          isUserLogged:false
+        }
+      });
       console.log("bye bye");
     }
   }
@@ -86,6 +96,15 @@ export default {
   display: flex;
   flex-direction: row;
 }
+
+.welcome-user input {
+  cursor: pointer;
+}
+
+.welcome-user input:hover {
+  background-color: antiquewhite;
+}
+
 #hello-userLogged {
   background: none;
   border: none;
@@ -211,5 +230,51 @@ header .routers.btn:hover {
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
   color: black;
+}
+
+.dropdown {
+  float: left;
+  overflow: visible;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: lightblue;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: inline-flex;
 }
 </style>

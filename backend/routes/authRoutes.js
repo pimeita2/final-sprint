@@ -36,7 +36,6 @@ function addAuthRoutes(app) {
     });
 
     app.put('/logout', (req, res) => {
-        console.log('inside logout')
         if (req.session.user) {
             res.end(`user ${req.session.user.nickname} logged out successfully`)
             req.session.destroy();

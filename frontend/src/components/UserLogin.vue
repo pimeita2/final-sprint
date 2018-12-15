@@ -47,9 +47,10 @@ export default {
       this.$store
         .dispatch({
           type: "login",
-          user: {
+          userDetails: {
             nickname: this.typedNickname,
-            password:this.typedPassword
+            password:this.typedPassword,
+              isUserLogged:true
           }
         })
         .then(user => {
@@ -57,7 +58,6 @@ export default {
             this.isWorng = true;
           } else {
             this.isWorng = false;
-            console.log('in user login module found user', user );
             this.$emit("userLogged", user);
           }
         });

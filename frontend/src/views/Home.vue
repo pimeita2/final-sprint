@@ -52,12 +52,9 @@ export default {
   },
   computed: {},
   created(){
-    console.log('created');
    templateService.query()
    .then(res=>{
-     console.log(res);
      this.templates=res;
-     console.log(this,templates);
    })
    .catch(err=>{
      console.log('err', err);

@@ -39,6 +39,11 @@ export default new Router({
       name: 'contact',
       component: () => import( './views/Contact.vue')
     },
+    {
+      path:'/userArea',
+      name:'/userArea',
+      component:()=>import('./components/UserArea.vue')
+    }
     // {
     //   path: '/signup',
     //   name: 'signup',

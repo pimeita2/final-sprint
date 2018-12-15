@@ -10,11 +10,25 @@
           <p>link to your Invitation:</p>
           <div class="url-container">
             <input type="text" v-model="this.url" class="url">
-            <router-link target="_blank"  :to="`/invite/prv/${inviteId}`">preview</router-link>
-          <button @click="copyUrl()">Copy text</button>
+            <router-link target="_blank" :to="`/invite/prv/${inviteId}`">preview</router-link>
+            <button @click="copyUrl()">Copy text</button>
           </div>
-           <!-- :to="`/edit/${toy._id}`" -->
-
+          <div v-if="userLogged">
+              <router-link to="/userArea" >Personal Area</router-link>
+          </div>
+          <div v-if="!userLogged">
+            <p>In order to Edit the invitation in the future please
+              <a href="#" @click="showLogin=true">Login/SignUp</a>
+            </p>
+          </div>
+        </div>
+        <div>
+          <user-login
+            v-if="showLogin"
+            @signup="showLogin=false;showSignup=true"
+            @close="showLogin=false"
+          ></user-login>
+          <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>
         </div>
       </div>
     </div>
@@ -23,32 +37,46 @@
 
 <script>
 import templateService from "../services/templateService.js";
+import userLogin from "@/components/UserLogin.vue";
+import userSingup from "@/components/UserSignUp.vue";
 export default {
   props: ["inviteId"],
   data() {
     return {
       // show: false,
       template: {},
-      url:`http://localhost:8080/invite/prv/${this.inviteId}`
+      url: `http://localhost:8080/invite/prv/${this.inviteId}`,
+      userLogged: false,
+      showLogin: false,
+      showSignup: false
+
     };
   },
   created() {
-    console.log(' curr inviteId', this.inviteId);
+    let user = this.$store.getters.user;
+    console.log("user logged in publish modal", user);
+    if (user.isUserLogged) this.userLogged = true;
+  },
+  computed: {
+    user() {
+      return this.$store.getters.loggedInUser;
+    }
   },
   methods: {
     copyUrl() {
- 
-      const copyTxt=document.querySelector('.url');
+      const copyTxt = document.querySelector(".url");
       copyTxt.select();
       document.execCommand("copy");
       // alert("Copied the text: " + copyTxt.value);
     },
-    close(){
-      console.log('in publish modal clicked x');
+    close() {
+      console.log("in publish modal clicked x");
       this.$emit("close");
     }
   },
   components: {
+    userLogin,
+    userSingup
   }
 };
 </script>
@@ -61,17 +89,16 @@ export default {
   height: 80%;
 }
 
-
-.inner h6{
-  font-size:40px;
+.inner h6 {
+  font-size: 40px;
   padding: 20px;
   font-family: Quicksand;
 }
-.inner p{
+.inner p {
   font-size: 20px;
 }
 
-.url-container{
+.url-container {
   display: flex;
   flex-direction: row;
   align-items: center;
