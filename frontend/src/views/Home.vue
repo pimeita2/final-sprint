@@ -1,20 +1,25 @@
 <template>
   <section>
-    <main-header></main-header>
-
-    <!-- <router-link to="/second">second template</router-link> -->
-    <div class="home">
-      <section id="banner">
-        <h1 class="titleBanner first-line">
-           ONLINE Invitation
-          <br>
+    <!-- <div class="home"> -->
+      <main-header></main-header>
+      <div class= "before-banner">
+        <section id="banner">
+          <h1 class="titleBanner">
+             <span class="first-line">
+              Online Invitation
+             </span>
+             <span class="second-line">
+                for any
+              Occasion 
+             </span>
           </h1>
-          <h1 class="titleBanner second-line">
-          For any
-          Occasion
-        </h1>
-      <!--   <button class="btn-get-start">Get Started</button> -->
-      </section>
+            <!-- <h1 class="">
+            
+          </h1> -->
+      
+        </section>
+      </div>
+      
       <section class="templates">
         <div class="templates-container">
           <filter-list></filter-list>
@@ -22,9 +27,8 @@
           <templateList :templates="templates"></templateList>
         </div>
       </section>
-
-
-    </div>
+      
+    <!-- </div> -->
     <main-footer></main-footer>
   </section>
 </template>
@@ -70,50 +74,54 @@ body {
 }
 
 #banner {
-  background-color: #e5474b;
-  color: #f2a3a5;
-  background-color: #0c0c0c;
-  background-image: url("../assets/img56.jpg");
-  background-position-y: -100px;
-  background-size: cover;
+  background-image: url("../assets/final cover-app.png");
+  display: block;
+  height: 310px;
+  margin-top: 20px;
   background-repeat: no-repeat;
-  /* background-position: 100px; */
+  background-position: center;
+  background-size: auto 100%;
   position: relative;
-  z-index: 0;
-  margin-top: -145px;
-  height: 85vh;
-  /* box-shadow: inset 0 0 0 100px rgba(36, 70, 105, 0.74); */
+  top: 230px;
+  
 }
 
-#banner::after {
-  background: rgba(0, 0, 0, 0.34);
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
+.before-banner{
+    background: #ffe259;  
+    background: -webkit-linear-gradient(to right, #ffa751, #ffe259);  
+    background: linear-gradient(to right, #ffa751, #ffe259);
+    background-color: transparent;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: left 0px bottom 90px;
+    z-index: 0;
+    margin-top: -145px;
+    height: 85vh;
 }
 
 .titleBanner {
-  font-size: 3.4em;
+  position: relative;
+  bottom: 235px;
+  font-size: 2.9em;
   padding: 3.3em 0 0 1em;
   letter-spacing: 3px;
   font-weight: 700;
   font-family: 'Comfortaa', cursive;
-  text-align: left;
+  text-align: center;
   color: white;
   opacity: 1;
-  color: rgb(252, 235, 204);
+  color:white;
   margin-top: 10px;
-  animation: moveFromLeft 1.5s ;
 }
 
-.titleBanner.second-line{
-  text-align: right;
-  padding: 0 2.7em 0 0;
+.first-line{
+ display: inline-block;
+ animation: moveFromLeft 1.5s;
+}
+
+.second-line{
+  margin-left: 15px;
+  display: inline-block;
   animation: moveFromRight 1.5s;
 }
 

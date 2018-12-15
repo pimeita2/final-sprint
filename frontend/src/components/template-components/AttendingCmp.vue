@@ -1,7 +1,7 @@
 <template>
   <section class="attending-container">
     <h3 class="attending-title">Attending</h3>
-    <p class="attending-sub-title">how many peoples are comeing?</p>
+    <p class="attending-sub-title">How many peoples are comeing?</p>
     <div class="incomingPepole">
       <!-- <div class="field has-addons has-addons-right"> -->
       <p class="control">
@@ -17,8 +17,10 @@
       </p>
       <!-- </div> -->
     </div>
+  
     <input class="input is-small guests-name" type="text" placeholder="full name" required>
     <input class="input is-small guests-mobile" type="text" placeholder="mobile number" required>
+    
     <br>
     <button class="button is-primary">Submit</button>
     
@@ -49,16 +51,19 @@ export default {
 
 
 <style>
+
 .attending-title {
-  margin: 16px 0 0 0;
+  margin: 16px 1px 0 -100px;
   font-size: 22px;
   letter-spacing: 1px;
+  color:rgb(243, 195, 105);
   font-family: "Asap Condensed";
 }
 .attending-sub-title {
   letter-spacing: 1px;
-  margin: 3px 3px 12px 3px;
-  font-size: 12px;
+  margin: 3px 128px 12px 3px;
+  font-size: 16px;
+  color:rgb(243, 195, 105);
   font-family: "Asap Condensed";
 }
 .counter-view {
@@ -74,6 +79,7 @@ export default {
 input.guests-name {
   width: 45%;
   margin: 5px 10px 0 0;
+  /* margin:0; */
 }
 input.guests-mobile {
   width: 45%;

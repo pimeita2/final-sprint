@@ -90,7 +90,7 @@ export default {
         kind: "text",
         type: "invaitorName",
         data: {
-          txt: "meital invaits you",
+          txt: "R.M.R invaits you",
           css: {
             color: "black",
             textAlign: "center",

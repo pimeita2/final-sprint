@@ -142,13 +142,12 @@ export default {
   cursor: pointer;
 }
 .modal button {
-  padding: 10px;
-  background-color: lightgreen;
-  border: 2px solid lightgreen;
-  margin: 10px;
-  border-radius: 25px;
-  font-family: cursive;
-  letter-spacing: 1px;
+    padding: 10px;
+    background-color: #ffa751;
+    border: 2px solid #ffa751;
+    margin: 10px;
+    font-family: cursive;
+    letter-spacing: 1px;
 }
 
 .animate {

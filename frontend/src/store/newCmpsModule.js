@@ -25,7 +25,7 @@ export default {
             state.generalStyle[field] = css[field];
         },
         setCurrTemplate(state, context) {
-            state.templateCmps = context.payload.tmpData.cmps;
+            state.templateCmps = context.payload.tmpData.cmps;           
             state.generalStyle = context.payload.tmpData.generalStyle;
         },
         updateUserTxt(state, newTxt, id) {
