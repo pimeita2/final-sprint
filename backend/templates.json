@@ -5,7 +5,7 @@
             "kind": "text",
             "type": "invaitorName",
             "data": {
-                "txt": "meital invaits you",
+                "txt": "R.M.R invaits you",
                 "css": {
                     "color": "black",
                     "textAlign": "center",
@@ -117,7 +117,7 @@
     "generalStyle": {
         "backgroundColor": "#ff9a90",
         "backgroundPosition": "center",
-        "margin": "50px 20px 0 200px",
+        "margin": "0 auto",
         "background-size": "cover",
         "padding": "50px"
     },
