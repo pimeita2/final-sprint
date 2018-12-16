@@ -109,13 +109,18 @@ export default {
   background: none;
   border: none;
   padding: 0px;
-  margin: 0px;
+  margin-top: 13px;
   padding-left: 10px;
-  color: aqua;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
 }
 
 .welcomeUserSpan {
-  color: aqua;
+  color: black;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  margin-right:10px;
 }
 
 .nav {
@@ -146,7 +151,7 @@ header {
   padding: 5px;
 }
 
-.routers.btn.active-router, .a-login-signup.active-router{
+.routers.btn.active-router, .a-login-signup.active-router, .welcomeUserSpan{
   color:white;
 }
 
