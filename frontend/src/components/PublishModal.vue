@@ -14,11 +14,11 @@
             <button @click="copyUrl()">Copy text</button>
           </div>
           <div v-if="userLogged">
-              <form class="detailsToSave">
+              <form class="detailsToSave" >
                 <p>Fill invite details in order to save it and access info:</p>
-                <input type="text" v-model="name" placeholder="InviteName">
-                <input type="text" v-model="ShortDersription" placeholder="Describe Your Event...">
-                 <button>Save</button>
+                <input type="text" v-model="name" placeholder="InviteName" required>
+                <input type="text" v-model="shortDescription" placeholder="Describe Your Event..." required>
+                 <button type="button" @click="saveDetails">Save</button>
               </form>
               <router-link to="/userArea" >Personal Area</router-link>
           </div>
@@ -72,6 +72,14 @@ export default {
     }
   },
   methods: {
+    saveDetails(){
+       inviteService.getById(this.inviteId).then(invite=>{
+          invite.inviteName=this.name;
+          invite.shortDescription=this.shortDescription;
+          console.log({invite});
+        inviteService.saveinvite(invite);
+       });
+    },
     copyUrl() {
       const copyTxt = document.querySelector(".url");
       copyTxt.select();

@@ -61,6 +61,8 @@ export default {
         phoneNumber:this.phoneNumber
        }
        console.log(res);
+       inviteService.saveinvite(res);
+
       });
     //  EventBus.$emit('attendingDetails', {
     //     inviteId:id,

@@ -52,6 +52,13 @@ export default {
       return this.data.currentPlace;
     }
   },
+  watch: {
+    markers() {
+      const {position} = this.markers[this.markers.length - 1];
+      console.log({position})
+      this.setCenter(position)
+    }
+  },
 
   mounted() {
     this.geolocate();
@@ -74,6 +81,12 @@ export default {
     //     this.currentPlace = null;
     //   }
     // },
+    setCenter({lat, lng}) {
+      this.center = {
+        lat,
+        lng
+      };
+    },
     connectToEditor() {
       this.isSelected = true;
       // console.log("in connect to editor in mapCmp", this.data);
@@ -81,14 +94,13 @@ export default {
       this.$emit("showEditor", { kind: "map" });
     },
     geolocate: function() {
-        console.log('curr center:', this.center);
+      console.log("curr center:", this.center);
       navigator.geolocation.getCurrentPosition(position => {
-        this.center = {
+        this.setCenter({
           lat: position.coords.latitude,
           lng: position.coords.longitude
-        };  
-        console.log('curr center:', this.center);
-
+        })
+        console.log("curr center:", this.center);
       });
     }
   }
