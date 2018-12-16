@@ -43,8 +43,8 @@ export default {
 
 <style>
 .container-template {
-  width: 300px;
-  height: 375px;
+  width: 250px;
+  height: 370px;
   border: 1px solid gray;
   border-radius: 6px;
 }

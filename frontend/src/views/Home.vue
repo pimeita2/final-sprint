@@ -57,7 +57,7 @@ export default {
      this.templates=res;
    })
    .catch(err=>{
-     console.log('err', err);
+    //  console.log('err', err);
    })
   },
   data() {
@@ -102,11 +102,11 @@ body {
 .titleBanner {
   position: relative;
   bottom: 235px;
-  font-size: 2.9em;
+  font-size: 3.2em;
   padding: 3.3em 0 0 1em;
   letter-spacing: 3px;
   font-weight: 700;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Montez', cursive;
   text-align: center;
   color: white;
   opacity: 1;
