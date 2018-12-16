@@ -4,21 +4,24 @@
 
  <form class="filter">
 
-     <label>
+     <label class ="searchInput-icon">
+         <i class="fas fa-search"></i>
          <input class="search-input" type="search"  placeholder="Search Design...">
      </label>
      
-     <i class="fas fa-search"></i>
-      <h6>Filter By:</h6>
+     
+      <!-- <h6>Filter By:</h6> -->
+    <div class="input-search">
      <label>
          <input type="checkbox" value="lastCreated">Last Created
      </label>
       <label>
-         <input type="checkbox" value="lastCreated">By Rank
+         <input type="checkbox" value="lastCreated" class="search-byRank">By Rank
      </label>
       <label>
          <input type="checkbox" value="lastCreated">Most Used
      </label>
+    </div>
       
  </form>
 </template>
@@ -44,20 +47,35 @@ export default {
 
 
 <style>
- .filter{
-     width:200px;
-     border-right: 2px solid lightgrey;
+.search-byRank{
+    margin-left:3px;
+}
+.fa-search{
+    font-size: 18px;
+    margin-top: 6px;
+    margin-right: 4px;
+}
+.searchInput-icon{
+    display: flex; 
+}
+.input-search{
+    display: grid;
+}
+.filter{
+    width:200px;
+    border-right: 2px solid lightgrey;
  }
 
 .search-input{
-  border: 2px solid lightgray;
-  border-radius: 6px;
-  padding: 5px;
+    border: 2px solid lightgray;
+    border-radius: 6px;
+    padding: 5px;
 }
 
  .filter label{
-  margin: 10px 20px;
-  padding: 0 20px;
+    margin: 10px 20px;
+    padding: 0 20px;
+    margin-left:3px;
   
  }
 </style>

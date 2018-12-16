@@ -1,6 +1,6 @@
 <template>
   <section>
-    <!-- <div class="home"> -->
+    
       <main-header></main-header>
       <div class= "before-banner">
         <section id="banner">
@@ -13,9 +13,7 @@
               Occasion 
              </span>
           </h1>
-            <!-- <h1 class="">
-            
-          </h1> -->
+       
       
         </section>
       </div>
@@ -28,7 +26,7 @@
         </div>
       </section>
       
-    <!-- </div> -->
+    
     <main-footer></main-footer>
   </section>
 </template>
