@@ -52,12 +52,14 @@ function add(invite) {
 }
 
 function update(invite) {
-    const inviteId = new ObjectId(invite.id)
+    const inviteId = new ObjectId(invite._id)
+    delete invite._id
     return mongoService.connectToDb()
         .then(dbConn => {
             const inviteCollection = dbConn.collection('invite');
             return inviteCollection.updateOne({ _id: inviteId }, { $set: invite })
                 .then(result => {
+                    invite._id = inviteId
                     return invite;
                 });
 
