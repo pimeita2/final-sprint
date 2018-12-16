@@ -18,23 +18,28 @@
       <!-- </div> -->
     </div>
   
-    <input class="input is-small guests-name" type="text" placeholder="full name" required>
-    <input class="input is-small guests-mobile" type="text" placeholder="mobile number" required>
+    <input class="input is-small guests-name" type="text" v-model="fullName"  placeholder="full name" required>
+    <input class="input is-small guests-mobile" type="text" v-model="phoneNumber" placeholder="mobile number" required>
     
     <br>
-    <button class="button is-primary">Submit</button>
+    <button class="button is-primary" @click="attendingDetails">Submit</button>
     
   </section>
 </template>
 
 <script>
+// import EventBus from '../../events.js'
+import inviteService from "../../services/inviteService.js"
+
 export default {
   props: {
     data: Object
   },
   data() {
     return {
-      pepoleCount: 0
+      pepoleCount: 0,
+      fullName:"",
+      phoneNumber:""
     };
   },
   methods: {
@@ -44,6 +49,25 @@ export default {
     lessPepole() {
       this.pepoleCount--;
       if (this.pepoleCount < 0) return (this.pepoleCount = 0);
+    },
+    attendingDetails(){
+      console.log('Deatails entered in attending', this.pepoleCount, this.fullName ,this.phoneNumber);
+      const id = this.$route.params.id
+      inviteService.getById(id).then(res=>{
+        console.log(res);
+        if(res!=null) res.attends={
+        numOfArriving:this.pepoleCount,
+        fullName:this.fullName,
+        phoneNumber:this.phoneNumber
+       }
+       console.log(res);
+      });
+    //  EventBus.$emit('attendingDetails', {
+    //     inviteId:id,
+    //     numOfArriving:this.pepoleCount,
+    //     fullName:this.fullName,
+    //     phoneNumber:this.phoneNumber
+    //   })
     }
   }
 };

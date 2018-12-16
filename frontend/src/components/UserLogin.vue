@@ -1,7 +1,8 @@
 <template>
   <section>
     <div id="id01" class="modal-signIn">
-      <form class="modal-signIn-content animate" action="/" @submit.prevent="login">
+      <form class="modal-signIn-content animate" @submit.prevent="login"> 
+        <!-- action="/" -->
         <div class="imgcontainer">
           <span @click="$emit('close')" class="close-signIn" title="Close Modal">&times;</span>
           <img class="avatar" src="../assets/login.png">
@@ -34,6 +35,7 @@
 
 <script>
 export default {
+  profs:['locationOfLogin:'],
   data() {
     return {
       typedNickname: "",
@@ -61,7 +63,8 @@ export default {
             this.$emit("userLogged", user);
           }
         });
-    },
+        if(this.locationOfLogin==='header') this.$router.push('/');
+    }
 
   }
 };

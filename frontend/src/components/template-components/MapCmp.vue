@@ -7,9 +7,13 @@
         <button @click="addMarker">Add</button>
       </label>
       <br>
-    </div> -->
-    
-    <gmap-map  :center="center" :zoom="12" style="width:200px;  height: 200px;" @click.native.stop="connectToEditor">
+    </div>-->
+    <gmap-map
+      :center="center"
+      :zoom="12"
+      style="width:250px;  height: 250px;"
+      @click.native.stop="connectToEditor"
+    >
       <gmap-marker
         :key="index"
         v-for="(m, index) in this.markers"
@@ -23,7 +27,7 @@
 <script>
 export default {
   name: "GoogleMap",
-    props: {
+  props: {
     data: Object,
     id: String
   },
@@ -31,11 +35,22 @@ export default {
     return {
       // default to Montreal to keep it simple
       // change this to whatever makes sense
-      center: this.data.center,
-      markers:this.data.markers,
-      places: this.data.places,
-      currentPlace:this.data.currentPlace
+      center: this.data.center
+      // markers:this.data.markers,
+      // places: this.data.places,
+      // currentPlace:this.data.currentPlace
     };
+  },
+  computed: {
+    markers() {
+      return this.data.markers;
+    },
+    places() {
+      return this.data.places;
+    },
+    currentPlace() {
+      return this.data.currentPlace;
+    }
   },
 
   mounted() {
@@ -59,27 +74,29 @@ export default {
     //     this.currentPlace = null;
     //   }
     // },
-        connectToEditor() {
+    connectToEditor() {
       this.isSelected = true;
       // console.log("in connect to editor in mapCmp", this.data);
       this.$emit("connectToCmpPart", this.id);
       this.$emit("showEditor", { kind: "map" });
     },
     geolocate: function() {
-      console.log(this.center);
-       navigator.geolocation.getCurrentPosition(position => {
+        console.log('curr center:', this.center);
+      navigator.geolocation.getCurrentPosition(position => {
         this.center = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
-        };
+        };  
+        console.log('curr center:', this.center);
+
       });
     }
   }
 };
 </script>
 <style>
-  .m{
-    display: flex;
-    justify-content: center;
-  }
+.m {
+  display: flex;
+  justify-content: center;
+}
 </style>

@@ -14,6 +14,12 @@
             <button @click="copyUrl()">Copy text</button>
           </div>
           <div v-if="userLogged">
+              <form class="detailsToSave">
+                <p>Fill invite details in order to save it and access info:</p>
+                <input type="text" v-model="name" placeholder="InviteName">
+                <input type="text" v-model="ShortDersription" placeholder="Describe Your Event...">
+                 <button>Save</button>
+              </form>
               <router-link to="/userArea" >Personal Area</router-link>
           </div>
           <div v-if="!userLogged">
@@ -27,6 +33,7 @@
             v-if="showLogin"
             @signup="showLogin=false;showSignup=true"
             @close="showLogin=false"
+            @userLogged="logged"
           ></user-login>
           <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>
         </div>
@@ -36,7 +43,7 @@
 </template>
 
 <script>
-import templateService from "../services/templateService.js";
+import inviteService from "../services/inviteService.js";
 import userLogin from "@/components/UserLogin.vue";
 import userSingup from "@/components/UserSignUp.vue";
 export default {
@@ -48,12 +55,14 @@ export default {
       url: `http://localhost:8080/invite/prv/${this.inviteId}`,
       userLogged: false,
       showLogin: false,
-      showSignup: false
+      showSignup: false,
+      name:"",
+      shortDescription:""
 
     };
   },
   created() {
-    let user = this.$store.getters.user;
+     let user = this.$store.getters.user;
     console.log("user logged in publish modal", user);
     if (user.isUserLogged) this.userLogged = true;
   },
@@ -72,6 +81,14 @@ export default {
     close() {
       console.log("in publish modal clicked x");
       this.$emit("close");
+    },
+    logged(user) {
+      this.userLogged = true;
+      this.showLogin = false;
+      inviteService.getById(this.inviteId).then(res=>{
+        res.creatorId=user[0]._id;
+
+      })
     }
   },
   components: {
@@ -84,6 +101,13 @@ export default {
 
 
 <style>
+
+.detailsToSave{
+  width: 60%;
+  margin: auto;
+  border: 2px solid black;
+  padding: 10px;
+}
 .inner {
   width: 100%;
   height: 80%;

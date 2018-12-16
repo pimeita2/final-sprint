@@ -12,10 +12,10 @@
       <a v-if="!isUserLogged" class="a-login-signup" :class="{'active-router': scrolled}" @click="showLogin=true">Login/Sign Up</a>
 
       <div class="dropdown">
-        <button v-if="isUserLogged" id="hello-userLogged" class="dropbtn routers btn welcome-user">
+        <div v-if="isUserLogged" id="hello-userLogged" class="dropbtn routers btn welcome-user">
           <span class="welcomeUserSpan">WELCOME</span>
-          {{''+userLogged[0].nickName}}
-        </button>
+          {{' - '+ userLogged[0].nickName}}
+        </div>
         <div class="dropdown-content">
           <router-link to="/userArea" >Personal Area</router-link>
           <a href="#" @click="logoutUser">Logout</a>
@@ -28,8 +28,9 @@
       @userLogged="logged"
       @signup="showLogin=false;showSignup=true"
       @close="showLogin=false"
+      :locationOfLogin="locationOfLogin"
     ></user-login>
-    <user-singup v-if="showSignup" @close="showSignup=false"></user-singup>
+    <user-singup v-if="showSignup" @close="showSignup=false" ></user-singup>
   </header>
 </template>
 
@@ -44,23 +45,32 @@ export default {
 
   data() {
     return {
+      locationOfLogin:'header',
       showLogin: false,
       showSignup: false,
       scrolled: false,
-      userLogged: "",
+      userLogged:[],
       isUserLogged: false,
       showUserMenu: false
     };
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
+    var user=this.$store.getters.user;
+    if(user.isUserLogged) {
+      this.isUserLogged=true;
+      this.userLogged=[user];
+      console.log('after refresh', this.userLogged[0].nickname);
+
+    } 
+    console.log(this.isUserLogged);
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleScroll() {
-      this.scrolled = window.scrollY > 300;
+      this.scrolled = window.scrollY > 50;
     },
     logged(user) {
       this.userLogged = user;
@@ -68,8 +78,7 @@ export default {
       this.showLogin = false;
       console.log(
         "this.userLogged: ",
-        this.userLogged,
-        this.userLogged[0].nickName
+        this.userLogged
       );
     },
     logoutUser() {
