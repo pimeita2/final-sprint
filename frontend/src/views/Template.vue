@@ -101,7 +101,8 @@ export default {
       inviteService
         .add({
           cmps: this.dynamicCmps,
-          inviteName: 'puki',
+          inviteName: '',
+          shortDescription:'',
           generalStyle: this.generalStyle,
           templateId: this.currInviteCreated,
           creatorId: this.user.id,

@@ -41,7 +41,6 @@ function remove(inviteId) {
     return axios.delete(`${BASE_URL}/invite/${inviteId}`)
     // .then(res => res.data)
 }
-function filter() { }
 
 function saveinvite(invite) {
     if (invite._id) {
