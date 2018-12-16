@@ -1,0 +1,138 @@
+// "templateId" : "5c0d77df3b508889842b7484",
+// "cmps" : [ 
+//     {
+//         "id" : "0",
+//         "kind" : "text",
+//         "type" : "invaitorName",
+//         "data" : {
+//             "txt" : "R.M.R invaits you",
+//             "css" : {
+//                 "color" : "black",
+//                 "textAlign" : "center",
+//                 "fontWeight" : {
+//                     "isBold" : false,
+//                     "value" : "normal"
+//                 },
+//                 "fontFamily" : "Oswald",
+//                 "fontSize" : "18px"
+//             }
+//         }
+//     }, 
+//     {
+//         "id" : "1",
+//         "kind" : "text",
+//         "type" : "eventTitle",
+//         "isEdit" : true,
+//         "data" : {
+//             "txt" : "Tap TAKEOVER & ",
+//             "css" : {
+//                 "color" : "gold",
+//                 "textAlign" : "left",
+//                 "fontWeight" : {
+//                     "isBold" : false,
+//                     "value" : "normal"
+//                 },
+//                 "fontFamily" : "Satisfy",
+//                 "fontSize" : "28px"
+//             }
+//         }
+//     }, 
+//     {
+//         "id" : "2",
+//         "kind" : "text",
+//         "type" : "eventTitle",
+//         "isEdit" : true,
+//         "data" : {
+//             "txt" : "MEETUP ",
+//             "css" : {
+//                 "color" : "gold",
+//                 "textAlign" : "center",
+//                 "fontWeight" : {
+//                     "isBold" : false,
+//                     "value" : "normal"
+//                 },
+//                 "fontFamily" : "Satisfy",
+//                 "fontSize" : "34px"
+//             }
+//         }
+//     }, 
+//     {
+//         "id" : "3",
+//         "kind" : "text",
+//         "type" : "shortDescription",
+//         "isEdit" : true,
+//         "data" : {
+//             "txt" : "Join us to learn about VUE.JS",
+//             "css" : {
+//                 "color" : "rgb(243, 195, 105)",
+//                 "textAlign" : "left",
+//                 "fontWeight" : {
+//                     "isBold" : false,
+//                     "value" : "normal"
+//                 },
+//                 "fontFamily" : "Asap Condensed",
+//                 "fontSize" : "16px"
+//             }
+//         }
+//     }, 
+//     {
+//         "id" : "4",
+//         "kind" : "text",
+//         "type" : "day",
+//         "isEdit" : true,
+//         "data" : {
+//             "txt" : {
+//                 "day" : "",
+//                 "time" : ""
+//             },
+//             "css" : {
+//                 "color" : "black",
+//                 "textAlign" : "center",
+//                 "fontWeight" : {
+//                     "isBold" : false,
+//                     "value" : "normal"
+//                 },
+//                 "fontFamily" : "Asap Condensed",
+//                 "fontSize" : "16px"
+//             }
+//         }
+//     }, 
+//     {
+//         "id" : "5",
+//         "kind" : "text",
+//         "type" : "location",
+//         "isEdit" : true,
+//         "data" : {
+//             "txt" : "Beer Garden,Tel Aviv, Israel",
+//             "css" : {
+//                 "color" : "black",
+//                 "textAlign" : "center",
+//                 "fontWeight" : {
+//                     "isBold" : false,
+//                     "value" : "normal"
+//                 },
+//                 "fontFamily" : "Asap Condensed",
+//                 "fontSize" : "17px"
+//             }
+//         }
+//     }, 
+//     {
+//         "id" : "6",
+//         "kind" : "cmp",
+//         "type" : "attending",
+//         "isEdit" : true,
+//         "data" : {}
+//     }
+// ],
+// "generalStyle" : {
+//     "backgroundImage" : "url('https://i.imgur.com/TBKs12e.png')",
+//     "backgroundPosition" : "center",
+//     "margin" : "50px 20px 33px 200px",
+//     "background-size" : "cover",
+//     "padding" : "50px"
+// },
+// "creatorId" : 123456.0,
+// "modifiedAt" : "",
+// "createdAt" : "",
+// "attends" : []
+// }
