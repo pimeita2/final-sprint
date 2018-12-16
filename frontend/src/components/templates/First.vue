@@ -3,7 +3,11 @@
     <div class="template-container-first" :style="generalStyle" >
       <div class="backgroun-frame">
         <div class="card-container">
-          <draggable>
+       
+       
+       
+       
+          <!-- <draggable>
           <component
             @connectToCmpPart="connectToCmpPart"
             @showEditor="showEditor"
@@ -14,7 +18,7 @@
             :data="cmp.data"
             @deleteCmp="deleteCmpPart"
           />
-          </draggable>
+          </draggable> -->
         </div>
       </div>
     </div>
@@ -231,10 +235,8 @@ export default {
 </script>
 
 <style lang="scss">
-// .card-container:hover {
-//   input,
-//   textarea {
-//     // outline: 0.8px dashed black;
-//   }
-// }
+.card-container {
+height:80vh;
+width: 60wh;
+}
 </style>

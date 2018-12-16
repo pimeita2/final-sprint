@@ -1978,7 +1978,7 @@
   }
   
   .button.is-primary {
-    background-color: #E4D64E;
+    background-color: rgb(193, 109, 235);
     border-color: transparent;
     color: #fff;
   }

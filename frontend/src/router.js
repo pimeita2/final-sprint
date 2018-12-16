@@ -43,6 +43,11 @@ export default new Router({
       path:'/userArea',
       name:'/userArea',
       component:()=>import('./components/UserArea.vue')
+    },
+    {
+      path:'/first',
+      name:'/first',
+      component:()=>import('./components/templates/First.vue')
     }
     // {
     //   path: '/signup',
