@@ -131,7 +131,7 @@
             "backgroundPosition": "center",
             "margin": "50px auto 33px auto",
             "background-size": "cover",
-            "padding": "50px"
+            "padding": "80px"
         },
         "creatorId": 123456.0,
         "modifiedAt": "",
