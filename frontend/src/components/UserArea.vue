@@ -2,14 +2,14 @@
 <template>
   <section class= "userArea-section">
     <div class="title-container">
-      <h4 class="head-line">Hello {{user.nickName}}</h4>
+      <h4 class="head-line">Hello  {{user.nickname}}</h4>
       <h4 class="head-line">Invitations You Created</h4>
     </div>
     <div class="inv-container">
       <div v-for="inv in userInivtes" :key="inv.id"   v-if="inv.inviteName !== ''" :style="inv.generalStyle" class="templateUserArea">
-          <p><span class="inviteName">Invite Name: </span>{{inv.inviteName}}</p>
-          <p><span class="description">Description: </span>{{inv.shortDescription}}</p>
-          <p><span class="timeCreated">Time created:</span>{{inv.modifiedAt}}</p>
+          <p><span class="inviteName">Invite Name: </span><br>{{inv.inviteName}}</p>
+          <p><span class="description">Description: </span><br>{{inv.shortDescription}}</p>
+          <p><span class="timeCreated">Time created:</span><br>{{inv.modifiedAt}}</p>
           <br>
           <div v-if="inv.attends.fullName" class="rsvp-container">
               <h4>-- RSVP --</h4>
@@ -62,6 +62,25 @@ export default {
 
 
 <style>
+
+.templateUserArea{
+    background-blend-mode: color;
+    background-color: rgba(255, 255, 255, 0.4); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.templateUserArea p{
+  width: 80%;
+font-family:  cursive;
+color: aliceblue;
+  margin-bottom: 10px;
+
+}
+
+
 .userArea-section{
   background: rgb(189, 187, 187);
   height: 120vh;
