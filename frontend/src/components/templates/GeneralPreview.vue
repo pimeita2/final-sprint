@@ -94,6 +94,13 @@ export default {
 .height {
   height: 85vh;
 }
+
+@media screen and (max-width: 420px) {
+
+.template-container{
+  margin: 1px !important;
+}
+}
 </style>
  
  

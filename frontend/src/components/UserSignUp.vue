@@ -106,7 +106,7 @@ input[type=text]:focus, input[type=password]:focus {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 50px;
+  /* padding-top: 50px; */
 }
 
 /* Modal Content/Box */

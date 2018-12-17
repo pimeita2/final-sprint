@@ -6,25 +6,38 @@
       <div class="modal-content animate" action>
         <div class="inner" style="padding:20%, width:100%">
           <span @click="close" class="close" title="Close Modal">&times;</span>
-          <h6>Your Invitation has been created successfully</h6>
+          <h6>Your Invitation has been created successfully- <router-link class="preview" target="_blank" :to="`/invite/prv/${inviteId}`">Preview</router-link></h6>
+          
+        
           <p>link to your Invitation:</p>
           <div class="url-container">
-            <input type="text" v-model="this.url" class="url">
+            <!-- <input type="text" v-model="this.url" class="url">
             <router-link target="_blank" :to="`/invite/prv/${inviteId}`">preview</router-link>
-            <button @click="copyUrl()">Copy text</button>
+            <button @click="copyUrl()">Copy text</button>-->
+            <!-- <input v-model="url"> - no need for this qr -->
+            <img clas="qr" v-bind:src="fullUrl" alt>
           </div>
           <div v-if="userLogged">
-              <form class="detailsToSave" >
-                <p>Fill invite details in order to save it and access info:</p>
-                <input type="text" v-model="name" placeholder="InviteName" required>
-                <input type="text" v-model="shortDescription" placeholder="Describe Your Event..." required>
-                 <button type="button" @click="saveDetails">Save</button>
-              </form>
-              <router-link to="/userArea" >Personal Area</router-link>
+            <form class="detailsToSave">
+              <p>Fill invite details in order to save it and access info:</p>
+              <input type="text" v-model="name" placeholder="InviteName" required>
+              <input
+                type="text"
+                v-model="shortDescription"
+                placeholder="Describe Your Event..."
+                required
+              >
+              <button type="button" @click="saveDetails">Save</button>
+            </form>
+            <router-link to="/userArea">Personal Area</router-link>
           </div>
-          <div v-if="!userLogged">
-            <p>In order to Edit the invitation in the future please
-              <a href="#" @click="showLogin=true">Login/SignUp</a>
+          <div class="notLogged" v-if="!userLogged">
+            <p>
+              In order to Edit the invitation in the future please
+              <a
+                href="#"
+                @click="showLogin=true"
+              >Login/SignUp</a>
             </p>
           </div>
         </div>
@@ -46,6 +59,7 @@
 import inviteService from "../services/inviteService.js";
 import userLogin from "@/components/UserLogin.vue";
 import userSingup from "@/components/UserSignUp.vue";
+
 export default {
   props: ["inviteId"],
   data() {
@@ -53,18 +67,19 @@ export default {
       // show: false,
       template: {},
       url: `http://localhost:8080/invite/prv/${this.inviteId}`,
+      fullUrl: "",
       userLogged: false,
       showLogin: false,
       showSignup: false,
-      name:"",
-      shortDescription:""
-
+      name: "",
+      shortDescription: ""
     };
   },
   created() {
-     let user = this.$store.getters.user;
+    let user = this.$store.getters.user;
     console.log("user logged in publish modal", user);
     if (user.isUserLogged) this.userLogged = true;
+    this.buildUrl();
   },
   computed: {
     user() {
@@ -72,20 +87,29 @@ export default {
     }
   },
   methods: {
-    saveDetails(){
-       inviteService.getById(this.inviteId).then(invite=>{
-          invite.inviteName=this.name;
-          invite.shortDescription=this.shortDescription;
-          console.log({invite});
+    buildUrl() {
+      this.fullUrl =
+        "https://chart.googleapis.com/chart?cht=qr&chs=" +
+        400 +
+        "x" +
+        400 +
+        "&chl=" +
+        encodeURIComponent(this.url);
+    },
+    saveDetails() {
+      inviteService.getById(this.inviteId).then(invite => {
+        invite.inviteName = this.name;
+        invite.shortDescription = this.shortDescription;
+        console.log({ invite });
         inviteService.saveinvite(invite);
-       });
+      });
     },
-    copyUrl() {
-      const copyTxt = document.querySelector(".url");
-      copyTxt.select();
-      document.execCommand("copy");
-      // alert("Copied the text: " + copyTxt.value);
-    },
+    // copyUrl() {
+    //   const copyTxt = document.querySelector(".url");
+    //   copyTxt.select();
+    //   document.execCommand("copy");
+    //   // alert("Copied the text: " + copyTxt.value);
+    // },
     close() {
       console.log("in publish modal clicked x");
       this.$emit("close");
@@ -93,10 +117,9 @@ export default {
     logged(user) {
       this.userLogged = true;
       this.showLogin = false;
-      inviteService.getById(this.inviteId).then(res=>{
-        res.creatorId=user[0]._id;
-
-      })
+      inviteService.getById(this.inviteId).then(res => {
+        res.creatorId = user[0]._id;
+      });
     }
   },
   components: {
@@ -109,12 +132,42 @@ export default {
 
 
 <style>
+.url-container {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.detailsToSave{
+.qr {
+  margin-bottom: 10px;
+  padding: 1px;
+}
+
+.detailsToSave {
   width: 60%;
   margin: auto;
   border: 2px solid black;
   padding: 10px;
+  margin-top: 30px;
+}
+
+.preview {
+  color: whitesmoke;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: lightgreen;
+  padding: 5px;
+  border-radius: 25px;
+  margin: 10px 1px 0 1px;
+  width: 50%;
+  font-size:16px;
+}
+
+.notLogged p {
+  margin-top: 25px;
 }
 .inner {
   width: 100%;
@@ -122,19 +175,14 @@ export default {
 }
 
 .inner h6 {
-  font-size: 40px;
-  padding: 20px;
+  font-size: 35px;
+  padding: 10px;
   font-family: Quicksand;
 }
 .inner p {
   font-size: 20px;
 }
 
-.url-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .modal {
   display: block;
   position: fixed;
@@ -146,7 +194,7 @@ export default {
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
+  /* padding-top: 60px; */
 }
 
 .modal-content {
@@ -174,12 +222,12 @@ export default {
   cursor: pointer;
 }
 .modal button {
-    padding: 10px;
-    background-color: #ffa751;
-    border: 2px solid #ffa751;
-    margin: 10px;
-    font-family: cursive;
-    letter-spacing: 1px;
+  padding: 10px;
+  background-color: #ffa751;
+  border: 2px solid #ffa751;
+  margin: 10px;
+  font-family: cursive;
+  letter-spacing: 1px;
 }
 
 .animate {

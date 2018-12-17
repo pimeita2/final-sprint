@@ -73,6 +73,7 @@ input {
   padding: 0;
   color: #191616;
   height: 36px;
+  margin: 5px;
 }
 .time-input {
   width: 117px;
