@@ -422,130 +422,131 @@
         "attends": []
     },
     {
-        "templateId": "5c0d77df3b508889842b7488",
-        "cmps": [
+        "_id" : ObjectId("5c17496442a0b1ffe3f5e03f"),
+        "templateId" : "5c0e0f72fae36922c467025c",
+        "cmps" : [ 
             {
-                "id": "0",
-                "kind": "text",
-                "type": "invaitorName",
-                "data": {
-                    "txt": "Ruti invaits you",
-                    "css": {
-                        "color": "black",
-                        "textAlign": "center",
-                        "fontWeight": {
-                            "isBold": false,
-                            "value": "normal"
+                "id" : "0",
+                "kind" : "text",
+                "type" : "invaitorName",
+                "data" : {
+                    "txt" : "Ruti invaits you",
+                    "css" : {
+                        "color" : "black",
+                        "textAlign" : "center",
+                        "fontWeight" : {
+                            "isBold" : false,
+                            "value" : "normal"
                         },
-                        "fontFamily": "Oswald",
-                        "fontSize": "18px"
+                        "fontFamily" : "Oswald",
+                        "fontSize" : "18px"
                     }
                 }
-            },
+            }, 
             {
-                "id": "1",
-                "kind": "text",
-                "type": "eventTitle",
-                "isEdit": true,
-                "data": {
-                    "txt": "Get your Dance on ",
-                    "css": {
-                        "color": "black",
-                        "textAlign": "center",
-                        "fontWeight": {
-                            "isBold": false,
-                            "value": "normal"
+                "id" : "1",
+                "kind" : "text",
+                "type" : "eventTitle",
+                "isEdit" : true,
+                "data" : {
+                    "txt" : "Get your Dance on ",
+                    "css" : {
+                        "color" : "black",
+                        "textAlign" : "center",
+                        "fontWeight" : {
+                            "isBold" : false,
+                            "value" : "normal"
                         },
-                        "fontFamily": "Satisfy",
-                        "fontSize": "28px"
+                        "fontFamily" : "Satisfy",
+                        "fontSize" : "28px"
                     }
                 }
-            },
+            }, 
             {
-                "id": "3",
-                "kind": "text",
-                "type": "shortDescription",
-                "isEdit": true,
-                "data": {
-                    "txt": "Learn how to dance in three simple steps",
-                    "css": {
-                        "color": "black",
-                        "textAlign": "center",
-                        "fontWeight": {
-                            "isBold": false,
-                            "value": "normal"
+                "id" : "3",
+                "kind" : "text",
+                "type" : "shortDescription",
+                "isEdit" : true,
+                "data" : {
+                    "txt" : "Learn how to dance in three simple steps",
+                    "css" : {
+                        "color" : "black",
+                        "textAlign" : "center",
+                        "fontWeight" : {
+                            "isBold" : false,
+                            "value" : "normal"
                         },
-                        "fontFamily": "Asap Condensed",
-                        "fontSize": "16px"
+                        "fontFamily" : "Asap Condensed",
+                        "fontSize" : "16px"
                     }
                 }
-            },
+            }, 
             {
-                "id": "4",
-                "kind": "text",
-                "type": "day",
-                "isEdit": true,
-                "data": {
-                    "txt": {
-                        "day": "",
-                        "time": ""
+                "id" : "4",
+                "kind" : "text",
+                "type" : "day",
+                "isEdit" : true,
+                "data" : {
+                    "txt" : {
+                        "day" : "",
+                        "time" : ""
                     },
-                    "css": {
-                        "color": "black",
-                        "textAlign": "center",
-                        "fontWeight": {
-                            "isBold": false,
-                            "value": "normal"
+                    "css" : {
+                        "color" : "black",
+                        "textAlign" : "center",
+                        "fontWeight" : {
+                            "isBold" : false,
+                            "value" : "normal"
                         },
-                        "fontFamily": "Asap Condensed",
-                        "fontSize": "16px"
+                        "fontFamily" : "Asap Condensed",
+                        "fontSize" : "16px"
                     }
                 }
-            },
+            }, 
             {
-                "id": "5",
-                "kind": "text",
-                "type": "location",
-                "isEdit": true,
-                "data": {
-                    "txt": "Beer Garden,Tel Aviv, Israel",
-                    "css": {
-                        "color": "black",
-                        "textAlign": "center",
-                        "fontWeight": {
-                            "isBold": false,
-                            "value": "normal"
+                "id" : "5",
+                "kind" : "text",
+                "type" : "location",
+                "isEdit" : true,
+                "data" : {
+                    "txt" : "Beer Garden,Tel Aviv, Israel",
+                    "css" : {
+                        "color" : "black",
+                        "textAlign" : "center",
+                        "fontWeight" : {
+                            "isBold" : false,
+                            "value" : "normal"
                         },
-                        "fontFamily": "Asap Condensed",
-                        "fontSize": "17px"
+                        "fontFamily" : "Asap Condensed",
+                        "fontSize" : "17px"
                     }
                 }
-            },
+            }, 
             {
-                "id": "6",
-                "kind": "cmp",
-                "type": "attending",
-                "isEdit": true,
-                "data": {}
-            },
+                "id" : "6",
+                "kind" : "cmp",
+                "type" : "attending",
+                "isEdit" : true,
+                "data" : {}
+            }, 
             {
-                "id": "7",
-                "kind": "cmp",
-                "type": "social-media",
-                "isEdit": true,
-                "data": {}
+                "id" : "7",
+                "kind" : "cmp",
+                "type" : "social-media",
+                "isEdit" : true,
+                "data" : {}
             }
         ],
-        "generalStyle": {
-            "backgroundImage": "url('../frontend/src/assets/first-background.png')",
-            "backgroundPosition": "center",
-            "margin": "50px 20px 33px 200px",
-            "background-size": "cover",
-            "padding": "80px 60px"
+        "generalStyle" : {
+            "backgroundImage" : "url('https://i.imgur.com/9rv7odL.png')",
+            "backgroundPosition" : "center",
+            "margin" : "50px 20px 33px 200px",
+            "background-size" : "cover",
+            "padding" : "80px 90px"
         },
-        "creatorId": 123456.0,
-        "modifiedAt": "",
-        "createdAt": "",
-        "attends": []
+        "creatorId" : 123456.0,
+        "modifiedAt" : "",
+        "createdAt" : "",
+        "attends" : []
     }
 ]
