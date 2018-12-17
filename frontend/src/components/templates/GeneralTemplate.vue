@@ -13,10 +13,7 @@
           @deleteCmp="deleteCmpPart"
         />
       </draggable>
-
-
     </div>
-    
   </section>
 </template>
 
@@ -38,7 +35,7 @@ import draggable from "vuedraggable";
 export default {
   data() {
     return {
-    show:false,
+      show: false
     };
   },
   components: {
@@ -65,18 +62,15 @@ export default {
       this.$emit("connectToCmpPart", "background");
       this.$emit("showEditor", { kind: "background" });
     },
-    deleteCmpPart(cmpId){
-      // get the cmps of template
+    deleteCmpPart(cmpId) {
       let cmps = this.$store.getters.dynamicCmps;
-      cmps = cmps.filter(cmp => cmp.id !== cmpId );
+      cmps = cmps.filter(cmp => cmp.id !== cmpId);
       let generalStyle = this.$store.getters.generalStyle;
       this.$store.dispatch({
         type: "setCurrTemplate",
-        tmpData: {cmps, generalStyle}
+        tmpData: { cmps, generalStyle }
       });
-
     }
- 
   },
   computed: {
     dynamicCmps() {
@@ -85,18 +79,16 @@ export default {
     generalStyle() {
       return this.$store.getters.generalStyle;
     },
-    user(){
+    user() {
       return this.$store.getters.loggedInUser;
     }
-    
   },
   created() {
-
     this.inviteId = this.$route.params.id;
     inviteService.query().then(res => {
-
-      const currInvite = res.find(invite =>{
-        return invite.templateId === this.inviteId});
+      const currInvite = res.find(invite => {
+        return invite.templateId === this.inviteId;
+      });
 
       this.$store.dispatch({
         type: "setCurrTemplate",
@@ -111,6 +103,5 @@ export default {
 </script>
 
 <style>
-.template-container{
-}
+
 </style>
