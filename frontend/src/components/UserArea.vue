@@ -1,19 +1,26 @@
 
 <template>
-  <section>
-    <h6>Hello {{user.nickName}}</h6>
-    <div>
-      <h6>Invitations You Created</h6>
-      <div v-for="inv in userInivtes" :key="inv.id">
-        <div :style="inv.generalStyle" v-if="inv.inviteName !== ''">
-          <p>Invite Name:{{inv.inviteName}}</p>
-          <p>Description:{{inv.shortDescription}}</p>
-          <p>Time created:{{inv.modifiedAt}}</p>
-           <div>
-                 {{inv.attends}}
-           </div>       
+  <section class= "userArea-section">
+    <div class="title-container">
+      <h4 class="head-line">Hello {{user.nickName}}</h4>
+      <h4 class="head-line">Invitations You Created</h4>
+    </div>
+    <div class="inv-container">
+      <div v-for="inv in userInivtes" :key="inv.id"   v-if="inv.inviteName !== ''" :style="inv.generalStyle" class="templateUserArea">
+          <p><span class="inviteName">Invite Name: </span>{{inv.inviteName}}</p>
+          <p><span class="description">Description: </span>{{inv.shortDescription}}</p>
+          <p><span class="timeCreated">Time created:</span>{{inv.modifiedAt}}</p>
+          <br>
+          <div v-if="inv.attends.fullName" class="rsvp-container">
+              <h4>-- RSVP --</h4>
+              <span class="rsvp-details">{{inv.attends.fullName}} |</span> 
+              <span class="rsvp-details"> {{inv.attends.phoneNumber}} |</span>
+              <span class="rsvp-details"> {{inv.attends.numOfArriving}} </span>
+          </div>    
+          <div v-else>
+            <h4>No RSVP's yet</h4>
+          </div>   
                   <!-- <p v-for="{cmp, index} in inv.data.cmps" :key="index">{{cmp}}</p> -->
-        </div>
       </div>
     </div>
   </section>
@@ -45,6 +52,7 @@ export default {
   },
   computed: {
     user() {
+      console.log(this.$store.getters.user);
       return this.$store.getters.user;
     }
   },
@@ -54,4 +62,50 @@ export default {
 
 
 <style>
+.userArea-section{
+  background: rgb(189, 187, 187);
+  height: 120vh;
+}
+
+.title-container{
+  width: 100%;
+  background-color: whitesmoke;
+  padding: 5px 0 15px 0 ;
+}
+
+.head-line{
+  font-family: "Quicksand", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.inv-container{
+  display: flex; 
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.inviteName , .description , .timeCreated{
+  font-size: 18px;
+  font-family: Oswald;
+}
+
+.templateUserArea{
+  height: 330px;
+  width:310px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  transition: all .15s;
+}
+
+.templateUserArea:hover{
+  box-shadow: 0px 10px 10px #424141;
+  transform: translateY(-2%);
+
+}
+
+
+.rsvp-details{
+  font-weight: bold;
+}
 </style>
