@@ -15,7 +15,7 @@
             <router-link target="_blank" :to="`/invite/prv/${inviteId}`">preview</router-link>
             <button @click="copyUrl()">Copy text</button>-->
             <!-- <input v-model="url"> - no need for this qr -->
-            <img clas="qr" v-bind:src="fullUrl" alt>
+            <img class="qr" :src="fullUrl" alt>
           </div>
           <div v-if="userLogged">
             <form class="detailsToSave">
@@ -66,7 +66,7 @@ export default {
     return {
       // show: false,
       template: {},
-      url: `http://localhost:8080/invite/prv/${this.inviteId}`,
+      url: `https://inviteme-sprint4.herokuapp.com/invite/prv/${this.inviteId}`,
       fullUrl: "",
       userLogged: false,
       showLogin: false,
