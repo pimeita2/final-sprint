@@ -129,7 +129,6 @@
         "generalStyle": {
             "backgroundImage": "url('https://i.imgur.com/TBKs12e.png')",
             "backgroundPosition": "center",
-            "margin": "50px auto 33px auto",
             "background-size": "cover",
             "padding": "80px"
         },
@@ -255,7 +254,6 @@
         "generalStyle": {
             "backgroundImage": "url('https://images.pexels.com/photos/3880/couple-love-romantic-silhouette.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",
             "backgroundPosition": "center",
-            "margin": "50px 20px 0 200px",
             "background-size": "cover",
             "padding": "50px",
             "backgroundBlendMode": "multiply",
@@ -412,7 +410,6 @@
         "generalStyle": {
             "backgroundImage": "url('https://i.ibb.co/cy10bP3/pool-template.png')",
             "backgroundPosition": "center",
-            "margin": "50px 20px 0 200px",
             "background-size": "cover",
             "padding": "50px"
         },
@@ -540,7 +537,6 @@
         "generalStyle" : {
             "backgroundImage" : "url('https://i.imgur.com/9rv7odL.png')",
             "backgroundPosition" : "center",
-            "margin" : "50px 20px 33px 200px",
             "background-size" : "cover",
             "padding" : "80px 90px"
         },
