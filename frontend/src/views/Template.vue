@@ -88,7 +88,8 @@ export default {
         this.showMapMenu = true;
       }
     },
-    closeEditor() {
+    closeEditor() { 
+      this.showMapMenu=false;
       this.showTxtMenu = false;
       this.$store.dispatch("removeEditingFrame");
       this.showBgcMenu = false;
@@ -165,8 +166,8 @@ export default {
 .template {
   display: flex;
   background: rgb(189, 187, 187);
-  height: 120vh;
   margin: 0 auto;
+  padding: 8.5px;
 }
 .spacer {
   flex-grow: 0.5;

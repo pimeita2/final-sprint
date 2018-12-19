@@ -31,6 +31,9 @@ export default {
     data: Object,
     id: String
   },
+  created(){
+    console.log(this.data);
+  },
   data() {
     return {
       // default to Montreal to keep it simple
@@ -110,5 +113,6 @@ export default {
 .m {
   display: flex;
   justify-content: center;
+  margin-top:30px;
 }
 </style>
