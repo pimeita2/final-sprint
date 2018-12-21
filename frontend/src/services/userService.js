@@ -2,7 +2,7 @@ import axios from 'axios';
 import storageService from '../services/storageService.js'
 
 const BASE_URL = (process.env.NODE_ENV !== 'development')?
-              '/user' : 'http://localhost:3000/user';
+              'https://inviteme-sprint4.herokuapp.com/user' : 'http://localhost:3000/user';
 
 function getById(id) {
     return axios.get(`${BASE_URL}/${id}`)

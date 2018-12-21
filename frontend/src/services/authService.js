@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const BASE_URL = (process.env.NODE_ENV !== 'development') ?
-    '' : 'http://localhost:3000';
+    'https://inviteme-sprint4.herokuapp.com' : 'http://localhost:3000';
 
 
 
